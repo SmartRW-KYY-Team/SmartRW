@@ -33,5 +33,5 @@ jobs:
           server: ftp.nioke-studio.my.id
           username: nioke8090@nioke-studio.my.id
           password: nioke8090 # Gunakan secret untuk menyimpan password FTP
-          local-dir: "public" # Sesuaikan dengan direktori publik aplikasi Laravel
+          local-dir: "/public" # Sesuaikan dengan direktori publik aplikasi Laravel
           remote-dir: "/smartrw.nioke-studio.my.id" # Sesuaikan dengan direktori tujuan di server FTP
