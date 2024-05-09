@@ -3,7 +3,7 @@ name: Deploy Laravel Website on Push
 on:
   push:
     branches:
-      - main # Sesuaikan dengan nama branch Anda
+      - main
 
 jobs:
   web-deploy:
@@ -16,7 +16,7 @@ jobs:
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: "8.1" # Sesuaikan dengan versi PHP yang digunakan oleh Laravel
+          php-version: "8.1"
 
       - name: Install Composer Dependencies
         run: composer install
@@ -27,48 +27,23 @@ jobs:
       - name: Run Database Migrations and Seed
         run: php artisan migrate:fresh --seed --force
 
+      # Compare changes between current and previous commit
+      - name: Check for changed files
+        id: check_changes
+        run: |
+          git fetch --prune --unshallow
+          echo "::set-output name=changed_files::$(git diff --name-status ${{ github.event.before }} ${{ github.sha }} | cut -f2)"
+
+      # Deploy to FTP
       - name: Deploy to FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ftp.nioke-studio.my.id
           username: nioke8090@nioke-studio.my.id
-          password: nioke8090 # Gunakan secret untuk menyimpan password FTP
-          local-dir: "public" # Sesuaikan dengan direktori publik aplikasi Laravel
-          remote-dir: "/smartrw.nioke-studio.my.id" # Sesuaikan dengan direktori tujuan di server FTP
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: "public"
+          remote-dir: "/smartrw.nioke-studio.my.id/"
 
-name: Deploy Laravel Website on Push
-
-on:
-  push:
-    branches:
-      - main # Sesuaikan dengan nama branch Anda
-
-jobs:
-  web-deploy:
-    name: Deploy
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
-
-      - name: Set up PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: "8.1" # Sesuaikan dengan versi PHP yang digunakan oleh Laravel
-
-      - name: Install Composer Dependencies
-        run: composer install
-
-      - name: Generate Laravel Environment File
-        run: php artisan key:generate
-
-      - name: Run Database Migrations and Seed
-        run: php artisan migrate:fresh --seed --force
-
-      - name: Deploy to FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-        with:
-          server: ftp.nioke-studio.my.id
-          username: nioke8090@nioke-studio.my.id
-          password: nioke8090 # Gunakan secret untuk menyimpan password FTP
-          server-dir: "/smartrw.nioke-studio.my.id/" # Sesuaikan dengan direktori tujuan di server FTP
+          # Include changed files and handle deletes and additions
+          exclude: ""
+          include: ${{ steps.check_changes.outputs.changed_files }}
