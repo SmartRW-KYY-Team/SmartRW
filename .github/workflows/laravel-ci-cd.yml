@@ -32,7 +32,8 @@ jobs:
         id: check_changes
         run: |
           git fetch --prune --unshallow
-          echo "::set-output name=changed_files::$(git diff --name-status ${{ github.event.before }} ${{ github.sha }} | cut -f2)"
+          CHANGED_FILES=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})
+          echo "::set-output name=changed_files::$CHANGED_FILES"
 
       # Deploy to FTP
       - name: Deploy to FTP
@@ -40,10 +41,7 @@ jobs:
         with:
           server: ftp.nioke-studio.my.id
           username: nioke8090@nioke-studio.my.id
-          password: ${{ secrets.FTP_PASSWORD }}
+          password: nioke8090
           local-dir: "public"
-          server-dir: "/smartrw.nioke-studio.my.id/"
-
-          # Include changed files and handle deletes and additions
-          exclude: ""
-          include: ${{ steps.check_changes.outputs.changed_files }}
+          remote-dir: "/smartrw.nioke-studio.my.id/"
+          exclude: ${{ steps.check_changes.outputs.changed_files }}
