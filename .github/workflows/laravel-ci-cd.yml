@@ -42,7 +42,7 @@ jobs:
           username: nioke8090@nioke-studio.my.id
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: "public"
-          remote-dir: "/smartrw.nioke-studio.my.id/"
+          server-dir: "/smartrw.nioke-studio.my.id/"
 
           # Include changed files and handle deletes and additions
           exclude: ""
