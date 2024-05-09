@@ -43,5 +43,5 @@ jobs:
           username: nioke8090@nioke-studio.my.id
           password: nioke8090
           local-dir: "public"
-          remote-dir: "/smartrw.nioke-studio.my.id/"
+          server-dir: "/smartrw.nioke-studio.my.id/"
           exclude: ${{ steps.check_changes.outputs.changed_files }}
