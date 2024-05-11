@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\wargaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
+
+// Warga Routes
+Route::get('/warga', [wargaController::class, 'index']);

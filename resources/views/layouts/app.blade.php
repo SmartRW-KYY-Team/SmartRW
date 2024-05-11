@@ -15,6 +15,15 @@
         type="image/png">
     <link rel="stylesheet" href="{{ asset('assets/compiled/css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/compiled/css/app-dark.css') }}">
+    <link rel="stylesheet" href="{{ asset('font-awesome-4.7.0/css/font-awesome.min.css') }}">
+    <style>
+        #users-table_filter,
+        #users-table_paginate {
+            display: flex;
+            justify-content: right;
+            /* Sesuaikan sesuai kebutuhan */
+        }
+    </style>
 </head>
 
 <body>
@@ -52,6 +61,29 @@
     <script src="{{ asset('assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
 
     <script src="{{ asset('assets/compiled/js/app.js') }}"></script>
+
+    {{-- Add common Javascript/Jquery code --}}
+    @vite('resources/js/app.js')
+    @push('js')
+        <script src="https://cdn.datatables.net/2.0.2/js/dataTables.js"></script>
+        <script>
+            $('#users-table').DataTable({
+                responsive: true,
+                deferRender: true,
+                scroller: true,
+                fixedColumns: true,
+                autoWidth: false
+            });
+        </script>
+    @endpush
+
+    @stack('scripts')
+
+    {{-- Add common CSS customizations --}}
+
+    @push('css')
+        <link rel="stylesheet"href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.css" />
+    @endpush
 
 
 </body>
