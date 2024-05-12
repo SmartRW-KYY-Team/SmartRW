@@ -6,16 +6,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Agama extends Model
+class Role extends Model
 {
     use HasFactory;
-    protected $table = 'agama';
+    protected $table = 'role';
     protected $primaryKey = 'id';
 
     protected $guarded = [];
 
-    public function user(): HasMany
+    public function administator(): HasMany
     {
-        return $this->hasMany(User::class, 'agama', 'id');
+        return $this->hasMany(Administrator::class, 'id', 'id');
     }
 }
