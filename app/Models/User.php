@@ -43,4 +43,55 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    public function keluarga()
+    {
+        return $this->hasOne(Keluarga::class, 'kepala_keluarga', 'id');
+    }
+    public function rtKetua()
+    {
+        return $this->hasOne(Rt::class, 'ketua', 'id');
+    }
+    public function rtSekretaris()
+    {
+        return $this->hasOne(Rt::class, 'sekretaris', 'id');
+    }
+    public function rtBendahara()
+    {
+        return $this->hasOne(Rt::class, 'bendahara', 'id');
+    }
+
+    public function rwKetua()
+    {
+        return $this->hasOne(Rw::class, 'ketua', 'id');
+    }
+
+    public function rwSekretaris()
+    {
+        return $this->hasOne(Rw::class, 'sekretaris', 'id');
+    }
+
+    public function rwBendahara()
+    {
+        return $this->hasOne(Rw::class, 'bendahara', 'id');
+    }
+    public function agama()
+    {
+        return $this->belongsTo(Agama::class, 'agama', 'id');
+    }
+    public function pemasukanRT()
+    {
+        return $this->hasMany(PemasukanRT::class, 'user', 'id');
+    }
+    public function suratDomisili()
+    {
+        return $this->hasMany(SuratDomisili::class, 'pemohon', 'id');
+    }
+    public function suratSKTM()
+    {
+        return $this->hasMany(SuratSKTM::class, 'pemohon', 'id');
+    }
+    public function pengaduan()
+    {
+        return $this->hasMany(Pengaduan::class, 'pengadu', 'id');
+    }
 }

@@ -5,12 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class Keluarga extends Model
+class Pengaduan extends Model
 {
     use HasFactory;
-    protected $table = 'keluarga';
+    protected $table = 'pengaduan';
     protected $primaryKey = 'id';
 
     protected $guarded = [];
@@ -22,8 +21,8 @@ class Keluarga extends Model
     {
         return $this->belongsTo(RT::class, 'rt', 'id');
     }
-    public function kepala_keluarga(): HasOne
+    public function pengadu(): BelongsTo
     {
-        return $this->hasOne(User::class, 'kepala_keluarga', 'id');
+        return $this->Belongsto(User::class, 'pengadu', 'id');
     }
 }

@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -6,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Administrator extends Authenticatable
 {
@@ -18,9 +21,10 @@ class Administrator extends Authenticatable
      */
     protected $table = 'administrator';
     protected $fillable = [
-        'username', 
+        'username',
         'password',
     ];
+    protected $primaryKey = 'id';
 
     /**
      * The attributes that should be hidden for serialization.
@@ -49,6 +53,11 @@ class Administrator extends Authenticatable
      */
     public function getAuthIdentifierName()
     {
-        return 'username'; 
+        return 'username';
+    }
+
+    public function role(): BelongsTo
+    {
+        return $this->belongsTo(Role::class, 'role', 'id');
     }
 }
