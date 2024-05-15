@@ -72,7 +72,7 @@ class User extends Authenticatable
 
     public function rwBendahara()
     {
-        return $this->hasOne(Rw::class, 'bendahara_id', 'id_bendahara');
+        return $this->hasOne(Rw::class, 'bendahara_id', 'id_rw');
     }
     public function agama()
     {
@@ -80,18 +80,18 @@ class User extends Authenticatable
     }
     public function pemasukanRT()
     {
-        return $this->hasMany(PemasukanRT::class, 'user_id', 'id_user');
+        return $this->hasMany(PemasukanRT::class, 'user_id', 'id_pemasukanRT');
     }
     public function suratDomisili()
     {
-        return $this->hasMany(SuratDomisili::class, 'pemohon_id', 'id_pemohon');
+        return $this->hasMany(SuratDomisili::class, 'pemohon_id', 'id_suratDomisili');
     }
     public function suratSKTM()
     {
-        return $this->hasMany(SuratSKTM::class, 'pemohon_id', 'id_pemohon');
+        return $this->hasMany(SuratSKTM::class, 'pemohon_id', 'id_suratSKTM');
     }
     public function pengaduan()
     {
-        return $this->hasMany(Pengaduan::class, 'pengadu_id', 'id_pengadu');
+        return $this->hasMany(Pengaduan::class, 'pengadu_id', 'id_pengaduan');
     }
 }
