@@ -22,8 +22,8 @@ class Keluarga extends Model
     {
         return $this->belongsTo(RT::class, 'rt', 'id');
     }
-    public function kepala_keluarga(): HasOne
+    public function kepala_keluarga_relation(): HasOne
     {
-        return $this->hasOne(User::class, 'kepala_keluarga', 'id');
+        return $this->hasOne(User::class, 'id', 'kepala_keluarga');
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\wargaController;
 use Illuminate\Routing\RouteRegistrar;
 use Illuminate\Support\Facades\Route;
 
@@ -19,7 +20,10 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::group(['middleware' => 'guest'], function (){
+Route::get('/warga', [wargaController::class, 'index'])->name('warga.index');
+Route::post('/warga', [wargaController::class, 'store'])->name('warga.store');
+
+Route::group(['middleware' => 'guest'], function () {
     Route::get('/login', [AuthController::class, 'login'])->name('login');
     Route::post('/login', [AuthController::class, 'loginProcess'])->name('login.post');
 });

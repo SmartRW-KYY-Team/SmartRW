@@ -23,9 +23,18 @@ class UsersDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->addColumn('action', function ($row) {
-                return '<div style="display: flex; justify-content: space-beetween; ">
-                <a href="#" class="btn btn-warning me-2"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                    <a href="#" class="btn btn-danger "><i class="fa fa-trash" aria-hidden="true"></i></a></div>';
+                return '<div style="display: flex; justify-content: space-between;">
+                <button type="button" class="btn btn-warning me-2 editButton" data-bs-toggle="modal" data-bs-target="#editModal"
+                    data-id="' . $row->id . '"
+                    data-nama="' . $row->nama . '">
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                </button>
+                <button type="button" class="btn btn-danger deleteButton"
+                    data-id="' . $row->id . '"
+                    data-nama="' . $row->nama . '">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                </button>
+            </div>';
             })
             ->addColumn('No', function () {
                 static $index = 1;
@@ -51,7 +60,7 @@ class UsersDataTable extends DataTable
             ->setTableId('users-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
-            //->dom('Bfrtip')
+            // ->dom('Bfrtip')
             ->orderBy(1)
             ->selectStyleSingle()
             ->buttons([
@@ -66,6 +75,7 @@ class UsersDataTable extends DataTable
                 'responsive' => true,
                 'autoWidth' => false,
                 'scroller' => true,
+                'scrollX' => true
             ]);
     }
 
