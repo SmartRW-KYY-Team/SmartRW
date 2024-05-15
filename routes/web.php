@@ -20,7 +20,8 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/warga', [wargaController::class, 'index']);
+Route::get('/warga', [wargaController::class, 'index'])->name('warga.index');
+Route::post('/warga', [wargaController::class, 'store'])->name('warga.store');
 
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/login', [AuthController::class, 'login'])->name('login');

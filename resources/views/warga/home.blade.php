@@ -70,19 +70,34 @@
                 </div>
                 <div class="modal-body">
                     <!-- Formulir tambah data -->
-                    <form action="" method="POST">
+                    <form action="{{ route('warga.store') }}" method="POST">
                         @csrf
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label for="nama" class="form-label">Nama</label>
                                     <input type="text" class="form-control" id="nama" name="nama" required>
+                                    @error('nama')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="nik" class="form-label">NIK</label>
+                                    <input type="text" class="form-control" id="nik" name="nik" required>
+                                    @error('nik')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label for="tgl_lahir" class="form-label">Tanggal Lahir</label>
                                     <input type="date" class="form-control" id="tgl_lahir" name="tgl_lahir" required>
+                                    @error('tgl_lahir')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -92,6 +107,9 @@
                                     <label for="tempat_lahir" class="form-label">Tempat Lahir</label>
                                     <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir"
                                         required>
+                                    @error('tempat_lahir')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -101,6 +119,9 @@
                                         <option value="Laki">Laki-laki</option>
                                         <option value="Perempuan">Perempuan</option>
                                     </select>
+                                    @error('jenis_kelamin')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -115,6 +136,9 @@
                                             <option value="{{ $agm->id }}">{{ $agm->nama }}</option>
                                         @endforeach
                                     </select>
+                                    @error('agama')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -124,6 +148,9 @@
                                         required>
                                         <option value="Kawin">Kawin</option>
                                         <option value="Belum Kawin">Belum Kawin</option>
+                                        @error('status_perkawinan')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
                                     </select>
                                 </div>
                             </div>
@@ -133,12 +160,18 @@
                                 <div class="mb-3">
                                     <label for="pekerjaan" class="form-label">Pekerjaan</label>
                                     <input type="text" class="form-control" id="pekerjaan" name="pekerjaan" required>
+                                    @error('pekerjaan')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label for="password" class="form-label">Password</label>
                                     <input type="password" class="form-control" id="password" name="password" required>
+                                    @error('password')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -147,6 +180,9 @@
                                 <div class="mb-3">
                                     <label for="notelp" class="form-label">Nomor Telepon</label>
                                     <input type="text" class="form-control" id="notelp" name="notelp" required>
+                                    @error('notelp')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -156,9 +192,12 @@
                                         required>
                                         @foreach ($keluarga as $klga)
                                             <option value="{{ $klga->id }}">{{ $klga->nokk }} -
-                                                {{ $klga->kepalaKeluarga->nama }}</option>
+                                                {{ $klga->kepala_keluarga_relation->nama }}</option>
                                         @endforeach
                                     </select>
+                                    @error('keluarga')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
