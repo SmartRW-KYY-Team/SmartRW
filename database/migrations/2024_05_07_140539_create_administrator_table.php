@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('administrator', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('role');
+            $table->id('id_administrator');
+            $table->unsignedBigInteger('role_id');
             $table->string('username');
             $table->string('password');
             $table->timestamps();

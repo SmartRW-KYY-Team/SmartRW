@@ -15,6 +15,6 @@ class PengeluaranRW extends Model
     protected $guarded = [];
     public function rw(): BelongsTo
     {
-        return $this->belongsTo(RT::class, 'rt', 'id');
+        return $this->belongsTo(Rw::class, 'rw_id', 'id_rw');
     }
 }
