@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\DataTables\KegiatanDataTable;
+use App\Models\Kegiatan;
 use Illuminate\Http\Request;
 
 class KegiatanController extends Controller
@@ -13,7 +14,9 @@ class KegiatanController extends Controller
     public function index(KegiatanDataTable $dataTable)
     {
         //
-        return $dataTable->render('kegiatan.index');
+        // return $dataTable->render('kegiatan.index');
+        $data = Kegiatan::with('rt', 'rw')->get();
+        return $data[0]->rw->nama;
     }
 
     /**

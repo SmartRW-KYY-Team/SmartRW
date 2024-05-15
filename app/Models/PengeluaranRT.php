@@ -15,10 +15,10 @@ class PengeluaranRT extends Model
     protected $guarded = [];
     public function rw(): BelongsTo
     {
-        return $this->belongsTo(RT::class, 'rt', 'id');
+        return $this->belongsTo(Rt::class, 'rw_id', 'id_rw');
     }
     public function rt(): BelongsTo
     {
-        return $this->belongsTo(RT::class, 'rt', 'id');
+        return $this->belongsTo(Rw::class, 'rt_id', 'id_rt');
     }
 }

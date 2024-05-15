@@ -17,27 +17,27 @@ class RtSeeder extends Seeder
         $rtData = [
             [
                 'nama' => 'RT 001',
-                'ketua' => 1,  // ID Ketua RT (sesuaikan dengan data user)
-                'sekretaris' => 2,  // ID Sekretaris RT (sesuaikan dengan data user)
-                'bendahara' => 3,  // ID Bendahara RT (sesuaikan dengan data user)
+                'ketua_id' => 1,  // ID Ketua RT (sesuaikan dengan data user)
+                'sekretaris_id' => 2,  // ID Sekretaris RT (sesuaikan dengan data user)
+                'bendahara_id' => 3,  // ID Bendahara RT (sesuaikan dengan data user)
                 'saldo' => 1000000,  // Saldo awal RT
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
             [
                 'nama' => 'RT 002',
-                'ketua' => 4,  // ID Ketua RT (sesuaikan dengan data user)
-                'sekretaris' => 5,  // ID Sekretaris RT (sesuaikan dengan data user)
-                'bendahara' => 6,  // ID Bendahara RT (sesuaikan dengan data user)
+                'ketua_id' => 4,  // ID Ketua RT (sesuaikan dengan data user)
+                'sekretaris_id' => 5,  // ID Sekretaris RT (sesuaikan dengan data user)
+                'bendahara_id' => 6,  // ID Bendahara RT (sesuaikan dengan data user)
                 'saldo' => 800000,  // Saldo awal RT
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
             [
                 'nama' => 'RT 003',
-                'ketua' => 7,  // ID Ketua RT (sesuaikan dengan data user)
-                'sekretaris' => 8,  // ID Sekretaris RT (sesuaikan dengan data user)
-                'bendahara' => 9,  // ID Bendahara RT (sesuaikan dengan data user)
+                'ketua_id' => 7,  // ID Ketua RT (sesuaikan dengan data user)
+                'sekretaris_id' => 8,  // ID Sekretaris RT (sesuaikan dengan data user)
+                'bendahara_id' => 9,  // ID Bendahara RT (sesuaikan dengan data user)
                 'saldo' => 800000,  // Saldo awal RT
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),

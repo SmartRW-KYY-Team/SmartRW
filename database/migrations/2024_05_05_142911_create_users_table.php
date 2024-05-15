@@ -12,18 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_user');
             $table->string('nik')->unique();
             $table->string('nama');
             $table->date('tgl_lahir');
             $table->string('tempat_lahir');
             $table->enum('jenis_kelamin', ['Laki', 'Perempuan']);
-            $table->unsignedBigInteger('agama');
+            $table->unsignedBigInteger('agama_id');
             $table->enum('status_perkawinan', ['Kawin', 'Belum Kawin']);
             $table->string('pekerjaan');
             $table->string('password');
             $table->string('notelp');
-            $table->unsignedBigInteger('keluarga')->nullable();
+            $table->unsignedBigInteger('keluarga_id')->nullable();
             $table->timestamps();
         });
     }

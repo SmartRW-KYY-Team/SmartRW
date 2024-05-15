@@ -24,7 +24,7 @@ class Administrator extends Authenticatable
         'username',
         'password',
     ];
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'id_administrator';
 
     /**
      * The attributes that should be hidden for serialization.
@@ -58,6 +58,6 @@ class Administrator extends Authenticatable
 
     public function role(): BelongsTo
     {
-        return $this->belongsTo(Role::class, 'role', 'id');
+        return $this->belongsTo(Role::class, 'role_id', 'id_role');
     }
 }
