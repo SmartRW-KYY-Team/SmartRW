@@ -10,7 +10,7 @@ class PemasukanRW extends Model
 {
     use HasFactory;
     protected $table = 'pemasukanRW';
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'id_pemasukanRW';
 
     protected $guarded = [];
     public function rw(): BelongsTo

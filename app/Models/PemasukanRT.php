@@ -10,7 +10,7 @@ class PemasukanRT extends Model
 {
     use HasFactory;
     protected $table = 'pemasukanRT';
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'id_pemasukanRT';
 
     protected $guarded = [];
 
@@ -20,7 +20,7 @@ class PemasukanRT extends Model
     }
     public function rw(): BelongsTo
     {
-        return $this->belongsTo(Rt::class, 'rw_id', 'id_rw');
+        return $this->belongsTo(Rw::class, 'rw_id', 'id_rw');
     }
     public function user(): BelongsTo
     {

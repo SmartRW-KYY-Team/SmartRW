@@ -11,7 +11,7 @@ class Keluarga extends Model
 {
     use HasFactory;
     protected $table = 'keluarga';
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'id_keluarga';
 
     protected $guarded = [];
     public function rt(): BelongsTo
