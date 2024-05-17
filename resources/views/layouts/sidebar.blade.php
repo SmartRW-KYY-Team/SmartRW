@@ -17,7 +17,7 @@
 
                 <li class="sidebar-item  ">
                     <a href="index.html" class='sidebar-link'>
-                        <i class="bi bi-speedometer2"></i>
+                        <i class="bi bi-speedometer"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
@@ -31,35 +31,35 @@
 
                 <li class="sidebar-item  ">
                     <a href="index.html" class='sidebar-link'>
-                        <i class="bi bi-grid-fill"></i>
+                        <i class="bi bi-calendar-event-fill"></i>
                         <span>Agenda Kegiatan</span>
                     </a>
                 </li>
 
                 <li class="sidebar-item  ">
                     <a href="index.html" class='sidebar-link'>
-                        <i class="bi bi-grid-fill"></i>
+                        <i class="bi bi-info-circle-fill"></i>
                         <span>Bantuan Sosial</span>
                     </a>
                 </li>
 
                 <li class="sidebar-item  ">
                     <a href="index.html" class='sidebar-link'>
-                        <i class="bi bi-grid-fill"></i>
+                        <i class="bi bi-cash-coin"></i>
                         <span>Mengelola Iuran (RW dan Bendahara)</span>
                     </a>
                 </li>
 
                 <li class="sidebar-item  ">
                     <a href="index.html" class='sidebar-link'>
-                        <i class="bi bi-grid-fill"></i>
+                        <i class="bi bi-person-fill-exclamation"></i>
                         <span>Pengaduan Masalah</span>
                     </a>
                 </li>
 
                 <li class="sidebar-item active has-sub">
                     <a href="#" class='sidebar-link'>
-                        <i class="bi bi-grid-1x2-fill"></i>
+                        <i class="bi bi-file-text-fill"></i>
                         <span>Mengelola Surat</span>
                     </a>
 
@@ -81,14 +81,14 @@
 
                 <li class="sidebar-item  ">
                     <a href="index.html" class='sidebar-link'>
-                        <i class="bi bi-grid-fill"></i>
+                        <i class="bi bi-cash-coin"></i>
                         <span>Mengelola Iuran (RT)</span>
                     </a>
                 </li>
 
                 <li class="sidebar-item  ">
                     <a href="index.html" class='sidebar-link'>
-                        <i class="bi bi-grid-fill"></i>
+                        <i class="bi bi-file-earmark-zip-fill"></i>
                         <span>Laporan Keuangan</span>
                     </a>
                 </li>
@@ -97,18 +97,15 @@
 
                 <li class="sidebar-item  ">
                     <a href="form-layout.html" class='sidebar-link'>
-                        <i class="bi bi-file-earmark-medical-fill"></i>
+                        <i class="bi bi-person-circle"></i>
                         <span>Profil</span>
                     </a>
 
                     <a href="form-layout.html" class='sidebar-link'>
-                        <i class="bi bi-file-earmark-medical-fill"></i>
+                        <i class="bi bi-box-arrow-right"></i>
                         <span>Logout</span>
                     </a>
-
-
                 </li>
-
             </ul>
         </div>
     </div>
