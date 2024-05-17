@@ -9,7 +9,8 @@
             </div>
         </div>
         <div class="card-body">
-            {{ $dataTable->table() }}
+            {{-- {{ $dataTable->table() }} --}}
+            {{ $dataTable->table(['width' => '100%', 'class' => 'table table-bordered table-striped']) }}
         </div>
     </div>
     <!-- Modal Edit -->
@@ -91,6 +92,8 @@
                                     @enderror
                                 </div>
                             </div>
+                        </div>
+                        <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label for="tgl_lahir" class="form-label">Tanggal Lahir</label>
@@ -100,8 +103,6 @@
                                     @enderror
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label for="tempat_lahir" class="form-label">Tempat Lahir</label>
@@ -112,6 +113,9 @@
                                     @enderror
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
@@ -124,16 +128,12 @@
                                     @enderror
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label for="agama" class="form-label">Agama</label>
-                                    <select name="agama" id="agama" class="form-control select-agama rounded"
-                                        required>
+                                    <select name="agama" id="agama" class="form-control rounded" required>
                                         @foreach ($agama as $agm)
-                                            <option value="{{ $agm->id }}">{{ $agm->nama }}</option>
+                                            <option value="{{ $agm->id_agama }}">{{ $agm->nama }}</option>
                                         @endforeach
                                     </select>
                                     @error('agama')
@@ -141,6 +141,8 @@
                                     @enderror
                                 </div>
                             </div>
+                        </div>
+                        <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label for="status_perkawinan" class="form-label">Status Perkawinan</label>
@@ -154,8 +156,6 @@
                                     </select>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label for="pekerjaan" class="form-label">Pekerjaan</label>
@@ -165,6 +165,8 @@
                                     @enderror
                                 </div>
                             </div>
+                        </div>
+                        <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label for="password" class="form-label">Password</label>
@@ -174,6 +176,17 @@
                                     @enderror
                                 </div>
                             </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="password_confirmation" class="form-label">Password Confirmation</label>
+                                    <input type="password" class="form-control" id="password_confirmation"
+                                        name="password_confirmation" required>
+                                    @error('password_confirmation')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+
                         </div>
                         <div class="row">
                             <div class="col-md-6">
@@ -187,12 +200,12 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label for="keluarga" class="form-label">ID Keluarga (opsional)</label>
+                                    <label for="keluarga" class="form-label">Nomor Keluarga</label>
                                     <select name="keluarga" id="keluarga" class="form-control select-keluarga rounded"
                                         required>
                                         @foreach ($keluarga as $klga)
-                                            <option value="{{ $klga->id }}">{{ $klga->nokk }} -
-                                                {{ $klga->kepala_keluarga_relation->nama }}</option>
+                                            <option value="{{ $klga->id_keluarga }}">{{ $klga->nokk }} -
+                                                {{ $klga->kepala_keluarga->nama }}</option>
                                         @endforeach
                                     </select>
                                     @error('keluarga')
@@ -219,13 +232,13 @@
         // Inisialisasi Select2 setelah halaman selesai dimuat
 
         // $('.select-agama').select2();
-        $('.select-agama').select2({
-            placeholder: "Pilih Agama",
-            allowClear: true,
-            theme: "bootstrap-5",
-            width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
-            dropdownParent: $('#tambahModal'),
-        });
+        // $('.select-agama').select2({
+        //     placeholder: "Pilih Agama",
+        //     allowClear: true,
+        //     theme: "bootstrap-5",
+        //     width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+        //     dropdownParent: $('#tambahModal'),
+        // });
         // });
     </script>
     {{ $dataTable->scripts(attributes: ['type' => 'module']) }}

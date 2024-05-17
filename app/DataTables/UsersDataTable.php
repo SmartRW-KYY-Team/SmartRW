@@ -73,9 +73,14 @@ class UsersDataTable extends DataTable
             ])
             ->parameters([
                 'responsive' => true,
-                'autoWidth' => false,
+                'autoWidth' => true,
                 'scroller' => true,
-                'scrollX' => true
+                'scrollX' => true,
+                'fixedColumns' => true,
+                'dom' => 'Bfrtip',
+                'initComplete' => 'function(settings, json) {
+                $(this.api().table().container()).css("width", "100%");
+            }'
             ]);
     }
 

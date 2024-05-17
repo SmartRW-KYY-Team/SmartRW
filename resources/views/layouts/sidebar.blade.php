@@ -2,10 +2,11 @@
     <div class="sidebar-wrapper active">
         <div class="sidebar-header position-relative">
             <div class="logo img-fluid">
-                <a href="index.html"><img src="./assets/image/Logo (2).svg" alt="Logo" style="width: 100%; height: 75px;"></a>
+                <a href="index.html"><img src="./assets/image/Logo (2).svg" alt="Logo"
+                        style="width: 100%; height: 75px;"></a>
             </div>
             <div class="d-flex justify-content-center align-items-center">
-            
+
                 <div class="sidebar-toggler  x">
                     <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
                 </div>
@@ -22,8 +23,8 @@
                     </a>
                 </li>
 
-                <li class="sidebar-item  ">
-                    <a href="index.html" class='sidebar-link'>
+                <li class="sidebar-item active">
+                    <a href="{{ route('warga.index') }}" class='sidebar-link'>
                         <i class="bi bi-people-fill"></i>
                         <span>Data Warga</span>
                     </a>
@@ -74,9 +75,7 @@
                             <a href="#" class="submenu-link">Domilisi</a>
 
                         </li>
-
                     </ul>
-
                 </li>
 
                 <li class="sidebar-item  ">
@@ -105,10 +104,7 @@
                         <i class="bi bi-file-earmark-medical-fill"></i>
                         <span>Logout</span>
                     </a>
-
-
                 </li>
-
             </ul>
         </div>
     </div>
