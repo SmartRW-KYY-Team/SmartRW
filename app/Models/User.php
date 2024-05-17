@@ -45,53 +45,53 @@ class User extends Authenticatable
     ];
     public function keluarga()
     {
-        return $this->hasOne(Keluarga::class, 'kepala_keluarga', 'id');
+        return $this->hasOne(Keluarga::class, 'kepala_keluarga_id', 'id_kepala_keluarga');
     }
     public function rtKetua()
     {
-        return $this->hasOne(Rt::class, 'ketua', 'id');
+        return $this->hasOne(Rt::class, 'ketua_id', 'id_ketua');
     }
     public function rtSekretaris()
     {
-        return $this->hasOne(Rt::class, 'sekretaris', 'id');
+        return $this->hasOne(Rt::class, 'sekretaris_id', 'id_sekretaris');
     }
     public function rtBendahara()
     {
-        return $this->hasOne(Rt::class, 'bendahara', 'id');
+        return $this->hasOne(Rt::class, 'bendahara_id', 'id_bendahara');
     }
 
     public function rwKetua()
     {
-        return $this->hasOne(Rw::class, 'ketua', 'id');
+        return $this->hasOne(Rw::class, 'ketua_id', 'id_ketua');
     }
 
     public function rwSekretaris()
     {
-        return $this->hasOne(Rw::class, 'sekretaris', 'id');
+        return $this->hasOne(Rw::class, 'sekretaris_id', 'id_sekretaris');
     }
 
     public function rwBendahara()
     {
-        return $this->hasOne(Rw::class, 'bendahara', 'id');
+        return $this->hasOne(Rw::class, 'bendahara_id', 'id_rw');
     }
     public function agama()
     {
-        return $this->belongsTo(Agama::class, 'agama', 'id');
+        return $this->belongsTo(Agama::class, 'agama_id', 'id_agama');
     }
     public function pemasukanRT()
     {
-        return $this->hasMany(PemasukanRT::class, 'user', 'id');
+        return $this->hasMany(PemasukanRT::class, 'user_id', 'id_pemasukanRT');
     }
     public function suratDomisili()
     {
-        return $this->hasMany(SuratDomisili::class, 'pemohon', 'id');
+        return $this->hasMany(SuratDomisili::class, 'pemohon_id', 'id_suratDomisili');
     }
     public function suratSKTM()
     {
-        return $this->hasMany(SuratSKTM::class, 'pemohon', 'id');
+        return $this->hasMany(SuratSKTM::class, 'pemohon_id', 'id_suratSKTM');
     }
     public function pengaduan()
     {
-        return $this->hasMany(Pengaduan::class, 'pengadu', 'id');
+        return $this->hasMany(Pengaduan::class, 'pengadu_id', 'id_pengaduan');
     }
 }

@@ -10,12 +10,12 @@ class Role extends Model
 {
     use HasFactory;
     protected $table = 'role';
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'id_role';
 
     protected $guarded = [];
 
     public function administator(): HasMany
     {
-        return $this->hasMany(Administrator::class, 'id', 'id');
+        return $this->hasMany(Administrator::class, 'role_id', 'id_administrator');
     }
 }

@@ -10,15 +10,15 @@ class PengeluaranRT extends Model
 {
     use HasFactory;
     protected $table = 'pengeluaranRT';
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'id_pengeluaranRT';
 
     protected $guarded = [];
     public function rw(): BelongsTo
     {
-        return $this->belongsTo(RT::class, 'rt', 'id');
+        return $this->belongsTo(Rw::class, 'rw_id', 'id_rw');
     }
     public function rt(): BelongsTo
     {
-        return $this->belongsTo(RT::class, 'rt', 'id');
+        return $this->belongsTo(Rt::class, 'rt_id', 'id_rt');
     }
 }

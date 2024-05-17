@@ -17,9 +17,9 @@ class RwSeeder extends Seeder
         $rwData = [
             [
                 'nama' => 'RW 001',
-                'ketua' => 10,  // ID Ketua RT (sesuaikan dengan data user)
-                'sekretaris' => 11,  // ID Sekretaris RT (sesuaikan dengan data user)
-                'bendahara' => 12,  // ID Bendahara RT (sesuaikan dengan data user)
+                'ketua_id' => 10,  // ID Ketua RT (sesuaikan dengan data user)
+                'sekretaris_id' => 11,  // ID Sekretaris RT (sesuaikan dengan data user)
+                'bendahara_id' => 12,  // ID Bendahara RT (sesuaikan dengan data user)
                 'saldo' => 1000000,  // Saldo awal RT
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),

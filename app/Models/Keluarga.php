@@ -11,19 +11,19 @@ class Keluarga extends Model
 {
     use HasFactory;
     protected $table = 'keluarga';
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'id_keluarga';
 
     protected $guarded = [];
     public function rt(): BelongsTo
     {
-        return $this->belongsTo(RT::class, 'rt', 'id');
+        return $this->belongsTo(Rt::class, 'rt_id', 'id_rt');
     }
     public function rw(): BelongsTo
     {
-        return $this->belongsTo(RT::class, 'rt', 'id');
+        return $this->belongsTo(Rw::class, 'rw_id', 'id_rw');
     }
-    public function kepala_keluarga_relation(): HasOne
+    public function kepala_keluarga(): HasOne
     {
-        return $this->hasOne(User::class, 'id', 'kepala_keluarga');
+        return $this->hasOne(User::class, 'id_user', 'kepala_keluarga_id');
     }
 }

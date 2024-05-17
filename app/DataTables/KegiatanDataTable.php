@@ -2,7 +2,7 @@
 
 namespace App\DataTables;
 
-use App\Models\User;
+use App\Models\Kegiatan;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
@@ -12,7 +12,7 @@ use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class UsersDataTable extends DataTable
+class KegiatanDataTable extends DataTable
 {
     /**
      * Build the DataTable class.
@@ -23,22 +23,20 @@ class UsersDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->addColumn('action', function ($row) {
-                return '<div style="display: flex; justify-content: space-between;">
-                <button type="button" class="btn btn-warning me-2 editButton" data-bs-toggle="modal" data-bs-target="#editModal"
-                    data-id="' . $row->id . '"
-                    data-nama="' . $row->nama . '">
-                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                </button>
-                <button type="button" class="btn btn-danger deleteButton"
-                    data-id="' . $row->id . '"
-                    data-nama="' . $row->nama . '">
-                    <i class="fa fa-trash" aria-hidden="true"></i>
-                </button>
-            </div>';
+                return '<div style="display: flex; justify-content: space-beetween; ">
+                <a href="#" class="btn btn-info me-2"><i class="fa fa-info-circle"></i>Detail</a>
+                <a href="#" class="btn btn-warning me-2"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Ubah</a>
+                    <a href="#" class="btn btn-danger "><i class="fa fa-trash" aria-hidden="true"></i>Hapus</a></div>';
             })
             ->addColumn('No', function () {
                 static $index = 1;
                 return $index++;
+            })
+            ->addColumn('rt_nama', function ($row) {
+                return $row->rt_relation->nama;
+            })
+            ->addColumn('rw_nama', function ($row) {
+                return $row->rw_relation->nama;
             })
             ->setRowId('id');
     }
@@ -46,9 +44,10 @@ class UsersDataTable extends DataTable
     /**
      * Get the query source of dataTable.
      */
-    public function query(User $model): QueryBuilder
+    public function query(Kegiatan $model): QueryBuilder
     {
-        return $model->newQuery();
+        return $model->newQuery()->with(['rt_relation', 'rw_relation'])
+            ->select('kegiatan.*');;
     }
 
     /**
@@ -57,10 +56,10 @@ class UsersDataTable extends DataTable
     public function html(): HtmlBuilder
     {
         return $this->builder()
-            ->setTableId('users-table')
+            ->setTableId('kegiatan-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
-            // ->dom('Bfrtip')
+            //->dom('Bfrtip')
             ->orderBy(1)
             ->selectStyleSingle()
             ->buttons([
@@ -70,17 +69,6 @@ class UsersDataTable extends DataTable
                 Button::make('print'),
                 Button::make('reset'),
                 Button::make('reload')
-            ])
-            ->parameters([
-                'responsive' => true,
-                'autoWidth' => true,
-                'scroller' => true,
-                'scrollX' => true,
-                'fixedColumns' => true,
-                'dom' => 'Bfrtip',
-                'initComplete' => 'function(settings, json) {
-                $(this.api().table().container()).css("width", "100%");
-            }'
             ]);
     }
 
@@ -92,10 +80,10 @@ class UsersDataTable extends DataTable
         return [
             Column::make('No'),
             Column::make('nama'),
-            Column::make('nik'),
-            Column::make('jenis_kelamin'),
-            Column::make('tempat_lahir'),
-            Column::make('tgl_lahir'),
+            Column::make('tanggal_kegiatan'),
+            Column::make('deskripsi'),
+            Column::make('rt_nama')->title('RT Nama'),
+            Column::make('rw_nama')->title('RW Nama'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)
@@ -109,6 +97,6 @@ class UsersDataTable extends DataTable
      */
     protected function filename(): string
     {
-        return 'Users_' . date('YmdHis');
+        return 'Kegiatan_' . date('YmdHis');
     }
 }

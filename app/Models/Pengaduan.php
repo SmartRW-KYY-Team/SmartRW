@@ -10,19 +10,19 @@ class Pengaduan extends Model
 {
     use HasFactory;
     protected $table = 'pengaduan';
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'id_pengaduan';
 
     protected $guarded = [];
     public function rt(): BelongsTo
     {
-        return $this->belongsTo(RT::class, 'rt', 'id');
+        return $this->belongsTo(Rt::class, 'rt_id', 'id_rt');
     }
     public function rw(): BelongsTo
     {
-        return $this->belongsTo(RT::class, 'rt', 'id');
+        return $this->belongsTo(Rw::class, 'rw_id', 'id_rw');
     }
     public function pengadu(): BelongsTo
     {
-        return $this->Belongsto(User::class, 'pengadu', 'id');
+        return $this->Belongsto(User::class, 'pengadu_id', 'id_user');
     }
 }

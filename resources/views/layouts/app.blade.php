@@ -48,14 +48,12 @@
                 @include('layouts.navbar')
             </header>
             <div id="main-content">
-
                 <div class="page-heading">
                     @include('layouts.pageTitle')
                     <section class="section">
                         @yield('content')
                     </section>
                 </div>
-
             </div>
             <footer>
                 <div class="footer clearfix mb-0 text-muted">
@@ -83,8 +81,7 @@
     <script src="{{ asset('assets/extensions/datatables.net-bs5/js/dataTables.bootstrap5.min.js') }}"></script>
     <script src="{{ asset('assets/static/js/pages/datatables.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    {{-- @push('js')
-    @endpush --}}
+    @include('sweetalert::alert')
 
     @stack('scripts')
 

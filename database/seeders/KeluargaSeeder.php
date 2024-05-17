@@ -16,41 +16,41 @@ class KeluargaSeeder extends Seeder
         $keluargaData = [
             [
                 'nokk' => 123456,
-                'kepala_keluarga' => 1, // ID user sebagai kepala keluarga
-                'rt' => 1, // ID rt
-                'rw' => 1, // ID rw
+                'kepala_keluarga_id' => 1, // ID user sebagai kepala keluarga
+                'rt_id' => 1, // ID rt
+                'rw_id' => 1, // ID rw
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'nokk' => 789012,
-                'kepala_keluarga' => 2, // ID user sebagai kepala keluarga
-                'rt' => 2, // ID rt
-                'rw' => 1, // ID rw
+                'kepala_keluarga_id' => 2, // ID user sebagai kepala keluarga
+                'rt_id' => 2, // ID rt
+                'rw_id' => 1, // ID rw
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'nokk' => 345678,
-                'kepala_keluarga' => 3, // ID user sebagai kepala keluarga
-                'rt' => 3, // ID rt
-                'rw' => 1, // ID rw
+                'kepala_keluarga_id' => 3, // ID user sebagai kepala keluarga
+                'rt_id' => 3, // ID rt
+                'rw_id' => 1, // ID rw
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'nokk' => 901234,
-                'kepala_keluarga' => 4, // ID user sebagai kepala keluarga
-                'rt' => 3, // ID rt
-                'rw' => 1, // ID rw
+                'kepala_keluarga_id' => 4, // ID user sebagai kepala keluarga
+                'rt_id' => 3, // ID rt
+                'rw_id' => 1, // ID rw
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'nokk' => 567890,
-                'kepala_keluarga' => 5, // ID user sebagai kepala keluarga
-                'rt' => 3, // ID rt
-                'rw' => 1, // ID rw
+                'kepala_keluarga_id' => 5, // ID user sebagai kepala keluarga
+                'rt_id' => 3, // ID rt
+                'rw_id' => 1, // ID rw
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
