@@ -11,8 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pengeluaranRW', function (Blueprint $table) {
-            $table->id('id_pengeluaranRW');
+        Schema::create('keuanganRW', function (Blueprint $table) {
+            $table->id('id_keuanganRW');
+            $table->enum('tipe', ['Keluar', 'Masuk']);
             $table->date('tanggal');
             $table->string('keterangan');
             $table->integer('jumlah');

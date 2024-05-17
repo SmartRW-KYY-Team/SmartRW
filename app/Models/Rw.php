@@ -33,13 +33,13 @@ class Rw extends Model
     {
         return $this->hasMany(SuratSKTM::class, 'rw_id', 'id_suratSKTM');
     }
-    public function pemasukanRW()
+    public function detailKeuanganRW()
     {
-        return $this->hasMany(PemasukanRW::class, 'rw_id', 'id_pemasukanRW');
+        return $this->hasMany(DetailKeuanganRW::class, 'rw_id', 'id_detailKeuanganRW');
     }
-    public function pengeluaranRW()
+    public function keuanganRW()
     {
-        return $this->hasMany(PengeluaranRW::class, 'rw_id', 'id_pengeluaranRW');
+        return $this->hasMany(KeuanganRW::class, 'rw_id', 'id_keuanganRW');
     }
     public function ketuaRW()
     {

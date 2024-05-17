@@ -55,9 +55,4 @@ class Administrator extends Authenticatable
     {
         return 'username';
     }
-
-    public function role(): BelongsTo
-    {
-        return $this->belongsTo(Role::class, 'role_id', 'id_role');
-    }
 }

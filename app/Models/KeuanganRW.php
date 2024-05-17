@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class PengeluaranRW extends Model
+class KeuanganRW extends Model
 {
     use HasFactory;
-    protected $table = 'pengeluaranRW';
-    protected $primaryKey = 'id_pengeluaranRW';
+    protected $table = 'keuanganRW';
+    protected $primaryKey = 'id_keuanganRW';
 
     protected $guarded = [];
     public function rw(): BelongsTo

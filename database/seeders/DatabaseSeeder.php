@@ -26,13 +26,12 @@ class DatabaseSeeder extends Seeder
             KeluargaSeeder::class,
             KegiatanSeeder::class,
             PengaduanSeeder::class,
-            PemasukanRWSeeder::class,
-            PengeluaranRWSeeder::class,
-            PemasukanRTSeeder::class,
-            PengeluaranRTSeeder::class,
+            DetailKeuanganRWSeeder::class,
+            KeuanganRWSeeder::class,
+            DetailKeuanganRTSeeder::class,
+            KeuanganRTSeeder::class,
             SuratDomisiliSeeder::class,
             SuratSKTMSeeder::class,
-            RoleSeeder::class,
             AdministratorSeeder::class,
         ]);
     }
