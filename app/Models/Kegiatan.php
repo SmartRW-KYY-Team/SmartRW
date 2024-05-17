@@ -10,7 +10,7 @@ class Kegiatan extends Model
 {
     use HasFactory;
     protected $table = 'kegiatan';
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'id_kegiatan';
     protected $guarded = [];
 
     public function rt(): BelongsTo

@@ -10,7 +10,7 @@ class Role extends Model
 {
     use HasFactory;
     protected $table = 'role';
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'id_role';
 
     protected $guarded = [];
 
