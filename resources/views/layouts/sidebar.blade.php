@@ -8,7 +8,8 @@
             <div class="d-flex justify-content-center align-items-center">
 
                 <div class="sidebar-toggler  x">
-                    <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                    <a href="#" id="sidebar-hide" class="sidebar-hide d-xl-none d-block"><i
+                            class="bi bi-x bi-middle"></i></a>
                 </div>
             </div>
         </div>

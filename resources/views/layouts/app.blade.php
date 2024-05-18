@@ -13,30 +13,11 @@
     <link rel="stylesheet" href="{{ asset('assets/extensions/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/compiled/css/table-datatable-jquery.css') }}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-rc.0/css/select2.min.css" rel="stylesheet">
-    {{-- <link rel="stylesheet" href="{{ asset('assets/select2.css') }}"> --}}
-    {{-- <link rel="stylesheet" href="{{ asset('assets/select2-bootstrap.css') }}"> --}}
     <link rel="stylesheet" href="{{ asset('assets/select2-bootstrap-5-theme.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/select2-bootstrap-5-theme.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/compiled/css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/compiled/css/app-dark.css') }}">
     <link rel="stylesheet" href="{{ asset('font-awesome-4.7.0/css/font-awesome.min.css') }}">
-    <!-- Load Select2 CSS -->
-    {{-- <style>
-        .select2.select2-container {
-            /* width: 100% !important; */
-            background-color: #1E1E2D !important;
-        }
-
-        .select2-container .select2-selection--single,
-        .select2-dropdown--below .select2-results__option {
-            /* height: 40px !important; */
-            background-color: #1E1E2D !important;
-            /* line-height: 40px !important;
-            border: 1px solid #ced4da !important;
-            border-radius: 0.25rem !important;
-            padding: 0.375rem 0.75rem !important; */
-        }
-    </style> --}}
 </head>
 
 <body>

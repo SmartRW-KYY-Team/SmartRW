@@ -54,7 +54,16 @@ class wargaController extends Controller
         ]);
 
         // Redirect ke halaman yang sesuai (misalnya halaman daftar pengguna)
-        Alert::success('Success Title', 'Success Message');
+        Alert::success('Success', 'Success Add Data User');
+        return redirect()->route('warga.index');
+    }
+
+    public function destroy($id)
+    {
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        Alert::success('Success', 'Success Delete Data User');
         return redirect()->route('warga.index');
     }
 }
