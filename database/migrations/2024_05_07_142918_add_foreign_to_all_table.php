@@ -58,27 +58,20 @@ return new class extends Migration
             $table->foreign('rw_id')->references('id_rw')->on('rw');
         });
         // Add foreign pemasukan RT
-        Schema::table('pemasukanRT', function (Blueprint $table) {
+        Schema::table('detailKeuanganRT', function (Blueprint $table) {
             $table->foreign('user_id')->references('id_user')->on('users');
-            $table->foreign('rt_id')->references('id_rt')->on('rt');
-            $table->foreign('rw_id')->references('id_rw')->on('rw');
         });
         // Add foreign pengeluaran RT
-        Schema::table('pengeluaranRT', function (Blueprint $table) {
+        Schema::table('keuanganRT', function (Blueprint $table) {
             $table->foreign('rt_id')->references('id_rt')->on('rt');
-            $table->foreign('rw_id')->references('id_rw')->on('rw');
         });
         // Add foreign pemasukan RW
-        Schema::table('pemasukanRW', function (Blueprint $table) {
-            $table->foreign('rw_id')->references('id_rw')->on('rw');
+        Schema::table('detailKeuanganRW', function (Blueprint $table) {
+            $table->foreign('rt_id')->references('id_rt')->on('rt');
         });
         // Add foreign pengeluaran RW
-        Schema::table('pengeluaranRW', function (Blueprint $table) {
+        Schema::table('keuanganRW', function (Blueprint $table) {
             $table->foreign('rw_id')->references('id_rw')->on('rw');
-        });
-        // Add foreign administrator
-        Schema::table('administrator', function (Blueprint $table) {
-            $table->foreign('role_id')->references('id_role')->on('role');
         });
         // Add foreign bansos
         Schema::table('bansos', function (Blueprint $table) {
