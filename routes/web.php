@@ -24,7 +24,9 @@ Route::get('/', function () {
 
 Route::get('/warga', [wargaController::class, 'index'])->name('warga.index');
 Route::post('/warga', [wargaController::class, 'store'])->name('warga.store');
-Route::post('/warga/{id}', [wargaController::class, 'destroy'])->name('warga.destroy');
+Route::post('/warga/{id}/destroy', [wargaController::class, 'destroy'])->name('warga.destroy');
+Route::get('/warga/{id}/edit', [wargaController::class, 'edit'])->name('warga.edit');
+Route::post('/warga/{id}/update', [wargaController::class, 'update'])->name('warga.update');
 
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/login', [AuthController::class, 'login'])->name('login');
