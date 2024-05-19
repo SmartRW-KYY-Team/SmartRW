@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pemasukanRW', function (Blueprint $table) {
-            $table->id('id_pemasukanRW');
+        Schema::create('keuanganRT', function (Blueprint $table) {
+            $table->id('id_keuanganRT');
+            $table->enum('tipe', ['Keluar', 'Masuk']);
             $table->date('tanggal');
+            $table->string('keterangan');
             $table->integer('jumlah');
             $table->unsignedBigInteger('rt_id');
-            $table->unsignedBigInteger('rw_id');
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pemasukan_rw');
+        Schema::dropIfExists('pengeluaran_rt');
     }
 };

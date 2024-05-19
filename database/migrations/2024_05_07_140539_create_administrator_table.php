@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('administrator', function (Blueprint $table) {
             $table->id('id_administrator');
-            $table->unsignedBigInteger('role_id');
+            $table->enum('role', ['rt', 'rw']);
+            $table->integer('no_role');
             $table->string('username');
             $table->string('password');
             $table->timestamps();

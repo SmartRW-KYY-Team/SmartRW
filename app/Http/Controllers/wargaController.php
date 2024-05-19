@@ -54,7 +54,57 @@ class wargaController extends Controller
         ]);
 
         // Redirect ke halaman yang sesuai (misalnya halaman daftar pengguna)
-        Alert::success('Success Title', 'Success Message');
+        Alert::success('Success', 'Success Add Data User');
+        return redirect()->route('warga.index');
+    }
+
+    public function edit($id)
+    {
+        $warga = User::findOrFail($id);
+        return response()->json($warga);
+    }
+
+    public function destroy($id)
+    {
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        Alert::success('Success', 'Success Delete Data User');
+        return redirect()->route('warga.index');
+    }
+
+    public function update(Request $request, $id)
+    {
+        // Validasi data yang diterima dari formulir
+        // $request->validate([
+        //     'nama' => 'required|string|max:255',
+        //     'nik' => 'required|string|max:255|unique:users',
+        //     'tgl_lahir' => 'required|date',
+        //     'tempat_lahir' => 'required|string|max:255',
+        //     'jenis_kelamin' => 'required',
+        //     'agama' => 'required',
+        //     'status_perkawinan' => 'required',
+        //     'pekerjaan' => 'required|string|max:255',
+        //     'notelp' => 'required|string|max:20',
+        //     'keluarga' => 'required',
+        // ]);
+
+        // Cari pengguna berdasarkan id dan perbarui data
+        $user = User::findOrFail($id);
+        $user->update([
+            'nama' => $request->nama,
+            'nik' => $request->nik,
+            'tgl_lahir' => $request->tgl_lahir,
+            'tempat_lahir' => $request->tempat_lahir,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'agama_id' => $request->agama,
+            'status_perkawinan' => $request->status_perkawinan,
+            'pekerjaan' => $request->pekerjaan,
+            'notelp' => $request->notelp,
+            'keluarga_id' => $request->keluarga,
+        ]);
+
+        Alert::success('Success', 'Data pengguna berhasil diperbarui');
         return redirect()->route('warga.index');
     }
 }

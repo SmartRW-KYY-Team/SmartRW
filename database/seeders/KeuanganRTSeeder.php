@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class PengeluaranRTSeeder extends Seeder
+class KeuanganRTSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,31 +14,31 @@ class PengeluaranRTSeeder extends Seeder
     public function run(): void
     {
         //
-        DB::table('pengeluaranRT')->insert([
+        DB::table('keuanganRT')->insert([
             [
+                'tipe' => 'Keluar',
                 'tanggal' => '2024-05-01',
-                'keterangan' => 'Pembelian alat kebersihan',
+                'keterangan' => 'Kematian',
                 'jumlah' => 250000,
                 'rt_id' => 1,
-                'rw_id' => 1,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
+                'tipe' => 'Masuk',
                 'tanggal' => '2024-05-02',
-                'keterangan' => 'Pembayaran listrik bulan ini',
+                'keterangan' => 'Sumbangan',
                 'jumlah' => 350000,
                 'rt_id' => 2,
-                'rw_id' => 1,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
+                'tipe' => 'Masuk',
                 'tanggal' => '2024-05-03',
-                'keterangan' => 'Pembelian sembako untuk kegiatan bakti sosial',
-                'jumlah' => 500000,
+                'keterangan' => 'Iuran',
+                'jumlah' => 15000,
                 'rt_id' => 3,
-                'rw_id' => 1,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],

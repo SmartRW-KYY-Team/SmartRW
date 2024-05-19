@@ -17,43 +17,33 @@ class AdministratorSeeder extends Seeder
         //
         DB::table('administrator')->insert([
             [
-                'role_id' => 1, // ID untuk role_id RW
-                'username' => 'KetuaRW1',
+                'role' => "rw",
+                'no_role' => 1,
+                'username' => 'RW',
                 'password' => Hash::make('12345'),
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'role_id' => 2, // ID untuk role_id RW
-                'username' => 'SekretarisRW1',
+                'role' => "rt",
+                'no_role' => 1,
+                'username' => 'RT1',
                 'password' => Hash::make('12345'),
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'role_id' => 3, // ID untuk role_id RW
-                'username' => 'BendaharaRW1',
+                'role' => "rt",
+                'no_role' => 2,
+                'username' => 'RT2',
                 'password' => Hash::make('12345'),
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'role_id' => 4, // ID untuk role_id RT
-                'username' => 'KetuaRT1',
-                'password' => Hash::make('12345'),
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'role_id' => 5, // ID untuk role_id RT
-                'username' => 'SekretarisRT1',
-                'password' => Hash::make('12345'),
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'role_id' => 6, // ID untuk role_id RT
-                'username' => 'BendaharaRT1',
+                'role' => "rt",
+                'no_role' => 3,
+                'username' => 'RT3',
                 'password' => Hash::make('12345'),
                 'created_at' => now(),
                 'updated_at' => now(),

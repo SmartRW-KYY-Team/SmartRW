@@ -24,13 +24,13 @@ class UsersDataTable extends DataTable
         return (new EloquentDataTable($query))
             ->addColumn('action', function ($row) {
                 return '<div style="display: flex; justify-content: space-between;">
-                <button type="button" class="btn btn-warning me-2 editButton" data-bs-toggle="modal" data-bs-target="#editModal"
-                    data-id="' . $row->id . '"
+                <button type="button" class="btn btn-warning me-2 editWargaButton"
+                    data-id="' . $row->id_user . '"
                     data-nama="' . $row->nama . '">
                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                 </button>
                 <button type="button" class="btn btn-danger deleteButton"
-                    data-id="' . $row->id . '"
+                    data-id="' . $row->id_user . '"
                     data-nama="' . $row->nama . '">
                     <i class="fa fa-trash" aria-hidden="true"></i>
                 </button>
@@ -77,10 +77,6 @@ class UsersDataTable extends DataTable
                 'scroller' => true,
                 'scrollX' => true,
                 'fixedColumns' => true,
-                'dom' => 'Bfrtip',
-                'initComplete' => 'function(settings, json) {
-                $(this.api().table().container()).css("width", "100%");
-            }'
             ]);
     }
 

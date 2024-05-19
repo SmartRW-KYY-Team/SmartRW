@@ -32,12 +32,12 @@ class KegiatanDataTable extends DataTable
                 static $index = 1;
                 return $index++;
             })
-            ->addColumn('rt_nama', function ($row) {
-                return $row->rt_relation->nama;
-            })
-            ->addColumn('rw_nama', function ($row) {
-                return $row->rw_relation->nama;
-            })
+            // ->addColumn('rt_nama', function ($row) {
+            //     return $row->rt_relation->nama;
+            // })
+            // ->addColumn('rw_nama', function ($row) {
+            //     return $row->rw_relation->nama;
+            // })
             ->setRowId('id');
     }
 
@@ -46,8 +46,7 @@ class KegiatanDataTable extends DataTable
      */
     public function query(Kegiatan $model): QueryBuilder
     {
-        return $model->newQuery()->with(['rt_relation', 'rw_relation'])
-            ->select('kegiatan.*');;
+        return $model->newQuery();
     }
 
     /**
@@ -82,8 +81,8 @@ class KegiatanDataTable extends DataTable
             Column::make('nama'),
             Column::make('tanggal_kegiatan'),
             Column::make('deskripsi'),
-            Column::make('rt_nama')->title('RT Nama'),
-            Column::make('rw_nama')->title('RW Nama'),
+            Column::make('rt_id'),
+            Column::make('rw_id'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)

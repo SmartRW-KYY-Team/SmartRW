@@ -32,13 +32,13 @@ class Rt extends Model
     {
         return $this->hasMany(SuratSKTM::class, 'rt_id', 'id_suratSKTM');
     }
-    public function pemasukanRT()
+    public function detailKeuanganRT()
     {
-        return $this->hasMany(PemasukanRT::class, 'rt_id', 'id_pemasukanRT');
+        return $this->hasMany(DetailKeuanganRT::class, 'rt_id', 'id_detailKeuanganRT');
     }
-    public function pengeluaranRT()
+    public function keuanganRT()
     {
-        return $this->hasMany(PengeluaranRT::class, 'rt_id', 'id_pengeluaranRT');
+        return $this->hasMany(KeuanganRT::class, 'rt_id', 'id_keuanganRT');
     }
     public function ketuaRT()
     {
