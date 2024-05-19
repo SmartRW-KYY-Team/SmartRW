@@ -16,13 +16,8 @@ class wargaController extends Controller
     {
         $warga = User::all();
         $agama = Agama::all();
-<<<<<<< HEAD
-        $keluarga = Keluarga::with('kepala_keluarga_relation')->get();
-        return $dataTable->render('warga.home', ['warga' => $warga, 'agama' => $agama, 'keluarga' => $keluarga,]);
-=======
         $keluarga = Keluarga::with('kepala_keluarga')->get();
         return $dataTable->render('warga.home', ['warga' => $warga, 'agama' => $agama, 'keluarga' => $keluarga]);
->>>>>>> da460800c150ea606700369447c2d7987ed61555
     }
 
     public function store(Request $request)

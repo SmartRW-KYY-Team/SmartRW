@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\KegiatanController;
+use App\Http\Controllers\DomisiliController;
 use App\Http\Controllers\wargaController;
 use App\Models\Kegiatan;
 use Illuminate\Routing\RouteRegistrar;
@@ -31,3 +32,6 @@ Route::group(['middleware' => 'guest'], function () {
 });
 
 Route::get('/kegiatan', [KegiatanController::class, 'index']);
+
+Route::get('/domisili', [DomisiliController::class, 'index'])->name('domisili.index');
+Route::post('/domisili', [DomisiliController::class, 'store'])->name('domisili.store');

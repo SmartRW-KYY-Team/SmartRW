@@ -28,7 +28,7 @@
                             <form action="{{ route('login.post') }}" method="post">
                                 @csrf
                                 <div class="mb-4">
-                                    <label for="username" class="form-label" style="font-weight: 500; font-size: 20px">username</label>
+                                    <label for="username" class="form-label" style="font-weight: 500; font-size: 20px">Username</label>
                                     <input type="text" id="username" name="username" class="form-control form-control-lg" style="background-color: #B0BAC3; border-radius: 20px; height: 64px;" placeholder="Masukkan username" />
                                 </div>
                                 <div class="mb-4">
