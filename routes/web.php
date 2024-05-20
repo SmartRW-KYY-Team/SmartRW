@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\wargaController;
 use App\Http\Controllers\keuanganRTController;
+use App\Http\Controllers\keuanganRWController;
 use App\Models\Kegiatan;
 use Illuminate\Routing\RouteRegistrar;
 use Illuminate\Support\Facades\Route;
@@ -42,4 +43,12 @@ Route::prefix('keuanganrt')->name('keuanganrt.')->group(function () {
     Route::post('{id}/destroy', [KeuanganRTController::class, 'destroy'])->name('destroy');
     Route::get('{id}/edit', [KeuanganRTController::class, 'edit'])->name('edit');
     Route::post('{id}/update', [KeuanganRTController::class, 'update'])->name('update');
+});
+
+Route::prefix('keuanganrw')->name('keuanganrw.')->group(function () {
+    Route::get('/', [KeuanganRWController::class, 'index'])->name('index');
+    Route::post('/', [KeuanganRWController::class, 'store'])->name('store');
+    Route::post('{id}/destroy', [KeuanganRWController::class, 'destroy'])->name('destroy');
+    Route::get('{id}/edit', [KeuanganRWController::class, 'edit'])->name('edit');
+    Route::post('{id}/update', [KeuanganRWController::class, 'update'])->name('update');
 });
