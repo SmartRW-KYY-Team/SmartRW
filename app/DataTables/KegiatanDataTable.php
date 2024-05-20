@@ -24,20 +24,21 @@ class KegiatanDataTable extends DataTable
         return (new EloquentDataTable($query))
             ->addColumn('action', function ($row) {
                 return '<div style="display: flex; justify-content: space-beetween; ">
-                <a href="#" class="btn btn-info me-2"><i class="fa fa-info-circle"></i>Detail</a>
-                <a href="#" class="btn btn-warning me-2"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Ubah</a>
-                    <a href="#" class="btn btn-danger "><i class="fa fa-trash" aria-hidden="true"></i>Hapus</a></div>';
+                <button type="button" class="btn btn-info me-2 showButtonDetail" data-bs-toggle="tooltip" data-id="' . $row->id_kegiatan . '" data-bs-placement="top" title="Detail"><i class="fa fa-info-circle"></i></button>
+                <a href="/kegiatan/' . $row->id_kegiatan . '/edit" class="btn btn-warning me-2 editButton" data-bs-toggle="tooltip" data-id="' . $row->id_kegiatan . '"
+                data-bs-placement="top" title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                <button type="button" class="btn btn-danger deleteButton" data-bs-toggle="tooltip" data-id="' . $row->id_kegiatan . '" data-rw="' . $row->rw->nama . '"  data-rt="' . $row->rt->nama . '"data-bs-placement="top" title="Hapus"><i class="fa fa-trash" aria-hidden="true"></i></button></div>';
             })
             ->addColumn('No', function () {
                 static $index = 1;
                 return $index++;
             })
-            // ->addColumn('rt_nama', function ($row) {
-            //     return $row->rt_relation->nama;
-            // })
-            // ->addColumn('rw_nama', function ($row) {
-            //     return $row->rw_relation->nama;
-            // })
+            ->addColumn('rt_nama', function ($row) {
+                return $row->rt->nama;
+            })
+            ->addColumn('rw_nama', function ($row) {
+                return $row->rw->nama;
+            })
             ->setRowId('id');
     }
 
@@ -46,7 +47,7 @@ class KegiatanDataTable extends DataTable
      */
     public function query(Kegiatan $model): QueryBuilder
     {
-        return $model->newQuery();
+        return $model->newQuery()->with('rt', 'rw');
     }
 
     /**
@@ -81,8 +82,8 @@ class KegiatanDataTable extends DataTable
             Column::make('nama'),
             Column::make('tanggal_kegiatan'),
             Column::make('deskripsi'),
-            Column::make('rt_id'),
-            Column::make('rw_id'),
+            Column::make('rt_nama')->title('RT'),
+            Column::make('rw_nama')->title('RW'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)

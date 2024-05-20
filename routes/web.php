@@ -34,8 +34,15 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('/login', [AuthController::class, 'login'])->name('login');
     Route::post('/login', [AuthController::class, 'loginProcess'])->name('login.post');
 });
-
-Route::get('/kegiatan', [KegiatanController::class, 'index']);
+Route::prefix('kegiatan')->name('kegiatan.')->group(function () {
+    Route::get('/', [KegiatanController::class, 'index'])->name('index');
+    Route::get('/create', [KegiatanController::class, 'create'])->name('create');
+    Route::post('/', [KegiatanController::class, 'store'])->name('store');
+    Route::get('/{id}/edit', [KegiatanController::class, 'edit'])->name('edit');
+    Route::get('/{id}/show', [KegiatanController::class, 'show'])->name('show');
+    Route::post('/{id}/update', [KegiatanController::class, 'update'])->name('update');
+    Route::delete('/{id}/destroy', [KegiatanController::class, 'destroy'])->name('destroy');
+});
 
 Route::prefix('keuanganrt')->name('keuanganrt.')->group(function () {
     Route::get('/', [KeuanganRTController::class, 'index'])->name('index');
