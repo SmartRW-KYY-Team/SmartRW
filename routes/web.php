@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\wargaController;
+use App\Http\Controllers\keuanganRTController;
 use App\Models\Kegiatan;
 use Illuminate\Routing\RouteRegistrar;
 use Illuminate\Support\Facades\Route;
@@ -34,3 +35,11 @@ Route::group(['middleware' => 'guest'], function () {
 });
 
 Route::get('/kegiatan', [KegiatanController::class, 'index']);
+
+Route::prefix('keuanganrt')->name('keuanganrt.')->group(function () {
+    Route::get('/', [KeuanganRTController::class, 'index'])->name('index');
+    Route::post('/', [KeuanganRTController::class, 'store'])->name('store');
+    Route::post('{id}/destroy', [KeuanganRTController::class, 'destroy'])->name('destroy');
+    Route::get('{id}/edit', [KeuanganRTController::class, 'edit'])->name('edit');
+    Route::post('{id}/update', [KeuanganRTController::class, 'update'])->name('update');
+});
