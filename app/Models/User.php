@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -92,7 +93,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(SuratSKTM::class, 'pemohon_id', 'id_suratSKTM');
     }
-    public function pengaduan()
+    public function pengaduan(): HasMany
     {
         return $this->hasMany(Pengaduan::class, 'pengadu_id', 'id_pengaduan');
     }

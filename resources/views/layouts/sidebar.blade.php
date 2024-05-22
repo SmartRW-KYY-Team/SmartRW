@@ -53,7 +53,7 @@
                 </li>
 
                 <li class="sidebar-item  ">
-                    <a href="index.html" class='sidebar-link'>
+                    <a href="{{ route('pengaduan.index') }}" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Pengaduan Masalah</span>
                     </a>
