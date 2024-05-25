@@ -1,13 +1,14 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\DataTables\KeuanganRWDataTable;
 use App\Models\KeuanganRW;
+use App\Models\Rw;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Log;
 
-class keuanganRWController extends Controller
+class KeuanganRWController extends Controller
 {
     public function index(KeuanganRWDataTable $dataTable)
     {
@@ -25,7 +26,11 @@ class keuanganRWController extends Controller
             'rw_id' => 'required',
         ]);
 
-        KeuanganRW::create($request->all());
+        $keuanganrw = KeuanganRW::create($request->all());
+
+        Log::info('Store: Created KeuanganRW', ['keuanganrw' => $keuanganrw]);
+
+        $this->updateSaldo($keuanganrw->rw_id, $keuanganrw->jumlah, $keuanganrw->tipe);
 
         Alert::success('Success', 'Data Keuangan Berhasil Ditambahkan');
         return redirect()->route('keuanganrw.index');
@@ -34,6 +39,11 @@ class keuanganRWController extends Controller
     public function destroy($id)
     {
         $keuanganrw = KeuanganRW::findOrFail($id);
+
+        Log::info('Destroy: Deleting KeuanganRW', ['keuanganrw' => $keuanganrw]);
+
+        $this->updateSaldo($keuanganrw->rw_id, $keuanganrw->jumlah, $keuanganrw->tipe == 'Masuk' ? 'Keluar' : 'Masuk');
+
         $keuanganrw->delete();
 
         Alert::success('Success', 'Data Keuangan Berhasil Dihapus');
@@ -48,7 +58,6 @@ class keuanganRWController extends Controller
 
     public function update(Request $request, $id)
     {
-        // Validate the request
         $request->validate([
             'tipe' => 'required',
             'tanggal' => 'required|date',
@@ -56,18 +65,36 @@ class keuanganRWController extends Controller
             'jumlah' => 'required|integer',
             'rw_id' => 'required',
         ]);
-    
+
         $keuanganrw = KeuanganRW::findOrFail($id);
-    
-        $keuanganrw->update([
-            'tipe' => $request->tipe,
-            'tanggal' => $request->tanggal,
-            'keterangan' => $request->keterangan,
-            'jumlah' => $request->jumlah,
-        ]);
-    
+
+        Log::info('Update: Updating KeuanganRW', ['keuanganrw' => $keuanganrw, 'request' => $request->all()]);
+
+        // Mengembalikan saldo sebelumnya
+        $this->updateSaldo($keuanganrw->rw_id, $keuanganrw->jumlah, $keuanganrw->tipe == 'Masuk' ? 'Keluar' : 'Masuk');
+
+        $keuanganrw->update($request->only(['tipe', 'tanggal', 'keterangan', 'jumlah', 'rw_id']));
+
+        // Update saldo baru
+        $this->updateSaldo($keuanganrw->rw_id, $request->jumlah, $request->tipe);
+
         Alert::success('Success', 'Data Keuangan Berhasil Diperbarui');
-    
+
         return redirect()->route('keuanganrw.index');
+    }
+
+    private function updateSaldo($rwId, $jumlah, $tipe)
+    {
+        $rw = Rw::findOrFail($rwId);
+
+        if ($tipe == 'Masuk') {
+            $rw->saldo += $jumlah;
+        } elseif ($tipe == 'Keluar') {
+            $rw->saldo -= $jumlah;
+        }
+
+        Log::info('UpdateSaldo: Updating Rw saldo', ['rw' => $rw]);
+
+        $rw->save();
     }
 }
