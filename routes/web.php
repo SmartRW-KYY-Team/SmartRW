@@ -30,10 +30,10 @@ Route::post('/warga/{id}/destroy', [wargaController::class, 'destroy'])->name('w
 Route::get('/warga/{id}/edit', [wargaController::class, 'edit'])->name('warga.edit');
 Route::post('/warga/{id}/update', [wargaController::class, 'update'])->name('warga.update');
 
-Route::group(['middleware' => 'guest'], function () {
-    Route::get('/login', [AuthController::class, 'login'])->name('login');
-    Route::post('/login', [AuthController::class, 'loginProcess'])->name('login.post');
-});
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/login', [AuthController::class, 'loginProcess'])->name('login.post');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
 Route::prefix('kegiatan')->name('kegiatan.')->group(function () {
     Route::get('/', [KegiatanController::class, 'index'])->name('index');
     Route::get('/create', [KegiatanController::class, 'create'])->name('create');
