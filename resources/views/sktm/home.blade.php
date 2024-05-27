@@ -2,35 +2,35 @@
 @section('content')
     <div class="card">
         <div class="card-header d-flex">
-            <h4 class="card-title">Surat Domisili</h4>
+            <h4 class="card-title">Surat SKTM</h4>
             <div class="card-tools ms-auto">
-                <button class="btn btn-md btn-primary mt-1" data-bs-target="#tambahDomisiliModal" data-bs-toggle="modal">+ Tambah</button>
+                <button class="btn btn-md btn-primary mt-1" data-bs-target="#tambahSKTMModal" data-bs-toggle="modal">+ Tambah</button>
             </div>
         </div>
         <div class="card-body">
             {{ $dataTable->table(['width' => '100%', 'class' => 'table table-bordered table-striped']) }}
         </div>
     </div>
-    @include('domisili.create')
-    @include('domisili.show')
+    {{-- @include('sktm.create') --}}
+    @include('sktm.show')
 
       <!-- Modal Accept -->
-    <div class="modal fade" id="acceptDomisiliModal" tabindex="-1" aria-labelledby="acceptDomisiliModalLabel" aria-hidden="true">
+    <div class="modal fade" id="acceptSKTMModal" tabindex="-1" aria-labelledby="acceptSKTMModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="acceptDomisiliModalLabel">Accept Surat Domisili</h5>
+                    <h5 class="modal-title" id="acceptSKTMModalLabel">Accept Surat SKTM</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <label id="acceptDomisiliModalText">
+                    <label id="acceptSKTMModalText">
                         Apakah anda yakin ingin menyetujui surat ini?
                     </label>
                 </div>
                 <div class="modal-footer">
-                    <form id="acceptDomisiliForm" method="POST">
+                    <form id="acceptSKTMForm" method="POST">
                         @csrf
-                        <input type="hidden" id="acceptDomisiliId">
+                        <input type="hidden" id="acceptSKTMId">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
                         <button type="submit" class="btn btn-success">Setuju</button>
                     </form>
@@ -45,16 +45,19 @@
 
 <script>            
     // Handle opening the show modal
-    $('body').on('click', '.ShowModalDomisili', function(e) {                
+    $('body').on('click', '.ShowModalSKTM', function(e) {                
+        $('#showModalSKTM2').modal('show');          
         var id_showmodal = $(this).data('id');  
-        $('#showModalDomisili2').modal('show');          
         $.ajax({
-            url: `/domisili/${id_showmodal}/show`,
+            url: `/sktm/${id_showmodal}/show`,
             method: 'GET',
             success: function(data) {
-                console.log(data);                
+                console.log(data);
                 // Populate form fields
                 $('#detail-nama').html(data.pemohon.nama);
+                $('#detail-orangtua').html(data.nama_orang_tua);
+                $('#detail-pekerjaan').html(data.pekerjaan_orang_tua);
+                $('#detail-gaji').html(data.gaji_orang_tua);
                 $('#detail-status').html(data.status);
                 $('#detail-rt').html(data.rt.nama);
                 $('#detail-rw').html(data.rw.nama);
@@ -119,11 +122,11 @@
 <script>
 $(document).ready(function() {
     // Handle opening the accept modal
-    $('body').on('click', '.AcceptModalDomisili', function(e) {                
-        $('#acceptDomisiliModal').modal('show');
-        var id_acceptmodal = $(this).data('id');
-        $('#acceptDomisiliForm').attr('action', '/domisili/accept/' + id_acceptmodal);
-    });
+    $('body').on('click', '.AcceptModalSKTM', function(e) {
+            $('#acceptSKTMModal').modal('show');
+            var id_acceptmodal = $(this).data('id');            
+            $('#acceptSKTMForm').attr('action', '/sktm/accept/' + id_acceptmodal);
+        });
     // $('#acceptDomisiliModal').on('show.bs.modal', function(event) {                                          
     //     var button = $(event.relatedTarget);
     //     var id = button.data('id');
@@ -135,7 +138,7 @@ $(document).ready(function() {
     // });
 
     // Handle form submission for accept
-    $('#acceptDomisiliForm').on('submit', function(e) {
+    $('#acceptSKTMForm').on('submit', function(e) {
         e.preventDefault();
 
         var formAction = $(this).attr('action');

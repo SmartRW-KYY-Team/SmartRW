@@ -2,7 +2,7 @@
 
 namespace App\DataTables;
 
-use App\Models\SuratDomisili;
+use App\Models\SuratSKTM;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
@@ -12,7 +12,7 @@ use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class DomisiliDatatable extends DataTable
+class SKTMDatatable extends DataTable
 {
     /**
      * Build the DataTable class.
@@ -24,14 +24,13 @@ class DomisiliDatatable extends DataTable
         return (new EloquentDataTable($query))
             ->addColumn('action', function ($row) {
                 return '<div style="display: flex; justify-content: space-between;">
-                <button type="button" class="btn btn-light me-2 ShowModalDomisili"
-                    data-id="' . $row->id_suratDomisili . '"
+                <button type="button" class="btn btn-light me-2 ShowModalSKTM"
+                    data-id="' . $row->id_suratSKTM . '"
                     data-nama="' . $row->nama . '">
                     <i class="bi bi-eye-fill"></i>
                 </button>
-                <button type="button" class="btn btn-success me-2 AcceptModalDomisili"
-                    data-id="' . $row->id_suratDomisili . '"
-                    data-nama="' . $row->nama . '">
+                <button type="button" class="btn btn-success me-2 AcceptModalSKTM"
+                    data-id="' . $row->id_suratSKTM . '">
                     <i class="bi bi-check-square-fill"></i> 
                 </button>                
             </div>';
@@ -49,7 +48,7 @@ class DomisiliDatatable extends DataTable
     /**
      * Get the query source of dataTable.
      */
-    public function query(SuratDomisili $model): QueryBuilder
+    public function query(SuratSKTM $model): QueryBuilder
     {
         return $model->newQuery()->with('pemohon');
     }
@@ -60,7 +59,7 @@ class DomisiliDatatable extends DataTable
     public function html(): HtmlBuilder
     {
         return $this->builder()
-            ->setTableId('domisili-table')
+            ->setTableId('sktm-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
             ->orderBy(1)
@@ -93,7 +92,7 @@ class DomisiliDatatable extends DataTable
     {
         return [
             Column::make('No'),
-            Column::make('pemohon_id')->title('Nama'),
+            Column::make('pemohon_id')->title('Pemohon'),
             Column::make('status'),
             Column::make('keterangan'),
             Column::computed('action')

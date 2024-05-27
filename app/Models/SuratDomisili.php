@@ -10,14 +10,18 @@ class SuratDomisili extends Model
 {
     use HasFactory;
     protected $table = 'suratDomisili';
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'id_suratDomisili';
     protected $guarded = [];
     public function rw(): BelongsTo
     {
-        return $this->belongsTo(RT::class, 'rw_id', 'id_rw');
+        return $this->belongsTo(RW::class, 'rw_id', 'id_rw');
     }
     public function rt(): BelongsTo
     {
         return $this->belongsTo(RT::class, 'rt_id', 'id_rt');
+    }
+    public function pemohon(): BelongsTo
+    {
+        return $this->belongsto(User::class, 'pemohon_id', 'id_user');
     }
 }

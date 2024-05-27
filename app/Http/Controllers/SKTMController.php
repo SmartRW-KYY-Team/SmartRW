@@ -2,37 +2,30 @@
 
 namespace App\Http\Controllers;
 
-use App\DataTables\DomisiliDatatable;
+use Illuminate\Http\Request;
+use App\DataTables\SKTMDatatable;
 use App\Models\Rt;
 use App\Models\Rw;
-use Illuminate\Http\Request;
-use App\Models\SuratDomisili;
+use App\Models\SuratSKTM;
 use App\Models\User;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Hash;
 
-class DomisiliController extends Controller
+class SKTMController extends Controller
 {
-    public function index(DomisiliDatatable $dataTable)
+    public function index(SKTMDatatable $dataTable)
     {
-        $domisili = SuratDomisili::all();
+        $sktm = SuratSKTM::all();
         $rt = Rt::all();
         $rw = Rw::all();
         $pemohon = User::all();
-        return $dataTable->render('domisili.home', ['domisili' => $domisili, 'rt' => $rt, 'rw' => $rw, 'pemohon' => $pemohon]);
+        return $dataTable->render('sktm.home', ['sktm' => $sktm, 'rt' => $rt, 'rw' => $rw, 'pemohon' => $pemohon]);
     }
 
     public function store(Request $request)
     {
-        // Validasi data yang diterima dari formulir
-        // $request->validate([
-        //     'pemohon' => 'required|',
-        //     'status' => 'required',
-        //     'keterangan' => 'required|string|max:255',
-        // ]);
-
         // Buat pengguna baru berdasarkan data yang valid
-        $suratDomisili = SuratDomisili::create([
+        $suratSKTM = SuratSKTM::create([
             'pemohon_id' => $request->pemohon,
             'status' => 'Proses',
             'rt_id' => $request->rt,
@@ -43,23 +36,23 @@ class DomisiliController extends Controller
 
         // Cek apakah permintaan adalah AJAX
         if ($request->ajax()) {
-            return response()->json(['success' => 'Data berhasil ditambahkan', 'data' => $suratDomisili]);
+            return response()->json(['success' => 'Data berhasil ditambahkan', 'data' => $suratSKTM]);
         }
 
         // Redirect ke halaman yang sesuai (misalnya halaman daftar pengguna)
         Alert::success('Success Title', 'Success Message');
-        return redirect()->route('domisili.index');
+        return redirect()->route('sktm.index');
     }
 
     public function accept(Request $request, $id)
     {
         try {
             // Find the SuratDomisili by ID
-            $suratDomisili = SuratDomisili::findOrFail($id);
+            $suratSKTM = SuratSKTM::findOrFail($id);
 
             // Update the status
-            $suratDomisili->status = 'Selesai';
-            $suratDomisili->save();
+            $suratSKTM->status = 'Selesai';
+            $suratSKTM->save();
 
             // Return success response
             return response()->json(['success' => 'Status berhasil diperbarui']);
@@ -68,10 +61,9 @@ class DomisiliController extends Controller
             return response()->json(['error' => 'Terjadi kesalahan saat memperbarui status'], 500);
         }
     }
-
     public function show($id)
     {
-        $SuratDomisili = SuratDomisili::with('pemohon', 'rw', 'rt')->findOrFail($id);
+        $SuratDomisili = SuratSKTM::with('pemohon', 'rw', 'rt')->findOrFail($id);
         return response()->json($SuratDomisili);
     }
 }

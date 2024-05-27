@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\DomisiliController;
+use App\Http\Controllers\SKTMController;
 use App\Http\Controllers\wargaController;
 use App\Models\Kegiatan;
 use Illuminate\Routing\RouteRegistrar;
@@ -38,3 +39,10 @@ Route::get('/kegiatan', [KegiatanController::class, 'index']);
 
 Route::get('/domisili', [DomisiliController::class, 'index'])->name('domisili.index');
 Route::post('/domisili', [DomisiliController::class, 'store'])->name('domisili.store');
+Route::post('/domisili/accept/{id}', [DomisiliController::class, 'accept'])->name('domisili.accept');
+Route::get('/domisili/{id}/show', [DomisiliController::class, 'show'])->name('domisili.show');
+
+Route::get('/sktm', [SKTMController::class, 'index'])->name('sktm.index');
+Route::post('/sktm', [SKTMController::class, 'store'])->name('sktm.store');
+Route::post('/sktm/accept/{id}', [SKTMController::class, 'accept'])->name('sktm.accept');
+Route::get('/sktm/{id}/show', [SKTMController::class, 'show'])->name('sktm.show');

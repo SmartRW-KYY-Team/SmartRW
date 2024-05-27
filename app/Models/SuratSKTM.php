@@ -21,4 +21,8 @@ class SuratSKTM extends Model
     {
         return $this->belongsTo(Rt::class, 'rt_id', 'id_rt');
     }
+    public function pemohon(): BelongsTo
+    {
+        return $this->belongsto(User::class, 'pemohon_id', 'id_user');
+    }
 }
