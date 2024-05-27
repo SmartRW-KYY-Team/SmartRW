@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -80,9 +81,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Agama::class, 'agama_id', 'id_agama');
     }
-    public function pemasukanRT()
+    public function detailKeuanganRT()
     {
-        return $this->hasMany(PemasukanRT::class, 'user_id', 'id_pemasukanRT');
+        return $this->hasMany(DetailKeuanganRT::class, 'user_id', 'id_detailKeuanganRT');
     }
     public function suratDomisili()
     {
@@ -92,7 +93,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(SuratSKTM::class, 'pemohon_id', 'id_suratSKTM');
     }
-    public function pengaduan()
+    public function pengaduan(): HasMany
     {
         return $this->hasMany(Pengaduan::class, 'pengadu_id', 'id_pengaduan');
     }

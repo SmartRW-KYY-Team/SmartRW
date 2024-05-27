@@ -23,6 +23,6 @@ class Pengaduan extends Model
     }
     public function pengadu(): BelongsTo
     {
-        return $this->Belongsto(User::class, 'pengadu_id', 'id_user');
+        return $this->belongsto(User::class, 'pengadu_id', 'id_user');
     }
 }
