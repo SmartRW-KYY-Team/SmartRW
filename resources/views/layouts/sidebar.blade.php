@@ -53,13 +53,8 @@
                 </li>
 
                 <li class="sidebar-item  ">
-<<<<<<< HEAD
-                    <a href="index.html" class='sidebar-link'>
-                        <i class="bi bi-person-fill-exclamation"></i>
-=======
                     <a href="{{ route('pengaduan.index') }}" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
->>>>>>> 7e8761d60afab4239dfd07832c9c30cbfd05daae
                         <span>Pengaduan Masalah</span>
                     </a>
                 </li>

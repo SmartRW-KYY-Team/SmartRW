@@ -54,7 +54,6 @@ Route::prefix('kegiatan')->name('kegiatan.')->group(function () {
     Route::delete('/{id}/destroy', [KegiatanController::class, 'destroy'])->name('destroy');
 });
 
-<<<<<<< HEAD
 Route::get('/kegiatan', [KegiatanController::class, 'index']);
 
 Route::get('/domisili', [DomisiliController::class, 'index'])->name('domisili.index');
@@ -66,7 +65,6 @@ Route::get('/sktm', [SKTMController::class, 'index'])->name('sktm.index');
 Route::post('/sktm', [SKTMController::class, 'store'])->name('sktm.store');
 Route::post('/sktm/accept/{id}', [SKTMController::class, 'accept'])->name('sktm.accept');
 Route::get('/sktm/{id}/show', [SKTMController::class, 'show'])->name('sktm.show');
-=======
 Route::prefix('keuanganrt')->name('keuanganrt.')->group(function () {
     Route::get('/', [KeuanganRTController::class, 'index'])->name('index');
     Route::post('/', [KeuanganRTController::class, 'store'])->name('store');
@@ -82,4 +80,3 @@ Route::prefix('keuanganrw')->name('keuanganrw.')->group(function () {
     Route::get('{id}/edit', [KeuanganRWController::class, 'edit'])->name('edit');
     Route::post('{id}/update', [KeuanganRWController::class, 'update'])->name('update');
 });
->>>>>>> 7e8761d60afab4239dfd07832c9c30cbfd05daae
