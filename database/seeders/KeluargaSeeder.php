@@ -54,6 +54,46 @@ class KeluargaSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
+            [
+                'nokk' => 234567,
+                'kepala_keluarga_id' => 6, // ID user sebagai kepala keluarga
+                'rt_id' => 2, // ID rt
+                'rw_id' => 1, // ID rw
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'nokk' => 890123,
+                'kepala_keluarga_id' => 7, // ID user sebagai kepala keluarga
+                'rt_id' => 3, // ID rt
+                'rw_id' => 1, // ID rw
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'nokk' => 456789,
+                'kepala_keluarga_id' => 8, // ID user sebagai kepala keluarga
+                'rt_id' => 1, // ID rt
+                'rw_id' => 1, // ID rw
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'nokk' => 123890,
+                'kepala_keluarga_id' => 9, // ID user sebagai kepala keluarga
+                'rt_id' => 2, // ID rt
+                'rw_id' => 1, // ID rw
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'nokk' => 678901,
+                'kepala_keluarga_id' => 10, // ID user sebagai kepala keluarga
+                'rt_id' => 1, // ID rt
+                'rw_id' => 1, // ID rw
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
         ];
 
         // Insert data ke dalam tabel keluarga

@@ -26,4 +26,9 @@ class Keluarga extends Model
     {
         return $this->hasOne(User::class, 'id_user', 'kepala_keluarga_id');
     }
+
+    public function bansos(): HasOne
+    {
+        return $this->hasOne(User::class, 'id_user', 'id_ bansos');
+    }
 }
