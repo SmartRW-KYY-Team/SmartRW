@@ -19,6 +19,6 @@ class RWMiddleware
         if (session('role') == "rw") {
             return $next($request);
         }
-        return redirect('login');
+        abort(403);
     }
 }

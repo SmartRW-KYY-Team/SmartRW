@@ -14,6 +14,8 @@ class wargaController extends Controller
 {
     public function index(UsersDataTable $dataTable)
     {
+        // $allSessions = session()->all();
+        // dd($allSessions);
         $warga = User::all();
         $agama = Agama::all();
         $keluarga = Keluarga::with('kepala_keluarga')->get();
