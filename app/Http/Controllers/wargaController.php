@@ -77,13 +77,27 @@ class wargaController extends Controller
         return view('warga.edit', ['warga' => $warga, 'agama' => $agama, 'keluarga' => $keluarga, 'id_warga' => $id]);
     }
 
+    public function show($id)
+    {
+        $agama = Agama::all();
+        $keluarga = Keluarga::all();
+        $warga = User::with('agama', 'keluarga')->findOrFail($id);
+        return response()->json($warga);
+    }
+
     public function destroy($id)
     {
         $user = User::findOrFail($id);
-        $user->delete();
+        $find_kk = Keluarga::where('id_keluarga', $user->keluarga_id)->first();
 
-        Alert::success('Success', 'Success Delete Data User');
-        return redirect()->route('warga.index');
+        if ($find_kk->kepala_keluarga_id == $user->id_user) {
+            Alert::error('error', 'Bahaya gess');
+            return redirect()->route('warga.index');
+        } else {
+            $user->delete();
+            Alert::success('Success', 'Success Delete Data User');
+            return redirect()->route('warga.index');
+        }
     }
 
     public function update(Request $request, $id)

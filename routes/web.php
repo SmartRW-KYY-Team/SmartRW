@@ -9,6 +9,7 @@ use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\keuanganRTController;
 use App\Http\Controllers\keuanganRWController;
 use App\Http\Controllers\BansosController;
+use App\Http\Controllers\KeluargaController;
 use App\Http\Controllers\KriteriaBansosController;
 use App\Http\Middleware\RTMiddleware;
 use App\Http\Middleware\RWMiddleware;
@@ -42,9 +43,19 @@ Route::middleware('auth')->prefix('warga')->name('warga.')->group(function () {
     Route::get('/', [wargaController::class, 'index'])->name('index');
     Route::get('/create', [wargaController::class, 'create'])->name('create');
     Route::post('/store', [wargaController::class, 'store'])->name('store');
-    Route::post('/{id}/destroy', [wargaController::class, 'destroy'])->name('destroy');
+    Route::delete('/{id}/destroy', [wargaController::class, 'destroy'])->name('destroy');
     Route::get('/{id}/edit', [wargaController::class, 'edit'])->name('edit');
     Route::post('/{id}/update', [wargaController::class, 'update'])->name('update');
+    Route::get('/{id}/show', [wargaController::class, 'show'])->name('pengaduan.show');
+});
+
+Route::prefix('keluarga')->name('keluarga.')->group(function () {
+    Route::get('/', [KeluargaController::class, 'index'])->name('index');
+    Route::get('/create', [KeluargaController::class, 'create'])->name('create');
+    Route::post('/store', [KeluargaController::class, 'store'])->name('store');
+    Route::delete('/{id}/destroy', [KeluargaController::class, 'destroy'])->name('destroy');
+    Route::get('/{id}/edit', [KeluargaController::class, 'edit'])->name('edit');
+    Route::post('/{id}/update', [KeluargaController::class, 'update'])->name('update');
 });
 
 Route::middleware('auth')->prefix('pengaduan')->name('pengaduan.')->group(function () {
