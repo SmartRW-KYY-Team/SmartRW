@@ -21,7 +21,6 @@ return new class extends Migration
             $table->unsignedBigInteger('agama_id');
             $table->enum('status_perkawinan', ['Kawin', 'Belum Kawin']);
             $table->string('pekerjaan');
-            $table->string('password');
             $table->string('notelp');
             $table->unsignedBigInteger('keluarga_id')->nullable();
             $table->timestamps();
