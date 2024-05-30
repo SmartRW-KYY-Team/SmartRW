@@ -49,7 +49,7 @@ class User extends Authenticatable
 
     public function keluarga()
     {
-        return $this->hasOne(Keluarga::class, 'kepala_keluarga_id', 'id_kepala_keluarga');
+        return $this->hasOne(Keluarga::class, 'id_keluarga', 'keluarga_id');
     }
     public function rtKetua()
     {
