@@ -12,12 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('bansos', function (Blueprint $table) {
-            $table->id('id_bansos');
+            $table->id('id_bansos'); 
             $table->unsignedBigInteger('keluarga_id');
-            $table->integer('kondisi_rumah');
-            $table->integer('jumlah_aset');
-            $table->integer('pendapatan');
-            $table->integer('jumlah_tanggungan');
+            $table->string('alternative');
+            $table->float('K1');
+            $table->float('K2');
+            $table->float('K3');
+            $table->float('K4');
+            $table->float('K5');
+            $table->float('K6');
+            $table->float('K7');
+            $table->float('K8');
+            $table->float('K9');
             $table->timestamps();
         });
     }

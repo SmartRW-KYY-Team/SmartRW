@@ -8,6 +8,7 @@ use App\Http\Controllers\wargaController;
 use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\keuanganRTController;
 use App\Http\Controllers\keuanganRWController;
+use App\Http\Controllers\BansosController;
 use App\Models\Kegiatan;
 use Illuminate\Routing\RouteRegistrar;
 use Illuminate\Support\Facades\Route;
@@ -70,6 +71,7 @@ Route::get('/sktm', [SKTMController::class, 'index'])->name('sktm.index');
 Route::post('/sktm', [SKTMController::class, 'store'])->name('sktm.store');
 Route::post('/sktm/accept/{id}', [SKTMController::class, 'accept'])->name('sktm.accept');
 Route::get('/sktm/{id}/show', [SKTMController::class, 'show'])->name('sktm.show');
+
 Route::prefix('keuanganrt')->name('keuanganrt.')->group(function () {
     Route::get('/', [KeuanganRTController::class, 'index'])->name('index');
     Route::post('/', [KeuanganRTController::class, 'store'])->name('store');
@@ -84,4 +86,8 @@ Route::prefix('keuanganrw')->name('keuanganrw.')->group(function () {
     Route::post('{id}/destroy', [KeuanganRWController::class, 'destroy'])->name('destroy');
     Route::get('{id}/edit', [KeuanganRWController::class, 'edit'])->name('edit');
     Route::post('{id}/update', [KeuanganRWController::class, 'update'])->name('update');
+});
+
+Route::prefix('bansos')->name('bansos.')->group(function () {
+    Route::get('/', [BansosController::class, 'index'])->name('index');
 });
