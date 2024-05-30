@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
             KeluargaSeeder::class,
             KegiatanSeeder::class,
             PengaduanSeeder::class,
-            DetailKeuanganRWSeeder::class,  
+            DetailKeuanganRWSeeder::class,
             KeuanganRWSeeder::class,
             DetailKeuanganRTSeeder::class,
             KeuanganRTSeeder::class,
@@ -34,6 +34,7 @@ class DatabaseSeeder extends Seeder
             SuratSKTMSeeder::class,
             AdministratorSeeder::class,
             BansosSeeder::class,
+            KriteriaBansosSeeder::class
         ]);
     }
 }
