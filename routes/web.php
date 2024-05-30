@@ -27,11 +27,14 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/warga', [wargaController::class, 'index'])->name('warga.index');
-Route::post('/warga', [wargaController::class, 'store'])->name('warga.store');
-Route::post('/warga/{id}/destroy', [wargaController::class, 'destroy'])->name('warga.destroy');
-Route::get('/warga/{id}/edit', [wargaController::class, 'edit'])->name('warga.edit');
-Route::post('/warga/{id}/update', [wargaController::class, 'update'])->name('warga.update');
+Route::prefix('warga')->name('warga.')->group(function () {
+    Route::get('/', [wargaController::class, 'index'])->name('index');
+    Route::get('/create', [wargaController::class, 'create'])->name('create');
+    Route::post('/store', [wargaController::class, 'store'])->name('store');
+    Route::post('/{id}/destroy', [wargaController::class, 'destroy'])->name('destroy');
+    Route::get('/{id}/edit', [wargaController::class, 'edit'])->name('edit');
+    Route::post('/{id}/update', [wargaController::class, 'update'])->name('update');
+});
 
 Route::get('/pengaduan-index', [PengaduanController::class, 'index'])->name('pengaduan.index');
 Route::get('/pengaduan-create', [PengaduanController::class, 'create'])->name('pengaduan.create');
@@ -40,8 +43,10 @@ Route::post('/pengaduan/{id}/destroy', [PengaduanController::class, 'destroy'])-
 Route::get('/pengaduan/{id}/show', [PengaduanController::class, 'show'])->name('pengaduan.show');
 Route::post('/pengaduan/{id}/update', [PengaduanController::class, 'update'])->name('pengaduan.update');
 
-Route::get('/login', [AuthController::class, 'login'])->name('login');
-Route::post('/login', [AuthController::class, 'loginProcess'])->name('login.post');
+Route::group(['middleware' => 'guest'], function () {
+    Route::get('/login', [AuthController::class, 'login'])->name('login');
+    Route::post('/login', [AuthController::class, 'loginProcess'])->name('login.post');
+});
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::prefix('kegiatan')->name('kegiatan.')->group(function () {

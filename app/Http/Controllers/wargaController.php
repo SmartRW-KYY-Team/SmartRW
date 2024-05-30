@@ -20,6 +20,14 @@ class wargaController extends Controller
         return $dataTable->render('warga.home', ['warga' => $warga, 'agama' => $agama, 'keluarga' => $keluarga]);
     }
 
+    public function create()
+    {
+        $warga = User::all();
+        $agama = Agama::all();
+        $keluarga = Keluarga::with('kepala_keluarga')->get();
+        return view('warga.create', ['warga' => $warga, 'agama' => $agama, 'keluarga' => $keluarga]);
+    }
+
     public function store(Request $request)
     {
         // Validasi data yang diterima dari formulir
@@ -37,6 +45,7 @@ class wargaController extends Controller
             'notelp' => 'required|string|max:20',
             'keluarga' => 'required',
         ]);
+
 
         // Buat pengguna baru berdasarkan data yang valid
         User::create([
@@ -60,8 +69,10 @@ class wargaController extends Controller
 
     public function edit($id)
     {
+        $agama = Agama::all();
+        $keluarga = Keluarga::all();
         $warga = User::findOrFail($id);
-        return response()->json($warga);
+        return view('warga.edit', ['warga' => $warga, 'agama' => $agama, 'keluarga' => $keluarga, 'id_warga' => $id]);
     }
 
     public function destroy($id)
@@ -76,18 +87,18 @@ class wargaController extends Controller
     public function update(Request $request, $id)
     {
         // Validasi data yang diterima dari formulir
-        // $request->validate([
-        //     'nama' => 'required|string|max:255',
-        //     'nik' => 'required|string|max:255|unique:users',
-        //     'tgl_lahir' => 'required|date',
-        //     'tempat_lahir' => 'required|string|max:255',
-        //     'jenis_kelamin' => 'required',
-        //     'agama' => 'required',
-        //     'status_perkawinan' => 'required',
-        //     'pekerjaan' => 'required|string|max:255',
-        //     'notelp' => 'required|string|max:20',
-        //     'keluarga' => 'required',
-        // ]);
+        $request->validate([
+            'nama' => 'required|string|max:255',
+            'nik' => 'required|string|max:255|unique:users,nik,' . $id . ',id_user',
+            'tgl_lahir' => 'required|date',
+            'tempat_lahir' => 'required|string|max:255',
+            'jenis_kelamin' => 'required',
+            'agama' => 'required',
+            'status_perkawinan' => 'required',
+            'pekerjaan' => 'required|string|max:255',
+            'notelp' => 'required|string|max:20',
+            'keluarga' => 'required',
+        ]);
 
         // Cari pengguna berdasarkan id dan perbarui data
         $user = User::findOrFail($id);

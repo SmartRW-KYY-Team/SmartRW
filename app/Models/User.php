@@ -46,6 +46,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
     public function keluarga()
     {
         return $this->hasOne(Keluarga::class, 'kepala_keluarga_id', 'id_kepala_keluarga');
