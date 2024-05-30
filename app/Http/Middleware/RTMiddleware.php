@@ -18,6 +18,6 @@ class RTMiddleware
         if (session('role') == "rt") {
             return $next($request);
         }
-        return redirect('login');
+        abort(403);
     }
 }
