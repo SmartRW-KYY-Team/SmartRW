@@ -9,6 +9,7 @@ use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\keuanganRTController;
 use App\Http\Controllers\keuanganRWController;
 use App\Http\Controllers\BansosController;
+use App\Http\Controllers\KriteriaBansosController;
 use App\Models\Kegiatan;
 use Illuminate\Routing\RouteRegistrar;
 use Illuminate\Support\Facades\Route;
@@ -60,8 +61,6 @@ Route::prefix('kegiatan')->name('kegiatan.')->group(function () {
     Route::delete('/{id}/destroy', [KegiatanController::class, 'destroy'])->name('destroy');
 });
 
-Route::get('/kegiatan', [KegiatanController::class, 'index']);
-
 Route::get('/domisili', [DomisiliController::class, 'index'])->name('domisili.index');
 Route::post('/domisili', [DomisiliController::class, 'store'])->name('domisili.store');
 Route::post('/domisili/accept/{id}', [DomisiliController::class, 'accept'])->name('domisili.accept');
@@ -87,6 +86,8 @@ Route::prefix('keuanganrw')->name('keuanganrw.')->group(function () {
     Route::get('{id}/edit', [KeuanganRWController::class, 'edit'])->name('edit');
     Route::post('{id}/update', [KeuanganRWController::class, 'update'])->name('update');
 });
+
+Route::get('/kriteriabansos', [KriteriaBansosController::class, 'index']);
 
 Route::prefix('bansos')->name('bansos.')->group(function () {
     Route::get('/', [BansosController::class, 'index'])->name('index');
