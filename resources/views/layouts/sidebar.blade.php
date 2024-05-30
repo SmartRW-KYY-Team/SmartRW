@@ -2,7 +2,7 @@
     <div class="sidebar-wrapper active">
         <div class="sidebar-header position-relative">
             <div class="logo img-fluid">
-                <a href="index.html"><img src="./assets/image/Logo (2).svg" alt="Logo"
+                <a href="index.html"><img src="{{ asset('assets/image/Logo(2).svg') }}" alt="Logo"
                         style="width: 100%; height: 75px;"></a>
             </div>
             <div class="d-flex justify-content-center align-items-center">
@@ -24,7 +24,7 @@
                     </a>
                 </li>
 
-                <li class="sidebar-item active">
+                <li class="sidebar-item {{ Request::is('warga*') ? 'active' : '' }}">
                     <a href="{{ route('warga.index') }}" class='sidebar-link'>
                         <i class="bi bi-people-fill"></i>
                         <span>Data Warga</span>
@@ -101,10 +101,14 @@
                         <span>Profil</span>
                     </a>
 
-                    <a href="form-layout.html" class='sidebar-link'>
+                    <a href="{{ route('logout') }}" class='sidebar-link' onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         <i class="bi bi-box-arrow-right"></i>
                         <span>Logout</span>
                     </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
                 </li>
             </ul>
         </div>
