@@ -88,7 +88,6 @@ Route::prefix('keuanganrw')->name('keuanganrw.')->group(function () {
 });
 
 Route::get('/kriteriabansos', [KriteriaBansosController::class, 'index']);
-Route::get('/ahp', [KriteriaBansosController::class, 'calculateAHP']);
 
 Route::prefix('bansos')->name('bansos.')->group(function () {
     Route::get('/', [BansosController::class, 'index'])->name('index');

@@ -15,7 +15,8 @@ class KriteriaBansosController extends Controller
     {
         //
         $data = KriteriaBansos::all();
-        return view('kriteria_bansos.index', compact('data'));
+        $consistency = $this->calculateAHP();
+        return view('kriteria_bansos.index', compact('data', 'consistency'));
     }
     public function calculateAHP()
     {
@@ -26,7 +27,7 @@ class KriteriaBansosController extends Controller
         $criteriaIds = [];
 
         foreach ($criteria as $criterion) {
-            $criteriaIds[] = $criterion->id; // Assume each criterion has an 'id' field
+            $criteriaIds[] = $criterion->id_kriteria_bansos; // Assume each criterion has an 'id' field
             $criteriaNames[] = $criterion->nama_kriteria;
             $criteriaMatrix[] = [
                 $criterion->pendapatan,
@@ -48,12 +49,12 @@ class KriteriaBansosController extends Controller
             // Store PW in the database
             foreach ($eigenVector as $index => $value) {
                 DB::table('kriteria_bansos')
-                    ->where('id', $criteriaIds[$index])
+                    ->where('id_kriteria_bansos', $criteriaIds[$index])
                     ->update(['bobot' => $value]);
             }
         }
 
-        return view('kriteria_bansos.ahp', compact('eigenVector', 'consistency', 'criteriaNames'));
+        return $consistency;
     }
 
     private function calculateEigenVector($matrix)
