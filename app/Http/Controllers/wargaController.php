@@ -40,8 +40,6 @@ class wargaController extends Controller
             'agama' => 'required',
             'status_perkawinan' => 'required',
             'pekerjaan' => 'required|string|max:255',
-            'password' => 'required|string',
-            'password_confirmation' => 'required|string',
             'notelp' => 'required|string|max:20',
             'keluarga' => 'required',
         ]);
@@ -57,7 +55,6 @@ class wargaController extends Controller
             'agama_id' => $request->agama,
             'status_perkawinan' => $request->status_perkawinan,
             'pekerjaan' => $request->pekerjaan,
-            'password' => Hash::make($request->password),
             'notelp' => $request->notelp,
             'keluarga_id' => $request->keluarga,
         ]);

@@ -53,7 +53,7 @@
                     if (data.keluarga_id == null) {
                         $('#detail-keluarga').html('Belum Mempunyai Nomor Keluarga');
                     } else {
-                        $('#detail-keluarga').html(data.keluarga.id_keluarga);
+                        $('#detail-keluarga').html(data.keluarga.nokk);
                     }
                     $('#detail-lampiran').attr('src',
                         `{{ asset('storage/lampiran/lampiranImage') }}`
