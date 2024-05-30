@@ -25,7 +25,6 @@ class UsersSeeder extends Seeder
                 'agama_id' => 1, // ID Agama_id Islam
                 'status_perkawinan' => 'Kawin',
                 'pekerjaan' => 'Karyawan',
-                'password' => Hash::make('password123'),
                 'notelp' => '08123456789',
                 'keluarga_id' => null,
                 'created_at' => Carbon::now(),
@@ -40,7 +39,6 @@ class UsersSeeder extends Seeder
                 'agama_id' => 2, // ID Agama_id Kristen Protestan
                 'status_perkawinan' => 'Belum Kawin',
                 'pekerjaan' => 'Mahasiswa',
-                'password' => Hash::make('password123'),
                 'notelp' => '08567891234',
                 'keluarga_id' => null,
                 'created_at' => Carbon::now(),
@@ -55,7 +53,6 @@ class UsersSeeder extends Seeder
                 'agama_id' => 1, // ID Agama_id Islam
                 'status_perkawinan' => 'Kawin',
                 'pekerjaan' => 'Guru',
-                'password' => Hash::make('password123'),
                 'notelp' => '08765432100',
                 'keluarga_id' => null,
                 'created_at' => Carbon::now(),
@@ -70,7 +67,6 @@ class UsersSeeder extends Seeder
                 'agama_id' => 3, // ID Agama_id Katolik
                 'status_perkawinan' => 'Belum Kawin',
                 'pekerjaan' => 'Wiraswasta',
-                'password' => Hash::make('password123'),
                 'notelp' => '08112233445',
                 'keluarga_id' => null,
                 'created_at' => Carbon::now(),
@@ -85,7 +81,6 @@ class UsersSeeder extends Seeder
                 'agama_id' => 4, // ID Agama_id Hindu
                 'status_perkawinan' => 'Belum Kawin',
                 'pekerjaan' => 'Dosen',
-                'password' => Hash::make('password123'),
                 'notelp' => '08987654321',
                 'keluarga_id' => null,
                 'created_at' => Carbon::now(),
@@ -100,7 +95,6 @@ class UsersSeeder extends Seeder
                 'agama_id' => 2, // ID Agama_id Kristen Protestan
                 'status_perkawinan' => 'Belum Kawin',
                 'pekerjaan' => 'Pelajar',
-                'password' => Hash::make('password123'),
                 'notelp' => '08123456789',
                 'keluarga_id' => null,
                 'created_at' => Carbon::now(),
@@ -115,7 +109,6 @@ class UsersSeeder extends Seeder
                 'agama_id' => 5, // ID Agama_id Buddha
                 'status_perkawinan' => 'Kawin',
                 'pekerjaan' => 'Wiraswasta',
-                'password' => Hash::make('password123'),
                 'notelp' => '08765432100',
                 'keluarga_id' => null,
                 'created_at' => Carbon::now(),
@@ -130,7 +123,6 @@ class UsersSeeder extends Seeder
                 'agama_id' => 1, // ID Agama_id Islam
                 'status_perkawinan' => 'Belum Kawin',
                 'pekerjaan' => 'Pegawai Negeri',
-                'password' => Hash::make('password123'),
                 'notelp' => '08211223344',
                 'keluarga_id' => null,
                 'created_at' => Carbon::now(),
@@ -145,7 +137,6 @@ class UsersSeeder extends Seeder
                 'agama_id' => 3, // ID Agama_id Katolik
                 'status_perkawinan' => 'Kawin',
                 'pekerjaan' => 'Pengusaha',
-                'password' => Hash::make('password123'),
                 'notelp' => '08987654321',
                 'keluarga_id' => null,
                 'created_at' => Carbon::now(),
@@ -160,7 +151,6 @@ class UsersSeeder extends Seeder
                 'agama_id' => 4, // ID Agama_id Hindu
                 'status_perkawinan' => 'Belum Kawin',
                 'pekerjaan' => 'Penulis',
-                'password' => Hash::make('password123'),
                 'notelp' => '08112233445',
                 'keluarga_id' => null,
                 'created_at' => Carbon::now(),
@@ -175,7 +165,6 @@ class UsersSeeder extends Seeder
                 'agama_id' => 5, // ID Agama_id Buddha
                 'status_perkawinan' => 'Belum Kawin',
                 'pekerjaan' => 'Konsultan',
-                'password' => Hash::make('password123'),
                 'notelp' => '08761234567',
                 'keluarga_id' => null,
                 'created_at' => Carbon::now(),
@@ -190,7 +179,6 @@ class UsersSeeder extends Seeder
                 'agama_id' => 2, // ID Agama_id Kristen Protestan
                 'status_perkawinan' => 'Kawin',
                 'pekerjaan' => 'Manager',
-                'password' => Hash::make('password123'),
                 'notelp' => '08111223344',
                 'keluarga_id' => null,
                 'created_at' => Carbon::now(),
@@ -205,7 +193,6 @@ class UsersSeeder extends Seeder
                 'agama_id' => 3, // ID Agama_id Katolik
                 'status_perkawinan' => 'Belum Kawin',
                 'pekerjaan' => 'Dokter',
-                'password' => Hash::make('password123'),
                 'notelp' => '08233445566',
                 'keluarga_id' => null,
                 'created_at' => Carbon::now(),
@@ -220,7 +207,6 @@ class UsersSeeder extends Seeder
                 'agama_id' => 4, // ID Agama_id Hindu
                 'status_perkawinan' => 'Kawin',
                 'pekerjaan' => 'Pengusaha',
-                'password' => Hash::make('password123'),
                 'notelp' => '08127894567',
                 'keluarga_id' => null,
                 'created_at' => Carbon::now(),
@@ -235,7 +221,6 @@ class UsersSeeder extends Seeder
                 'agama_id' => 5, // ID Agama_id Buddha
                 'status_perkawinan' => 'Belum Kawin',
                 'pekerjaan' => 'Arsitek',
-                'password' => Hash::make('password123'),
                 'notelp' => '08761234567',
                 'keluarga_id' => null,
                 'created_at' => Carbon::now(),
@@ -250,7 +235,6 @@ class UsersSeeder extends Seeder
                 'agama_id' => 1, // ID Agama_id Islam
                 'status_perkawinan' => 'Belum Kawin',
                 'pekerjaan' => 'Pegawai Swasta',
-                'password' => Hash::make('password123'),
                 'notelp' => '08127894567',
                 'keluarga_id' => null,
                 'created_at' => Carbon::now(),
@@ -265,7 +249,6 @@ class UsersSeeder extends Seeder
                 'agama_id' => 3, // ID Agama_id Katolik
                 'status_perkawinan' => 'Belum Kawin',
                 'pekerjaan' => 'Konsultan IT',
-                'password' => Hash::make('password123'),
                 'notelp' => '08123456789',
                 'keluarga_id' => null,
                 'created_at' => now(),
@@ -280,7 +263,6 @@ class UsersSeeder extends Seeder
                 'agama_id' => 4, // ID Agama_id Hindu
                 'status_perkawinan' => 'Kawin',
                 'pekerjaan' => 'Arsitek',
-                'password' => Hash::make('password123'),
                 'notelp' => '08567891234',
                 'keluarga_id' => null,
                 'created_at' => now(),
@@ -295,7 +277,6 @@ class UsersSeeder extends Seeder
                 'agama_id' => 1, // ID Agama_id Islam
                 'status_perkawinan' => 'Kawin',
                 'pekerjaan' => 'Pengusaha',
-                'password' => Hash::make('password123'),
                 'notelp' => '08765432100',
                 'keluarga_id' => null,
                 'created_at' => now(),
@@ -310,7 +291,6 @@ class UsersSeeder extends Seeder
                 'agama_id' => 2, // ID Agama_id Kristen Protestan
                 'status_perkawinan' => 'Belum Kawin',
                 'pekerjaan' => 'Pelajar',
-                'password' => Hash::make('password123'),
                 'notelp' => '08112233445',
                 'keluarga_id' => null,
                 'created_at' => now(),
@@ -325,7 +305,6 @@ class UsersSeeder extends Seeder
                 'agama_id' => 5, // ID Agama_id Buddha
                 'status_perkawinan' => 'Belum Kawin',
                 'pekerjaan' => 'Dokter',
-                'password' => Hash::make('password123'),
                 'notelp' => '08987654321',
                 'keluarga_id' => null,
                 'created_at' => now(),
@@ -340,7 +319,6 @@ class UsersSeeder extends Seeder
                 'agama_id' => 3, // ID Agama_id Katolik
                 'status_perkawinan' => 'Belum Kawin',
                 'pekerjaan' => 'Pegawai Negeri',
-                'password' => Hash::make('password123'),
                 'notelp' => '08211223344',
                 'keluarga_id' => null,
                 'created_at' => now(),
@@ -355,7 +333,6 @@ class UsersSeeder extends Seeder
                 'agama_id' => 4, // ID Agama_id Hindu
                 'status_perkawinan' => 'Kawin',
                 'pekerjaan' => 'Pengusaha',
-                'password' => Hash::make('password123'),
                 'notelp' => '08127894567',
                 'keluarga_id' => null,
                 'created_at' => now(),
@@ -370,7 +347,6 @@ class UsersSeeder extends Seeder
                 'agama_id' => 5, // ID Agama_id Buddha
                 'status_perkawinan' => 'Belum Kawin',
                 'pekerjaan' => 'Arsitek',
-                'password' => Hash::make('password123'),
                 'notelp' => '08761234567',
                 'keluarga_id' => null,
                 'created_at' => now(),
@@ -385,7 +361,6 @@ class UsersSeeder extends Seeder
                 'agama_id' => 1, // ID Agama_id Islam
                 'status_perkawinan' => 'Kawin',
                 'pekerjaan' => 'Pegawai Swasta',
-                'password' => Hash::make('password123'),
                 'notelp' => '08127894567',
                 'keluarga_id' => null,
                 'created_at' => now(),
@@ -400,7 +375,6 @@ class UsersSeeder extends Seeder
                 'agama_id' => 2, // ID Agama_id Kristen Protestan
                 'status_perkawinan' => 'Belum Kawin',
                 'pekerjaan' => 'Manager',
-                'password' => Hash::make('password123'),
                 'notelp' => '08561234567',
                 'keluarga_id' => null,
                 'created_at' => now(),
