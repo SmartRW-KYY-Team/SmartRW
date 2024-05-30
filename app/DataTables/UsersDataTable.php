@@ -24,12 +24,12 @@ class UsersDataTable extends DataTable
         return (new EloquentDataTable($query))
             ->addColumn('action', function ($row) {
                 return '<div style="display: flex; justify-content: space-between;">
-                <a href="' . route('warga.edit', $row->id_user)  . '"class="btn btn-warning me-2"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                <button type="button" class="btn btn-danger deleteButton"
-                    data-id="' . $row->id_user . '"
-                    data-nama="' . $row->nama . '">
-                    <i class="fa fa-trash" aria-hidden="true"></i>
+                <button type="button" class="btn btn-info DetailButton me-2"
+                data-id="' . $row->id_user . '"
+                data-nama="' . $row->nama . '">
+                <i class="fa fa-eye" aria-hidden="true"></i>
                 </button>
+                <a href="' . route('warga.edit', $row->id_user)  . '"class="btn btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
             </div>';
             })
             ->addColumn('No', function () {
