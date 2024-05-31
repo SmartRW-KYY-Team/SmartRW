@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Bansos extends Model
 {
@@ -14,8 +14,8 @@ class Bansos extends Model
     protected $primaryKey = 'id_bansos';
     protected $guarded = [];
 
-    public function keluarga(): HasMany
+    public function keluarga(): BelongsTo
     {
-        return $this->hasMany(User::class, 'id_bansos', 'id_user');
+        return $this->belongsTo(User::class, 'keluarga_id', 'id_user');
     }
 }
