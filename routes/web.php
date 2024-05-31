@@ -39,7 +39,7 @@ Route::group(['middleware' => 'guest'], function () {
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::middleware('auth')->prefix('warga')->name('warga.')->group(function () {
+Route::middleware('auth')->prefix('warga')->name('warga')->group(function () {
     Route::get('/', [wargaController::class, 'index'])->name('index');
     Route::get('/create', [wargaController::class, 'create'])->name('create');
     Route::post('/store', [wargaController::class, 'store'])->name('store');
