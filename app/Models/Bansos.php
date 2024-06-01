@@ -13,6 +13,9 @@ class Bansos extends Model
     protected $table = 'bansos';
     protected $primaryKey = 'id_bansos';
     protected $guarded = [];
+    protected $fillable = [
+        'keluarga_id', 'K1', 'K2', 'K3', 'K4', 'K5', 'K6', 'K7', 'K8', 'K9'
+    ]; 
 
     public function keluarga(): BelongsTo
     {

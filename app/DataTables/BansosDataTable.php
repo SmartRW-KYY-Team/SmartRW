@@ -17,16 +17,13 @@ class BansosDataTable extends DataTable
         return (new EloquentDataTable($query))
             ->addColumn('action', function ($row) {
                 return '<div style="display: flex; justify-content: space-between;">
-                    <button type="button" class="btn btn-light me-2 ShowModalBansos"
-                        data-id="' . $row->id_bansos . '"
-                        data-nama="' . $row->alternative . '">
-                        <i class="bi bi-eye-fill"></i>
-                    </button>
-                    <button type="button" class="btn btn-success me-2 AcceptModalBansos"
-                        data-id="' . $row->id_bansos . '"
-                        data-nama="' . $row->alternative . '">
-                        <i class="bi bi-check-square-fill"></i> 
-                    </button>
+                    <form action="' . route('bansos.delete', $row->id_bansos) . '" method="POST" style="display: inline;">
+                        ' . csrf_field() . '
+                        ' . method_field('DELETE') . '
+                        <button type="submit" class="btn btn-danger me-2" onclick="return confirm(\'Apakah Anda Yakin?\')">
+                            <i class="bi bi-trash-fill"></i>
+                        </button>
+                    </form>
                 </div>';
             })
             ->addColumn('No', function ($row) {
@@ -37,11 +34,11 @@ class BansosDataTable extends DataTable
                 return $row->keluarga->nama;
             })
             ->setRowId('id');
-    }
+    }    
 
     public function query(Bansos $model): QueryBuilder
     {
-        return $model->newQuery()->with('keluarga'); 
+        return $model->newQuery()->with('keluarga');
     }
 
     public function html(): HtmlBuilder
@@ -77,8 +74,16 @@ class BansosDataTable extends DataTable
     {
         return [
             Column::make('No'),
-            Column::make('alternative')->title('Alternative'),
-            Column::make('keluarga.nama')->title('Nama'), // Menggunakan relasi 'keluarga'
+            Column::make('keluarga.nama')->title('Nama'),
+            Column::make('K1')->title('Pendapatan'),
+            Column::make('K2')->title('Kendaraan'),
+            Column::make('K3')->title('Jenis Lantai'),
+            Column::make('K4')->title('Kondisi Dinding'),
+            Column::make('K5')->title('Kondisi Atap'),
+            Column::make('K6')->title('Tanggungan'),
+            Column::make('K7')->title('Listrik'),
+            Column::make('K8')->title('Luas Tanah'),
+            Column::make('K9')->title('Luas Bangunan'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)

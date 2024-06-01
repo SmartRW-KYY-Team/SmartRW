@@ -15,7 +15,6 @@ class BansosSeeder extends Seeder
     {
         DB::table('bansos')->insert([
             [
-                'alternative' => 'A1',
                 'keluarga_id' => 1,
                 'K1' => 4,
                 'K2' => 3,
@@ -30,7 +29,6 @@ class BansosSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'alternative' => 'A2',
                 'keluarga_id' => 2,
                 'K1' => 5,
                 'K2' => 4,
@@ -45,7 +43,6 @@ class BansosSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'alternative' => 'A3',
                 'keluarga_id' => 3,
                 'K1' => 3,
                 'K2' => 3,
@@ -60,7 +57,6 @@ class BansosSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'alternative' => 'A4',
                 'keluarga_id' => 4,
                 'K1' => 4,
                 'K2' => 5,
@@ -75,7 +71,6 @@ class BansosSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'alternative' => 'A5',
                 'keluarga_id' => 5,
                 'K1' => 5,
                 'K2' => 5,
@@ -90,7 +85,6 @@ class BansosSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'alternative' => 'A6',
                 'keluarga_id' => 6,
                 'K1' => 2,
                 'K2' => 3,
@@ -105,7 +99,6 @@ class BansosSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'alternative' => 'A7',
                 'keluarga_id' => 7,
                 'K1' => 4,
                 'K2' => 5,
@@ -120,7 +113,6 @@ class BansosSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'alternative' => 'A8',
                 'keluarga_id' => 8,
                 'K1' => 3,
                 'K2' => 4,
@@ -135,7 +127,6 @@ class BansosSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'alternative' => 'A9',
                 'keluarga_id' =>9,
                 'K1' => 3,
                 'K2' => 5,
@@ -150,7 +141,6 @@ class BansosSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'alternative' => 'A10',
                 'keluarga_id' => 10,
                 'K1' => 4,
                 'K2' => 2,

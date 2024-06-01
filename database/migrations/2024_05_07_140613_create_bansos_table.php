@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('bansos', function (Blueprint $table) {
             $table->id('id_bansos');
             $table->unsignedBigInteger('keluarga_id');
-            $table->string('alternative');
             $table->double('K1');
             $table->double('K2');
             $table->double('K3');
