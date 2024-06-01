@@ -118,7 +118,7 @@ Route::prefix('bansos')->name('bansos.')->group(function () {
     Route::get('/', [BansosController::class, 'index'])->name('index');
     Route::get('/create', [BansosController::class, 'create'])->name('create');
     Route::post('/', [BansosController::class, 'store'])->name('store');
-    Route::get('/proses', [BansosController::class, 'proses'])->name('proses');
+    Route::get('/process', [BansosController::class, 'process'])->name('process');
     Route::delete('/{id}', [BansosController::class, 'delete'])->name('delete');
 });
 

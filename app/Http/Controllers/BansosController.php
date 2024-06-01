@@ -60,7 +60,7 @@ class BansosController extends Controller
         return redirect()->route('bansos.index');
     }
 
-    public function proses(){
+    public function process(){
         
     }
 }
