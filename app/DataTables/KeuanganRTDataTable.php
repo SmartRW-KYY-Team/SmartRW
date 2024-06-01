@@ -38,7 +38,13 @@ class KeuanganRTDataTable extends DataTable
 
     public function query(KeuanganRT $model): QueryBuilder
     {
-        return $model->newQuery();
+        $rt_id = session('no_role');
+        
+        if ($rt_id) {
+            return $model->newQuery()->where('rt_id', $rt_id);
+        } else {
+            return $model->newQuery()->where('rt_id', null);
+        }
     }
 
     public function html(): HtmlBuilder
@@ -47,7 +53,7 @@ class KeuanganRTDataTable extends DataTable
             ->setTableId('keuanganRT-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->orderBy(0)
+            ->orderBy(1, 'desc') 
             ->selectStyleSingle()
             ->buttons([
                 Button::make('excel'),
@@ -69,6 +75,7 @@ class KeuanganRTDataTable extends DataTable
     {
         return [
             Column::make('No'),
+            Column::make('tanggal'),
             Column::make('jumlah'),
             Column::make('tipe'),
             Column::make('keterangan'),
@@ -85,4 +92,3 @@ class KeuanganRTDataTable extends DataTable
         return 'KeuanganRT_' . date('YmdHis');
     }
 }
-
