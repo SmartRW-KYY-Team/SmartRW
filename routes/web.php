@@ -7,6 +7,7 @@ use App\Http\Controllers\SKTMController;
 use App\Http\Controllers\wargaController;
 use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\KeuanganRTController;
+use App\Http\Controllers\RTController;
 use App\Http\Controllers\KeuanganRWController;
 use App\Http\Controllers\BansosController;
 use App\Http\Controllers\KeluargaController;
@@ -122,3 +123,8 @@ Route::prefix('bansos')->name('bansos.')->group(function () {
     Route::delete('/{id}', [BansosController::class, 'delete'])->name('delete');
 });
 
+Route::middleware(['auth'])->prefix('rt')->name('rt.')->group(function () {
+    Route::get('/', [RTController::class, 'index'])->name('index');
+    Route::get('{id}/edit', [RTController::class, 'edit'])->name('edit');
+    Route::post('{id}/update', [RTController::class, 'update'])->name('update');
+});

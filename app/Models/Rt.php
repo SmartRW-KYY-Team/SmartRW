@@ -42,14 +42,14 @@ class Rt extends Model
     }
     public function ketuaRT()
     {
-        return $this->hasOne(User::class);
+        return $this->belongsTo(User::class, 'ketua_id', 'id_user');
     }
     public function sekretarisRT()
     {
-        return $this->hasOne(User::class);
+        return $this->belongsTo(User::class, 'sekretaris_id', 'id_user');
     }
     public function bendaharaRT()
     {
-        return $this->hasOne(User::class);
+        return $this->belongsTo(User::class, 'bendahara_id', 'id_user');
     }
 }
