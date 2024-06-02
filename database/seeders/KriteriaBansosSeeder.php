@@ -26,7 +26,8 @@ class KriteriaBansosSeeder extends Seeder
                 'listrik' => 5,
                 'luas_tanah' => 4,
                 'luas_bangunan' => 3,
-                'bobot' => null
+                'bobot' => null,
+                'tipe' => 'cost'
             ],
             [
                 'nama_kriteria' => 'Kendaraan',
@@ -39,7 +40,8 @@ class KriteriaBansosSeeder extends Seeder
                 'listrik' => 2,
                 'luas_tanah' => 1,
                 'luas_bangunan' => 1 / 3,
-                'bobot' => null
+                'bobot' => null,
+                'tipe' => 'cost'
 
             ], [
                 'nama_kriteria' => 'Jenis Lantai',
@@ -52,7 +54,8 @@ class KriteriaBansosSeeder extends Seeder
                 'listrik' => 1,
                 'luas_tanah' => 1 / 3,
                 'luas_bangunan' => 1 / 5,
-                'bobot' => null
+                'bobot' => null,
+                'tipe' => 'cost',
             ], [
                 'nama_kriteria' => 'Kondisi Dinding',
                 'pendapatan' => 1 / 5,
@@ -64,7 +67,8 @@ class KriteriaBansosSeeder extends Seeder
                 'listrik' => 1,
                 'luas_tanah' => 1 / 3,
                 'luas_bangunan' => 1 / 5,
-                'bobot' => null
+                'bobot' => null,
+                'tipe' => 'cost',
             ], [
                 'nama_kriteria' => 'Kondisi Atap',
                 'pendapatan' => 1 / 5,
@@ -76,7 +80,8 @@ class KriteriaBansosSeeder extends Seeder
                 'listrik' => 1,
                 'luas_tanah' => 1 / 3,
                 'luas_bangunan' => 1 / 5,
-                'bobot' => null
+                'bobot' => null,
+                'tipe' => 'cost'
             ], [
                 'nama_kriteria' => 'Tanggungan',
                 'pendapatan' => 1 / 3,
@@ -88,7 +93,8 @@ class KriteriaBansosSeeder extends Seeder
                 'listrik' => 4,
                 'luas_tanah' => 3,
                 'luas_bangunan' => 1,
-                'bobot' => null
+                'bobot' => null,
+                'tipe' => 'benefit',
             ], [
                 'nama_kriteria' => 'Listrik',
                 'pendapatan' => 1 / 5,
@@ -100,7 +106,8 @@ class KriteriaBansosSeeder extends Seeder
                 'listrik' => 1,
                 'luas_tanah' => 1 / 3,
                 'luas_bangunan' => 1 / 5,
-                'bobot' => null
+                'bobot' => null,
+                'tipe' => 'cost'
             ], [
                 'nama_kriteria' => 'Luas Tanah',
                 'pendapatan' => 1 / 4,
@@ -112,7 +119,8 @@ class KriteriaBansosSeeder extends Seeder
                 'listrik' => 3,
                 'luas_tanah' => 1,
                 'luas_bangunan' => 1 / 3,
-                'bobot' => null
+                'bobot' => null,
+                'tipe' => 'cost'
             ], [
                 'nama_kriteria' => 'Luas Bangunan',
                 'pendapatan' => 1 / 3,
@@ -124,7 +132,8 @@ class KriteriaBansosSeeder extends Seeder
                 'listrik' => 5,
                 'luas_tanah' => 3,
                 'luas_bangunan' => 1,
-                'bobot' => null
+                'bobot' => null,
+                'tipe' => 'cost'
             ],
         ]);
     }
