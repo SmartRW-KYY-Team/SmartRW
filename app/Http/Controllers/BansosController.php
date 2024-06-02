@@ -119,7 +119,6 @@ class BansosController extends Controller
         for ($i = 0; $i < count($alternatives); $i++) {
             $appraisalScores[$i] = 0.5 * ($NSP[$i] + $NSN[$i]);
         }
-        dd($appraisalScores);
 
         // Display results
         return view('bansos.edas', compact('alternatives', 'appraisalScores'));

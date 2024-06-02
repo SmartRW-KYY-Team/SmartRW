@@ -24,10 +24,10 @@ class KegiatanDataTable extends DataTable
         return (new EloquentDataTable($query))
             ->addColumn('action', function ($row) {
                 return '<div style="display: flex; justify-content: space-beetween; ">
-                <button type="button" class="btn btn-info me-2 showButtonDetail" data-bs-toggle="tooltip" data-id="' . $row->id_kegiatan . '" data-bs-placement="top" title="Detail"><i class="fa fa-info-circle"></i></button>
+                <button type="button" class="btn btn-info me-2 showButtonDetail" data-bs-toggle="tooltip" data-id="' . $row->id_kegiatan . '" data-rw="' . $row->rw->nama . '"  data-rt="' . $row->rt->nama . '" data-bs-placement="top" title="Detail"><i class="fa fa-info-circle"></i></button>
                 <a href="/kegiatan/' . $row->id_kegiatan . '/edit" class="btn btn-warning me-2 editButton" data-bs-toggle="tooltip" data-id="' . $row->id_kegiatan . '"
                 data-bs-placement="top" title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                <button type="button" class="btn btn-danger deleteButton" data-bs-toggle="tooltip" data-id="' . $row->id_kegiatan . '" data-rw="' . $row->rw->nama . '"  data-rt="' . $row->rt->nama . '"data-bs-placement="top" title="Hapus"><i class="fa fa-trash" aria-hidden="true"></i></button></div>';
+                <button type="button" class="btn btn-danger deleteButton" data-bs-toggle="tooltip" data-id="' . $row->id_kegiatan . '" data-bs-placement="top" title="Hapus"><i class="fa fa-trash" aria-hidden="true"></i></button></div>';
             })
             ->addColumn('No', function () {
                 static $index = 1;
