@@ -31,6 +31,13 @@
                     </a>
                 </li>
 
+                <li class="sidebar-item {{ Request::is('keluarga*') ? 'active' : '' }}">
+                    <a href="{{ route('keluarga.index') }}" class='sidebar-link'>
+                        <i class="bi bi-people-fill"></i>
+                        <span>Data Keluarga</span>
+                    </a>
+                </li>
+
                 <li class="sidebar-item  ">
                     <a href="index.html" class='sidebar-link'>
                         <i class="bi bi-calendar-event-fill"></i>
@@ -101,7 +108,8 @@
                         <span>Profil</span>
                     </a>
 
-                    <a href="{{ route('logout') }}" class='sidebar-link' onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    <a href="{{ route('logout') }}" class='sidebar-link'
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         <i class="bi bi-box-arrow-right"></i>
                         <span>Logout</span>
                     </a>

@@ -47,7 +47,7 @@ Route::middleware('auth')->prefix('warga')->name('warga.')->group(function () {
     Route::delete('/{id}/destroy', [wargaController::class, 'destroy'])->name('destroy');
     Route::get('/{id}/edit', [wargaController::class, 'edit'])->name('edit');
     Route::post('/{id}/update', [wargaController::class, 'update'])->name('update');
-    Route::get('/{id}/show', [wargaController::class, 'show'])->name('pengaduan.show');
+    Route::get('/{id}/show', [wargaController::class, 'show'])->name('show');
 });
 
 Route::prefix('keluarga')->name('keluarga.')->group(function () {
@@ -56,7 +56,8 @@ Route::prefix('keluarga')->name('keluarga.')->group(function () {
     Route::post('/store', [KeluargaController::class, 'store'])->name('store');
     Route::delete('/{id}/destroy', [KeluargaController::class, 'destroy'])->name('destroy');
     Route::get('/{id}/edit', [KeluargaController::class, 'edit'])->name('edit');
-    Route::post('/{id}/update', [KeluargaController::class, 'update'])->name('update');
+    Route::get('/{id}/show', [KeluargaController::class, 'show'])->name('show');
+    Route::put('/{id}/update', [KeluargaController::class, 'update'])->name('update');
 });
 
 Route::middleware('auth')->prefix('pengaduan')->name('pengaduan.')->group(function () {
