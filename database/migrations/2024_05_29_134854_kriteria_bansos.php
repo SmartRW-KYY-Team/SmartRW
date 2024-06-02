@@ -25,6 +25,7 @@ return new class extends Migration
             $table->double('luas_tanah');
             $table->double('luas_bangunan');
             $table->double('bobot')->nullable();
+            $table->string('tipe');
         });
     }
 
