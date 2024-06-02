@@ -38,7 +38,13 @@ class KeuanganRWDataTable extends DataTable
 
     public function query(KeuanganRW $model): QueryBuilder
     {
-        return $model->newQuery();
+        $rw_id = session('no_role');
+        
+        if ($rw_id) {
+            return $model->newQuery()->where('rw_id', $rw_id);
+        } else {
+            return $model->newQuery()->where('rw_id', null);
+        }
     }
 
     public function html(): HtmlBuilder
@@ -47,7 +53,7 @@ class KeuanganRWDataTable extends DataTable
             ->setTableId('keuanganRW-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->orderBy(0)
+            ->orderBy(1, 'desc') 
             ->selectStyleSingle()
             ->buttons([
                 Button::make('excel'),
@@ -69,6 +75,7 @@ class KeuanganRWDataTable extends DataTable
     {
         return [
             Column::make('No'),
+            Column::make('tanggal'),
             Column::make('jumlah'),
             Column::make('tipe'),
             Column::make('keterangan'),
@@ -85,4 +92,3 @@ class KeuanganRWDataTable extends DataTable
         return 'KeuanganRW_' . date('YmdHis');
     }
 }
-

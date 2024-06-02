@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('keterangan');
             $table->integer('jumlah');
             $table->unsignedBigInteger('rw_id');
+            $table->integer('sisa_saldo')->nullable();
             $table->timestamps();
         });
     }

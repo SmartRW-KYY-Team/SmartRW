@@ -58,6 +58,8 @@
         $(document).on('click', '.showButtonDetail', function(e) {
             $('#showModalDetail').modal('show');
             var id = $(this).data('id');
+            var rw = $(this).data('rw');
+            var rt = $(this).data('rt');
             $.ajax({
                 url: `/kegiatan/${id}/show`,
                 method: 'GET',
@@ -66,8 +68,8 @@
                     $('#deskripsi').text(data.deskripsi); // Menggunakan .val() untuk textarea
                     $('#tanggal_kegiatan').text(data
                         .tanggal_kegiatan); // Menggunakan .text() untuk elemen <p>
-                    $('#rt_id').text(data.rt); // Menggunakan .text() untuk elemen <p>
-                    $('#rw_id').text(data.rw); // Menggunakan .text() untuk elemen <p>
+                    $('#rt_id').text(rt); // Menggunakan .text() untuk elemen <p>
+                    $('#rw_id').text(rw); // Menggunakan .text() untuk elemen <p>
                     $('#lampiran').attr('src', data.lampiran);
                     $('#lampiran1').text(data.lampiran); // Menggunakan .attr() untuk elemen <img>
                 }

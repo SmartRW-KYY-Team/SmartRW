@@ -14,7 +14,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row mt-3">
+                <div class="row ">
                     <div class="col-md-8">
                         <div class="mb-3">
                             <label for="deskripsi" class="form-label">Deskripsi</label>
@@ -33,13 +33,13 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="mb-3">
-                            <label for="rt" class="form-label">Pilih RT</label>
+                            <label for="rt" class="form-label">RT</label>
                             <p id="rt_id" name="rt_id"></p>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="mb-3">
-                            <label for="rw" class="form-label">Pilih RW</label>
+                            <label for="rw" class="form-label">RW</label>
                             <p id="rw_id" name="rw_id"></p>
                         </div>
                     </div>

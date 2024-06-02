@@ -1,4 +1,4 @@
-name: Deploy Laravel Website on Push
+name: Deployment to Server
 
 on:
   push:
@@ -6,41 +6,24 @@ on:
       - main
 
 jobs:
-  web-deploy:
-    name: Deploy
+  deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
-
-      - name: Set up PHP
-        uses: shivammathur/setup-php@v2
+      - name: Running SSH actions
+        uses: appleboy/ssh-action@master
+        env:
+          DOT_ENV: ${{ secrets.DOT_ENV_PRODUCTION }}
         with:
-          php-version: "8.1"
-
-      - name: Install Composer Dependencies
-        run: composer install
-
-      - name: Generate Laravel Environment File
-        run: php artisan key:generate
-
-      - name: Run Database Migrations and Seed
-        run: php artisan migrate:fresh --seed --force
-
-      # Compare changes between current and previous commit
-      - name: Check for changed files
-        id: check_changes
-        run: |
-          git fetch --prune --unshallow
-          CHANGED_FILES=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})
-          echo "::set-output name=changed_files::$CHANGED_FILES"
-
-      # Deploy to FTP
-      - name: Deploy to FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-        with:
-          server: ftp.nioke-studio.my.id
-          username: nioke8090@nioke-studio.my.id
-          password: nioke8090
-          server-dir: "/smartrw.nioke-studio.my.id/"
-          exclude: ${{ steps.check_changes.outputs.changed_files }}
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          envs: DOCROOT,REPO_URL,DOT_ENV_PRODUCTION
+          script: |
+            sudo apt install -y gettext git
+            git -C $DOCROOT reset --hard
+            git -C $DOCROOT pull || git clone --single-branch --branch main $REPO_URL $DOCROOT
+            envsubst > ${DOCROOT}/.env < ${DOCROOT}/.env.example
+            composer install --working-dir $DOCROOT
+            php -f ${DOCROOT}/artisan migrate:fresh --seed --force

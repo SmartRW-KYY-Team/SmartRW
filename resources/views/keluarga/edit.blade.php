@@ -83,7 +83,6 @@
                                 <thead>
                                     <tr>
                                         <th>NIK</th>
-                                        <th>Nama</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -104,7 +103,6 @@
                                                         @endforeach
                                                     </select>
                                                 </td>
-                                                <td class="member-nama">{{ $member->nama }}</td>
                                                 <td>
                                                     <button type="button"
                                                         class="btn btn-danger btn-sm remove-member">Hapus</button>
@@ -131,8 +129,7 @@
         $(document).ready(function() {
             $('#add-member').on('click', function() {
                 $('#anggota-keluarga-table tbody').append('<tr>' +
-                    '<td><select name="user_id[]" class="form-control nik-select" required><option value="" disabled selected>Pilih Anggota</option>@foreach ($users as $user)<option value="{{ $user->id_user }}">{{ $user->nama }} - {{ $user->nik }}</option>@endforeach</select></td>' +
-                    '<td><input type="text" class="form-control member-nama" name="harga[]" readonly></td>' +
+                    '<td><select name="user_id[]" class="form-control nik-select" required><option value="" disabled selected>Pilih Anggota</option>@foreach ($users as $user) @if ($user->keluarga_id == null && $user->id_user != $keluarga->kepala_keluarga_id)<option value="{{ $user->id_user }}">{{ $user->nama }} - {{ $user->nik }}</option>@endif @endforeach</select></td>' +
                     '<td><button type="button" class="btn btn-danger btn-sm remove-member">Hapus</button></td>' +
                     '</tr>'
                 );
