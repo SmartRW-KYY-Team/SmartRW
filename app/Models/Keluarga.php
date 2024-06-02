@@ -14,6 +14,10 @@ class Keluarga extends Model
     protected $primaryKey = 'id_keluarga';
 
     protected $guarded = [];
+    public function members()
+    {
+        return $this->hasMany(User::class, 'keluarga_id', 'id_keluarga');
+    }
     public function rt(): BelongsTo
     {
         return $this->belongsTo(Rt::class, 'rt_id', 'id_rt');

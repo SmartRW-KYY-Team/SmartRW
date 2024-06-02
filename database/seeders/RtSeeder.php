@@ -29,7 +29,7 @@ class RtSeeder extends Seeder
                 'ketua_id' => 4,  // ID Ketua RT (sesuaikan dengan data user)
                 'sekretaris_id' => 5,  // ID Sekretaris RT (sesuaikan dengan data user)
                 'bendahara_id' => 6,  // ID Bendahara RT (sesuaikan dengan data user)
-                'saldo' => 800000,  // Saldo awal RT
+                'saldo' => 1000000,  // Saldo awal RT
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
@@ -38,7 +38,7 @@ class RtSeeder extends Seeder
                 'ketua_id' => 7,  // ID Ketua RT (sesuaikan dengan data user)
                 'sekretaris_id' => 8,  // ID Sekretaris RT (sesuaikan dengan data user)
                 'bendahara_id' => 9,  // ID Bendahara RT (sesuaikan dengan data user)
-                'saldo' => 800000,  // Saldo awal RT
+                'saldo' => 1000000,  // Saldo awal RT
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],

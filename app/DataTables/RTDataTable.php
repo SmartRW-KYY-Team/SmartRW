@@ -2,7 +2,8 @@
 
 namespace App\DataTables;
 
-use App\Models\KeuanganRT;
+use App\Models\Rt;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
@@ -10,50 +11,50 @@ use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
 
-class KeuanganRTDataTable extends DataTable
+class RTDataTable extends DataTable
 {
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
             ->addColumn('action', function ($row) {
                 return '<div style="display: flex; justify-content: space-between;">
-                <button type="button" class="btn btn-warning me-2 editKeuanganButton"
-                data-id="' . $row->id_keuanganRT . '"
-                    data-nama="' . $row->nama . '">
-                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                <button type="button" class="btn btn-info DetailButton me-2"
+                data-id="' . $row->id_rt . '"
+                data-nama="' . $row->nama . '">
+                <i class="fa fa-eye" aria-hidden="true"></i>
                 </button>
-                <button type="button" class="btn btn-danger deleteButton"
-                    data-id="' . $row->id_keuanganRT . '"
-                    data-nama="' . $row->nama . '">
-                    <i class="fa fa-trash" aria-hidden="true"></i>
-                </button>
+                <a href="' . route('rt.edit', $row->id_rt)  . '" class="btn btn-warning">
+                <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
             </div>';
             })
             ->addColumn('No', function () {
                 static $index = 1;
                 return $index++;
             })
-            ->setRowId('id_keuanganRT');
+            ->addColumn('ketua_id', function ($row) {
+                return $row->ketuaRT->nama;
+            })
+            ->addColumn('sekretaris_id', function ($row) {
+                return $row->sekretarisRT->nama;
+            })
+            ->addColumn('bendahara_id', function ($row) {
+                return $row->bendaharaRT->nama;
+            })
+            ->setRowId('id');
     }
 
-    public function query(KeuanganRT $model): QueryBuilder
+    public function query(Rt $model): QueryBuilder
     {
-        $rt_id = session('no_role');
-        
-        if ($rt_id) {
-            return $model->newQuery()->where('rt_id', $rt_id);
-        } else {
-            return $model->newQuery()->where('rt_id', null);
-        }
+        return $model->newQuery()->with('ketuaRT', 'sekretarisRT', 'bendaharaRT');
     }
 
     public function html(): HtmlBuilder
     {
         return $this->builder()
-            ->setTableId('keuanganRT-table')
+            ->setTableId('rt-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->orderBy(1, 'desc') 
+            ->orderBy(0)
             ->selectStyleSingle()
             ->buttons([
                 Button::make('excel'),
@@ -65,9 +66,10 @@ class KeuanganRTDataTable extends DataTable
             ])
             ->parameters([
                 'responsive' => true,
-                'autoWidth' => false,
+                'autoWidth' => true,
                 'scroller' => true,
-                'scrollX' => true
+                'scrollX' => true,
+                'fixedColumns' => true,
             ]);
     }
 
@@ -75,10 +77,11 @@ class KeuanganRTDataTable extends DataTable
     {
         return [
             Column::make('No'),
-            Column::make('tanggal'),
-            Column::make('jumlah'),
-            Column::make('tipe'),
-            Column::make('keterangan'),
+            Column::make('nama')->title('RT'),
+            Column::make('ketua_id')->title('Ketua'),
+            Column::make('sekretaris_id')->title('Sekretaris'),
+            Column::make('bendahara_id')->title('Bendahara'),
+            Column::make('saldo')->title('Saldo'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)
@@ -89,6 +92,6 @@ class KeuanganRTDataTable extends DataTable
 
     protected function filename(): string
     {
-        return 'KeuanganRT_' . date('YmdHis');
+        return 'RT_' . date('YmdHis');
     }
 }

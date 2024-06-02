@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\DataTables\KeuanganRTDataTable;
@@ -7,13 +8,19 @@ use App\Models\Rt;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 
 class KeuanganRTController extends Controller
 {
     public function index(KeuanganRTDataTable $dataTable)
     {
-        $keuanganRT = KeuanganRT::all();
-        return $dataTable->render('keuanganrt.index', ['keuanganrt' => $keuanganRT]);
+        $rt_id = session('no_role');
+        $role = session('role');
+
+        if (Auth::check() && $rt_id && $role === 'rt') {
+            $keuanganRT = KeuanganRT::where('rt_id', $rt_id)->get();
+            return $dataTable->render('keuanganrt.index', ['keuanganrt' => $keuanganRT]);
+        }
     }
 
     public function store(Request $request)
@@ -23,14 +30,15 @@ class KeuanganRTController extends Controller
             'tanggal' => 'required|date',
             'keterangan' => 'required|string|max:255',
             'jumlah' => 'required|integer',
-            'rt_id' => 'required',
         ]);
+        $rt_id = session('no_role');
 
-        $keuanganrt = KeuanganRT::create($request->all());
 
-        Log::info('Store: Created KeuanganRT', ['keuanganrt' => $keuanganrt]);
+        $request->merge(['rt_id' => $rt_id]);
 
-        $this->updateSaldo($keuanganrt->rt_id, $keuanganrt->jumlah, $keuanganrt->tipe);
+        KeuanganRT::create($request->all());
+
+        $this->updateSaldo($rt_id, $request->jumlah, $request->tipe);
 
         Alert::success('Success', 'Data Keuangan Berhasil Ditambahkan');
         return redirect()->route('keuanganrt.index');
@@ -63,23 +71,21 @@ class KeuanganRTController extends Controller
             'tanggal' => 'required|date',
             'keterangan' => 'required|string|max:255',
             'jumlah' => 'required|integer',
-            'rt_id' => 'required',
         ]);
+
+        $rt_id = session('no_role');
 
         $keuanganrt = KeuanganRT::findOrFail($id);
 
-        Log::info('Update: Updating KeuanganRT', ['keuanganrt' => $keuanganrt, 'request' => $request->all()]);
-
-        // Mengembalikan saldo sebelumnya
         $this->updateSaldo($keuanganrt->rt_id, $keuanganrt->jumlah, $keuanganrt->tipe == 'Masuk' ? 'Keluar' : 'Masuk');
 
-        $keuanganrt->update($request->only(['tipe', 'tanggal', 'keterangan', 'jumlah', 'rt_id']));
+        $keuanganrt->fill($request->except('id'));
+        $keuanganrt->rt_id = $rt_id;
+        $keuanganrt->save();
 
-        // Update saldo baru
-        $this->updateSaldo($keuanganrt->rt_id, $request->jumlah, $request->tipe);
+        $this->updateSaldo($rt_id, $request->jumlah, $request->tipe);
 
         Alert::success('Success', 'Data Keuangan Berhasil Diperbarui');
-
         return redirect()->route('keuanganrt.index');
     }
 
@@ -87,14 +93,20 @@ class KeuanganRTController extends Controller
     {
         $rt = Rt::findOrFail($rtId);
 
+        $keuanganRT = KeuanganRT::where('rt_id', $rtId)->latest()->first();
+        
+        $totalSaldo = $rt->saldo;
+
         if ($tipe == 'Masuk') {
-            $rt->saldo += $jumlah;
+            $totalSaldo += $jumlah;
         } elseif ($tipe == 'Keluar') {
-            $rt->saldo -= $jumlah;
+            $totalSaldo -= $jumlah;
         }
 
-        Log::info('UpdateSaldo: Updating RT saldo', ['rt' => $rt]);
+        $keuanganRT->sisa_saldo = $totalSaldo;
+        $keuanganRT->save();
 
+        $rt->saldo = $totalSaldo;
         $rt->save();
     }
 }

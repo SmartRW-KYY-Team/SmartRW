@@ -7,6 +7,7 @@ use App\Http\Controllers\SKTMController;
 use App\Http\Controllers\wargaController;
 use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\KeuanganRTController;
+use App\Http\Controllers\RTController;
 use App\Http\Controllers\KeuanganRWController;
 use App\Http\Controllers\BansosController;
 use App\Http\Controllers\KeluargaController;
@@ -62,7 +63,7 @@ Route::middleware('auth')->prefix('warga')->name('warga.')->group(function () {
     Route::delete('/{id}/destroy', [wargaController::class, 'destroy'])->name('destroy');
     Route::get('/{id}/edit', [wargaController::class, 'edit'])->name('edit');
     Route::post('/{id}/update', [wargaController::class, 'update'])->name('update');
-    Route::get('/{id}/show', [wargaController::class, 'show'])->name('pengaduan.show');
+    Route::get('/{id}/show', [wargaController::class, 'show'])->name('show');
 });
 
 Route::prefix('keluarga')->name('keluarga.')->group(function () {
@@ -71,7 +72,8 @@ Route::prefix('keluarga')->name('keluarga.')->group(function () {
     Route::post('/store', [KeluargaController::class, 'store'])->name('store');
     Route::delete('/{id}/destroy', [KeluargaController::class, 'destroy'])->name('destroy');
     Route::get('/{id}/edit', [KeluargaController::class, 'edit'])->name('edit');
-    Route::post('/{id}/update', [KeluargaController::class, 'update'])->name('update');
+    Route::get('/{id}/show', [KeluargaController::class, 'show'])->name('show');
+    Route::put('/{id}/update', [KeluargaController::class, 'update'])->name('update');
 });
 
 Route::middleware('auth')->prefix('pengaduan')->name('pengaduan.')->group(function () {
@@ -136,4 +138,9 @@ Route::prefix('bansos')->name('bansos.')->group(function () {
     Route::post('/', [BansosController::class, 'store'])->name('store');
     Route::get('/process', [BansosController::class, 'process'])->name('process');
     Route::delete('/{id}', [BansosController::class, 'delete'])->name('delete');
+});
+Route::middleware(['auth'])->prefix('rt')->name('rt.')->group(function () {
+    Route::get('/', [RTController::class, 'index'])->name('index');
+    Route::get('{id}/edit', [RTController::class, 'edit'])->name('edit');
+    Route::post('{id}/update', [RTController::class, 'update'])->name('update');
 });
