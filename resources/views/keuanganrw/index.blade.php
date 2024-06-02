@@ -5,7 +5,7 @@
         <div class="card-header d-flex">
             <h4 class="card-title">Keuangan RW</h4>
             <div class="card-tools ms-auto">
-                <a href="{{ url('kategori/create') }}" class="btn btn-md btn-primary mt-1" data-bs-target="#tambahModal" data-bs-toggle="modal">+ Tambah</a>
+                <a href="{{ url('keuanganrw.create') }}" class="btn btn-md btn-primary mt-1" data-bs-target="#tambahModal" data-bs-toggle="modal">+ Tambah</a>
             </div>
         </div>
         <div class="card-body">
@@ -51,6 +51,8 @@
                 $(this).find('form').trigger('reset');
             });
         });
+        var today = new Date().toISOString().split('T')[0];
+        document.getElementById('tanggal').value = today;
     </script>
     {{ $dataTable->scripts(attributes: ['type' => 'module']) }}
 @endpush

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\DataTables\KeuanganRWDataTable;
@@ -7,13 +8,19 @@ use App\Models\Rw;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 
 class KeuanganRWController extends Controller
 {
     public function index(KeuanganRWDataTable $dataTable)
     {
-        $keuanganRW = KeuanganRW::all();
-        return $dataTable->render('keuanganrw.index', ['keuanganrw' => $keuanganRW]);
+        $rw_id = session('no_role');
+        $role = session('role');
+
+        if (Auth::check() && $rw_id && $role === 'rw') {
+            $keuanganRW = KeuanganRW::where('rw_id', $rw_id)->get();
+            return $dataTable->render('keuanganrw.index', ['keuanganrw' => $keuanganRW]);
+        }
     }
 
     public function store(Request $request)
@@ -23,14 +30,15 @@ class KeuanganRWController extends Controller
             'tanggal' => 'required|date',
             'keterangan' => 'required|string|max:255',
             'jumlah' => 'required|integer',
-            'rw_id' => 'required',
         ]);
+        $rw_id = session('no_role');
 
-        $keuanganrw = KeuanganRW::create($request->all());
 
-        Log::info('Store: Created KeuanganRW', ['keuanganrw' => $keuanganrw]);
+        $request->merge(['rw_id' => $rw_id]);
 
-        $this->updateSaldo($keuanganrw->rw_id, $keuanganrw->jumlah, $keuanganrw->tipe);
+        KeuanganRW::create($request->all());
+
+        $this->updateSaldo($rw_id, $request->jumlah, $request->tipe);
 
         Alert::success('Success', 'Data Keuangan Berhasil Ditambahkan');
         return redirect()->route('keuanganrw.index');
@@ -63,23 +71,21 @@ class KeuanganRWController extends Controller
             'tanggal' => 'required|date',
             'keterangan' => 'required|string|max:255',
             'jumlah' => 'required|integer',
-            'rw_id' => 'required',
         ]);
+
+        $rw_id = session('no_role');
 
         $keuanganrw = KeuanganRW::findOrFail($id);
 
-        Log::info('Update: Updating KeuanganRW', ['keuanganrw' => $keuanganrw, 'request' => $request->all()]);
-
-        // Mengembalikan saldo sebelumnya
         $this->updateSaldo($keuanganrw->rw_id, $keuanganrw->jumlah, $keuanganrw->tipe == 'Masuk' ? 'Keluar' : 'Masuk');
 
-        $keuanganrw->update($request->only(['tipe', 'tanggal', 'keterangan', 'jumlah', 'rw_id']));
+        $keuanganrw->fill($request->except('id'));
+        $keuanganrw->rw_id = $rw_id;
+        $keuanganrw->save();
 
-        // Update saldo baru
-        $this->updateSaldo($keuanganrw->rw_id, $request->jumlah, $request->tipe);
+        $this->updateSaldo($rw_id, $request->jumlah, $request->tipe);
 
         Alert::success('Success', 'Data Keuangan Berhasil Diperbarui');
-
         return redirect()->route('keuanganrw.index');
     }
 
@@ -87,14 +93,20 @@ class KeuanganRWController extends Controller
     {
         $rw = Rw::findOrFail($rwId);
 
+        $keuanganRW = KeuanganRW::where('rw_id', $rwId)->latest()->first();
+        
+        $totalSaldo = $rw->saldo;
+
         if ($tipe == 'Masuk') {
-            $rw->saldo += $jumlah;
+            $totalSaldo += $jumlah;
         } elseif ($tipe == 'Keluar') {
-            $rw->saldo -= $jumlah;
+            $totalSaldo -= $jumlah;
         }
 
-        Log::info('UpdateSaldo: Updating Rw saldo', ['rw' => $rw]);
+        $keuanganRW->sisa_saldo = $totalSaldo;
+        $keuanganRW->save();
 
+        $rw->saldo = $totalSaldo;
         $rw->save();
     }
 }

@@ -5,7 +5,7 @@
         <div class="card-header d-flex">
             <h4 class="card-title">Keuangan RT</h4>
             <div class="card-tools ms-auto">
-                <a href="{{ url('kategori/create') }}" class="btn btn-md btn-primary mt-1" data-bs-target="#tambahModal"
+                <a href="{{ url('keuangan.create') }}" class="btn btn-md btn-primary mt-1" data-bs-target="#tambahModal"
                     data-bs-toggle="modal">+ Tambah</a>
             </div>
         </div>
