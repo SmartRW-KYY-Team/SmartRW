@@ -4,16 +4,59 @@
         <div class="card-header d-flex">
             <h4 class="card-title">Keluarga</h4>
             <div class="card-tools ms-auto">
-                <a href="{{ route('warga.create') }}" class="btn btn-md btn-primary mt-1">+ Tambah</a>
+                <a href="{{ route('keluarga.create') }}" class="btn btn-md btn-primary mt-1">+ Tambah</a>
             </div>
         </div>
         <div class="card-body">
-            {{-- {{ $dataTable->table() }} --}}
             {{ $dataTable->table(['width' => '100%', 'class' => 'table table-bordered table-striped']) }}
         </div>
     </div>
     {{-- @include('warga.edit') --}}
-    @include('warga.delete')
+    {{-- @include('warga.delete') --}}
+
+    <!-- Modal Detail Keluarga -->
+    <div class="modal fade" id="viewDetailKeluargaModal" tabindex="-1" aria-labelledby="viewDetailKeluargaModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="viewDetailKeluargaModalLabel">Detail Keluarga</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>Nomor Kartu Keluarga</th>
+                            <td id="detail-nokk"></td>
+                        </tr>
+                        <tr>
+                            <th>Kepala Keluarga</th>
+                            <td id="detail-kepala_keluarga"></td>
+                        </tr>
+                        <tr>
+                            <th>RT</th>
+                            <td id="detail-rt"></td>
+                        </tr>
+                        <tr>
+                            <th>RW</th>
+                            <td id="detail-rw"></td>
+                        </tr>
+                        <tr>
+                            <th>Anggota Keluarga</th>
+                            <td id="detail-anggota_keluarga">
+                                <ul id="anggota-keluarga-list">
+                                    <!-- List anggota keluarga akan diisi dengan JavaScript -->
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 @push('scripts')
     <!-- Script untuk inisialisasi Select2 -->
@@ -31,15 +74,59 @@
         // });
         // });
     </script>
+
     <script>
-        $('body').on('click', '.deleteButton', function(e) {
-            var id = $(this).data('id');
-            var nama = $(this).data('nama');
-            $('#deleteModal').modal('show');
-            $("#deleteWargaModalText").html("Apakah Anda yakin ingin menghapus data " + nama + '?');
-            // $('#deleteForm').attr('action', '/warga/' + id);
-            $('#deleteForm').attr('action', "{{ route('warga.destroy', ['id' => 'id_user']) }}".replace('id_user',
-                id));
+        // function showDetailKeluarga(keluargaId) {
+        //     $.ajax({
+        //         url: '/keluarga/' + keluargaId + '/show',
+        //         type: 'GET',
+        //         success: function(keluarga) {
+        //             $('#detail-nokk').text(keluarga.nokk);
+        //             $('#detail-kepala_keluarga').text(keluarga.kepala_keluarga);
+        //             $('#detail-rt').text(keluarga.rt);
+        //             $('#detail-rw').text(keluarga.rw);
+
+        //             // Kosongkan daftar anggota keluarga sebelum mengisinya kembali
+        //             $('#anggota-keluarga-list').empty();
+
+        //             // Tambahkan anggota keluarga ke dalam daftar
+        //             keluarga.anggota.forEach(function(anggota) {
+        //                 $('#anggota-keluarga-list').append('<li>' + anggota.nama + ' (' + anggota.nik +
+        //                     ')</li>');
+        //             });
+
+        //             // Tampilkan modal
+        //             $('#viewDetailKeluargaModal').modal('show');
+        //         }
+        //     });
+        // }
+
+        $(document).on('click', '.showButtonDetail', function(e) {
+            var keluargaId = $(this).data('id');
+            $.ajax({
+                url: '/keluarga/' + keluargaId + '/show',
+                type: 'GET',
+                success: function(keluarga) {
+                    console.log(keluarga);
+                    $('#detail-nokk').text(keluarga.nokk);
+                    $('#detail-kepala_keluarga').text(keluarga.kepala_keluarga);
+                    $('#detail-rt').text(keluarga.rt);
+                    $('#detail-rw').text(keluarga.rw);
+
+                    // Kosongkan daftar anggota keluarga sebelum mengisinya kembali
+                    $('#anggota-keluarga-list').empty();
+
+                    // Tambahkan anggota keluarga ke dalam daftar
+                    keluarga.anggota.forEach(function(anggota) {
+                        $('#anggota-keluarga-list').append('<li>' + anggota.nama + ' (' +
+                            anggota.nik +
+                            ')</li>');
+                    });
+
+                    // Tampilkan modal
+                    $('#viewDetailKeluargaModal').modal('show');
+                }
+            });
         });
     </script>
     {{ $dataTable->scripts(attributes: ['type' => 'module']) }}
