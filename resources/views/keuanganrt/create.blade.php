@@ -57,21 +57,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="mb-3">
-                                <label for="rt_id" class="form-label">RT</label>
-                                <select class="form-control" id="rt_id" name="rt_id" required>
-                                    <option value="1">RT 1</option>
-                                    <option value="2">RT 2</option>
-                                    <option value="3">RT 3</option>
-                                </select>
-                                @error('rt_id')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
-                        </div>
-                    </div>
                     <button type="submit" class="btn btn-primary">Simpan</button>
                 </form>
             </div>

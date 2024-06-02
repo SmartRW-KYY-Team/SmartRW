@@ -6,8 +6,8 @@ use App\Http\Controllers\DomisiliController;
 use App\Http\Controllers\SKTMController;
 use App\Http\Controllers\wargaController;
 use App\Http\Controllers\PengaduanController;
-use App\Http\Controllers\keuanganRTController;
-use App\Http\Controllers\keuanganRWController;
+use App\Http\Controllers\KeuanganRTController;
+use App\Http\Controllers\KeuanganRWController;
 use App\Http\Controllers\BansosController;
 use App\Http\Controllers\KeluargaController;
 use App\Http\Controllers\KriteriaBansosController;
@@ -79,7 +79,7 @@ Route::middleware('auth')->prefix('kegiatan')->name('kegiatan.')->group(function
     Route::delete('/{id}/destroy', [KegiatanController::class, 'destroy'])->name('destroy');
 });
 
-Route::middleware('auth')->prefix('domisiili')->name('domisiili.')->group(function () {
+Route::middleware('auth')->prefix('domisili')->name('domisili.')->group(function () {
     Route::get('/', [DomisiliController::class, 'index'])->name('index');
     Route::post('/', [DomisiliController::class, 'store'])->name('store');
     Route::post('/accept/{id}', [DomisiliController::class, 'accept'])->name('accept');
@@ -117,4 +117,9 @@ Route::get('/kriteriabansos', [KriteriaBansosController::class, 'index']);
 
 Route::prefix('bansos')->name('bansos.')->group(function () {
     Route::get('/', [BansosController::class, 'index'])->name('index');
+    Route::get('/create', [BansosController::class, 'create'])->name('create');
+    Route::post('/', [BansosController::class, 'store'])->name('store');
+    Route::get('/process', [BansosController::class, 'process'])->name('process');
+    Route::delete('/{id}', [BansosController::class, 'delete'])->name('delete');
 });
+
