@@ -40,7 +40,7 @@ class KeluargaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nokk' => 'required|unique:keluarga,nokk|integer',
+            'nokk' => 'required|unique:keluarga,nokk|numeric',
             'kepala_keluarga_id' => 'required|exists:users,id_user',
             'rt_id' => 'required|exists:rt,id_rt',
             'rw_id' => 'required|exists:rw,id_rw',

@@ -22,7 +22,9 @@
                         name="kepala_keluarga_id">
                         <option value="" disabled selected>Pilih Kepala Keluarga</option>
                         @foreach ($wargas as $warga)
-                            <option value="{{ $warga->id_user }}">{{ $warga->nama }}</option>
+                            @if ($warga->keluarga_id == null)
+                                <option value="{{ $warga->id_user }}">{{ $warga->nama }}</option>
+                            @endif
                         @endforeach
                     </select>
                     @error('kepala_keluarga_id')
