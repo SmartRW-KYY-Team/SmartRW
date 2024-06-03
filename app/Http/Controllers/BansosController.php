@@ -120,13 +120,14 @@ class BansosController extends Controller
         for ($i = 0; $i < count($alternatives); $i++) {
             $appraisalScores[$i] = 0.5 * ($NSP[$i] + $NSN[$i]);
         }
+        // Simpan AS ke DB
         foreach ($alternatives as $index => $alternative) {
             DB::table('bansos')->where('id_bansos', $alternative->id_bansos)->update([
                 'AS' => $appraisalScores[$index]
             ]);
         }
-
+        $data = Bansos::with('keluarga')->orderByDesc('AS')->get();
         // Display results
-        return view('bansos.edas', compact('alternatives', 'appraisalScores'));
+        return view('bansos.edas', compact('data'));
     }
 }
