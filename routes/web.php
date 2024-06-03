@@ -30,6 +30,22 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    return view('landing_page');
+})->name('landing_page');
+
+Route::get('/pengaduan_warga', function () {
+    return view('pengaduan_page');
+})->name('pengaduan_page');
+
+Route::get('/domisili_warga', function () {
+    return view('domisili_page');
+})->name('domisili_page');
+
+Route::get('/sktm_warga', function () {
+    return view('sktm_page');
+})->name('sktm_page');
+
+Route::get('/dashboard', function () {
     return view('home');
 });
 
@@ -123,7 +139,6 @@ Route::prefix('bansos')->name('bansos.')->group(function () {
     Route::get('/process', [BansosController::class, 'process'])->name('process');
     Route::delete('/{id}', [BansosController::class, 'delete'])->name('delete');
 });
-
 Route::middleware(['auth'])->prefix('rt')->name('rt.')->group(function () {
     Route::get('/', [RTController::class, 'index'])->name('index');
     Route::get('{id}/edit', [RTController::class, 'edit'])->name('edit');
