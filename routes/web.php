@@ -49,6 +49,14 @@ Route::get('/sktm_warga', function () {
     return view('sktm_page');
 })->name('sktm_page');
 
+Route::get('/kegiatan_warga', function () {
+    return view('kegiatan_page');
+})->name('kegiatan_page');
+
+Route::get('/keuangan_warga', function () {
+    return view('keuangan_page');
+})->name('keuangan_page');
+
 // Route::get('/dashboard', function () {
 //     return view('home');
 // });
