@@ -20,4 +20,4 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
           envs: DOCROOT,REPO_URL,DOT_ENV_PRODUCTION
-          script: "cd /var/www/html && ./.scripts/deploy.sh"
+          script: "cd /www/wwwroot/www.smartrw.my.id && ./.scripts/deploy.sh"
