@@ -33,6 +33,14 @@ class KeuanganRTDataTable extends DataTable
                 static $index = 1;
                 return $index++;
             })
+            ->editColumn('tipe', function ($row) {
+                if ($row->tipe == 'Masuk') {
+                    return '<span class="text-success">' . $row->tipe . '</span>';
+                } else {
+                    return '<span class="text-danger">' . $row->tipe . '</span>';
+                }
+            })
+            ->rawColumns(['action', 'tipe'])
             ->setRowId('id_keuanganRT');
     }
 

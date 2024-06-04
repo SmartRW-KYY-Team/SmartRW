@@ -64,6 +64,7 @@ class BansosController extends Controller
 
     public function process()
     {
+        app(KriteriaBansosController::class)->calculateAHP();
         $kriteria =  DB::table('kriteria_bansos')->get();
         $bobotKriteria = $kriteria->pluck('bobot')->toArray();
         $tipeKriteria = $kriteria->pluck('tipe')->toArray();
@@ -100,8 +101,8 @@ class BansosController extends Controller
         $SP = array_fill(0, count($alternatives), 0);
         $SN =  array_fill(0, count($alternatives), 0);
         for ($i = 0; $i < count($alternatives); $i++) {
-            for ($j = 0; $j < count($kriteria) - 1; $j++) {
-                $SP[$i] += ($bobotKriteria[$j] * $positiveDistances[$i][$j]);
+            for ($j = 0; $j < count($kriteria); $j++) {
+                $SP[$i] += ($positiveDistances[$i][$j] * $bobotKriteria[$j]);
                 $SN[$i] += ($bobotKriteria[$j] * $negativeDistances[$i][$j]);
             }
         }
@@ -112,15 +113,21 @@ class BansosController extends Controller
         $NSN =  array_fill(0, count($alternatives), 0);
         for ($i = 0; $i < count($alternatives); $i++) {
             $NSP[$i] = $SP[$i] / $maxSP;
-            $NSN[$i] = $SN[$i] / $maxSN;
+            $NSN[$i] = 1 - ($SN[$i] / $maxSN);
         }
         // Hitung Appraisal Score(AS)
         $appraisalScores = array_fill(0, count($alternatives), 0);
         for ($i = 0; $i < count($alternatives); $i++) {
             $appraisalScores[$i] = 0.5 * ($NSP[$i] + $NSN[$i]);
         }
-
+        // Simpan AS ke DB
+        foreach ($alternatives as $index => $alternative) {
+            DB::table('bansos')->where('id_bansos', $alternative->id_bansos)->update([
+                'AS' => $appraisalScores[$index]
+            ]);
+        }
+        $data = Bansos::with('keluarga')->orderByDesc('AS')->get();
         // Display results
-        return view('bansos.edas', compact('alternatives', 'appraisalScores'));
+        return view('bansos.edas', compact('data'));
     }
 }

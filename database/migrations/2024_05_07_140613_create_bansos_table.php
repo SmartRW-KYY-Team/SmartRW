@@ -23,6 +23,7 @@ return new class extends Migration
             $table->double('K7');
             $table->double('K8');
             $table->double('K9');
+            $table->double('AS')->nullable();
             $table->timestamps();
         });
     }

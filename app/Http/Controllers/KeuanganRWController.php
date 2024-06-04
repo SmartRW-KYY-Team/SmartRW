@@ -19,7 +19,26 @@ class KeuanganRWController extends Controller
 
         if (Auth::check() && $rw_id && $role === 'rw') {
             $keuanganRW = KeuanganRW::where('rw_id', $rw_id)->get();
-            return $dataTable->render('keuanganrw.index', ['keuanganrw' => $keuanganRW]);
+
+            $currentBalance = Rw::find($rw_id)->saldo;
+            $currentMonth = date('m');
+
+            $monthlyIncome = KeuanganRW::where('rw_id', $rw_id)
+                ->where('tipe', 'Masuk')
+                ->whereMonth('tanggal', $currentMonth)
+                ->sum('jumlah');
+
+            $monthlyExpense = KeuanganRW::where('rw_id', $rw_id)
+                ->where('tipe', 'Keluar')
+                ->whereMonth('tanggal', $currentMonth)
+                ->sum('jumlah');
+
+            return $dataTable->render('keuanganrw.index', [
+                'keuanganrw' => $keuanganRW,
+                'currentBalance' => $currentBalance,
+                'monthlyIncome' => $monthlyIncome,
+                'monthlyExpense' => $monthlyExpense
+            ]);
         }
     }
 

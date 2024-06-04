@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class KeuanganRTController extends Controller
 {
@@ -19,7 +20,26 @@ class KeuanganRTController extends Controller
 
         if (Auth::check() && $rt_id && $role === 'rt') {
             $keuanganRT = KeuanganRT::where('rt_id', $rt_id)->get();
-            return $dataTable->render('keuanganrt.index', ['keuanganrt' => $keuanganRT]);
+
+            $currentBalance = Rt::find($rt_id)->saldo;
+            $currentMonth = date('m');
+
+            $monthlyIncome = KeuanganRT::where('rt_id', $rt_id)
+                ->where('tipe', 'Masuk')
+                ->whereMonth('tanggal', $currentMonth)
+                ->sum('jumlah');
+
+            $monthlyExpense = KeuanganRT::where('rt_id', $rt_id)
+                ->where('tipe', 'Keluar')
+                ->whereMonth('tanggal', $currentMonth)
+                ->sum('jumlah');
+
+            return $dataTable->render('keuanganrt.index', [
+                'keuanganrt' => $keuanganRT,
+                'currentBalance' => $currentBalance,
+                'monthlyIncome' => $monthlyIncome,
+                'monthlyExpense' => $monthlyExpense
+            ]);
         }
     }
 
@@ -32,7 +52,6 @@ class KeuanganRTController extends Controller
             'jumlah' => 'required|integer',
         ]);
         $rt_id = session('no_role');
-
 
         $request->merge(['rt_id' => $rt_id]);
 
@@ -94,7 +113,7 @@ class KeuanganRTController extends Controller
         $rt = Rt::findOrFail($rtId);
 
         $keuanganRT = KeuanganRT::where('rt_id', $rtId)->latest()->first();
-        
+
         $totalSaldo = $rt->saldo;
 
         if ($tipe == 'Masuk') {

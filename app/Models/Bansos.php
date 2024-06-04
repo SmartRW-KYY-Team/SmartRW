@@ -15,10 +15,10 @@ class Bansos extends Model
     protected $guarded = [];
     protected $fillable = [
         'keluarga_id', 'K1', 'K2', 'K3', 'K4', 'K5', 'K6', 'K7', 'K8', 'K9'
-    ]; 
+    ];
 
     public function keluarga(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'keluarga_id', 'id_user');
+        return $this->belongsTo(Keluarga::class, 'keluarga_id', 'id_keluarga');
     }
 }

@@ -33,6 +33,6 @@ class Keluarga extends Model
 
     public function bansos(): HasOne
     {
-        return $this->hasOne(User::class, 'id_user', 'id_ bansos');
+        return $this->hasOne(Bansos::class, 'id_bansos');
     }
 }
