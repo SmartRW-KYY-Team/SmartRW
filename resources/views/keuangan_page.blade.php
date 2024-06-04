@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMARTRW - Layanan Pengaduan</title>
+    <title>SMARTRW - Laporan Keuangan</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/style_pengaduan.css') }}">
@@ -24,10 +24,10 @@
                 <li class="nav-item ">
                     <a class="nav-link" href="{{ route('landing_page') }}">Beranda</a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item ">
                     <a class="nav-link" href="{{ route('pengaduan_page') }}">Pengaduan</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="{{ route('keuangan_page') }}">Keuangan</a>
                 </li>
                 <li class="nav-item">
@@ -52,9 +52,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="display-4">Layanan Pengaduan</h1>
+                    <h1 class="display-4">Laporan Keuangan</h1>
                     <p class="lead">
-                        Sampaikan laporan Anda secara langsung
+                        Lihat laporan keuangan secara langsung
                     </p>
                 </div>
 
@@ -67,57 +67,13 @@
         <div class=" container my-5">
         <div class="card mx-auto" style="max-width: 800px;">
             <div class="card-body">
-                <h5 class="card-title" style="background-color: #0b7077;">Sampaikan Laporan Pengaduan Anda</h5>
-                <form>
-                    <div class="form-group">
-                        <label for="namaPengadu">Nama</label>
-                        <select class="form-control" id="namaPengadu" required>
-                            <option>Pilih nama pengadu</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="tanggal">Tanggal Kejadian</label>
-                        <input type="date" class="form-control" id="tanggal" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="rt">RT</label>
-                        <select class="form-control" id="rt" required>
-                            <option>Pilih RT</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="rw">RW</label>
-                        <select class="form-control" id="rw" required>
-                            <option>Pilih RW</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="keluhan">Keluhan</label>
-                        <input type="text" class="form-control" id="keluhan" placeholder="Masukkan keluhan" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="lampiran">Lampiran</label>
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="lampiran" required>
-                            <label class="custom-file-label" for="lampiran">Upload foto</label>
-                        </div>
-                    </div>
-                    <div>
-                        <button type="submit" class="btn"
-                            style="background-color: #0b7077; color: white;">Laporkan</button>
-                    </div>
-                </form>
+                <h5 class="card-title" style="background-color: #0b7077;">Laporan Keuangan</h5>
+
             </div>
         </div>
     </div>
     </div>
 
-    <!-- Statistics Section -->
-    <div class="container-fluid text-white py-5 text-center" style="background-color: #138496;">
-        <h3>Jumlah Laporan Sekarang</h3>
-        <h1 style="font-weight: 550;">101,696</h1>
-        <button class="btn btn-outline-light mt-3">Lihat Selengkapnya</button>
-    </div>
 
     <!-- Footer -->
     <footer class="text-center py-4" style="background-color: #D2E6E4">

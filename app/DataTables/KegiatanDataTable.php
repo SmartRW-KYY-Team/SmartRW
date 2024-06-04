@@ -79,7 +79,7 @@ class KegiatanDataTable extends DataTable
     {
         return [
             Column::make('No'),
-            Column::make('nama'),
+            Column::make('nama')->title('Nama Kegiatan'),
             Column::make('tanggal_kegiatan'),
             Column::make('deskripsi'),
             Column::make('rt_nama')->title('RT'),
