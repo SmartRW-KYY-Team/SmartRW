@@ -21,8 +21,8 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           envs: DOCROOT,REPO_URL,DOT_ENV_PRODUCTION
           script: |
-          git -C $DOCROOT reset --hard
-          git -C $DOCROOT pull || git clone --single-branch --branch main $REPO_URL $DOCROOT
-          envsubst > ${DOCROOT}/.env < ${DOCROOT}/.env.example
-          composer install --working-dir $DOCROOT
-          php -f ${DOCROOT}
+            git -C $DOCROOT reset --hard
+            git -C $DOCROOT pull || git clone --single-branch --branch main $REPO_URL $DOCROOT
+            envsubst > ${DOCROOT}/.env < ${DOCROOT}/.env.example
+            composer install --working-dir $DOCROOT
+            php -f ${DOCROOT}
