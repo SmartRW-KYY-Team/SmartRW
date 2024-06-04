@@ -31,8 +31,8 @@ class SKTMDatatable extends DataTable
                 </button>
                 <button type="button" class="btn btn-success me-2 AcceptModalSKTM"
                     data-id="' . $row->id_suratSKTM . '">
-                    <i class="bi bi-check-square-fill"></i> 
-                </button>                
+                    <i class="bi bi-check-square-fill"></i>
+                </button>
             </div>';
             })
             ->addColumn('No', function () {
@@ -103,9 +103,6 @@ class SKTMDatatable extends DataTable
         ];
     }
 
-    /**
-     * Get the filename for export.
-     */
     protected function filename(): string
     {
         return 'Users_' . date('YmdHis');
