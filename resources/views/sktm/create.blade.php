@@ -8,7 +8,7 @@
             </div>
             <div class="modal-body">
                 <!-- Formulir tambah data -->
-                <form action="{{route('domisili.store')}}" method="POST">
+                <form action="{{route('sktm.store')}}" method="POST">
                     @csrf
                     <div class="col-md-12">
                         <div class="mb-3">
@@ -30,7 +30,7 @@
                             <select name="orangtua" id="orangtua" class="form-control select-rt rounded"
                                 required>
                                 @foreach ()
-                                    
+
                                 @endforeach
                             </select>
                             @error('orangtua')
@@ -44,7 +44,7 @@
                             <select name="pekerjaan" id="pekerjaan" class="form-control select-rt rounded"
                                 required>
                                 @foreach ()
-                                    
+
                                 @endforeach
                             </select>
                             @error('pekerjaan')
@@ -58,7 +58,7 @@
                             <select name="gaji" id="gaji" class="form-control select-rt rounded"
                                 required>
                                 @foreach ()
-                                   
+
                                 @endforeach
                             </select>
                             @error('')

@@ -43,11 +43,11 @@
 
 @push('scripts')
 
-<script>            
+<script>
     // Handle opening the show modal
-    $('body').on('click', '.ShowModalSKTM', function(e) {                
-        $('#showModalSKTM2').modal('show');          
-        var id_showmodal = $(this).data('id');  
+    $('body').on('click', '.ShowModalSKTM', function(e) {
+        $('#showModalSKTM2').modal('show');
+        var id_showmodal = $(this).data('id');
         $.ajax({
             url: `/sktm/${id_showmodal}/show`,
             method: 'GET',
@@ -64,80 +64,16 @@
                 $('#detail-keterangan').html(data.keterangan);
             }
         });
-    });    
-</script>
-<script>
-    $(document).ready(function() {
-        // Handle form submission
-        $('#tambahDomisiliForm').on('submit', function(e) {
-            e.preventDefault();
-
-            // Reset error messages
-            $('#pemohonError').text('');
-            $('#keteranganError').text('');
-
-            // Get form data
-            var formData = $(this).serialize();
-
-            // Send AJAX request
-            $.ajax({
-                url: "{{ route('domisili.store') }}",
-                method: "POST",
-                data: formData,
-                success: function(response) {
-                    // Hide the modal
-                    $('#tambahDomisiliModal').modal('hide');
-
-                    // Clear the form
-                    $('#tambahDomisiliForm')[0].reset();
-
-                    // Show success alert (using SweetAlert)
-                    Swal.fire({
-                        title: 'Success',
-                        text: 'Data berhasil ditambahkan',
-                        icon: 'success',
-                        confirmButtonText: 'OK'
-                    });
-
-                    // Reload the DataTable
-                    $('#dataTableBuilder').DataTable().ajax.reload();
-                },
-                error: function(response) {
-                    // Show error messages
-                    var errors = response.responseJSON.errors;
-                    if (errors.pemohon) {
-                        $('#pemohonError').text(errors.pemohon[0]).show();
-                    }
-                    if (errors.keterangan) {
-                        $('#keteranganError').text(errors.keterangan[0]).show();
-                    }
-                }
-            });
-        });
-        
     });
-    
 </script>
-
 <script>
 $(document).ready(function() {
     // Handle opening the accept modal
     $('body').on('click', '.AcceptModalSKTM', function(e) {
             $('#acceptSKTMModal').modal('show');
-            var id_acceptmodal = $(this).data('id');            
+            var id_acceptmodal = $(this).data('id');
             $('#acceptSKTMForm').attr('action', '/sktm/accept/' + id_acceptmodal);
         });
-    // $('#acceptDomisiliModal').on('show.bs.modal', function(event) {                                          
-    //     var button = $(event.relatedTarget);
-    //     var id = button.data('id');
-    //     var nama = button.data('nama');
-
-    //     console.log('Opening accept modal for ID:', id); // Debug log
-
-    //     // Update the modal form action
-    // });
-
-    // Handle form submission for accept
     $('#acceptSKTMForm').on('submit', function(e) {
         e.preventDefault();
 
@@ -152,7 +88,7 @@ $(document).ready(function() {
             data: formData,
             success: function(response) {
                 console.log('Success response:', response); // Debug log
-                                
+
                 // Show success alert (using SweetAlert)
                 Swal.fire({
                     title: 'Success',
@@ -165,7 +101,7 @@ $(document).ready(function() {
                         $('#dataTableBuilder').DataTable().ajax.reload();
                         window.location.reload();
                     }
-                });                                              
+                });
             },
             error: function(response) {
                 console.log('Error response:', response); // Debug log
