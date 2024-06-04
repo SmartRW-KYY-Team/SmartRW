@@ -139,8 +139,9 @@ Route::prefix('bansos')->name('bansos.')->group(function () {
     Route::get('/process', [BansosController::class, 'process'])->name('process');
     Route::delete('/{id}', [BansosController::class, 'delete'])->name('delete');
 });
-Route::middleware(['auth'])->prefix('rt')->name('rt.')->group(function () {
-    Route::get('/', [RTController::class, 'index'])->name('index');
-    Route::get('{id}/edit', [RTController::class, 'edit'])->name('edit');
-    Route::post('{id}/update', [RTController::class, 'update'])->name('update');
-});
+
+Route::middleware('auth')->prefix('rt')->name('rt.')->group(function () {
+    Route::get('/', [RTController::class, 'index'])->name('index')->middleware('rw');
+    Route::get('{id}/edit', [RTController::class, 'edit'])->name('edit')->middleware('rw');
+    Route::post('{id}/update', [RTController::class, 'update'])->name('update')->middleware('rw');
+})->middleware(RWMiddleware::class);

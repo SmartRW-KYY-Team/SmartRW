@@ -28,13 +28,12 @@ class RTController extends Controller
             'ketua_id' => 'required',
             'sekretaris_id' => 'required',
             'bendahara_id' => 'required',
-            'saldo' => 'required|integer',
         ]);
 
         $rt = Rt::findOrFail($id);
         $rt->update($request->all());
 
-        Alert::success('Success', 'Data RT berhasil diperbarui');
+        Alert::success('Berhasil', 'Data RT berhasil diperbarui');
         return redirect()->route('rt.index');
     }
 }
