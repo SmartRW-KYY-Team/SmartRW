@@ -10,6 +10,7 @@ use App\Http\Controllers\KeuanganRTController;
 use App\Http\Controllers\RTController;
 use App\Http\Controllers\KeuanganRWController;
 use App\Http\Controllers\BansosController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KeluargaController;
 use App\Http\Controllers\KriteriaBansosController;
 use App\Http\Middleware\RTMiddleware;
@@ -29,6 +30,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
+
 Route::get('/', function () {
     return view('landing_page');
 })->name('landing_page');
@@ -45,9 +49,10 @@ Route::get('/sktm_warga', function () {
     return view('sktm_page');
 })->name('sktm_page');
 
-Route::get('/dashboard', function () {
-    return view('home');
-});
+// Route::get('/dashboard', function () {
+//     return view('home');
+// });
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/login', [AuthController::class, 'login'])->name('login');

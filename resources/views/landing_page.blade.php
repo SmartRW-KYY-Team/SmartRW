@@ -13,8 +13,8 @@
 <body style="background-color: #f2f7ff">
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: #f2f7ff">
-        <a class="navbar-brand" href="{{ route('landing_page') }}"><img src="{{ asset('assets/image/logo-navbar.svg') }}"
-                alt="SMARTRW Logo"></a>
+        <a class="navbar-brand" href="{{ route('landing_page') }}"><img
+                src="{{ asset('assets/image/logo-navbar.svg') }}" alt="SMARTRW Logo"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -26,6 +26,12 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('pengaduan_page') }}">Pengaduan</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Keuangan</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Agenda Kegiatan</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
@@ -110,96 +116,97 @@
             </div>
         </div>
         <!-- Structure Section -->
+
         <div class="my-5 text-center position-relative">
             <h2 style="font-weight: 550; color: #0b7077;">Struktur</h2>
             <div class="row justify-content-center">
-                <div class="col-md-3 p-1">
-                    <div class="m-1 card p-0 m-0" style="background-color:#D2E6E4;">
+                <div class="col p-1">
+                    <div class="m-1 card p-0 m-0" style="background-color:#D2E6E4; height: 320px">
                         <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                             <img src="{{ asset('assets/image/profile.jpg') }}" alt="Ketua RW" class="img-fluid"
-                                style="object-fit: cover; height: 300px; width: 100%;" />
+                                style="object-fit: cover; height: 200px; width: 100%;" />
                             <a href="#!">
                                 <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
                             </a>
                         </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Ketua RW</h5>
-                            <p class="card-text">Don Pollo</p>
+                        <div class="card-body" style="text-align: left;">
+                            <h6 class="card-title">Ketua RW</h6>
+                            <h5 class="card-text" style="font-weight: 600">Don Pollo</h5>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 p-1">
-                    <div class="m-1 card p-0 m-0" style="background-color:#D2E6E4;">
+                <div class="col p-1">
+                    <div class="m-1 card p-0 m-0" style="background-color:#D2E6E4; height: 320px">
                         <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                            <img src="{{ asset('assets/image/profile.jpg') }}" alt="Ketua RT" class="img-fluid"
-                                style="object-fit: cover; height: 300px; width: 100%;" />
+                            <img src="{{ asset('assets/image/profile.jpg') }}" alt="Ketua RW" class="img-fluid"
+                                style="object-fit: cover; height: 200px; width: 100%;" />
                             <a href="#!">
                                 <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
                             </a>
                         </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Ketua RT</h5>
-                            <p class="card-text">Don Pollo</p>
+                        <div class="card-body" style="text-align: left;">
+                            <h6 class="card-title">Ketua RT</h6>
+                            <h5 class="card-text" style="font-weight: 600">Don Pollo</h5>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 p-1">
-                    <div class="m-1 card p-0 m-0" style="background-color:#D2E6E4;">
+                <div class="col p-1">
+                    <div class="m-1 card p-0 m-0" style="background-color:#D2E6E4; height: 320px">
                         <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                            <img src="{{ asset('assets/image/profile.jpg') }}" alt="Sekretaris RW" class="img-fluid"
-                                style="object-fit: cover; height: 300px; width: 100%;" />
+                            <img src="{{ asset('assets/image/profile.jpg') }}" alt="Ketua RW" class="img-fluid"
+                                style="object-fit: cover; height: 200px; width: 100%;" />
                             <a href="#!">
                                 <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
                             </a>
                         </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Sekretaris RW</h5>
-                            <p class="card-text">Don Pollo</p>
+                        <div class="card-body" style="text-align: left;">
+                            <h6 class="card-title">Sekretaris RW</h6>
+                            <h5 class="card-text" style="font-weight: 600">Don Pollo</h5>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 p-1">
-                    <div class="m-1 card p-0 m-0" style="background-color:#D2E6E4;">
+                <div class="col p-1">
+                    <div class="m-1 card p-0 m-0" style="background-color:#D2E6E4; height: 320px">
                         <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                            <img src="{{ asset('assets/image/profile.jpg') }}" alt="Sekretaris RT" class="img-fluid"
-                                style="object-fit: cover; height: 300px; width: 100%;" />
+                            <img src="{{ asset('assets/image/profile.jpg') }}" alt="Ketua RW" class="img-fluid"
+                                style="object-fit: cover; height: 200px; width: 100%;" />
                             <a href="#!">
                                 <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
                             </a>
                         </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Sekretaris RT</h5>
-                            <p class="card-text">Don Pollo</p>
+                        <div class="card-body" style="text-align: left;">
+                            <h6 class="card-title">Sekretaris RT</h6>
+                            <h5 class="card-text" style="font-weight: 600">Don Pollo</h5>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 p-1">
-                    <div class="m-1 card p-0 m-0" style="background-color:#D2E6E4;">
+                <div class="col p-1">
+                    <div class="m-1 card p-0 m-0" style="background-color:#D2E6E4; height: 320px">
                         <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                            <img src="{{ asset('assets/image/profile.jpg') }}" alt="Bendahara RW" class="img-fluid"
-                                style="object-fit: cover; height: 300px; width: 100%;" />
+                            <img src="{{ asset('assets/image/profile.jpg') }}" alt="Ketua RW" class="img-fluid"
+                                style="object-fit: cover; height: 200px; width: 100%;" />
                             <a href="#!">
                                 <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
                             </a>
                         </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Bendahara RW</h5>
-                            <p class="card-text">Don Pollo</p>
+                        <div class="card-body" style="text-align: left;">
+                            <h6 class="card-title">Bendahara RW</h6>
+                            <h5 class="card-text" style="font-weight: 600">Don Pollo</h5>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 p-1">
-                    <div class="m-1 card p-0 m-0" style="background-color:#D2E6E4;">
+                <div class="col p-1">
+                    <div class="m-1 card p-0 m-0" style="background-color:#D2E6E4; height: 320px">
                         <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                            <img src="{{ asset('assets/image/profile.jpg') }}" alt="Bendahara RT" class="img-fluid"
-                                style="object-fit: cover; height: 300px; width: 100%;" />
+                            <img src="{{ asset('assets/image/profile.jpg') }}" alt="Ketua RW" class="img-fluid"
+                                style="object-fit: cover; height: 200px; width: 100%;" />
                             <a href="#!">
                                 <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
                             </a>
                         </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Bendahara RT</h5>
-                            <p class="card-text">Don Pollo</p>
+                        <div class="card-body" style="text-align: left;">
+                            <h6 class="card-title">Bendahara RT</h6>
+                            <h5 class="card-text" style="font-weight: 600">Don Pollo</h5>
                         </div>
                     </div>
                 </div>
@@ -217,7 +224,6 @@
         </div>
 
         <!-- Agenda Section -->
-
         <div class="text-center my-5">
             <h2 style="font-weight: 550; color: #0b7077;">Agenda Kegiatan</h2>
             <div id="agendaCarousel" class="carousel slide" data-ride="carousel">
@@ -265,9 +271,10 @@
                     </svg>
                 </a>
             </div>
+            <button class="btn btn-primary mt-3">Lihat Selengkapnya</button>
         </div>
 
-        <!-- <button class="btn btn-primary mt-3">Selengkapnya</button> -->
+
     </div>
 
     <!-- <div class="text-center my-5">

@@ -31,7 +31,7 @@ class AuthController extends Controller
             session(['id_administrator' => $admin->id_administrator]);
             session(['role' => $admin->role]);
             session(['no_role' => $admin->no_role]);
-            return redirect()->route('warga.index');
+            return redirect()->route('dashboard.index');
         } else {
             return  back()->withErrors([
                 'username' => 'The provided credentials do not match our records.',
