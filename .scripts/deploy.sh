@@ -21,9 +21,6 @@ php artisan clear-compiled
 # Recreate cache
 php artisan optimize
 
-# Run database migrations
-php artisan migrate:fresh --seed --force
-
 # Exit maintenance mode
 php artisan up
 
