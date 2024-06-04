@@ -18,11 +18,6 @@ class RTDataTable extends DataTable
         return (new EloquentDataTable($query))
             ->addColumn('action', function ($row) {
                 return '<div style="display: flex; justify-content: space-between;">
-                <button type="button" class="btn btn-info DetailButton me-2"
-                data-id="' . $row->id_rt . '"
-                data-nama="' . $row->nama . '">
-                <i class="fa fa-eye" aria-hidden="true"></i>
-                </button>
                 <a href="' . route('rt.edit', $row->id_rt)  . '" class="btn btn-warning">
                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
             </div>';
@@ -81,7 +76,6 @@ class RTDataTable extends DataTable
             Column::make('ketua_id')->title('Ketua'),
             Column::make('sekretaris_id')->title('Sekretaris'),
             Column::make('bendahara_id')->title('Bendahara'),
-            Column::make('saldo')->title('Saldo'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)

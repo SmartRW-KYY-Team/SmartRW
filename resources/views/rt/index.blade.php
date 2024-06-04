@@ -34,10 +34,6 @@
                             <th>Bendahara</th>
                             <td id="detail-bendahara"></td>
                         </tr>
-                        <tr>
-                            <th>Saldo</th>
-                            <td id="detail-saldo"></td>
-                        </tr>
                     </table>
                 </div>
                 <div class="modal-footer">
@@ -61,7 +57,6 @@
                     $('#detail-ketua').text(data.ketua);
                     $('#detail-sekretaris').text(data.sekretaris);
                     $('#detail-bendahara').text(data.bendahara);
-                    $('#detail-saldo').text(data.saldo);
                 },
                 error: function(err) {
                     console.error(err);

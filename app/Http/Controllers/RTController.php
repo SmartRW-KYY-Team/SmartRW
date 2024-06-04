@@ -25,16 +25,15 @@ class RTController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'ketua_id' => 'required',
-            'sekretaris_id' => 'required',
-            'bendahara_id' => 'required',
-            'saldo' => 'required|integer',
+            'ketua_id' => 'required|unique:rt,ketua_id',
+            'sekretaris_id' => 'required|unique:rt,sekretaris_id',
+            'bendahara_id' => 'required|unique:rt,bendahara_id',
         ]);
 
         $rt = Rt::findOrFail($id);
         $rt->update($request->all());
 
-        Alert::success('Success', 'Data RT berhasil diperbarui');
+        Alert::success('Berhasil', 'Data RT berhasil diperbarui');
         return redirect()->route('rt.index');
     }
 }
