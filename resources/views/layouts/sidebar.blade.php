@@ -79,7 +79,8 @@
                 @endif
 
                 @if (Auth::user()->role == 'rw' || Auth::user()->role == 'rt')
-                    <li class="sidebar-item has-sub">
+                    <li
+                        class="sidebar-item has-sub {{ Request::is('sktm*') || Request::is('domisili*') ? 'active' : '' }}">
                         <a href="#" class='sidebar-link'>
                             <i class="bi bi-file-text-fill"></i>
                             <span>Mengelola Surat</span>
@@ -87,13 +88,13 @@
 
                         <ul class="submenu">
 
-                            <li class="submenu-item ">
-                                <a href="#" class="submenu-link">SKTM</a>
+                            <li class="submenu-item {{ Request::is('sktm*') ? 'active' : '' }}">
+                                <a href="{{ route('sktm.index') }}" class="submenu-link">SKTM</a>
 
                             </li>
 
-                            <li class="submenu-item  ">
-                                <a href="#" class="submenu-link">Domilisi</a>
+                            <li class="submenu-item  {{ Request::is('domisili*') ? 'active' : '' }}">
+                                <a href="{{ route('domisili.index') }}" class="submenu-link">Domilisi</a>
 
                             </li>
                         </ul>
