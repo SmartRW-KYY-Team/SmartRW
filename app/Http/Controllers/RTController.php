@@ -25,9 +25,9 @@ class RTController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'ketua_id' => 'required',
-            'sekretaris_id' => 'required',
-            'bendahara_id' => 'required',
+            'ketua_id' => 'required|unique:rt,ketua_id',
+            'sekretaris_id' => 'required|unique:rt,sekretaris_id',
+            'bendahara_id' => 'required|unique:rt,bendahara_id',
         ]);
 
         $rt = Rt::findOrFail($id);
