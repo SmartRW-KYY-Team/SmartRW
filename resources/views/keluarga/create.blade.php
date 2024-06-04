@@ -55,9 +55,62 @@
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="mb-3">
+                            <label for="anggota_keluarga" class="form-label">Anggota Keluarga</label>
+                            <table class="table table-bordered" id="anggota-keluarga-table">
+                                <thead>
+                                    <tr>
+                                        <th>NIK</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                            <button type="button" class="btn btn-success btn-sm" id="add-member">Tambah Anggota</button>
+                        </div>
+                    </div>
+                </div>
                 <a href="{{ route('keluarga.index') }}" class="btn btn-danger me-2">Kembali</a>
                 <button type="submit" class="btn btn-primary">Simpan</button>
             </form>
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#add-member').on('click', function() {
+                $('#anggota-keluarga-table tbody').append('<tr>' +
+                    '<td><select name="user_id[]" class="form-control nik-select" required><option value="" disabled selected>Pilih Anggota</option>@foreach ($users as $user) @if ($user->keluarga_id == null)<option value="{{ $user->id_user }}">{{ $user->nama }} - {{ $user->nik }}</option>@endif @endforeach</select></td>' +
+                    '<td><button type="button" class="btn btn-danger btn-sm remove-member">Hapus</button></td>' +
+                    '</tr>'
+                );
+            });
+
+            $('#anggota-keluarga-table tbody').on('click', '.remove-member', function() {
+                $(this).closest('tr').remove();
+            });
+
+            $('#anggota-keluarga-table').on('change', '.nik-select', function() {
+                var selecteduser_id = $(this).val();
+                var row = $(this).closest('tr');
+                $.ajax({
+                    url: `/warga/${selecteduser_id}/show`,
+                    type: 'GET',
+                    success: function(data) {
+                        console.log(data);
+                        row.find('.member-nama').val(data.nama);
+                    }
+                });
+            });
+
+            // Trigger change event on page load to populate names
+            $('.nik-select').trigger('change');
+        });
+    </script>
+@endpush
