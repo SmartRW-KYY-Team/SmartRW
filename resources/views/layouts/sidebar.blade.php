@@ -16,89 +16,107 @@
         <div class="sidebar-menu">
             <ul class="menu">
                 <li class="sidebar-title">Menu</li>
+                @if (Auth::user()->role == 'rw' || Auth::user()->role == 'rt')
+                    <li class="sidebar-item  ">
+                        <a href="{{ route('dashboard.index') }}" class='sidebar-link'>
+                            <i class="bi bi-speedometer"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                @endif
+                @if (Auth::user()->role == 'rw' || Auth::user()->role == 'rt')
+                    <li class="sidebar-item {{ Request::is('warga*') ? 'active' : '' }}">
+                        <a href="{{ route('warga.index') }}" class='sidebar-link'>
+                            <i class="bi bi-people-fill"></i>
+                            <span>Data Warga</span>
+                        </a>
+                    </li>
+                @endif
 
-                <li class="sidebar-item  ">
-                    <a href="index.html" class='sidebar-link'>
-                        <i class="bi bi-speedometer"></i>
-                        <span>Dashboard</span>
-                    </a>
-                </li>
+                @if (Auth::user()->role == 'rw' || Auth::user()->role == 'rt')
+                    <li class="sidebar-item {{ Request::is('keluarga*') ? 'active' : '' }}">
+                        <a href="{{ route('keluarga.index') }}" class='sidebar-link'>
+                            <i class="bi bi-people-fill"></i>
+                            <span>Data Keluarga</span>
+                        </a>
+                    </li>
+                @endif
 
-                <li class="sidebar-item {{ Request::is('warga*') ? 'active' : '' }}">
-                    <a href="{{ route('warga.index') }}" class='sidebar-link'>
-                        <i class="bi bi-people-fill"></i>
-                        <span>Data Warga</span>
-                    </a>
-                </li>
+                @if (Auth::user()->role == 'rw' || Auth::user()->role == 'rt')
+                    <li class="sidebar-item {{ Request::is('kegiatan*') ? 'active' : '' }}">
+                        <a href="{{ route('kegiatan.index') }}" class='sidebar-link'>
+                            <i class="bi bi-calendar-event-fill"></i>
+                            <span>Agenda Kegiatan</span>
+                        </a>
+                    </li>
+                @endif
 
-                <li class="sidebar-item {{ Request::is('keluarga*') ? 'active' : '' }}">
-                    <a href="{{ route('keluarga.index') }}" class='sidebar-link'>
-                        <i class="bi bi-people-fill"></i>
-                        <span>Data Keluarga</span>
-                    </a>
-                </li>
+                @if (Auth::user()->role == 'rw' || Auth::user()->role == 'rt')
+                    <li class="sidebar-item {{ Request::is('bansos*') ? 'active' : '' }}">
+                        <a href="{{ route('bansos.index') }}" class='sidebar-link'>
+                            <i class="bi bi-info-circle-fill"></i>
+                            <span>Bantuan Sosial</span>
+                        </a>
+                    </li>
+                @endif
 
-                <li class="sidebar-item  ">
-                    <a href="index.html" class='sidebar-link'>
-                        <i class="bi bi-calendar-event-fill"></i>
-                        <span>Agenda Kegiatan</span>
-                    </a>
-                </li>
+                @if (Auth::user()->role == 'rw')
+                    <li class="sidebar-item {{ Request::is('keuanganrw*') ? 'active' : '' }}">
+                        <a href="{{ route('keuanganrw.index') }}" class='sidebar-link'>
+                            <i class="bi bi-cash-coin"></i>
+                            <span>Mengelola Iuran (RW dan Bendahara)</span>
+                        </a>
+                    </li>
+                @endif
 
-                <li class="sidebar-item  ">
-                    <a href="index.html" class='sidebar-link'>
-                        <i class="bi bi-info-circle-fill"></i>
-                        <span>Bantuan Sosial</span>
-                    </a>
-                </li>
+                @if (Auth::user()->role == 'rw' || Auth::user()->role == 'rt')
+                    <li class="sidebar-item {{ Request::is('pengaduan*') ? 'active' : '' }}">
+                        <a href="{{ route('pengaduan.index') }}" class='sidebar-link'>
+                            <i class="bi bi-grid-fill"></i>
+                            <span>Pengaduan Masalah</span>
+                        </a>
+                    </li>
+                @endif
 
-                <li class="sidebar-item  ">
-                    <a href="index.html" class='sidebar-link'>
-                        <i class="bi bi-cash-coin"></i>
-                        <span>Mengelola Iuran (RW dan Bendahara)</span>
-                    </a>
-                </li>
+                @if (Auth::user()->role == 'rw' || Auth::user()->role == 'rt')
+                    <li class="sidebar-item has-sub">
+                        <a href="#" class='sidebar-link'>
+                            <i class="bi bi-file-text-fill"></i>
+                            <span>Mengelola Surat</span>
+                        </a>
 
-                <li class="sidebar-item  ">
-                    <a href="{{ route('pengaduan.index') }}" class='sidebar-link'>
-                        <i class="bi bi-grid-fill"></i>
-                        <span>Pengaduan Masalah</span>
-                    </a>
-                </li>
+                        <ul class="submenu">
 
-                <li class="sidebar-item active has-sub">
-                    <a href="#" class='sidebar-link'>
-                        <i class="bi bi-file-text-fill"></i>
-                        <span>Mengelola Surat</span>
-                    </a>
+                            <li class="submenu-item ">
+                                <a href="#" class="submenu-link">SKTM</a>
 
-                    <ul class="submenu active">
+                            </li>
 
-                        <li class="submenu-item active ">
-                            <a href="#" class="submenu-link">SKTM</a>
+                            <li class="submenu-item  ">
+                                <a href="#" class="submenu-link">Domilisi</a>
 
-                        </li>
+                            </li>
+                        </ul>
+                    </li>
+                @endif
 
-                        <li class="submenu-item  ">
-                            <a href="#" class="submenu-link">Domilisi</a>
+                @if (Auth::user()->role == 'rt')
+                    <li class="sidebar-item {{ Request::is('keuanganrt*') ? 'active' : '' }}">
+                        <a href="{{ route('keuanganrt.index') }}" class='sidebar-link'>
+                            <i class="bi bi-cash-coin"></i>
+                            <span>Mengelola Iuran (RT)</span>
+                        </a>
+                    </li>
+                @endif
 
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="sidebar-item  ">
-                    <a href="index.html" class='sidebar-link'>
-                        <i class="bi bi-cash-coin"></i>
-                        <span>Mengelola Iuran (RT)</span>
-                    </a>
-                </li>
-
-                <li class="sidebar-item  ">
-                    <a href="index.html" class='sidebar-link'>
-                        <i class="bi bi-file-earmark-zip-fill"></i>
-                        <span>Laporan Keuangan</span>
-                    </a>
-                </li>
+                @if (Auth::user()->role == 'rw' || Auth::user()->role == 'rt')
+                    <li class="sidebar-item {{ Request::is('keuanganrt*') ? 'active' : '' }}">
+                        <a href="{{ route('keuanganrt.index') }}" class='sidebar-link'>
+                            <i class="bi bi-file-earmark-zip-fill"></i>
+                            <span>Laporan Keuangan</span>
+                        </a>
+                    </li>
+                @endif
 
                 <li class="sidebar-title">Setting</li>
 

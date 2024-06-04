@@ -13,8 +13,8 @@
 <body style="background-color: #f2f7ff">
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: #f2f7ff">
-        <a class="navbar-brand" href="{{ route('landing_page') }}"><img src="{{ asset('assets/image/logo-navbar.svg') }}"
-                alt="SMARTRW Logo"></a>
+        <a class="navbar-brand" href="{{ route('landing_page') }}"><img
+                src="{{ asset('assets/image/logo-navbar.svg') }}" alt="SMARTRW Logo"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
