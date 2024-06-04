@@ -31,8 +31,8 @@ class SKTMDatatable extends DataTable
                 </button>
                 <button type="button" class="btn btn-success me-2 AcceptModalSKTM"
                     data-id="' . $row->id_suratSKTM . '">
-                    <i class="bi bi-check-square-fill"></i> 
-                </button>                
+                    <i class="bi bi-check-square-fill"></i>
+                </button>
             </div>';
             })
             ->addColumn('No', function () {
@@ -45,17 +45,11 @@ class SKTMDatatable extends DataTable
             ->setRowId('id');
     }
 
-    /**
-     * Get the query source of dataTable.
-     */
     public function query(SuratSKTM $model): QueryBuilder
     {
         return $model->newQuery()->with('pemohon');
     }
 
-    /**
-     * Optional method if you want to use the html builder.
-     */
     public function html(): HtmlBuilder
     {
         return $this->builder()
@@ -85,9 +79,6 @@ class SKTMDatatable extends DataTable
             ]);
     }
 
-    /**
-     * Get the dataTable columns definition.
-     */
     public function getColumns(): array
     {
         return [
@@ -103,9 +94,6 @@ class SKTMDatatable extends DataTable
         ];
     }
 
-    /**
-     * Get the filename for export.
-     */
     protected function filename(): string
     {
         return 'Users_' . date('YmdHis');
