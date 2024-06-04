@@ -20,4 +20,9 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
           envs: DOCROOT,REPO_URL,DOT_ENV_PRODUCTION
-          script: "cd /www/wwwroot/www.smartrw.my.id/SmartRW && ./.scripts/deploy.sh"
+          script: |
+          git -C $DOCROOT reset --hard
+          git -C $DOCROOT pull || git clone --single-branch --branch main $REPO_URL $DOCROOT
+          envsubst > ${DOCROOT}/.env < ${DOCROOT}/.env.example
+          composer install --working-dir $DOCROOT
+          php -f ${DOCROOT}
