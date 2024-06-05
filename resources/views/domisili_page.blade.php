@@ -47,9 +47,9 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item " href="{{ route('sktm_page') }}">SKTM</a>
-                        <a class="dropdown-item" href="{{ route('cek_sktm_page') }}">Cek SKTM</a>
-                        <a class="dropdown-item" href="{{ route('domisili_page') }}">Domisili</a>
-                        <a class="dropdown-item" href="{{ route('cek_domisili_page') }}">Cek Domisili</a>
+                        <a class="dropdown-item" href="{{ route('cek_sktm_page') }}">Status SKTM</a>
+                        <a class="dropdown-item active" href="{{ route('domisili_page') }}">Domisili</a>
+                        <a class="dropdown-item" href="{{ route('cek_domisili_page') }}">Status Domisili</a>
                     </div>
                 </li>
             </ul>
@@ -77,29 +77,40 @@
             <div class="card mx-auto" style="max-width: 800px;">
                 <div class="card-body">
                     <h5 class="card-title" style="background-color: #0b7077;">Ajukan Surat Keterangan Domisili Anda</h5>
-                    <form>
+                    <form action="{{ route('domisili_page_create') }}" method="POST">
+                        @csrf
+                        <div class="form-group">
+                            <label for="nikPemohon" class="required">Nik</label>
+                            <input type="number" class="form-control" id="nikPemohon" name="nikPemohon"
+                                placeholder="Masukkan NIK pemohon" required>
+                        </div>
                         <div class="form-group">
                             <label for="namaPemohon" class="required">Nama</label>
-                            <select class="form-control" id="namaPemohon" required>
-                                <option>Pilih nama pemohon</option>
-                            </select>
+                            <input type="text" class="form-control" id="namaPemohon" name="namaPemohon"
+                                placeholder="Masukkan nama pemohon" required>
                         </div>
                         <div class="form-group">
                             <label for="rt" class="required">RT</label>
-                            <select class="form-control" id="rt" required>
-                                <option>Pilih RT</option>
+                            <select class="form-control" id="rt" name="rt" required>
+                                <option value="" selected disabled>Pilih RT</option>
+                                @foreach ($rt as $rts)
+                                    <option value="{{ $rts->id_rt }}">{{ $rts->nama }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="rw" class="required">RW</label>
-                            <select class="form-control" id="rw" required>
-                                <option>Pilih RW</option>
+                            <select class="form-control" name="rw" id="rw" required>
+                                <option value="" disabled selected>Pilih RW</option>
+                                @foreach ($rw as $rws)
+                                    <option value="{{ $rws->id_rw }}">{{ $rws->nama }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="keterangan" class="required">Keterangan</label>
-                            <input type="text" class="form-control" id="pekerjaan" placeholder="Masukkan keterangan"
-                                required>
+                            <input type="text" class="form-control" id="keterangan" name="keterangan"
+                                placeholder="Masukkan keterangan" required>
                         </div>
                         <div>
                             <button type="submit" class="btn"
@@ -131,6 +142,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    @include('sweetalert::alert')
 </body>
 
 </html>

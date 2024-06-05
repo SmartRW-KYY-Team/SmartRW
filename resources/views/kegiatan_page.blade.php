@@ -13,8 +13,8 @@
 <body style="background-color: #f2f7ff">
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: #f2f7ff">
-        <a class="navbar-brand" href="{{ route('landing_page') }}"><img src="{{ asset('assets/image/logo-navbar.svg') }}"
-                alt="SMARTRW Logo"></a>
+        <a class="navbar-brand" href="{{ route('landing_page') }}"><img
+                src="{{ asset('assets/image/logo-navbar.svg') }}" alt="SMARTRW Logo"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -40,9 +40,10 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item " href="{{ route('sktm_page') }}">SKTM</a>
-                        <a class="dropdown-item" href="{{ route('cek_sktm_page') }}">Cek SKTM</a>
+                        <a class="dropdown-item" href="{{ route('cek_sktm_page') }}">Status SKTM</a>
                         <a class="dropdown-item" href="{{ route('domisili_page') }}">Domisili</a>
-                        <a class="dropdown-item" href="{{ route('cek_domisili_page') }}">Cek Domisili</a>
+                        <a class="dropdown-item" href="{{ route('cek_domisili_page') }}">Status Domisili</a>
+
                     </div>
                 </li>
             </ul>
@@ -67,33 +68,33 @@
     <!-- Form Section -->
     <div class="form-section">
         <div class=" container my-5">
-        <div class="card mx-auto" style="max-width: 1000px;">
-            <div class="card-body">
-                <h5 class="card-title" style="background-color: #0b7077;">Agenda Kegiatan</h5>
-                <div class="table-responsive">
-                    <table class="table table-striped table-hover table-bordered table-sm">
-                        <thead>
-                            <tr>
-                                <th scope="col">No</th>
-                                <th scope="col">Nama Kegiatan</th>
-                                <th scope="col">Tanggal</th>
-                                <th scope="col">Deskripsi</th>
-                                <th scope="col">RT</th>
-                                <th scope="col">RW</th>
-                                <th scope="col">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+            <div class="card mx-auto" style="max-width: 1000px;">
+                <div class="card-body">
+                    <h5 class="card-title" style="background-color: #0b7077;">Agenda Kegiatan</h5>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover table-bordered table-sm">
+                            <thead>
+                                <tr>
+                                    <th scope="col">No</th>
+                                    <th scope="col">Nama Kegiatan</th>
+                                    <th scope="col">Tanggal</th>
+                                    <th scope="col">Deskripsi</th>
+                                    <th scope="col">RT</th>
+                                    <th scope="col">RW</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
-                        </tbody>
-                    </table>
-                  </div>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    </div>
 
-     <!-- Footer -->
+    <!-- Footer -->
     <div class="modal fade" id="showModalDetail" tabindex="-1" aria-labelledby="showModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
@@ -126,7 +127,8 @@
                         <tr>
                             <th>Lampiran</th>
                             <td>
-                                <img alt="lampiran" id="lampiran" name="lampiran" style="max-width: 400px; height: 200px">
+                                <img alt="lampiran" id="lampiran" name="lampiran"
+                                    style="max-width: 400px; height: 200px">
                             </td>
                         </tr>
                     </table>

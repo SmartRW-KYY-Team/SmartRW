@@ -13,8 +13,8 @@
 <body style="background-color: #f2f7ff">
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: #f2f7ff">
-        <a class="navbar-brand" href="{{ route('landing_page') }}"><img src="{{ asset('assets/image/logo-navbar.svg') }}"
-                alt="SMARTRW Logo"></a>
+        <a class="navbar-brand" href="{{ route('landing_page') }}"><img
+                src="{{ asset('assets/image/logo-navbar.svg') }}" alt="SMARTRW Logo"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -40,9 +40,9 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item " href="{{ route('sktm_page') }}">SKTM</a>
-                        <a class="dropdown-item" href="{{ route('cek_sktm_page') }}">Cek SKTM</a>
+                        <a class="dropdown-item" href="{{ route('cek_sktm_page') }}">Status SKTM</a>
                         <a class="dropdown-item" href="{{ route('domisili_page') }}">Domisili</a>
-                        <a class="dropdown-item" href="{{ route('cek_domisili_page') }}">Cek Domisili</a>
+                        <a class="dropdown-item" href="{{ route('cek_domisili_page') }}">Status Domisili</a>
                     </div>
                 </li>
             </ul>
@@ -66,14 +66,14 @@
 
     <!-- Form Section -->
     <div class="form-section">
-        <div class=" container my-5">
-        <div class="card mx-auto" style="max-width: 800px;">
-            <div class="card-body">
-                <h5 class="card-title" style="background-color: #0b7077;">Laporan Keuangan</h5>
+        <div diss=" container my-5">
+            <div class="card mx-auto" style="max-width: 800px;">
+                <div class="card-body">
+                    <h5 class="card-title" style="background-color: #0b7077;">Laporan Keuangan</h5>
 
+                </div>
             </div>
         </div>
-    </div>
     </div>
 
 

@@ -75,13 +75,21 @@ class LandingPageController extends Controller
             'keterangan' => 'required',
         ]);
 
+        $trace_user_id =  User::where('nik', $request->nikPemohon)->first();
+        if ($trace_user_id == null) {
+            Alert::error('error', 'Data Anda Tidak Ditemukan');
+            return redirect()->route('sktm_page');
+        }
+
         SuratSKTM::create([
-            'pengadu_id' => 'Anonymous',
-            'deskripsi' => $request->keluhan,
-            'tanggal_kejadian' => $request->tanggal_kejadian,
+            'pemohon_id' => $trace_user_id->id_user,
+            'nama_orang_tua' => $request->namaOrtu,
+            'pekerjaan_orang_tua' => $request->pekerjaan,
+            'gaji_orang_tua' => $request->gaji,
+            'status' => 'Proses',
+            'keterangan' => $request->keterangan,
             'rt_id' => $request->rt,
             'rw_id' => $request->rw,
-            'lampiran' => $hashedName,
         ]);
 
         // Redirect ke halaman yang sesuai (misalnya halaman daftar pengguna)
@@ -93,20 +101,34 @@ class LandingPageController extends Controller
     {
         $rt = Rt::all();
         $rw = Rw::all();
-
         return view('domisili_page', compact('rt', 'rw'));
     }
 
     public function createDomisiliWarga(Request $request)
     {
-        $suratDomisili = SuratDomisili::create([
-            'pemohon_id' => $request->pemohon,
+
+        $request->validate([
+            'nikPemohon' => 'required',
+            'namaPemohon' => 'required',
+            'rt' => 'required',
+            'rw' => 'required',
+            'keterangan' => 'required',
+        ]);
+
+        $trace_user_id =  User::where('nik', $request->nikPemohon)->first();
+        if ($trace_user_id == null) {
+            Alert::error('error', 'Data Anda Tidak Ditemukan');
+            return redirect()->route('domisili_page');
+        }
+
+        SuratDomisili::create([
+            'pemohon_id' => $trace_user_id->id_user,
             'status' => 'Proses',
             'rt_id' => $request->rt,
             'rw_id' => $request->rw,
             'keterangan' => $request->keterangan,
-
         ]);
+
 
         // Redirect ke halaman yang sesuai (misalnya halaman daftar pengguna)
         Alert::success('Success Title', 'Success Message');

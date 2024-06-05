@@ -46,10 +46,10 @@
                         Pengajuan Surat
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item " href="{{ route('sktm_page') }}">SKTM</a>
-                        <a class="dropdown-item" href="{{ route('cek_sktm_page') }}">Cek SKTM</a>
+                        <a class="dropdown-item active" href="{{ route('sktm_page') }}">SKTM</a>
+                        <a class="dropdown-item" href="{{ route('cek_sktm_page') }}">Status SKTM</a>
                         <a class="dropdown-item" href="{{ route('domisili_page') }}">Domisili</a>
-                        <a class="dropdown-item" href="{{ route('cek_domisili_page') }}">Cek Domisili</a>
+                        <a class="dropdown-item" href="{{ route('cek_domisili_page') }}">Status Domisili</a>
                     </div>
                 </li>
             </ul>
@@ -78,7 +78,8 @@
                 <div class="card-body">
                     <h5 class="card-title" style="background-color: #0b7077;">Ajukan Surat Keterangan Tidak Mampu (SKTM)
                         Anda</h5>
-                    <form>
+                    <form action="{{ route('sktm_page_create') }}" method="POST">
+                        @csrf
                         <div class="form-group">
                             <label for="nikPemohon" class="required">Nik</label>
                             <input type="number" class="form-control" id="nikPemohon" name="nikPemohon"
@@ -90,7 +91,7 @@
                                 placeholder="Masukkan nama pemohon" required>
                         </div>
                         <div class="form-group">
-                            <label for="namaOrtu" class="required">Nama</label>
+                            <label for="namaOrtu" class="required">Nama Orang Tua</label>
                             <input type="text" class="form-control" id="namaOrtu" name="namaOrtu"
                                 placeholder="Masukkan nama orang tua" required>
 
@@ -158,6 +159,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    @include('sweetalert::alert')
 </body>
 
 </html>

@@ -45,9 +45,11 @@ Route::get('/', function () {
 Route::get('/pengaduan_page', [LandingPageController::class, 'viewPengaduanWarga'])->name('pengaduan_page');
 Route::post('/pengaduan_page', [LandingPageController::class, 'createPengaduanWarga'])->name('pengaduan_page_create');
 
-Route::get('/domisili_warga', function () {
-    return view('domisili_page');
-})->name('domisili_page');
+// Route::get('/domisili_warga', function () {
+//     return view('domisili_page');
+// })->name('domisili_page');
+Route::get('/domisili_warga', [LandingPageController::class, 'viewDomisiliWarga'])->name('domisili_page');
+Route::post('/domisili_warga', [LandingPageController::class, 'createDomisiliWarga'])->name('domisili_page_create');
 
 // Route::get('/sktm_warga', function () {
 //     return view('sktm_page');
