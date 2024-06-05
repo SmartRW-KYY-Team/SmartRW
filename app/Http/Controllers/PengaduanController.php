@@ -63,7 +63,7 @@ class PengaduanController extends Controller
 
     public function show($id)
     {
-        $pengaduan = Pengaduan::with('pengadu')->findOrFail($id);
+        $pengaduan = Pengaduan::findOrFail($id);
         return response()->json($pengaduan);
     }
 

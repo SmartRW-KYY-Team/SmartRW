@@ -13,6 +13,7 @@ use App\Http\Controllers\BansosController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KeluargaController;
 use App\Http\Controllers\KriteriaBansosController;
+use App\Http\Controllers\LandingPageController;
 use App\Http\Middleware\RTMiddleware;
 use App\Http\Middleware\RWMiddleware;
 use App\Models\Kegiatan;
@@ -37,17 +38,22 @@ Route::get('/', function () {
     return view('landing_page');
 })->name('landing_page');
 
-Route::get('/pengaduan_warga', function () {
-    return view('pengaduan_page');
-})->name('pengaduan_page');
+// Route::get('/pengaduan_warga', function () {
+//     return view('pengaduan_page');
+// })->name('pengaduan_page');
+
+Route::get('/pengaduan_page', [LandingPageController::class, 'viewPengaduanWarga'])->name('pengaduan_page');
+Route::post('/pengaduan_page', [LandingPageController::class, 'createPengaduanWarga'])->name('pengaduan_page_create');
 
 Route::get('/domisili_warga', function () {
     return view('domisili_page');
 })->name('domisili_page');
 
-Route::get('/sktm_warga', function () {
-    return view('sktm_page');
-})->name('sktm_page');
+// Route::get('/sktm_warga', function () {
+//     return view('sktm_page');
+// })->name('sktm_page');
+Route::get('/sktm_warga', [LandingPageController::class, 'viewSktmWarga'])->name('sktm_page');
+Route::post('/sktm_warga', [LandingPageController::class, 'createSktmWarga'])->name('sktm_page_create');
 
 Route::get('/kegiatan_warga', function () {
     return view('kegiatan_page');

@@ -25,17 +25,13 @@ class PengaduanDataTable extends DataTable
             ->addColumn('action', function ($row) {
                 return '<div style="display: flex; justify-content: space-beetween; ">
                 <button type="button" class="btn btn-light me-2 showDetailPengaduButton" data-bs-toggle="modal" data-bs-target="#viewPengaduanModal"
-                    data-id="' . $row->id_pengaduan . '"
-                    data-nama="' . $row->pengadu . '">
+                    data-id="' . $row->id_pengaduan . '">
                     <i class="bi bi-eye-fill"></i>
                 </button>';
             })
             ->addColumn('No', function () {
                 static $index = 1;
                 return $index++;
-            })
-            ->addColumn('pengadu_id', function ($row) {
-                return $row->pengadu->nama;
             })
             ->setRowId('id');
     }
@@ -45,7 +41,7 @@ class PengaduanDataTable extends DataTable
      */
     public function query(Pengaduan $model): QueryBuilder
     {
-        return $model->newQuery()->with('pengadu');
+        return $model->newQuery();
     }
 
     /**
@@ -84,7 +80,6 @@ class PengaduanDataTable extends DataTable
     {
         return [
             Column::make('No'),
-            Column::make('pengadu_id')->title('Nama Pengadu'),
             Column::make('tanggal_kejadian')->title('Tanggal'),
             Column::make('deskripsi')->title('Keluhan'),
             Column::computed('action')
