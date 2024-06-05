@@ -28,10 +28,10 @@
                 <a class="nav-link" href="{{ route('pengaduan_page') }}">Pengaduan</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Keuangan</a>
+                <a class="nav-link" href="{{ route('keuangan_page') }}">Keuangan</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Agenda Kegiatan</a>
+                <a class="nav-link" href="{{ route('kegiatan_page') }}">Agenda Kegiatan</a>
             </li>
             <li class="nav-item dropdown active">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"

@@ -6,53 +6,37 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div class="row mt-3">
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama</label>
-                            <p id="nama" name="nama"></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row ">
-                    <div class="col-md-8">
-                        <div class="mb-3">
-                            <label for="deskripsi" class="form-label">Deskripsi</label>
-                            <p id="deskripsi" name="deskripsi"></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <label for="tanggal_kegiatan" class="form-label">Tanggal Kegiatan</label>
-                            <p id="tanggal_kegiatan" name="tanggal_kegiatan"></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <label for="rt" class="form-label">RT</label>
-                            <p id="rt_id" name="rt_id"></p>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <label for="rw" class="form-label">RW</label>
-                            <p id="rw_id" name="rw_id"></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-md-8">
-                        <div class="mb-3">
-                            <label for="formFile" class="form-label">Lampiran</label>
-                            <img alt="lampiran" id="lampiran" name="lampiran">
-                            <p id="lampiran1" name="lampiran"></p>
-                        </div>
-                    </div>
-                </div>
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Nama Kegiatan</th>
+                        <td id="nama"></td>
+                    </tr>
+                    <tr>
+                        <th>Deskripsi</th>
+                        <td id="deskripsi"></td>
+                    </tr>
+                    <tr>
+                        <th>Tanggal Kegiatan</th>
+                        <td id="tanggal_kegiatan"></td>
+                    </tr>
+                    <tr>
+                        <th>RT</th>
+                        <td id="rt_id"></td>
+                    </tr>
+                    <tr>
+                        <th>RW</th>
+                        <td id="rw_id"></td>
+                    </tr>
+                    <tr>
+                        <th>Lampiran</th>
+                        <td>
+                            <img alt="lampiran" id="lampiran" name="lampiran" style="max-width: 400px; height: 200px">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
             </div>
         </div>
     </div>

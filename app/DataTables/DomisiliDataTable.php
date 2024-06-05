@@ -32,8 +32,8 @@ class DomisiliDatatable extends DataTable
                 <button type="button" class="btn btn-success me-2 AcceptModalDomisili"
                     data-id="' . $row->id_suratDomisili . '"
                     data-nama="' . $row->nama . '">
-                    <i class="bi bi-check-square-fill"></i> 
-                </button>                
+                    <i class="bi bi-check-square-fill"></i>
+                </button>
             </div>';
             })
             ->addColumn('No', function () {
@@ -93,7 +93,7 @@ class DomisiliDatatable extends DataTable
     {
         return [
             Column::make('No'),
-            Column::make('pemohon_id')->title('Nama'),
+            Column::make('pemohon_id')->title('Pemohon'),
             Column::make('status'),
             Column::make('keterangan'),
             Column::computed('action')

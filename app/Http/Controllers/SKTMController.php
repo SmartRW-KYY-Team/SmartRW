@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\DataTables\SKTMDatatable;
+use App\DataTables\SKTMDataTable;
 use App\Models\Rt;
 use App\Models\Rw;
 use App\Models\SuratSKTM;
@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Hash;
 
 class SKTMController extends Controller
 {
-    public function index(SKTMDatatable $dataTable)
+    public function index(SKTMDataTable $dataTable)
     {
         $sktm = SuratSKTM::all();
         $rt = Rt::all();

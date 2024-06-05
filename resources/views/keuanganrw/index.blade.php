@@ -3,7 +3,7 @@
 @section('content')
     <div class="card mb-3">
         <div class="card-header d-flex">
-            <h4 class="card-title">Keuangan RT</h4>
+            <h4 class="card-title">Keuangan RW</h4>
         </div>
         <div class="card-body">
             <div class="row mb-3">
@@ -40,8 +40,27 @@
                     </div>
                 </div>
             </div>
-            <div class="card-header d-flex">
-                <div class="card-tools ms-auto">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <div class="row">
+                    <div class="col-md-4">
+                        <select id="filter-month" class="form-control">
+                            @foreach (range(1, 12) as $month)
+                                <option value="{{ $month }}">{{ date('F', mktime(0, 0, 0, $month, 10)) }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <select id="filter-year" class="form-control">
+                            @foreach (range(date('Y'), date('Y') - 0) as $year)
+                                <option value="{{ $year }}">{{ $year }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <button id="filter-apply" class="btn btn-primary">Filter</button>
+                    </div>
+                </div>
+                <div class="ms-auto">
                     <a href="{{ url('keuangan.create') }}" class="btn btn-md btn-primary mt-1" data-bs-target="#tambahModal"
                         data-bs-toggle="modal">+ Tambah</a>
                 </div>
@@ -56,12 +75,43 @@
 
 @push('scripts')
     <script>
+    $(document).ready(function() {
+        var currentDate = new Date();
+        var currentMonth = currentDate.getMonth() + 1; 
+        var currentYear = currentDate.getFullYear();
+
+        $('#filter-month').val(currentMonth);
+        $('#filter-year').val(currentYear);
+
+        var table = $('#keuanganRW-table').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: {
+                url: '{{ route('keuanganrw.index') }}',
+                data: function(d) {
+                    d.filter_month = $('#filter-month').val();
+                    d.filter_year = $('#filter-year').val();
+                }
+            },
+            columns: [
+                { data: 'No' },
+                { data: 'tanggal' },
+                { data: 'jumlah' },
+                { data: 'tipe' },
+                { data: 'keterangan' },
+                { data: 'action', orderable: false, searchable: false }
+            ]
+        });
+
+        $('#filter-apply').click(function() {
+            table.ajax.reload();
+        });
+
         $(document).on('click', '.deleteButton', function(e) {
             var id = $(this).data('id');
             $('#deleteModal').modal('show');
             $("#deleteKeuanganModalText").html("Apakah Anda yakin ingin menghapus data ?");
-            $('#deleteForm').attr('action', "{{ route('keuanganrw.destroy', ['id' => 'id_keuanganrw']) }}".replace(
-                'id_keuanganrw', id));
+            $('#deleteForm').attr('action', "{{ route('keuanganrw.destroy', ['id' => 'id_keuanganrw']) }}".replace('id_keuanganrw', id));
         });
 
         $(document).on('click', '.editKeuanganButton', function(e) {
@@ -75,24 +125,20 @@
                     $('#edit-tanggal').val(data.tanggal);
                     $('#edit-keterangan').val(data.keterangan);
                     $('#edit-jumlah').val(data.jumlah);
-                    $('#edit-rt_id').val(data.rt_id);
+                    $('#edit-rw_id').val(data.rw_id);
 
-                    $('#updateKeuanganForm').attr('action',
-                        "{{ route('keuanganrw.update', ['id' => 'id_edit']) }}".replace('id_edit',
-                            id_edit));
+                    $('#updateKeuanganForm').attr('action', "{{ route('keuanganrw.update', ['id' => 'id_edit']) }}".replace('id_edit', id_edit));
 
                     $('#EditKeuanganModal').modal('show');
                 }
             });
         });
 
-        $(document).ready(function() {
-            $('#EditKeuanganModal').on('hidden.bs.modal', function() {
-                $(this).find('form').trigger('reset');
-            });
+        $('#EditKeuanganModal').on('hidden.bs.modal', function() {
+            $(this).find('form').trigger('reset');
         });
-        var today = new Date().toISOString().split('T')[0];
-        document.getElementById('tanggal').value = today;
+
+        $('#tanggal').val(new Date().toISOString().split('T')[0]);
+    });
     </script>
-    {{ $dataTable->scripts(attributes: ['type' => 'module']) }}
 @endpush

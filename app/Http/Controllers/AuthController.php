@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Administrator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AuthController extends Controller
 {
@@ -31,6 +32,7 @@ class AuthController extends Controller
             session(['id_administrator' => $admin->id_administrator]);
             session(['role' => $admin->role]);
             session(['no_role' => $admin->no_role]);
+            Alert::success('success', 'Berhasil Login');
             return redirect()->route('dashboard.index');
         } else {
             return  back()->withErrors([

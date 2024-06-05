@@ -73,7 +73,7 @@
                     <li class="sidebar-item {{ Request::is('keuanganrw*') ? 'active' : '' }}">
                         <a href="{{ route('keuanganrw.index') }}" class='sidebar-link'>
                             <i class="bi bi-cash-coin"></i>
-                            <span>Mengelola Iuran (RW dan Bendahara)</span>
+                            <span>Keuangan</span>
                         </a>
                     </li>
                 @endif
@@ -88,7 +88,8 @@
                 @endif
 
                 @if (Auth::user()->role == 'rw' || Auth::user()->role == 'rt')
-                    <li class="sidebar-item has-sub active">
+                    <li
+                        class="sidebar-item has-sub {{ Request::is('sktm*') || Request::is('domisili*') ? 'active' : '' }}">
                         <a href="#" class='sidebar-link'>
                             <i class="bi bi-file-text-fill"></i>
                             <span>Mengelola Surat</span>
@@ -96,13 +97,13 @@
 
                         <ul class="submenu">
 
-                            <li class="submenu-item ">
-                                <a href="#" class="submenu-link">SKTM</a>
+                            <li class="submenu-item {{ Request::is('sktm*') ? 'active' : '' }}">
+                                <a href="{{ route('sktm.index') }}" class="submenu-link">SKTM</a>
 
                             </li>
 
-                            <li class="submenu-item  ">
-                                <a href="#" class="submenu-link">Domilisi</a>
+                            <li class="submenu-item  {{ Request::is('domisili*') ? 'active' : '' }}">
+                                <a href="{{ route('domisili.index') }}" class="submenu-link">Domilisi</a>
 
                             </li>
                         </ul>
@@ -113,7 +114,7 @@
                     <li class="sidebar-item {{ Request::is('keuanganrt*') ? 'active' : '' }}">
                         <a href="{{ route('keuanganrt.index') }}" class='sidebar-link'>
                             <i class="bi bi-cash-coin"></i>
-                            <span>Mengelola Iuran (RT)</span>
+                            <span>Keuangan</span>
                         </a>
                     </li>
                 @endif
@@ -130,13 +131,8 @@
                 <li class="sidebar-title">Setting</li>
 
                 <li class="sidebar-item  ">
-                    <a href="form-layout.html" class='sidebar-link'>
-                        <i class="bi bi-person-circle"></i>
-                        <span>Profil</span>
-                    </a>
-
                     <a href="{{ route('logout') }}" class='sidebar-link'
-                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        onclick="event.preventDefault(); confirmLogout();">
                         <i class="bi bi-box-arrow-right"></i>
                         <span>Logout</span>
                     </a>
@@ -149,3 +145,24 @@
         </div>
     </div>
 </div>
+
+@push('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    <script>
+        function confirmLogout() {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You will be logged out!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, log me out!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('logout-form').submit();
+                }
+            });
+        }
+    </script>
+@endpush
