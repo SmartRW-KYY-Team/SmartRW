@@ -130,4 +130,39 @@ class BansosController extends Controller
         // Display results
         return view('bansos.edas', compact('data'));
     }
+    public function edit($id)
+    {
+        $users = User::whereIn('id_user', Keluarga::pluck('kepala_keluarga_id'))->get();
+
+        $users->each(function ($user) {
+            $keluarga = Keluarga::where('kepala_keluarga_id', $user->id_user)->first();
+            $user->keluarga_id = $keluarga->id_keluarga;
+        });
+        $bansos = Bansos::findOrFail($id);
+        return view('bansos.edit', ['users' => $users, 'bansos' => $bansos]);
+    }
+    public function update(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'keluarga_id' => 'required|numeric',
+            'K1' => 'required|numeric',
+            'K2' => 'required|numeric',
+            'K3' => 'required|numeric',
+            'K4' => 'required|numeric',
+            'K5' => 'required|numeric',
+            'K6' => 'required|numeric',
+            'K7' => 'required|numeric',
+            'K8' => 'required|numeric',
+            'K9' => 'required|numeric',
+        ]);
+        $bansos = Bansos::findOrFail($id);
+        if ($bansos && $validatedData) {
+            $bansos->update($request->all());
+            Alert::success('Success', 'Data Keluarga Berhasil Diupdate');
+            return redirect()->route('bansos.index');
+        } else {
+            Alert::success('Error', 'Data Keluarga Gagal Diupdate');
+            return redirect()->route('bansos.index');
+        }
+    }
 }

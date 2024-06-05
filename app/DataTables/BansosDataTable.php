@@ -17,6 +17,8 @@ class BansosDataTable extends DataTable
         return (new EloquentDataTable($query))
             ->addColumn('action', function ($row) {
                 return '<div style="display: flex; justify-content: space-between;">
+                <a href="/bansos/' . $row->id_bansos . '/edit" class="btn btn-warning me-2 editButton" data-bs-toggle="tooltip"
+                data-bs-placement="top" title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                     <form action="' . route('bansos.delete', $row->id_bansos) . '" method="POST" style="display: inline;">
                         ' . csrf_field() . '
                         ' . method_field('DELETE') . '
@@ -31,10 +33,10 @@ class BansosDataTable extends DataTable
                 return $index++;
             })
             ->addColumn('keluarga.nama', function ($row) {
-                return $row->keluarga->nama;
+                return $row->keluarga->kepala_keluarga->nama;
             })
             ->setRowId('id');
-    }    
+    }
 
     public function query(Bansos $model): QueryBuilder
     {
