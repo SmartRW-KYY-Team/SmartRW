@@ -179,3 +179,6 @@ Route::middleware('auth', 'device.check')->prefix('rt')->name('rt.')->group(func
     Route::get('{id}/edit', [RTController::class, 'edit'])->name('edit')->middleware('rw');
     Route::post('{id}/update', [RTController::class, 'update'])->name('update')->middleware('rw');
 })->middleware(RWMiddleware::class);
+
+
+Route::get('/suratdomisili-pdf/{id}', [LandingPageController::class, 'generatePDFDomisili']);

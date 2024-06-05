@@ -11,6 +11,7 @@ use App\Models\SuratDomisili;
 use App\Models\User;
 use App\Models\Rt;
 use App\Models\Rw;
+use Barryvdh\DomPDF\Facade\Pdf;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -133,5 +134,12 @@ class LandingPageController extends Controller
         // Redirect ke halaman yang sesuai (misalnya halaman daftar pengguna)
         Alert::success('Success Title', 'Success Message');
         return redirect()->route('domisili_page');
+    }
+
+    public function generatePDFDomisili($id)
+    {
+        $domisili = SuratSKTM::with('pemohon')->findOrFail($id);
+        $pdf = PDF::loadView('domisili.suratdomisili.index', $domisili);
+        return $pdf->download('SuratDomisil.pdf');
     }
 }
