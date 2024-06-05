@@ -122,13 +122,8 @@
                 <li class="sidebar-title">Setting</li>
 
                 <li class="sidebar-item  ">
-                    <a href="form-layout.html" class='sidebar-link'>
-                        <i class="bi bi-person-circle"></i>
-                        <span>Profil</span>
-                    </a>
-
                     <a href="{{ route('logout') }}" class='sidebar-link'
-                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        onclick="event.preventDefault(); confirmLogout();">
                         <i class="bi bi-box-arrow-right"></i>
                         <span>Logout</span>
                     </a>
@@ -141,3 +136,24 @@
         </div>
     </div>
 </div>
+
+@push('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    <script>
+        function confirmLogout() {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You will be logged out!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, log me out!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('logout-form').submit();
+                }
+            });
+        }
+    </script>
+@endpush
