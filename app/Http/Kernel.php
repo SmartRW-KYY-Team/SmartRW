@@ -68,6 +68,7 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'rt' => RTMiddleware::class,
         'rw' => RWMiddleware::class,
+        'device.check' => \App\Http\Middleware\DeviceCheck::class,
 
     ];
 }
