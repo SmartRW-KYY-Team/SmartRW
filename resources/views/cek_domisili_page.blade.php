@@ -4,10 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMARTRW - Agenda Kegiatan</title>
+    <title>SMARTRW - Layanan Pengajuan SKTM</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('assets/style_pengaduan.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/style_sktm.css') }}">
+    <style>
+        .required:after {
+            content: "*";
+            color: red;
+            margin-left: 5px;
+        }
+    </style>
 </head>
 
 <body style="background-color: #f2f7ff">
@@ -21,19 +28,19 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item ">
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('landing_page') }}">Beranda</a>
                 </li>
-                <li class="nav-item ">
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('pengaduan_page') }}">Pengaduan</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('keuangan_page') }}">Keuangan</a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('kegiatan_page') }}">Agenda Kegiatan</a>
                 </li>
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown active">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Pengajuan Surat
@@ -42,8 +49,7 @@
                         <a class="dropdown-item " href="{{ route('sktm_page') }}">SKTM</a>
                         <a class="dropdown-item" href="{{ route('cek_sktm_page') }}">Status SKTM</a>
                         <a class="dropdown-item" href="{{ route('domisili_page') }}">Domisili</a>
-                        <a class="dropdown-item" href="{{ route('cek_domisili_page') }}">Status Domisili</a>
-
+                        <a class="dropdown-item active" href="{{ route('cek_domisili_page') }}">Status Domisili</a>
                     </div>
                 </li>
             </ul>
@@ -55,9 +61,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="display-4">Agenda Kegiatan</h1>
+                    <h1 class="display-4">Cek Status Pengajuan Surat Domisili</h1>
                     <p class="lead">
-                        Lihat agenda kegiatan secara langsung
+                        Cek status surat Anda secara langsung
                     </p>
                 </div>
 
@@ -68,78 +74,25 @@
     <!-- Form Section -->
     <div class="form-section">
         <div class=" container my-5">
-            <div class="card mx-auto" style="max-width: 1000px;">
+            <div class="card mx-auto" style="max-width: 800px;">
                 <div class="card-body">
-                    <h5 class="card-title" style="background-color: #0b7077;">Agenda Kegiatan</h5>
-                    <div class="table-responsive">
-                        <table class="table table-striped table-hover table-bordered table-sm">
-                            <thead>
-                                <tr>
-                                    <th scope="col">No</th>
-                                    <th scope="col">Nama Kegiatan</th>
-                                    <th scope="col">Tanggal</th>
-                                    <th scope="col">Deskripsi</th>
-                                    <th scope="col">RT</th>
-                                    <th scope="col">RW</th>
-                                    <th scope="col">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-
-                            </tbody>
-                        </table>
-                    </div>
+                    <h5 class="card-title" style="background-color: #0b7077;">Cek Status Surat Keterangan Domisili Anda
+                    </h5>
+                    <form>
+                        <div class="form-group">
+                            <label for="nik" class="required">NIK</label>
+                            <input type="text" class="form-control" id="nik" placeholder="Masukkan NIK"
+                                required>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn"
+                                style="background-color: #0b7077; color: white;">Cek</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- Footer -->
-    <div class="modal fade" id="showModalDetail" tabindex="-1" aria-labelledby="showModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="showModalLabel">Data Kegiatan</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <table class="table table-bordered">
-                        <tr>
-                            <th>Nama Kegiatan</th>
-                            <td id="nama"></td>
-                        </tr>
-                        <tr>
-                            <th>Deskripsi</th>
-                            <td id="deskripsi"></td>
-                        </tr>
-                        <tr>
-                            <th>Tanggal Kegiatan</th>
-                            <td id="tanggal_kegiatan"></td>
-                        </tr>
-                        <tr>
-                            <th>RT</th>
-                            <td id="rt_id"></td>
-                        </tr>
-                        <tr>
-                            <th>RW</th>
-                            <td id="rw_id"></td>
-                        </tr>
-                        <tr>
-                            <th>Lampiran</th>
-                            <td>
-                                <img alt="lampiran" id="lampiran" name="lampiran"
-                                    style="max-width: 400px; height: 200px">
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
 
     <!-- Footer -->
     <footer class="text-center py-4" style="background-color: #D2E6E4">
@@ -157,8 +110,6 @@
             <small>Copyright 2024 &copy; SMARTRW</small>
         </div>
     </footer>
-
-
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>

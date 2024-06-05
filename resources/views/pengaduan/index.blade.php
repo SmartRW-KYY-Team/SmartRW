@@ -24,10 +24,6 @@
                 <div class="modal-body">
                     <table class="table table-bordered">
                         <tr>
-                            <th>Nama Pengadu</th>
-                            <td id="detail-nama_pengadu"></td>
-                        </tr>
-                        <tr>
                             <th>Deskripsi</th>
                             <td id="detail-deskripsi"></td>
                         </tr>
@@ -100,8 +96,7 @@
                 method: 'GET',
                 success: function(data) {
                     console.log(data);
-                    // Populate form fields                    
-                    $('#detail-nama_pengadu').html(data.pengadu.nama);
+                    // Populate form fields
                     $('#detail-deskripsi').html(data.deskripsi);
                     $('#detail-tanggal_kejadian').html(data.tanggal_kejadian);
                     $('#detail-tanggal_kejadian').html(data.tanggal_kejadian);

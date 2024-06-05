@@ -13,6 +13,7 @@ use App\Http\Controllers\BansosController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KeluargaController;
 use App\Http\Controllers\KriteriaBansosController;
+use App\Http\Controllers\LandingPageController;
 use App\Http\Middleware\RTMiddleware;
 use App\Http\Middleware\RWMiddleware;
 use App\Models\Kegiatan;
@@ -37,17 +38,24 @@ Route::get('/', function () {
     return view('landing_page');
 })->name('landing_page');
 
-Route::get('/pengaduan_warga', function () {
-    return view('pengaduan_page');
-})->name('pengaduan_page');
+// Route::get('/pengaduan_warga', function () {
+//     return view('pengaduan_page');
+// })->name('pengaduan_page');
 
-Route::get('/domisili_warga', function () {
-    return view('domisili_page');
-})->name('domisili_page');
+Route::get('/pengaduan_page', [LandingPageController::class, 'viewPengaduanWarga'])->name('pengaduan_page');
+Route::post('/pengaduan_page', [LandingPageController::class, 'createPengaduanWarga'])->name('pengaduan_page_create');
 
-Route::get('/sktm_warga', function () {
-    return view('sktm_page');
-})->name('sktm_page');
+// Route::get('/domisili_warga', function () {
+//     return view('domisili_page');
+// })->name('domisili_page');
+Route::get('/domisili_warga', [LandingPageController::class, 'viewDomisiliWarga'])->name('domisili_page');
+Route::post('/domisili_warga', [LandingPageController::class, 'createDomisiliWarga'])->name('domisili_page_create');
+
+// Route::get('/sktm_warga', function () {
+//     return view('sktm_page');
+// })->name('sktm_page');
+Route::get('/sktm_warga', [LandingPageController::class, 'viewSktmWarga'])->name('sktm_page');
+Route::post('/sktm_warga', [LandingPageController::class, 'createSktmWarga'])->name('sktm_page_create');
 
 Route::get('/kegiatan_warga', function () {
     return view('kegiatan_page');
@@ -56,6 +64,14 @@ Route::get('/kegiatan_warga', function () {
 Route::get('/keuangan_warga', function () {
     return view('keuangan_page');
 })->name('keuangan_page');
+
+Route::get('/cek_sktm', function () {
+    return view('cek_sktm_page');
+})->name('cek_sktm_page');
+
+Route::get('/cek_domisili', function () {
+    return view('cek_domisili_page');
+})->name('cek_domisili_page');
 
 // Route::get('/dashboard', function () {
 //     return view('home');
@@ -163,3 +179,6 @@ Route::middleware('auth', 'device.check')->prefix('rt')->name('rt.')->group(func
     Route::get('{id}/edit', [RTController::class, 'edit'])->name('edit')->middleware('rw');
     Route::post('{id}/update', [RTController::class, 'update'])->name('update')->middleware('rw');
 })->middleware(RWMiddleware::class);
+
+
+Route::get('/suratdomisili-pdf/{id}', [LandingPageController::class, 'generatePDFDomisili']);

@@ -16,7 +16,7 @@ class PengaduanSeeder extends Seeder
         //
         DB::table('pengaduan')->insert([
             [
-                'pengadu_id' => 1,
+                'pengadu_id' => 'Anonymous',
                 'deskripsi' => 'Pengaduan mengenai kebersihan lingkungan.',
                 'rt_id' => 1,
                 'rw_id' => 1,
@@ -26,7 +26,7 @@ class PengaduanSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'pengadu_id' => 2,
+                'pengadu_id' => 'Anonymous',
                 'deskripsi' => 'Pengaduan mengenai keamanan lingkungan.',
                 'rt_id' => 2,
                 'rw_id' => 1,
@@ -36,7 +36,7 @@ class PengaduanSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'pengadu_id' => 3,
+                'pengadu_id' => 'Anonymous',
                 'deskripsi' => 'Pengaduan tentang kerusakan infrastruktur jalan.',
                 'rt_id' => 3,
                 'rw_id' => 1,
@@ -46,7 +46,7 @@ class PengaduanSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'pengadu_id' => 4,
+                'pengadu_id' => 'Anonymous',
                 'deskripsi' => 'Pengaduan mengenai kebisingan di malam hari.',
                 'rt_id' => 1,
                 'rw_id' => 1,
@@ -56,7 +56,7 @@ class PengaduanSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'pengadu_id' => 5,
+                'pengadu_id' => 'Anonymous',
                 'deskripsi' => 'Pengaduan tentang pemeliharaan taman kota.',
                 'rt_id' => 2,
                 'rw_id' => 1,

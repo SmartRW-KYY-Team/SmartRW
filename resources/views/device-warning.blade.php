@@ -40,7 +40,7 @@
 <body>
     <div class="warning">
         <h1>Device Not Supported</h1>
-        <p>Please use a laptop or desktop to access this site.</p>
+        <p>Please use a laptop or desktop to access this site.</p><br>
         <a href="{{ route('landing_page') }}" class="btn btn-danger">Kembali</a>
     </div>
 </body>

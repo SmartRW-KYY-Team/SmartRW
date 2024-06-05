@@ -8,13 +8,20 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/style_pengaduan.css') }}">
+    <style>
+        .required:after {
+            content: "*";
+            color: red;
+            margin-left: 5px;
+        }
+    </style>
 </head>
 
 <body style="background-color: #f2f7ff">
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: #f2f7ff">
-        <a class="navbar-brand" href="{{ route('landing_page') }}"><img src="{{ asset('assets/image/logo-navbar.svg') }}"
-                alt="SMARTRW Logo"></a>
+        <a class="navbar-brand" href="{{ route('landing_page') }}"><img
+                src="{{ asset('assets/image/logo-navbar.svg') }}" alt="SMARTRW Logo"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -39,8 +46,10 @@
                         Pengajuan Surat
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="{{ route('sktm_page') }}">SKTM</a>
+                        <a class="dropdown-item " href="{{ route('sktm_page') }}">SKTM</a>
+                        <a class="dropdown-item" href="{{ route('cek_sktm_page') }}">Status SKTM</a>
                         <a class="dropdown-item" href="{{ route('domisili_page') }}">Domisili</a>
+                        <a class="dropdown-item" href="{{ route('cek_domisili_page') }}">Status Domisili</a>
                     </div>
                 </li>
             </ul>
@@ -65,51 +74,53 @@
     <!-- Form Section -->
     <div class="form-section">
         <div class=" container my-5">
-        <div class="card mx-auto" style="max-width: 800px;">
-            <div class="card-body">
-                <h5 class="card-title" style="background-color: #0b7077;">Sampaikan Laporan Pengaduan Anda</h5>
-                <form>
-                    <div class="form-group">
-                        <label for="namaPengadu">Nama</label>
-                        <select class="form-control" id="namaPengadu" required>
-                            <option>Pilih nama pengadu</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="tanggal">Tanggal Kejadian</label>
-                        <input type="date" class="form-control" id="tanggal" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="rt">RT</label>
-                        <select class="form-control" id="rt" required>
-                            <option>Pilih RT</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="rw">RW</label>
-                        <select class="form-control" id="rw" required>
-                            <option>Pilih RW</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="keluhan">Keluhan</label>
-                        <input type="text" class="form-control" id="keluhan" placeholder="Masukkan keluhan" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="lampiran">Lampiran</label>
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="lampiran" required>
-                            <label class="custom-file-label" for="lampiran">Upload foto</label>
+            <div class="card mx-auto" style="max-width: 800px;">
+                <div class="card-body">
+                    <h5 class="card-title" style="background-color: #0b7077;">Sampaikan Laporan Pengaduan Anda</h5>
+                    <form action="{{ route('pengaduan_page_create') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="form-group">
+                            <label for="keluhan" class="required">Keluhan</label>
+                            <input type="text" class="form-control" id="keluhan" name="keluhan"
+                                placeholder="Masukkan keluhan" required>
                         </div>
-                    </div>
-                    <div>
-                        <button type="submit" class="btn"
-                            style="background-color: #0b7077; color: white;">Laporkan</button>
-                    </div>
-                </form>
+                        <div class="form-group">
+                            <label for="tanggal"class="required">Tanggal Kejadian</label>
+                            <input type="date" class="form-control" id="tanggal" name="tanggal_kejadian" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="rt" class="required">RT</label>
+                            <select class="form-control" id="rt" name="rt" required>
+                                <option value="" selected disabled>Pilih RT</option>
+                                @foreach ($rt as $rts)
+                                    <option value="{{ $rts->id_rt }}">{{ $rts->nama }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="rw" class="required">RW</label>
+                            <select class="form-control" name="rw" id="rw" required>
+                                <option value="" disabled selected>Pilih RW</option>
+                                @foreach ($rw as $rws)
+                                    <option value="{{ $rws->id_rw }}">{{ $rws->nama }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lampiran" class="required">Lampiran</label>
+                            <div class="custom-file">
+                                <input type="file" class="form-control" id="lampiran" name="lampiran" required>
+                            </div>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn"
+                                style="background-color: #0b7077; color: white;">Laporkan</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
     </div>
 
     <!-- Statistics Section -->
@@ -141,6 +152,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    @include('sweetalert::alert')
 </body>
 
 </html>

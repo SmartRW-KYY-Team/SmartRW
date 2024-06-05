@@ -45,17 +45,11 @@ class SKTMDataTable extends DataTable
             ->setRowId('id');
     }
 
-    /**
-     * Get the query source of dataTable.
-     */
     public function query(SuratSKTM $model): QueryBuilder
     {
         return $model->newQuery()->with('pemohon');
     }
 
-    /**
-     * Optional method if you want to use the html builder.
-     */
     public function html(): HtmlBuilder
     {
         return $this->builder()
@@ -85,9 +79,6 @@ class SKTMDataTable extends DataTable
             ]);
     }
 
-    /**
-     * Get the dataTable columns definition.
-     */
     public function getColumns(): array
     {
         return [

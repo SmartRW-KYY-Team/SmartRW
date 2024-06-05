@@ -36,7 +36,6 @@ return new class extends Migration
         });
         // Add foreign pengaduan
         Schema::table('pengaduan', function (Blueprint $table) {
-            $table->foreign('pengadu_id')->references('id_user')->on('users');
             $table->foreign('rt_id')->references('id_rt')->on('rt');
             $table->foreign('rw_id')->references('id_rw')->on('rw');
         });
