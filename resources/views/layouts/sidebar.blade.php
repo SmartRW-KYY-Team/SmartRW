@@ -42,6 +42,15 @@
                     </li>
                 @endif
 
+                @if (Auth::user()->role == 'rw')
+                    <li class="sidebar-item {{ Request::is('rt*') ? 'active' : '' }}">
+                        <a href="{{ route('rt.index') }}" class='sidebar-link'>
+                            <i class="bi bi-people-fill"></i>
+                            <span>Data RT</span>
+                        </a>
+                    </li>
+                @endif
+
                 @if (Auth::user()->role == 'rw' || Auth::user()->role == 'rt')
                     <li class="sidebar-item {{ Request::is('kegiatan*') ? 'active' : '' }}">
                         <a href="{{ route('kegiatan.index') }}" class='sidebar-link'>
@@ -79,7 +88,7 @@
                 @endif
 
                 @if (Auth::user()->role == 'rw' || Auth::user()->role == 'rt')
-                    <li class="sidebar-item has-sub">
+                    <li class="sidebar-item has-sub active">
                         <a href="#" class='sidebar-link'>
                             <i class="bi bi-file-text-fill"></i>
                             <span>Mengelola Surat</span>

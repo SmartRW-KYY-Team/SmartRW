@@ -25,7 +25,7 @@
                             <select name="kepala_keluarga_id" id="edit-keluarga-kepala_keluarga_id"
                                 class="form-control @error('kepala_keluarga_id') is-invalid @enderror" required>
                                 @foreach ($users as $user)
-                                    @if ($user->keluarga_id == null || $user->keluarga_id == $keluarga->kepala_keluarga_id)
+                                    @if ($user->keluarga_id != null || $user->keluarga_id == $keluarga->kepala_keluarga_id)
                                         <option value="{{ $user->id_user }}"
                                             {{ $keluarga->kepala_keluarga_id == $user->id_user ? 'selected' : old('kepala_keluarga_id') }}>
                                             {{ $user->nama }}
