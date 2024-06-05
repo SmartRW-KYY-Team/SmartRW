@@ -47,9 +47,9 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item " href="{{ route('sktm_page') }}">SKTM</a>
-                    <a class="dropdown-item" href="{{ route('cek_sktm_page') }}">Cek SKTM</a>
+                    <a class="dropdown-item active" href="{{ route('cek_sktm_page') }}">Cek SKTM</a>
                     <a class="dropdown-item" href="{{ route('domisili_page') }}">Domisili</a>
-                    <a class="dropdown-item" href="{{ route('cek_domisili_page') }}">Cek Domisili</a>
+                    <a class="dropdown-item " href="{{ route('cek_domisili_page') }}">Cek Domisili</a>
                 </div>
             </li>
         </ul>
@@ -61,9 +61,9 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h1 class="display-4">Layanan Pengajuan Surat SKTM</h1>
+          <h1 class="display-4">Cek Status Pengajuan Surat SKTM</h1>
           <p class="lead">
-            Ajukan surat Anda secara langsung
+            Cek status surat Anda secara langsung
           </p>
         </div>
 
@@ -76,48 +76,14 @@
         <div class=" container my-5">
     <div class="card mx-auto" style="max-width: 800px;">
       <div class="card-body">
-        <h5 class="card-title" style="background-color: #0b7077;">Ajukan Surat Keterangan Tidak Mampu (SKTM) Anda</h5>
+        <h5 class="card-title" style="background-color: #0b7077;">Cek Status Surat Keterangan Tidak Mampu (SKTM) Anda</h5>
         <form>
           <div class="form-group">
-            <label for="namaPemohon" class="required">Nama</label>
-            <select class="form-control" id="namaPemohon" required>
-              <option>Pilih nama pemohon</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="namaOrtu" class="required">Nama Orang Tua</label>
-            <select class="form-control" id="namaOrtu" required>
-              <option>Pilih nama orang tua</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="pekerjaan" class="required">Pekerjaan Orang Tua</label>
-            <input type="text" class="form-control" id="pekerjaan" placeholder="Masukkan pekerjaan orang tua" required>
-          </div>
-          <div class="form-group">
-            <label for="gaji" class="required">Gaji Orang Tua</label>
-            <select class="form-control" id="gaji" required>
-              <option>Pilih gaji orang tua</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="rt" class="required">RT</label>
-            <select class="form-control" id="rt" required>
-              <option>Pilih RT</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="rw" class="required">RW</label>
-            <select class="form-control" id="rw" required>
-              <option>Pilih RW</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="keterangan" class="required">Keterangan</label>
-            <input type="text" class="form-control" id="pekerjaan" placeholder="Masukkan keterangan" required>
+            <label for="nik" class="required">NIK</label>
+            <input type="text" class="form-control" id="nik" placeholder="Masukkan NIK" required>
           </div>
           <div>
-            <button type="submit" class="btn" style="background-color: #0b7077; color: white;">Ajukan</button>
+            <button type="submit" class="btn" style="background-color: #0b7077; color: white;">Cek</button>
           </div>
         </form>
       </div>

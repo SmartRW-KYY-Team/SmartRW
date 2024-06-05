@@ -8,6 +8,13 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/style_pengaduan.css') }}">
+    <style>
+        .required:after {
+            content: "*";
+            color: red;
+            margin-left: 5px;
+        }
+    </style>
 </head>
 
 <body style="background-color: #f2f7ff">
@@ -39,8 +46,10 @@
                         Pengajuan Surat
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="{{ route('sktm_page') }}">SKTM</a>
+                        <a class="dropdown-item " href="{{ route('sktm_page') }}">SKTM</a>
+                        <a class="dropdown-item" href="{{ route('cek_sktm_page') }}">Cek SKTM</a>
                         <a class="dropdown-item" href="{{ route('domisili_page') }}">Domisili</a>
+                        <a class="dropdown-item" href="{{ route('cek_domisili_page') }}">Cek Domisili</a>
                     </div>
                 </li>
             </ul>
@@ -70,33 +79,33 @@
                 <h5 class="card-title" style="background-color: #0b7077;">Sampaikan Laporan Pengaduan Anda</h5>
                 <form>
                     <div class="form-group">
-                        <label for="namaPengadu">Nama</label>
+                        <label for="namaPengadu" class="required">Nama</label>
                         <select class="form-control" id="namaPengadu" required>
                             <option>Pilih nama pengadu</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="tanggal">Tanggal Kejadian</label>
+                        <label for="tanggal" class="required">Tanggal Kejadian</label>
                         <input type="date" class="form-control" id="tanggal" required>
                     </div>
                     <div class="form-group">
-                        <label for="rt">RT</label>
+                        <label for="rt" class="required">RT</label>
                         <select class="form-control" id="rt" required>
                             <option>Pilih RT</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="rw">RW</label>
+                        <label for="rw" class="required">RW</label>
                         <select class="form-control" id="rw" required>
                             <option>Pilih RW</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="keluhan">Keluhan</label>
+                        <label for="keluhan" class="required">Keluhan</label>
                         <input type="text" class="form-control" id="keluhan" placeholder="Masukkan keluhan" required>
                     </div>
                     <div class="form-group">
-                        <label for="lampiran">Lampiran</label>
+                        <label for="lampiran" class="required">Lampiran</label>
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" id="lampiran" required>
                             <label class="custom-file-label" for="lampiran">Upload foto</label>

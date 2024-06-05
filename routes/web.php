@@ -57,6 +57,14 @@ Route::get('/keuangan_warga', function () {
     return view('keuangan_page');
 })->name('keuangan_page');
 
+Route::get('/cek_sktm', function () {
+    return view('cek_sktm_page');
+})->name('cek_sktm_page');
+
+Route::get('/cek_domisili', function () {
+    return view('cek_domisili_page');
+})->name('cek_domisili_page');
+
 // Route::get('/dashboard', function () {
 //     return view('home');
 // });

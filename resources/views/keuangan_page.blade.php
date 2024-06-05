@@ -39,8 +39,10 @@
                         Pengajuan Surat
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="{{ route('sktm_page') }}">SKTM</a>
+                        <a class="dropdown-item " href="{{ route('sktm_page') }}">SKTM</a>
+                        <a class="dropdown-item" href="{{ route('cek_sktm_page') }}">Cek SKTM</a>
                         <a class="dropdown-item" href="{{ route('domisili_page') }}">Domisili</a>
+                        <a class="dropdown-item" href="{{ route('cek_domisili_page') }}">Cek Domisili</a>
                     </div>
                 </li>
             </ul>
