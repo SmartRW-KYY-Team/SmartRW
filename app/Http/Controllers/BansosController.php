@@ -35,7 +35,7 @@ class BansosController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'keluarga_id' => 'required|numeric',
+            'keluarga_id' => 'required|numeric|unique:bansos,keluarga_id',
             'K1' => 'required|numeric',
             'K2' => 'required|numeric',
             'K3' => 'required|numeric',

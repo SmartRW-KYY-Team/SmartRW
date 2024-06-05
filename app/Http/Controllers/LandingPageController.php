@@ -110,6 +110,6 @@ class LandingPageController extends Controller
 
         // Redirect ke halaman yang sesuai (misalnya halaman daftar pengguna)
         Alert::success('Success Title', 'Success Message');
-        return redirect()->route('domisili.index');
+        return redirect()->route('domisili_page');
     }
 }
