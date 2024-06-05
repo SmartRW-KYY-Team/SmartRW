@@ -47,12 +47,17 @@ class KeuanganRWDataTable extends DataTable
     public function query(KeuanganRW $model): QueryBuilder
     {
         $rw_id = session('no_role');
-        
-        if ($rw_id) {
-            return $model->newQuery()->where('rw_id', $rw_id);
-        } else {
-            return $model->newQuery()->where('rw_id', null);
+
+        $query = $model->newQuery()->where('rw_id', $rw_id);
+
+        if (request()->has('filter_month') && request('filter_month')) {
+            $query->whereMonth('tanggal', request('filter_month'));
         }
+
+        if (request()->has('filter_year') && request('filter_year')) {
+            $query->whereYear('tanggal', request('filter_year'));
+        }
+        return $query;
     }
 
     public function html(): HtmlBuilder
@@ -61,7 +66,7 @@ class KeuanganRWDataTable extends DataTable
             ->setTableId('keuanganRW-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->orderBy(1, 'desc') 
+            ->orderBy(1, 'desc')
             ->selectStyleSingle()
             ->buttons([
                 Button::make('excel'),
@@ -75,7 +80,14 @@ class KeuanganRWDataTable extends DataTable
                 'responsive' => true,
                 'autoWidth' => false,
                 'scroller' => true,
-                'scrollX' => true
+                'scrollX' => true,
+                'ajax' => [
+                    'url' => route('keuanganrt.index'),
+                    'data' => 'function(d) { 
+                        d.filter_month = $("#filter-month").val(); 
+                        d.filter_year = $("#filter-year").val();
+                    }',
+                ],
             ]);
     }
 

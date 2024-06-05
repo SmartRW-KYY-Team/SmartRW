@@ -64,7 +64,7 @@
                     <li class="sidebar-item {{ Request::is('keuanganrw*') ? 'active' : '' }}">
                         <a href="{{ route('keuanganrw.index') }}" class='sidebar-link'>
                             <i class="bi bi-cash-coin"></i>
-                            <span>Mengelola Iuran (RW dan Bendahara)</span>
+                            <span>Keuangan</span>
                         </a>
                     </li>
                 @endif
@@ -105,7 +105,7 @@
                     <li class="sidebar-item {{ Request::is('keuanganrt*') ? 'active' : '' }}">
                         <a href="{{ route('keuanganrt.index') }}" class='sidebar-link'>
                             <i class="bi bi-cash-coin"></i>
-                            <span>Mengelola Iuran (RT)</span>
+                            <span>Keuangan</span>
                         </a>
                     </li>
                 @endif
