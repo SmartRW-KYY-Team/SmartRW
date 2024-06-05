@@ -28,10 +28,10 @@
                     <a class="nav-link" href="{{ route('pengaduan_page') }}">Pengaduan</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Keuangan</a>
+                    <a class="nav-link" href="{{ route('keuangan_page') }}">Keuangan</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Agenda Kegiatan</a>
+                    <a class="nav-link" href="{{ route('kegiatan_page') }}">Agenda Kegiatan</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
@@ -39,8 +39,10 @@
                         Pengajuan Surat
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="{{ route('sktm_page') }}">SKTM</a>
+                        <a class="dropdown-item " href="{{ route('sktm_page') }}">SKTM</a>
+                        <a class="dropdown-item" href="{{ route('cek_sktm_page') }}">Cek SKTM</a>
                         <a class="dropdown-item" href="{{ route('domisili_page') }}">Domisili</a>
+                        <a class="dropdown-item" href="{{ route('cek_domisili_page') }}">Cek Domisili</a>
                     </div>
                 </li>
             </ul>

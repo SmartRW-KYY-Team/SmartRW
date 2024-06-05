@@ -49,19 +49,40 @@ Route::get('/sktm_warga', function () {
     return view('sktm_page');
 })->name('sktm_page');
 
+Route::get('/kegiatan_warga', function () {
+    return view('kegiatan_page');
+})->name('kegiatan_page');
+
+Route::get('/keuangan_warga', function () {
+    return view('keuangan_page');
+})->name('keuangan_page');
+
+Route::get('/cek_sktm', function () {
+    return view('cek_sktm_page');
+})->name('cek_sktm_page');
+
+Route::get('/cek_domisili', function () {
+    return view('cek_domisili_page');
+})->name('cek_domisili_page');
+
 // Route::get('/dashboard', function () {
 //     return view('home');
 // });
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
-Route::group(['middleware' => 'guest'], function () {
-    Route::get('/login', [AuthController::class, 'login'])->name('login');
-    Route::post('/login', [AuthController::class, 'loginProcess'])->name('login.post');
+Route::middleware(['device.check'])->group(function () {
+    Route::group(['middleware' => 'guest'], function () {
+        Route::get('/login', [AuthController::class, 'login'])->name('login');
+        Route::post('/login', [AuthController::class, 'loginProcess'])->name('login.post');
+    });
 });
+Route::get('/device-warning', function () {
+    return view('device-warning');
+})->name('device.warning');
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::middleware('auth')->prefix('warga')->name('warga.')->group(function () {
+Route::middleware('auth', 'device.check')->prefix('warga')->name('warga.')->group(function () {
     Route::get('/', [wargaController::class, 'index'])->name('index');
     Route::get('/create', [wargaController::class, 'create'])->name('create');
     Route::post('/store', [wargaController::class, 'store'])->name('store');
@@ -71,7 +92,7 @@ Route::middleware('auth')->prefix('warga')->name('warga.')->group(function () {
     Route::get('/{id}/show', [wargaController::class, 'show'])->name('show');
 });
 
-Route::prefix('keluarga')->name('keluarga.')->group(function () {
+Route::middleware('auth', 'device.check')->prefix('keluarga')->name('keluarga.')->group(function () {
     Route::get('/', [KeluargaController::class, 'index'])->name('index');
     Route::get('/create', [KeluargaController::class, 'create'])->name('create');
     Route::post('/store', [KeluargaController::class, 'store'])->name('store');
@@ -81,7 +102,7 @@ Route::prefix('keluarga')->name('keluarga.')->group(function () {
     Route::put('/{id}/update', [KeluargaController::class, 'update'])->name('update');
 });
 
-Route::middleware('auth')->prefix('pengaduan')->name('pengaduan.')->group(function () {
+Route::middleware('auth', 'device.check')->prefix('pengaduan')->name('pengaduan.')->group(function () {
     Route::get('/index', [PengaduanController::class, 'index'])->name('index');
     Route::get('/create', [PengaduanController::class, 'create'])->name('create');
     Route::post('/', [PengaduanController::class, 'store'])->name('store');
@@ -91,7 +112,7 @@ Route::middleware('auth')->prefix('pengaduan')->name('pengaduan.')->group(functi
 });
 
 
-Route::middleware('auth')->prefix('kegiatan')->name('kegiatan.')->group(function () {
+Route::middleware('auth', 'device.check')->prefix('kegiatan')->name('kegiatan.')->group(function () {
     Route::get('/', [KegiatanController::class, 'index'])->name('index');
     Route::get('/create', [KegiatanController::class, 'create'])->name('create');
     Route::post('/', [KegiatanController::class, 'store'])->name('store');
@@ -101,21 +122,21 @@ Route::middleware('auth')->prefix('kegiatan')->name('kegiatan.')->group(function
     Route::delete('/{id}/destroy', [KegiatanController::class, 'destroy'])->name('destroy');
 });
 
-Route::middleware('auth')->prefix('domisili')->name('domisili.')->group(function () {
+Route::middleware('auth', 'device.check')->prefix('domisili')->name('domisili.')->group(function () {
     Route::get('/', [DomisiliController::class, 'index'])->name('index');
     Route::post('/', [DomisiliController::class, 'store'])->name('store');
     Route::post('/accept/{id}', [DomisiliController::class, 'accept'])->name('accept');
     Route::get('/{id}/show', [DomisiliController::class, 'show'])->name('show');
 });
 
-Route::middleware('auth')->prefix('sktm')->name('sktm.')->group(function () {
+Route::middleware('auth', 'device.check')->prefix('sktm')->name('sktm.')->group(function () {
     Route::get('/', [SKTMController::class, 'index'])->name('index');
     Route::post('/', [SKTMController::class, 'store'])->name('store');
     Route::post('/accept/{id}', [SKTMController::class, 'accept'])->name('accept');
     Route::get('/{id}/show', [SKTMController::class, 'show'])->name('show');
 });
 
-Route::middleware('auth')->prefix('keuanganrt')->name('keuanganrt.')->group(function () {
+Route::middleware('auth', 'device.check')->prefix('keuanganrt')->name('keuanganrt.')->group(function () {
     Route::get('/', [KeuanganRTController::class, 'index'])->name('index')->middleware('rt');
     Route::post('/', [KeuanganRTController::class, 'store'])->name('store');
     Route::post('{id}/destroy', [KeuanganRTController::class, 'destroy'])->name('destroy');
@@ -123,7 +144,7 @@ Route::middleware('auth')->prefix('keuanganrt')->name('keuanganrt.')->group(func
     Route::post('{id}/update', [KeuanganRTController::class, 'update'])->name('update');
 })->middleware(RTMiddleware::class);
 
-Route::middleware('auth')->prefix('keuanganrw')->name('keuanganrw.')->group(function () {
+Route::middleware('auth', 'device.check')->prefix('keuanganrw')->name('keuanganrw.')->group(function () {
     Route::get('/', [KeuanganRWController::class, 'index'])->name('index')->middleware('rw');
     Route::post('/', [KeuanganRWController::class, 'store'])->name('store');
     Route::post('{id}/destroy', [KeuanganRWController::class, 'destroy'])->name('destroy');
@@ -131,13 +152,15 @@ Route::middleware('auth')->prefix('keuanganrw')->name('keuanganrw.')->group(func
     Route::post('{id}/update', [KeuanganRWController::class, 'update'])->name('update');
 })->middleware(RWMiddleware::class);
 
-Route::middleware('auth')->prefix('bansos')->name('bansos.')->group(function () {
+Route::middleware('auth', 'device.check')->prefix('bansos')->name('bansos.')->group(function () {
     Route::get('/', [BansosController::class, 'index'])->name('index');
 });
 
-Route::get('/kriteriabansos', [KriteriaBansosController::class, 'index']);
+Route::middleware(['auth', 'device.check'])->group(function () {
+    Route::get('/kriteriabansos', [KriteriaBansosController::class, 'index']);
+});
 
-Route::prefix('bansos')->name('bansos.')->group(function () {
+Route::middleware('auth', 'device.check')->prefix('bansos')->name('bansos.')->group(function () {
     Route::get('/', [BansosController::class, 'index'])->name('index');
     Route::get('/create', [BansosController::class, 'create'])->name('create');
     Route::post('/', [BansosController::class, 'store'])->name('store');
@@ -145,7 +168,7 @@ Route::prefix('bansos')->name('bansos.')->group(function () {
     Route::delete('/{id}', [BansosController::class, 'delete'])->name('delete');
 });
 
-Route::middleware('auth')->prefix('rt')->name('rt.')->group(function () {
+Route::middleware('auth', 'device.check')->prefix('rt')->name('rt.')->group(function () {
     Route::get('/', [RTController::class, 'index'])->name('index')->middleware('rw');
     Route::get('{id}/edit', [RTController::class, 'edit'])->name('edit')->middleware('rw');
     Route::post('{id}/update', [RTController::class, 'update'])->name('update')->middleware('rw');

@@ -4,17 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMARTRW - Layanan Pengaduan</title>
+    <title>SMARTRW - Agenda Kegiatan</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/style_pengaduan.css') }}">
-    <style>
-        .required:after {
-            content: "*";
-            color: red;
-            margin-left: 5px;
-        }
-    </style>
 </head>
 
 <body style="background-color: #f2f7ff">
@@ -31,13 +24,13 @@
                 <li class="nav-item ">
                     <a class="nav-link" href="{{ route('landing_page') }}">Beranda</a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item ">
                     <a class="nav-link" href="{{ route('pengaduan_page') }}">Pengaduan</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('keuangan_page') }}">Keuangan</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="{{ route('kegiatan_page') }}">Agenda Kegiatan</a>
                 </li>
                 <li class="nav-item dropdown">
@@ -61,9 +54,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="display-4">Layanan Pengaduan</h1>
+                    <h1 class="display-4">Agenda Kegiatan</h1>
                     <p class="lead">
-                        Sampaikan laporan Anda secara langsung
+                        Lihat agenda kegiatan secara langsung
                     </p>
                 </div>
 
@@ -74,59 +67,77 @@
     <!-- Form Section -->
     <div class="form-section">
         <div class=" container my-5">
-        <div class="card mx-auto" style="max-width: 800px;">
+        <div class="card mx-auto" style="max-width: 1000px;">
             <div class="card-body">
-                <h5 class="card-title" style="background-color: #0b7077;">Sampaikan Laporan Pengaduan Anda</h5>
-                <form>
-                    <div class="form-group">
-                        <label for="namaPengadu" class="required">Nama</label>
-                        <select class="form-control" id="namaPengadu" required>
-                            <option>Pilih nama pengadu</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="tanggal" class="required">Tanggal Kejadian</label>
-                        <input type="date" class="form-control" id="tanggal" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="rt" class="required">RT</label>
-                        <select class="form-control" id="rt" required>
-                            <option>Pilih RT</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="rw" class="required">RW</label>
-                        <select class="form-control" id="rw" required>
-                            <option>Pilih RW</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="keluhan" class="required">Keluhan</label>
-                        <input type="text" class="form-control" id="keluhan" placeholder="Masukkan keluhan" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="lampiran" class="required">Lampiran</label>
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="lampiran" required>
-                            <label class="custom-file-label" for="lampiran">Upload foto</label>
-                        </div>
-                    </div>
-                    <div>
-                        <button type="submit" class="btn"
-                            style="background-color: #0b7077; color: white;">Laporkan</button>
-                    </div>
-                </form>
+                <h5 class="card-title" style="background-color: #0b7077;">Agenda Kegiatan</h5>
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover table-bordered table-sm">
+                        <thead>
+                            <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">Nama Kegiatan</th>
+                                <th scope="col">Tanggal</th>
+                                <th scope="col">Deskripsi</th>
+                                <th scope="col">RT</th>
+                                <th scope="col">RW</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                  </div>
             </div>
         </div>
     </div>
     </div>
 
-    <!-- Statistics Section -->
-    <div class="container-fluid text-white py-5 text-center" style="background-color: #138496;">
-        <h3>Jumlah Laporan Sekarang</h3>
-        <h1 style="font-weight: 550;">101,696</h1>
-        <button class="btn btn-outline-light mt-3">Lihat Selengkapnya</button>
+     <!-- Footer -->
+    <div class="modal fade" id="showModalDetail" tabindex="-1" aria-labelledby="showModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="showModalLabel">Data Kegiatan</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>Nama Kegiatan</th>
+                            <td id="nama"></td>
+                        </tr>
+                        <tr>
+                            <th>Deskripsi</th>
+                            <td id="deskripsi"></td>
+                        </tr>
+                        <tr>
+                            <th>Tanggal Kegiatan</th>
+                            <td id="tanggal_kegiatan"></td>
+                        </tr>
+                        <tr>
+                            <th>RT</th>
+                            <td id="rt_id"></td>
+                        </tr>
+                        <tr>
+                            <th>RW</th>
+                            <td id="rw_id"></td>
+                        </tr>
+                        <tr>
+                            <th>Lampiran</th>
+                            <td>
+                                <img alt="lampiran" id="lampiran" name="lampiran" style="max-width: 400px; height: 200px">
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
     </div>
+
 
     <!-- Footer -->
     <footer class="text-center py-4" style="background-color: #D2E6E4">
