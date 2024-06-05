@@ -42,6 +42,15 @@
                     </li>
                 @endif
 
+                @if (Auth::user()->role == 'rw')
+                    <li class="sidebar-item {{ Request::is('rt*') ? 'active' : '' }}">
+                        <a href="{{ route('rt.index') }}" class='sidebar-link'>
+                            <i class="bi bi-people-fill"></i>
+                            <span>Data RT</span>
+                        </a>
+                    </li>
+                @endif
+
                 @if (Auth::user()->role == 'rw' || Auth::user()->role == 'rt')
                     <li class="sidebar-item {{ Request::is('kegiatan*') ? 'active' : '' }}">
                         <a href="{{ route('kegiatan.index') }}" class='sidebar-link'>

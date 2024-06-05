@@ -50,6 +50,7 @@
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
+            <a href="{{ route('rt.index') }}" class="btn btn-danger me-2">Kembali</a>
             <button type="submit" class="btn btn-primary">Simpan</button>
         </form>
     </div>
