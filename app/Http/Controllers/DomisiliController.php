@@ -15,11 +15,14 @@ class DomisiliController extends Controller
 {
     public function index(DomisiliDatatable $dataTable)
     {
+        $pageTitle =  'Surat Domisili';
+        $subPageTitle = 'Domisili SmartRW';
+        $activePosition = "home";
         $domisili = SuratDomisili::all();
         $rt = Rt::all();
         $rw = Rw::all();
         $pemohon = User::all();
-        return $dataTable->render('domisili.home', ['domisili' => $domisili, 'rt' => $rt, 'rw' => $rw, 'pemohon' => $pemohon]);
+        return $dataTable->render('domisili.home', ['domisili' => $domisili, 'rt' => $rt, 'rw' => $rw, 'pemohon' => $pemohon, 'pageTitle' => $pageTitle, 'subPageTitle' => $subPageTitle, 'activePosition' => $activePosition]);
     }
 
     public function store(Request $request)

@@ -14,6 +14,9 @@ class KeuanganRWController extends Controller
 {
     public function index(KeuanganRWDataTable $dataTable)
     {
+        $pageTitle =  'Keuangan RW';
+        $subPageTitle = 'Keuangan SmartRW';
+        $activePosition = "home";
         $rw_id = session('no_role');
         $role = session('role');
 
@@ -37,7 +40,10 @@ class KeuanganRWController extends Controller
                 'keuanganrw' => $keuanganRW,
                 'currentBalance' => $currentBalance,
                 'monthlyIncome' => $monthlyIncome,
-                'monthlyExpense' => $monthlyExpense
+                'monthlyExpense' => $monthlyExpense,
+                'pageTitle' => $pageTitle,
+                'subPageTitle' => $subPageTitle,
+                'activePosition' => $activePosition
             ]);
         }
     }
@@ -113,7 +119,7 @@ class KeuanganRWController extends Controller
         $rw = Rw::findOrFail($rwId);
 
         $keuanganRW = KeuanganRW::where('rw_id', $rwId)->latest()->first();
-        
+
         $totalSaldo = $rw->saldo;
 
         if ($tipe == 'Masuk') {

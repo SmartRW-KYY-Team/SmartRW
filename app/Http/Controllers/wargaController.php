@@ -14,12 +14,13 @@ class wargaController extends Controller
 {
     public function index(UsersDataTable $dataTable)
     {
-        // $allSessions = session()->all();
-        // dd($allSessions);
+        $pageTitle =  'Data Warga';
+        $subPageTitle = 'Warga SmartRW';
+        $activePosition = "home";
         $warga = User::all();
         $agama = Agama::all();
         $keluarga = Keluarga::with('kepala_keluarga')->get();
-        return $dataTable->render('warga.home', ['warga' => $warga, 'agama' => $agama, 'keluarga' => $keluarga]);
+        return $dataTable->render('warga.home', ['warga' => $warga, 'agama' => $agama, 'keluarga' => $keluarga, 'pageTitle' => $pageTitle, 'subPageTitle' => $subPageTitle, 'activePosition' => $activePosition]);
     }
 
     public function create()

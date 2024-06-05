@@ -18,8 +18,10 @@ class KegiatanController extends Controller
      */
     public function index(KegiatanDataTable $dataTable)
     {
-        //
-        return $dataTable->render('kegiatan.index');
+        $pageTitle =  'Agenda Kegiatan';
+        $subPageTitle = 'Kegiatan SmartRW';
+        $activePosition = "home";
+        return $dataTable->render('kegiatan.index', ['pageTitle' => $pageTitle, 'subPageTitle' => $subPageTitle, 'activePosition' => $activePosition]);
     }
 
     /**
