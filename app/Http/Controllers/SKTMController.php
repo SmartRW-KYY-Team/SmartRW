@@ -15,11 +15,14 @@ class SKTMController extends Controller
 {
     public function index(SKTMDataTable $dataTable)
     {
+        $pageTitle =  'Surat SKTM';
+        $subPageTitle = 'SKTM SmartRW';
+        $activePosition = "home";
         $sktm = SuratSKTM::all();
         $rt = Rt::all();
         $rw = Rw::all();
         $pemohon = User::all();
-        return $dataTable->render('sktm.home', ['sktm' => $sktm, 'rt' => $rt, 'rw' => $rw, 'pemohon' => $pemohon]);
+        return $dataTable->render('sktm.home', ['sktm' => $sktm, 'rt' => $rt, 'rw' => $rw, 'pemohon' => $pemohon, 'pageTitle' => $pageTitle, 'subPageTitle' => $subPageTitle, 'activePosition' => $activePosition]);
     }
 
     public function store(Request $request)

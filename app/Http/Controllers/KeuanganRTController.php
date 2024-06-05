@@ -15,10 +15,14 @@ class KeuanganRTController extends Controller
 {
     public function index(KeuanganRTDataTable $dataTable)
     {
+        $pageTitle =  'Keuangan RT';
+        $subPageTitle = 'Keuangan SmartRW';
+        $activePosition = "home";
         $rt_id = session('no_role');
         $role = session('role');
 
         if (Auth::check() && $rt_id && $role === 'rt') {
+
             $keuanganRT = KeuanganRT::where('rt_id', $rt_id)->get();
 
             $currentBalance = Rt::find($rt_id)->saldo;
@@ -38,7 +42,10 @@ class KeuanganRTController extends Controller
                 'keuanganrt' => $keuanganRT,
                 'currentBalance' => $currentBalance,
                 'monthlyIncome' => $monthlyIncome,
-                'monthlyExpense' => $monthlyExpense
+                'monthlyExpense' => $monthlyExpense,
+                'pageTitle' => $pageTitle,
+                'subPageTitle' => $subPageTitle,
+                'activePosition' => $activePosition
             ]);
         }
     }

@@ -17,10 +17,13 @@ class KeluargaController extends Controller
 {
     public function index(KeluargaDataTable $dataTable)
     {
+        $pageTitle =  'Data Keluarga';
+        $subPageTitle = 'Keluarga SmartRW';
+        $activePosition = "home";
         $warga = User::all();
         $agama = Agama::all();
         $keluarga = Keluarga::with('kepala_keluarga')->get();
-        return $dataTable->render('keluarga.home', ['warga' => $warga, 'agama' => $agama, 'keluarga' => $keluarga]);
+        return $dataTable->render('keluarga.home', ['warga' => $warga, 'agama' => $agama, 'keluarga' => $keluarga, 'pageTitle' => $pageTitle, 'subPageTitle' => $subPageTitle, 'activePosition' => $activePosition]);
     }
 
     public function create()

@@ -15,11 +15,14 @@ class PengaduanController extends Controller
 {
     public function index(PengaduanDataTable $dataTable)
     {
+        $pageTitle =  'Pengaduan Masalah';
+        $subPageTitle = 'Kegiatan SmartRW';
+        $activePosition = "home";
         $pengaduan = Pengaduan::all();
         $user = User::with('pengaduan')->get();
         $rt = Rt::with('pengaduan')->get();
         $rw = Rw::with('pengaduan')->get();
-        return $dataTable->render('pengaduan.index', ['pengaduan' => $pengaduan, 'users' => $user, 'rts' => $rt, 'rws' => $rw]);
+        return $dataTable->render('pengaduan.index', ['pengaduan' => $pengaduan, 'users' => $user, 'rts' => $rt, 'rws' => $rw, 'pageTitle' => $pageTitle, 'subPageTitle' => $subPageTitle, 'activePosition' => $activePosition]);
     }
 
     public function create()

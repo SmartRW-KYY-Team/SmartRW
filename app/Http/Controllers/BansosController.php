@@ -16,8 +16,12 @@ class BansosController extends Controller
 {
     public function index(BansosDataTable $dataTable)
     {
+
+        $pageTitle =  'Bantuan Sosial';
+        $subPageTitle = 'Bantuan Sosial SmartRW';
+        $activePosition = "home";
         $keluarga = Keluarga::all();
-        return $dataTable->render('bansos.index', ['keluarga' => $keluarga]);
+        return $dataTable->render('bansos.index', ['keluarga' => $keluarga, 'pageTitle' => $pageTitle, 'subPageTitle' => $subPageTitle, 'activePosition' => $activePosition]);
     }
 
     public function create()

@@ -2,7 +2,7 @@
     <div class="sidebar-wrapper active">
         <div class="sidebar-header position-relative">
             <div class="logo img-fluid">
-                <a href="index.html"><img src="{{ asset('assets/image/Logo(2).svg') }}" alt="Logo"
+                <a href="{{ route('dashboard.index') }}"><img src="{{ asset('assets/image/Logo(2).svg') }}" alt="Logo"
                         style="width: 100%; height: 75px;"></a>
             </div>
             <div class="d-flex justify-content-center align-items-center">
