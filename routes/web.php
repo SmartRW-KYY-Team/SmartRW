@@ -152,10 +152,6 @@ Route::middleware('auth', 'device.check')->prefix('keuanganrw')->name('keuanganr
     Route::post('{id}/update', [KeuanganRWController::class, 'update'])->name('update');
 })->middleware(RWMiddleware::class);
 
-Route::middleware('auth', 'device.check')->prefix('bansos')->name('bansos.')->group(function () {
-    Route::get('/', [BansosController::class, 'index'])->name('index');
-});
-
 Route::middleware(['auth', 'device.check'])->group(function () {
     Route::get('/kriteriabansos', [KriteriaBansosController::class, 'index']);
 });
@@ -164,6 +160,8 @@ Route::middleware('auth', 'device.check')->prefix('bansos')->name('bansos.')->gr
     Route::get('/', [BansosController::class, 'index'])->name('index');
     Route::get('/create', [BansosController::class, 'create'])->name('create');
     Route::post('/', [BansosController::class, 'store'])->name('store');
+    Route::get('/{id}/edit', [BansosController::class, 'edit'])->name('edit');
+    Route::post('{id}/update', [BansosController::class, 'update'])->name('update');
     Route::get('/process', [BansosController::class, 'process'])->name('process');
     Route::delete('/{id}', [BansosController::class, 'delete'])->name('delete');
 });
