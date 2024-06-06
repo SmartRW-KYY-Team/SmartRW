@@ -28,6 +28,9 @@ class KeluargaController extends Controller
 
     public function create()
     {
+        $pageTitle =  'Create Data Keluarga';
+        $subPageTitle = 'Daftar Keluarga SmartRW';
+        $activePosition = "create";
         $users = User::all();
         $keluarga = Keluarga::all();
         $rts = Rt::all();
@@ -35,7 +38,7 @@ class KeluargaController extends Controller
         $existingKepalaKeluargas = Keluarga::pluck('kepala_keluarga_id')->toArray();
         $wargas = User::whereNotIn('id_user', $existingKepalaKeluargas)->get();
 
-        return view('keluarga.create', compact('users', 'keluarga', 'rts', 'rws', 'wargas'));
+        return view('keluarga.create', compact('users', 'keluarga', 'rts', 'rws', 'wargas', 'pageTitle', 'subPageTitle', 'activePosition'));
     }
 
     public function store(Request $request)
@@ -73,12 +76,15 @@ class KeluargaController extends Controller
 
     public function edit($id)
     {
+        $pageTitle =  'Edit Data Keluarga';
+        $subPageTitle = 'Daftar Keluarga SmartRW';
+        $activePosition = "edit";
         $keluarga = Keluarga::with('members')->findOrFail($id);
         $users = User::all();
         $rts = Rt::all();
         $rws = Rw::all();
 
-        return view('keluarga.edit', compact('keluarga', 'users', 'rts', 'rws'));
+        return view('keluarga.edit', compact('keluarga', 'users', 'rts', 'rws', 'pageTitle', 'subPageTitle', 'activePosition'));
     }
 
     public function update(Request $request, $id)

@@ -20,9 +20,12 @@ class RTController extends Controller
 
     public function edit($id)
     {
+        $pageTitle =  'Edit Data RT';
+        $subPageTitle = 'Data RT SmartRW';
+        $activePosition = "edit";
         $rt = Rt::findOrFail($id);
         $users = User::all();
-        return view('rt.edit', ['rt' => $rt, 'users' => $users]);
+        return view('rt.edit', ['rt' => $rt, 'users' => $users, 'pageTitle' => $pageTitle, 'subPageTitle' => $subPageTitle, 'activePosition' => $activePosition]);
     }
 
     public function update(Request $request, $id)

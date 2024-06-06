@@ -52,6 +52,7 @@ class KeuanganRTController extends Controller
 
     public function store(Request $request)
     {
+
         $request->validate([
             'tipe' => 'required',
             'tanggal' => 'required|date',

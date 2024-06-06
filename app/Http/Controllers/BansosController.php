@@ -26,13 +26,17 @@ class BansosController extends Controller
 
     public function create()
     {
+
+        $pageTitle =  'Create Bantuan Sosial';
+        $subPageTitle = 'Bantuan Sosial SmartRW';
+        $activePosition = "create";
         $users = User::whereIn('id_user', Keluarga::pluck('kepala_keluarga_id'))->get();
 
         $users->each(function ($user) {
             $keluarga = Keluarga::where('kepala_keluarga_id', $user->id_user)->first();
             $user->keluarga_id = $keluarga->id_keluarga;
         });
-        return view('bansos.create', ['users' => $users]);
+        return view('bansos.create', ['users' => $users, 'pageTitle' => $pageTitle, 'subPageTitle' => $subPageTitle, 'activePosition' => $activePosition]);
     }
 
 
@@ -68,6 +72,9 @@ class BansosController extends Controller
 
     public function process()
     {
+        $pageTitle =  'Bantuan Sosial';
+        $subPageTitle = 'Bantuan Sosial SmartRW';
+        $activePosition = "edas";
         app(KriteriaBansosController::class)->calculateAHP();
         $kriteria =  DB::table('kriteria_bansos')->get();
         $bobotKriteria = $kriteria->pluck('bobot')->toArray();
@@ -132,10 +139,13 @@ class BansosController extends Controller
         }
         $data = Bansos::with('keluarga')->orderByDesc('AS')->get();
         // Display results
-        return view('bansos.edas', compact('data'));
+        return view('bansos.edas', compact('data', 'pageTitle', 'subPageTitle', 'activePosition'));
     }
     public function edit($id)
     {
+        $pageTitle =  'Edit Bantuan Sosial';
+        $subPageTitle = 'Bantuan Sosial SmartRW';
+        $activePosition = "edit";
         $users = User::whereIn('id_user', Keluarga::pluck('kepala_keluarga_id'))->get();
 
         $users->each(function ($user) {
@@ -143,7 +153,7 @@ class BansosController extends Controller
             $user->keluarga_id = $keluarga->id_keluarga;
         });
         $bansos = Bansos::findOrFail($id);
-        return view('bansos.edit', ['users' => $users, 'bansos' => $bansos]);
+        return view('bansos.edit', ['users' => $users, 'bansos' => $bansos, 'pageTitle' => $pageTitle, 'subPageTitle' => $subPageTitle, 'activePosition' => $activePosition]);
     }
     public function update(Request $request, $id)
     {

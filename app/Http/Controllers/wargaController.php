@@ -25,10 +25,13 @@ class wargaController extends Controller
 
     public function create()
     {
+        $pageTitle =  'Create Data Warga';
+        $subPageTitle = 'Warga SmartRW';
+        $activePosition = "create";
         $warga = User::all();
         $agama = Agama::all();
         $keluarga = Keluarga::with('kepala_keluarga')->get();
-        return view('warga.create', ['warga' => $warga, 'agama' => $agama, 'keluarga' => $keluarga]);
+        return view('warga.create', ['warga' => $warga, 'agama' => $agama, 'keluarga' => $keluarga, 'pageTitle' => $pageTitle, 'subPageTitle' => $subPageTitle, 'activePosition' => $activePosition]);
     }
 
     public function store(Request $request)
@@ -69,10 +72,13 @@ class wargaController extends Controller
 
     public function edit($id)
     {
+        $pageTitle =  'Edit Data Warga';
+        $subPageTitle = 'Warga SmartRW';
+        $activePosition = "edit";
         $agama = Agama::all();
         $keluarga = Keluarga::all();
         $warga = User::findOrFail($id);
-        return view('warga.edit', ['warga' => $warga, 'agama' => $agama, 'keluarga' => $keluarga, 'id_warga' => $id]);
+        return view('warga.edit', ['warga' => $warga, 'agama' => $agama, 'keluarga' => $keluarga, 'id_warga' => $id, 'pageTitle' => $pageTitle, 'subPageTitle' => $subPageTitle, 'activePosition' => $activePosition]);
     }
 
     public function show($id)
