@@ -12,6 +12,8 @@ use App\Http\Controllers\KeuanganRWController;
 use App\Http\Controllers\BansosController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KeluargaController;
+use App\Http\Controllers\KeuanganWargaRTController;
+use App\Http\Controllers\KeuanganWargaRWController;
 use App\Http\Controllers\KriteriaBansosController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Middleware\RTMiddleware;
@@ -182,3 +184,8 @@ Route::middleware('auth', 'device.check')->prefix('rt')->name('rt.')->group(func
 
 
 Route::get('/suratdomisili-pdf/{id}', [LandingPageController::class, 'generatePDFDomisili']);
+
+Route::prefix('keuanganWarga')->name('keuanganWarga.')->group(function () {
+    Route::get('/rt', [KeuanganWargaRTController::class, 'index'])->name('rt.index');
+    Route::get('/rw', [KeuanganWargaRWController::class, 'index'])->name('rw.index');
+});
