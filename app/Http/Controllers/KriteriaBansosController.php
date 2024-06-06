@@ -13,7 +13,6 @@ class KriteriaBansosController extends Controller
      */
     public function index()
     {
-        //
         $data = KriteriaBansos::all();
         $consistency = $this->calculateAHP();
         return view('kriteria_bansos.index', compact('data', 'consistency'));
