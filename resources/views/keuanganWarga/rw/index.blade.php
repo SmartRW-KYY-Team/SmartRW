@@ -87,7 +87,7 @@
                                 <i class="bi bi-cash fs-2"></i> <span class="fw-bold">Saldo Saat Ini :</span>
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title">Rp <span
+                                <h5 class="card-title text-dark" style="background-color: white;">Rp <span
                                         id="current-balance">{{ number_format($currentBalance, 0, ',', '.') }}</span>
                                 </h5>
                             </div>
@@ -100,7 +100,7 @@
                                     class="text-success fw-bold">Uang Masuk Bulan Ini :</span>
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title text-success">Rp <span
+                                <h5 class="card-title text-success" style="background-color: white;">Rp <span
                                         id="monthly-income">{{ number_format($monthlyIncome, 0, ',', '.') }}</span></h5>
                             </div>
                         </div>
@@ -112,7 +112,7 @@
                                     class="text-danger fw-bold">Uang Keluar Bulan Ini :</span>
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title text-danger">Rp <span
+                                <h5 class="card-title text-danger" style="background-color: white;">Rp <span
                                         id="monthly-expense">{{ number_format($monthlyExpense, 0, ',', '.') }}</span>
                                 </h5>
                             </div>

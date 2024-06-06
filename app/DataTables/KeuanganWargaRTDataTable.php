@@ -29,7 +29,7 @@ class KeuanganWargaRTDataTable extends DataTable
 
     public function query(KeuanganRT $model): QueryBuilder
     {
-        $rt_id = request('rt_id') ?? session('no_role');
+        $rt_id = request('rt_id') ?? session('no_role', 1);
         $query = $model->newQuery()->where('rt_id', $rt_id);
 
         if (request()->has('filter_month') && request('filter_month')) {
