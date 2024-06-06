@@ -98,97 +98,90 @@
 
 <body>
 
-        <div class="kopsurat">
-            <div class="header">
-                <img src="malang.png" alt="Logo" class="logo" />
-                <div class="header-text">
-                    <h2>PEMERINTAH KABUPATEN MALANG</h2>
-                    <h3>KECAMATAN SETEMPAT</h3>
-                    <h3>DESA SETEMPAT</h3>
-                    <p>Alamat Desa Setempat</p>
-                </div>
+    <div class="kopsurat">
+        <div class="header">
+            <img src="malang.png" alt="Logo" class="logo" />
+            <div class="header-text">
+                <h2>PEMERINTAH KABUPATEN MALANG</h2>
+                <h3>KECAMATAN SETEMPAT</h3>
+                <h3>DESA SETEMPAT</h3>
+                <p>Alamat Desa Setempat</p>
             </div>
         </div>
-        <table width="100%" style="border-bottom: 3px solid #000; padding: 2px"></table>
+    </div>
+    <table width="100%" style="border-bottom: 3px solid #000; padding: 2px"></table>
 
-        <div class="title">
-            <h2>SURAT KETERANGAN DOMISILI</h2>
-            <p>Nomor Reg : 000/0000/000.0.0.0/000</p>
+    <div class="title">
+        <h2>SURAT KETERANGAN DOMISILI</h2>
+        <p>Nomor Reg : 000/0000/000.0.0.0/000</p>
+    </div>
+
+    <div class="content">
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yang bertanda tangan di bawah ini Kepala Desa Setempat Kecamatan
+            Setempat Kabupaten Malang. Menerangkan dengan sebenar-benarnya bahwa
+            orang tersebut di bawah ini :
+        </p>
+
+        <table class="center-table">
+            <tr>
+                <td>Nama</td>
+                <td>
+                    {{ $domisili->pemohon->nama }}
+                </td>
+            </tr>
+            <tr>
+                <td>Pekerjaan</td>
+                <td>
+                    {{ $domisili->pemohon->pekerjaan }}
+            </tr>
+            <tr>
+                <td>Tempat / Tgl. Lahir</td>
+                <td>
+                    {{ $domisili->pemohon->tempat_lahir }},{{ $domisili->pemohon->tgl_lahir }}
+                </td>
+            </tr>
+            <tr>
+                <td>Jenis Kelamin</td>
+                <td>
+                    {{ $domisili->pemohon->jenis_kelamin }}
+            </tr>
+            <tr>
+                <td>No. NIK</td>
+                <td>
+                    {{ $domisili->pemohon->nik }}
+                </td>
+            </tr>
+            <tr>
+                <td>Alamat</td>
+                <td>
+                    {{ $domisili->rt->nama }}, {{ $domisili->rw->nama }},Desa Jatimulyo
+                </td>
+            </tr>
+        </table>
+
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adalah benar-benar warga kami yang berdomisili di RT
+            {{ $domisili->rt_id }}
+            RW {{ $domisili->rw_id }} Desa Jatimulyo Kecamatan setempat Kabupaten Malang. Surat Keterangan ini dibuat
+            untuk {{ $domisili->keterangan }}
+        </p>
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Demikian surat keterangan tidak mampu ini dibuat
+            dengan
+            sebenar
+            benarnya dan untuk dipergunakan sebagaimana mestinya.
+        </p>
+    </div>
+
+    <div class="footer">
+        <div class="signature">
+            <p>Mengetahui</p>
+            <p>Tgl {{ date('Y-m-d') }}</p>
+            <p>Kepala Desa setempat</p>
+            <div class="sign"><img src="signature.png" width="150px" alt="Signature"></div>
         </div>
-
-        <div class="content">
-            <p>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yang bertanda tangan di bawah ini Kepala Desa Setempat Kecamatan
-                Setempat Kabupaten Malang. Menerangkan dengan sebenar-benarnya bahwa
-                orang tersebut di bawah ini :
-            </p>
-
-            <table class="center-table">
-                <tr>
-                    <td>Nama</td>
-                    <td>
-                        :
-                        .....................................................................
-                    </td>
-                </tr>
-                <tr>
-                    <td>Pekerjaan</td>
-                    <td>
-                        :
-                        ......................................................................
-                    </td>
-                </tr>
-                <tr>
-                    <td>Tempat / Tgl. Lahir</td>
-                    <td>
-                        :
-                        ........................................................................
-                    </td>
-                </tr>
-                <tr>
-                    <td>Jenis Kelamin</td>
-                    <td>
-                        :
-                        .......................................................................
-                    </td>
-                </tr>
-                <tr>
-                    <td>No. NIK</td>
-                    <td>
-                        :
-                        ........................................................................
-                    </td>
-                </tr>
-                <tr>
-                    <td>Alamat</td>
-                    <td>
-                        :
-                        ........................................................................
-                    </td>
-                </tr>
-            </table>
-
-            <p>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adalah benar-benar warga kami yang berdomisili di RT.......
-                RW......... Desa Jatimulyo Kecamatan setempat Kabupaten Malang. Surat Keterangan ini dibuat
-                untuk.........
-            </p>
-            <p>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Demikian surat domisili ini dibuat
-                dengan
-                sebenar
-                benarnya dan untuk dipergunakan sebagaimana mestinya.
-            </p>
-        </div>
-
-        <div class="footer">
-            <div class="signature">
-                <p>Mengetahui</p>
-                <p>Tgl</p>
-                <p>Kepala Desa setempat</p>
-                <div class="sign"><img src="signature.png" width="150px" alt="Signature"></div>
-            </div>
-        </div>
+    </div>
 
 </body>
 
