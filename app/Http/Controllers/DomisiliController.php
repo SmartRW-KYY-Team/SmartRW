@@ -27,13 +27,6 @@ class DomisiliController extends Controller
 
     public function store(Request $request)
     {
-        // Validasi data yang diterima dari formulir
-        // $request->validate([
-        //     'pemohon' => 'required|',
-        //     'status' => 'required',
-        //     'keterangan' => 'required|string|max:255',
-        // ]);
-
         // Buat pengguna baru berdasarkan data yang valid
         $suratDomisili = SuratDomisili::create([
             'pemohon_id' => $request->pemohon,

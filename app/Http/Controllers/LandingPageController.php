@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\DataTables\DomisiliDatatable;
 use App\DataTables\PengaduanDataTable;
 use App\DataTables\SKTMDataTable;
+use App\Models\Kegiatan;
 use App\Models\SuratSKTM;
 use App\Models\Pengaduan;
 use App\Models\SuratDomisili;
@@ -139,7 +140,13 @@ class LandingPageController extends Controller
     public function generatePDFDomisili($id)
     {
         $domisili = SuratSKTM::with('pemohon')->findOrFail($id);
-        $pdf = PDF::loadView('domisili.suratdomisili.index', $domisili);
-        return $pdf->download('SuratDomisil.pdf');
+        $pdf = PDF::loadView('domisili.suratdomisili.index', compact('domisili'));
+        return $pdf->stream('SuratDomisil.pdf');
+    }
+
+    public function showKegiatanWarga()
+    {
+        $agenda_kegiatan = Kegiatan::with('rt', 'rw')->get();
+        return view('kegiatan_page', compact('agenda_kegiatan'));
     }
 }

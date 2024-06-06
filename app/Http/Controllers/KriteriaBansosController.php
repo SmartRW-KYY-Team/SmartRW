@@ -13,10 +13,12 @@ class KriteriaBansosController extends Controller
      */
     public function index()
     {
-        //
+        $pageTitle =  'Kriteria Bantuan Sosial';
+        $subPageTitle = 'Kriteria SmartRW';
+        $activePosition = "home";
         $data = KriteriaBansos::all();
         $consistency = $this->calculateAHP();
-        return view('kriteria_bansos.index', compact('data', 'consistency'));
+        return view('kriteria_bansos.index', compact('data', 'consistency', 'pageTitle', 'subPageTitle', 'activePosition'));
     }
     public function calculateAHP()
     {

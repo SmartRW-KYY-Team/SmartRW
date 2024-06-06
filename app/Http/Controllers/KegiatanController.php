@@ -29,10 +29,12 @@ class KegiatanController extends Controller
      */
     public function create()
     {
-        //
+        $pageTitle =  'Agenda Kegiatan';
+        $subPageTitle = 'Agenda Kegiatan SmartRW';
+        $activePosition = "create";
         $rt = Rt::all();
         $rw = Rw::all();
-        return view('kegiatan.create', compact('rt', 'rw'));
+        return view('kegiatan.create', compact('rt', 'rw', 'pageTitle', 'subPageTitle', 'activePosition'));
     }
 
     /**
@@ -88,11 +90,13 @@ class KegiatanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pageTitle =  'Edit Agenda Kegiatan';
+        $subPageTitle = 'Agenda Kegiatan SmartRW';
+        $activePosition = "edit";
         $rt = Rt::all();
         $rw = Rw::all();
         $kegiatan = Kegiatan::findOrFail($id);
-        return view('kegiatan.edit', compact('kegiatan', 'rt', 'rw'));
+        return view('kegiatan.edit', compact('kegiatan', 'rt', 'rw', 'pageTitle', 'subPageTitle', 'activePosition'));
     }
 
     /**

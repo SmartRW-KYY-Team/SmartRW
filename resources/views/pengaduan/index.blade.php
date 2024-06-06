@@ -3,9 +3,6 @@
     <div class="card">
         <div class="card-header d-flex">
             <h4 class="card-title">Pengaduan</h4>
-            <div class="card-tools ms-auto">
-                <a href="{{ route('pengaduan.create') }}" class="btn btn-md btn-primary mt-1">+ Tambah</a>
-            </div>
         </div>
         <div class="card-body">
             {{-- {{ $dataTable->table() }} --}}
@@ -13,8 +10,7 @@
         </div>
     </div>
     <!-- Modal Detail -->
-    <div class="modal fade" id="viewPengaduanModal" tabindex="-1" aria-labelledby="viewPengaduanModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="viewPengaduanModal" tabindex="-1" aria-labelledby="viewPengaduanModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">

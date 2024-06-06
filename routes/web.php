@@ -59,9 +59,10 @@ Route::post('/domisili_warga', [LandingPageController::class, 'createDomisiliWar
 Route::get('/sktm_warga', [LandingPageController::class, 'viewSktmWarga'])->name('sktm_page');
 Route::post('/sktm_warga', [LandingPageController::class, 'createSktmWarga'])->name('sktm_page_create');
 
-Route::get('/kegiatan_warga', function () {
-    return view('kegiatan_page');
-})->name('kegiatan_page');
+// Route::get('/kegiatan_warga', function () {
+//     return view('kegiatan_page');
+// })->name('kegiatan_page');
+Route::get('/kegiatan_warga', [LandingPageController::class, 'showKegiatanWarga'])->name('kegiatan_page');
 
 Route::get('/keuangan_warga', function () {
     return view('keuangan_page');

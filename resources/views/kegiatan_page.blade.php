@@ -81,11 +81,21 @@
                                     <th scope="col">Deskripsi</th>
                                     <th scope="col">RT</th>
                                     <th scope="col">RW</th>
-                                    <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-
+                                @php $index = 1; @endphp
+                                @foreach ($agenda_kegiatan as $agenda)
+                                    <tr>
+                                        <td>{{ $index }}</td>
+                                        <td>{{ $agenda->nama }}</td>
+                                        <td>{{ $agenda->tanggal_kegiatan }}</td>
+                                        <td>{{ $agenda->deskripsi }}</td>
+                                        <td>{{ $agenda->rt->nama }}</td>
+                                        <td>{{ $agenda->rw->nama }}</td>
+                                    </tr>
+                                    @php $index++; @endphp
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

@@ -100,12 +100,18 @@
 
     <div class="kopsurat">
         <div class="header">
-            <img src="malang.png" alt="Logo" class="logo" />
-            <div class="header-text">
-                <h2>PEMERINTAH KABUPATEN MALANG</h2>
-                <h3>KECAMATAN SETEMPAT</h3>
-                <h3>DESA SETEMPAT</h3>
-                <p>Alamat Desa Setempat</p>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="{{ asset('assets/image/malang.png') }}" alt="Logo" class="logo" />
+                </div>
+                <div class="col-md-8">
+                    <div class="header-text">
+                        <h2>PEMERINTAH KABUPATEN MALANG</h2>
+                        <h3>KECAMATAN SETEMPAT</h3>
+                        <h3>DESA SETEMPAT</h3>
+                        <p>Alamat Desa Setempat</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -167,7 +173,7 @@
             untuk {{ $domisili->keterangan }}
         </p>
         <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Demikian surat keterangan tidak mampu ini dibuat
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Demikian surat domisili ini dibuat
             dengan
             sebenar
             benarnya dan untuk dipergunakan sebagaimana mestinya.
@@ -178,8 +184,9 @@
         <div class="signature">
             <p>Mengetahui</p>
             <p>Tgl {{ date('Y-m-d') }}</p>
-            <p>Kepala Desa setempat</p>
-            <div class="sign"><img src="signature.png" width="150px" alt="Signature"></div>
+            <div class="sign"><img src="{{ asset('assets/image/signature.png') }}" width="150px" alt="Signature">
+                <p>Kepala Desa setempat</p>
+            </div>
         </div>
     </div>
 
