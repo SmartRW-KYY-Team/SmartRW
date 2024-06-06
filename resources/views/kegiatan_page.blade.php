@@ -7,7 +7,7 @@
     <title>SMARTRW - Agenda Kegiatan</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('assets/style_pengaduan.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/style_kegiatan.css') }}">
 </head>
 
 <body style="background-color: #f2f7ff">
@@ -27,8 +27,15 @@
                 <li class="nav-item ">
                     <a class="nav-link" href="{{ route('pengaduan_page') }}">Pengaduan</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('keuangan_page') }}">Keuangan</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Keuangan
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item " href="{{ route('keuanganWarga.rt.index') }}">RT</a>
+                        <a class="dropdown-item" href="{{ route('keuanganWarga.rw.index') }}">RW</a>
+                    </div>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="{{ route('kegiatan_page') }}">Agenda Kegiatan</a>
@@ -69,8 +76,10 @@
     <div class="form-section">
         <div class=" container my-5">
             <div class="card mx-auto" style="max-width: 1000px;">
-                <div class="card-body">
+                <div class="card-header">
                     <h5 class="card-title" style="background-color: #0b7077;">Agenda Kegiatan</h5>
+                </div>
+                <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-striped table-hover table-bordered table-sm">
                             <thead>
