@@ -139,10 +139,55 @@ class LandingPageController extends Controller
 
     public function generatePDFDomisili($id)
     {
-        $domisili = SuratSKTM::with('pemohon')->findOrFail($id);
+        $domisili = SuratDomisili::with('pemohon')->findOrFail($id);
         $pdf = PDF::loadView('domisili.suratdomisili.index', compact('domisili'));
         return $pdf->stream('SuratDomisil.pdf');
     }
+
+    public function generatePDFSktm($id)
+    {
+        $sktm = SuratSKTM::with('pemohon')->findOrFail($id);
+        $pdf = PDF::loadView('sktm.suratsktm.index', compact('sktm'));
+        return $pdf->stream('SuratSktm.pdf');
+    }
+
+    public function cekStatusSktm($nik)
+    {
+        // cek apakah nik berada pada table users
+        $cek_nik = User::where('nik', $nik)->first();
+        if (!$cek_nik) {
+            return response()->json(['message' => 'NIK tidak ditemukan']);
+        }
+
+        $cek_nik_sktm = SuratSKTM::where('pemohon_id', $cek_nik->id_user)->first();
+        if (!$cek_nik_sktm) {
+            return response()->json(['message' => 'NIK tidak ditemukan pada daftar pengajuan SKTM']);
+        }
+
+        return response()->json([
+            'message' => 'NIK ditemukan pada daftar pengajuan SKTM',
+            'id' => $cek_nik_sktm->id_suratSKTM
+        ]);
+    }
+
+    public function cekStatusDomisili($nik)
+    {
+        // cek apakah nik berada pada table users
+        $cek_nik = User::where('nik', $nik)->first();
+        if (!$cek_nik) {
+            return response()->json(['message' => 'NIK tidak dapat ditemukan']);
+        }
+        $cek_nik_domisili = SuratDomisili::where('pemohon_id', $cek_nik->id_user)->first();
+        if (!$cek_nik_domisili) {
+            return response()->json(['message' => 'NIK tidak ditemukan pada daftar pengajuan Surat Domisili']);
+        }
+
+        return response()->json([
+            'message' => 'NIK ditemukan pada daftar pengajuan Surat Domisili',
+            'id' => $cek_nik_domisili->id_suratDomisili
+        ]);
+    }
+
 
     public function showKegiatanWarga()
     {

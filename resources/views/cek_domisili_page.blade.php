@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMARTRW - Layanan Pengajuan SKTM</title>
+    <title>SMARTRW - Layanan Pengajuan Domisili</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/style_status_domisili.css') }}">
@@ -40,7 +40,7 @@
                         Keuangan
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item " href="{{ route('keuanganWarga.rt.index') }}">RT</a>
+                        <a class="dropdown-item" href="{{ route('keuanganWarga.rt.index') }}">RT</a>
                         <a class="dropdown-item" href="{{ route('keuanganWarga.rw.index') }}">RW</a>
                     </div>
                 </li>
@@ -53,7 +53,7 @@
                         Pengajuan Surat
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item " href="{{ route('sktm_page') }}">SKTM</a>
+                        <a class="dropdown-item" href="{{ route('sktm_page') }}">SKTM</a>
                         <a class="dropdown-item" href="{{ route('cek_sktm_page') }}">Status SKTM</a>
                         <a class="dropdown-item" href="{{ route('domisili_page') }}">Domisili</a>
                         <a class="dropdown-item active" href="{{ route('cek_domisili_page') }}">Status Domisili</a>
@@ -73,31 +73,51 @@
                         Cek status surat Anda secara langsung
                     </p>
                 </div>
-
             </div>
         </div>
     </div>
 
     <!-- Form Section -->
     <div class="form-section">
-        <div class=" container my-5">
+        <div class="container my-5">
             <div class="card mx-auto" style="max-width: 800px;">
                 <div class="card-header">
-                    <h5 class="card-title" style="background-color: #0b7077;">Cek Status Surat Keterangan Domisili Anda
-                    </h5>
+                    <h5 class="card-title" style="background-color: #0b7077; color: white;">Cek Status Surat Keterangan
+                        Domisili Anda</h5>
                 </div>
                 <div class="card-body">
                     <form>
                         <div class="form-group">
                             <label for="nik" class="required">NIK</label>
-                            <input type="text" class="form-control" id="nik" placeholder="Masukkan NIK"
+                            <input type="number" class="form-control" id="nik" placeholder="Masukkan NIK"
                                 required>
                         </div>
                         <div>
-                            <button type="submit" class="btn"
-                                style="background-color: #0b7077; color: white;">Cek</button>
+                            <button type="button" class="btn" style="background-color: #0b7077; color: white;"
+                                id="btn-submit-cek-domisili">Cek</button>
                         </div>
                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="statusModal" tabindex="-1" role="dialog" aria-labelledby="statusModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="statusModalLabel">Status Surat Domisili</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="modal-body-content">
+                    <!-- Konten akan diisi melalui JavaScript -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                 </div>
             </div>
         </div>
@@ -120,9 +140,50 @@
         </div>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#btn-submit-cek-domisili').on('click', function(e) {
+                var nik = $('#nik').val();
+                $('#statusModal').modal('show');
+                $('#modal-body-content').html(
+                    '<p>Mohon Ditunggu Data Anda Sedang Diproses.</p>'
+                );
+                if (nik) {
+                    $.ajax({
+                        url: `/cek_status_domisili/${nik}`,
+                        method: 'GET',
+                        success: function(response) {
+                            $('#statusModal').modal('show');
+                            if (response.message.includes(
+                                    'NIK ditemukan pada daftar pengajuan Surat Domisili')) {
+                                $('#modal-body-content').html(`
+                                    <p>${response.message}</p>
+                                    <a href="/suratdomisili-pdf/${response.id}" target="_blank" class="btn btn-primary">Download Surat Domisili</a>
+                                `);
+                            } else {
+                                $('#modal-body-content').html(`
+                                    <p>${response.message}</p>
+                                `);
+                            }
+                        },
+                        error: function(error) {
+                            console.error(error);
+                            $('#statusModal').modal('show');
+                            $('#modal-body-content').html(
+                                '<p>Terjadi kesalahan saat memproses permintaan Anda. Silakan coba lagi nanti.</p>'
+                            );
+                        }
+                    });
+                } else {
+                    alert('Harap masukkan NIK');
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

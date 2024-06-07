@@ -183,8 +183,11 @@ Route::middleware('auth', 'device.check')->prefix('rt')->name('rt.')->group(func
     Route::post('{id}/update', [RTController::class, 'update'])->name('update')->middleware('rw');
 })->middleware(RWMiddleware::class);
 
+Route::get('/cek_status_sktm/{nik}/cek_status', [LandingPageController::class, 'cekStatusSktm'])->name('cek_status_sktm');
+Route::get('/cek_status_domisili/{nik}', [LandingPageController::class, 'cekStatusDomisili'])->name('cek_status_domisili');
 
 Route::get('/suratdomisili-pdf/{id}', [LandingPageController::class, 'generatePDFDomisili']);
+Route::get('/suratsktm-pdf/{id}', [LandingPageController::class, 'generatePDFSktm']);
 
 Route::prefix('keuanganWarga')->name('keuanganWarga.')->group(function () {
     Route::get('/rt', [KeuanganWargaRTController::class, 'index'])->name('rt.index');
