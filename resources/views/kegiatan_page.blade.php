@@ -79,7 +79,7 @@
                 </div>
                 <div class="card-body">
                     <div class="row mb-3">
-                        <div class="col-md-4">
+                        <div class="col-md-2">
                             <select id="filter-month" class="form-control">
                                 @foreach (range(1, 12) as $month)
                                     <option value="{{ $month }}" {{ $month == date('m') ? 'selected' : '' }}>
@@ -88,7 +88,7 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-2">
                             <select id="filter-year" class="form-control">
                                 @foreach (range(date('Y'), date('Y') - 5) as $year)
                                     <option value="{{ $year }}" {{ $year == date('Y') ? 'selected' : '' }}>
@@ -128,7 +128,8 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="showModalLabel">Data Kegiatan</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close">&times;</button>
                 </div>
                 <div class="modal-body">
                     <table class="table table-bordered">
@@ -240,6 +241,16 @@
             $('#filter-button').click(function() {
                 table.ajax.reload(null, false);
             });
+        });
+        $('#kegiatanwarga-table').on('click', '.showButtonDetail', function() {
+            var modal = $('#showModalDetail');
+            modal.find('#nama').text($(this).data('nama'));
+            modal.find('#deskripsi').text($(this).data('deskripsi'));
+            modal.find('#tanggal_kegiatan').text($(this).data('tanggal'));
+            modal.find('#rt_id').text($(this).data('rt'));
+            modal.find('#rw_id').text($(this).data('rw'));
+            modal.find('#lampiran').attr('src', $(this).data('lampiran'));
+            modal.modal('show');
         });
     </script>
 </body>

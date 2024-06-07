@@ -16,8 +16,12 @@ class KegiatanWargaDataTable extends DataTable
         return (new EloquentDataTable($query))
             ->addColumn('action', function ($row) {
                 return '<div style="display: flex; justify-content: space-between;">
-                    <button type="button" class="btn btn-info me-2 showButtonDetail" data-bs-toggle="tooltip" data-id="' . $row->id_kegiatan . '" data-rw="' . $row->rw->nama . '"  data-rt="' . $row->rt->nama . '" data-bs-placement="top" title="Detail"><i class="fa fa-info-circle"></i></button>
-                </div>';
+                <button type="button" class="btn btn-info me-2 showButtonDetail" data-bs-toggle="tooltip" 
+                data-id="' . $row->id_kegiatan . '" data-nama="' . $row->nama . '" data-deskripsi="' . $row->deskripsi . '" 
+                data-tanggal="' . $row->tanggal_kegiatan . '" data-rt="' . $row->rt->nama . '" 
+                data-rw="' . $row->rw->nama . '" data-lampiran="' . $row->lampiran . '" 
+                data-bs-placement="top" title="Detail"><i class="fa fa-info-circle"></i></button>
+            </div>';
             })
             ->addColumn('No', function () {
                 static $index = 1;
