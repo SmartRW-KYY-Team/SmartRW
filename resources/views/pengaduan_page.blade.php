@@ -59,6 +59,9 @@
                         <a class="dropdown-item" href="{{ route('cek_domisili_page') }}">Status Domisili</a>
                     </div>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link text-danger" href="{{ route('login') }} ">Login</a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -95,7 +98,8 @@
                         </div>
                         <div class="form-group">
                             <label for="tanggal"class="required">Tanggal Kejadian</label>
-                            <input type="date" class="form-control" id="tanggal" name="tanggal_kejadian" required>
+                            <input type="date" class="form-control" id="tanggal" name="tanggal_kejadian"
+                                required>
                         </div>
                         <div class="form-group">
                             <label for="rt" class="required">RT</label>

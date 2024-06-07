@@ -45,7 +45,7 @@
                     </div>
                     <div class="float-end">
                         <p>Crafted with <span class="text-danger"></span>
-                            by <a href="https://github.com/Fyodor-DOs">KYY</a></p>
+                            by <a href="https://github.com/SmartRW-KYY-Team">KYY</a></p>
                     </div>
                 </div>
             </footer>

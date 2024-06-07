@@ -59,6 +59,9 @@
                         <a class="dropdown-item" href="{{ route('cek_domisili_page') }}">Status Domisili</a>
                     </div>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link text-danger" href="{{ route('login') }} ">Login</a>
+                </li>
             </ul>
         </div>
     </nav>

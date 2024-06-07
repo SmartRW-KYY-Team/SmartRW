@@ -32,12 +32,12 @@ class AuthController extends Controller
             session(['id_administrator' => $admin->id_administrator]);
             session(['role' => $admin->role]);
             session(['no_role' => $admin->no_role]);
+            session(['username' => $admin->username]);
             Alert::success('success', 'Berhasil Login');
             return redirect()->route('dashboard.index');
         } else {
-            return  back()->withErrors([
-                'username' => 'The provided credentials do not match our records.',
-            ]);
+            Alert::error('error', 'Username atau Password Salah');
+            return redirect()->route('login');
         }
     }
     public function logout(Request $request)

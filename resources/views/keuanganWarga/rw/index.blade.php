@@ -54,6 +54,9 @@
                         <a class="dropdown-item" href="{{ route('cek_domisili_page') }}">Status Domisili</a>
                     </div>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link text-danger" href="{{ route('login') }} ">Login</a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -101,7 +104,8 @@
                             </div>
                             <div class="card-body">
                                 <h5 class="card-title text-success" style="background-color: white;">Rp <span
-                                        id="monthly-income">{{ number_format($monthlyIncome, 0, ',', '.') }}</span></h5>
+                                        id="monthly-income">{{ number_format($monthlyIncome, 0, ',', '.') }}</span>
+                                </h5>
                             </div>
                         </div>
                     </div>

@@ -54,6 +54,9 @@
                         <a class="dropdown-item" href="{{ route('cek_domisili_page') }}">Status Domisili</a>
                     </div>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link text-danger" href="{{ route('login') }} ">Login</a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -90,7 +93,7 @@
                         <li><a class="dropdown-item" href="#" data-rt-id="2">RT 2</a></li>
                         <li><a class="dropdown-item" href="#" data-rt-id="3">RT 3</a></li>
                     </ul>
-                </div>                
+                </div>
                 <div class="row mb-3 mt-3">
                     <div class="col-md-4">
                         <div class="card bg-white">
@@ -108,11 +111,12 @@
                         <div class="card bg-white">
                             <div class="card-header bg-white">
                                 <i class="bi bi-arrow-down-circle-fill text-success fs-2"></i> <span
-                                    class="text-success fw-bold" >Uang Masuk Bulan Ini :</span>
+                                    class="text-success fw-bold">Uang Masuk Bulan Ini :</span>
                             </div>
                             <div class="card-body">
                                 <h5 class="card-title text-success" style="background-color: white;">Rp <span
-                                        id="monthly-income">{{ number_format($monthlyIncome, 0, ',', '.') }}</span></h5>
+                                        id="monthly-income">{{ number_format($monthlyIncome, 0, ',', '.') }}</span>
+                                </h5>
                             </div>
                         </div>
                     </div>
