@@ -36,9 +36,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/', function () {
-    return view('landing_page');
-})->name('landing_page');
+Route::get('/', [LandingPageController::class, 'viewHome'])->name('landing_page');
 
 // Route::get('/pengaduan_warga', function () {
 //     return view('pengaduan_page');

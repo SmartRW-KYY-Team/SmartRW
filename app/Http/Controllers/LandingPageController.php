@@ -7,6 +7,7 @@ use App\DataTables\KegiatanWargaDataTable;
 use App\DataTables\PengaduanDataTable;
 use App\DataTables\SKTMDataTable;
 use App\Models\Kegiatan;
+use App\Models\Keluarga;
 use App\Models\SuratSKTM;
 use App\Models\Pengaduan;
 use App\Models\SuratDomisili;
@@ -20,6 +21,15 @@ use Illuminate\Support\Facades\Hash;
 
 class LandingPageController extends Controller
 {
+    public function viewHome()
+    {
+        $rt = Rt::all();
+        $rw = Rw::with('ketuaRW', 'sekretarisRW', 'bendaharaRW')->first();
+        $jumlahRT = $rt->count();
+        $user = User::count('id_user');
+        $keluarga = Keluarga::count('id_keluarga');
+        return view('landing_page', compact('rt', 'rw', 'user', 'jumlahRT', 'keluarga'));
+    }
     public function viewPengaduanWarga()
     {
         $rt = Rt::all();

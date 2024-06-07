@@ -53,30 +53,30 @@ class User extends Authenticatable
     }
     public function rtKetua()
     {
-        return $this->hasOne(Rt::class, 'ketua_id', 'id_ketua');
+        return $this->hasOne(Rt::class, 'ketua_id', 'id_user');
     }
     public function rtSekretaris()
     {
-        return $this->hasOne(Rt::class, 'sekretaris_id', 'id_sekretaris');
+        return $this->hasOne(Rt::class, 'sekretaris_id', 'id_user');
     }
     public function rtBendahara()
     {
-        return $this->hasOne(Rt::class, 'bendahara_id', 'id_bendahara');
+        return $this->hasOne(Rt::class, 'bendahara_id', 'id_user');
     }
 
-    public function rwKetua()
+    public function ketuaRW()
     {
-        return $this->hasOne(Rw::class, 'ketua_id', 'id_ketua');
+        return $this->hasOne(Rw::class, 'id_user', 'ketua_id');
     }
 
-    public function rwSekretaris()
+    public function sekretarisRW()
     {
-        return $this->hasOne(Rw::class, 'sekretaris_id', 'id_sekretaris');
+        return $this->hasOne(Rw::class, 'id_user', 'sekretaris_id');
     }
 
-    public function rwBendahara()
+    public function bendaharaRW()
     {
-        return $this->hasOne(Rw::class, 'bendahara_id', 'id_rw');
+        return $this->hasOne(Rw::class, 'id_user', 'bendahara_id');
     }
     public function agama()
     {

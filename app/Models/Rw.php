@@ -43,14 +43,14 @@ class Rw extends Model
     }
     public function ketuaRW()
     {
-        return $this->hasOne(User::class);
+        return $this->hasOne(User::class, 'id_user', 'ketua_id');
     }
     public function sekretarisRW()
     {
-        return $this->hasOne(User::class);
+        return $this->hasOne(User::class, 'id_user', 'sekretaris_id');
     }
     public function bendaharaRW()
     {
-        return $this->hasOne(User::class);
+        return $this->hasOne(User::class, 'id_user', 'bendahara_id');
     }
 }

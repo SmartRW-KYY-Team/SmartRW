@@ -50,9 +50,9 @@
                         <a class="dropdown-item" href="{{ route('cek_sktm_page') }}">Status SKTM</a>
                         <a class="dropdown-item" href="{{ route('domisili_page') }}">Domisili</a>
                         <a class="dropdown-item" href="{{ route('cek_domisili_page') }}">Status Domisili</a>
-                    </div>
-                </li>
-            </ul>
+        </div>
+        </li>
+        </ul>
         </div>
     </nav>
 
@@ -109,15 +109,15 @@
                 <div class="card col-md-12">
                     <div class="row text-center">
                         <div class="col-md-4">
-                            <h3 class="font-weight-bold">2000</h3>
+                            <h3 class="font-weight-bold">{{ $user }}</h3>
                             <p>Jumlah Warga</p>
                         </div>
                         <div class="col-md-4">
-                            <h3 class="font-weight-bold">400</h3>
+                            <h3 class="font-weight-bold">{{ $keluarga }}</h3>
                             <p>Jumlah Keluarga</p>
                         </div>
                         <div class="col-md-4">
-                            <h3 class="font-weight-bold">3</h3>
+                            <h3 class="font-weight-bold">{{ $jumlahRT }}</h3>
                             <p>Jumlah RT</p>
                         </div>
                     </div>
@@ -140,22 +140,7 @@
                         </div>
                         <div class="card-body" style="text-align: left;">
                             <h6 class="card-title">Ketua RW</h6>
-                            <h5 class="card-text" style="font-weight: 600">Don Pollo</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col p-1">
-                    <div class="m-1 card p-0 m-0" style="background-color:#D2E6E4; height: 320px">
-                        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                            <img src="{{ asset('assets/image/profile.jpg') }}" alt="Ketua RW" class="img-fluid"
-                                style="object-fit: cover; height: 200px; width: 100%;" />
-                            <a href="#!">
-                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
-                            </a>
-                        </div>
-                        <div class="card-body" style="text-align: left;">
-                            <h6 class="card-title">Ketua RT</h6>
-                            <h5 class="card-text" style="font-weight: 600">Don Pollo</h5>
+                            <h5 class="card-text" style="font-weight: 600">{{ $rw->ketuaRW->nama }}</h5>
                         </div>
                     </div>
                 </div>
@@ -170,22 +155,7 @@
                         </div>
                         <div class="card-body" style="text-align: left;">
                             <h6 class="card-title">Sekretaris RW</h6>
-                            <h5 class="card-text" style="font-weight: 600">Don Pollo</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col p-1">
-                    <div class="m-1 card p-0 m-0" style="background-color:#D2E6E4; height: 320px">
-                        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                            <img src="{{ asset('assets/image/profile.jpg') }}" alt="Ketua RW" class="img-fluid"
-                                style="object-fit: cover; height: 200px; width: 100%;" />
-                            <a href="#!">
-                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
-                            </a>
-                        </div>
-                        <div class="card-body" style="text-align: left;">
-                            <h6 class="card-title">Sekretaris RT</h6>
-                            <h5 class="card-text" style="font-weight: 600">Don Pollo</h5>
+                            <h5 class="card-text" style="font-weight: 600">{{ $rw->sekretarisRW->nama }}</h5>
                         </div>
                     </div>
                 </div>
@@ -200,22 +170,7 @@
                         </div>
                         <div class="card-body" style="text-align: left;">
                             <h6 class="card-title">Bendahara RW</h6>
-                            <h5 class="card-text" style="font-weight: 600">Don Pollo</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col p-1">
-                    <div class="m-1 card p-0 m-0" style="background-color:#D2E6E4; height: 320px">
-                        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                            <img src="{{ asset('assets/image/profile.jpg') }}" alt="Ketua RW" class="img-fluid"
-                                style="object-fit: cover; height: 200px; width: 100%;" />
-                            <a href="#!">
-                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
-                            </a>
-                        </div>
-                        <div class="card-body" style="text-align: left;">
-                            <h6 class="card-title">Bendahara RT</h6>
-                            <h5 class="card-text" style="font-weight: 600">Don Pollo</h5>
+                            <h5 class="card-text" style="font-weight: 600">{{ $rw->bendaharaRW->nama }}</h5>
                         </div>
                     </div>
                 </div>
