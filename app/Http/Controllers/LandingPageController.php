@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\DataTables\DomisiliDatatable;
+use App\DataTables\KegiatanWargaDataTable;
 use App\DataTables\PengaduanDataTable;
 use App\DataTables\SKTMDataTable;
 use App\Models\Kegiatan;
@@ -189,9 +190,11 @@ class LandingPageController extends Controller
     }
 
 
-    public function showKegiatanWarga()
+    public function showKegiatanWarga(Request $request, KegiatanWargaDataTable $dataTable)
     {
-        $agenda_kegiatan = Kegiatan::with('rt', 'rw')->get();
-        return view('kegiatan_page', compact('agenda_kegiatan'));
+        return $dataTable->with([
+            'filter_month' => $request->query('filter_month', date('m')),
+            'filter_year' => $request->query('filter_year', date('Y')),
+        ])->render('kegiatan_page');
     }
 }
