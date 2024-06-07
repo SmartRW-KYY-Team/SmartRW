@@ -29,7 +29,7 @@ class KeuanganWargaRWDataTable extends DataTable
 
     public function query(KeuanganRW $model): QueryBuilder
     {
-        $rw_id = request('rw_id') ?? session('no_role');
+        $rw_id = request('rw_id') ?? session('no_role', 1);
         $query = $model->newQuery()->where('rw_id', $rw_id);
 
         if (request()->has('filter_month') && request('filter_month')) {
@@ -84,4 +84,3 @@ class KeuanganWargaRWDataTable extends DataTable
         return 'KeuanganWargaRW_' . date('YmdHis');
     }
 }
-

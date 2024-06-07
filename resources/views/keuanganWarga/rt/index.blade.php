@@ -83,14 +83,14 @@
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        Pilih RT
+                        RT 1
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="rt-dropdown">
-                        <li><a class="dropdown-item" href="#" data-rt-id="1">RT 1</a></li>
+                        <li><a class="dropdown-item active" href="#" data-rt-id="1">RT 1</a></li>
                         <li><a class="dropdown-item" href="#" data-rt-id="2">RT 2</a></li>
                         <li><a class="dropdown-item" href="#" data-rt-id="3">RT 3</a></li>
                     </ul>
-                </div>
+                </div>                
                 <div class="row mb-3 mt-3">
                     <div class="col-md-4">
                         <div class="card bg-white">
@@ -98,7 +98,7 @@
                                 <i class="bi bi-cash fs-2"></i> <span class="fw-bold">Saldo Saat Ini :</span>
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title">Rp <span
+                                <h5 class="card-title text-dark" style="background-color: white;">Rp <span
                                         id="current-balance">{{ number_format($currentBalance, 0, ',', '.') }}</span>
                                 </h5>
                             </div>
@@ -108,10 +108,10 @@
                         <div class="card bg-white">
                             <div class="card-header bg-white">
                                 <i class="bi bi-arrow-down-circle-fill text-success fs-2"></i> <span
-                                    class="text-success fw-bold">Uang Masuk Bulan Ini :</span>
+                                    class="text-success fw-bold" >Uang Masuk Bulan Ini :</span>
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title text-success">Rp <span
+                                <h5 class="card-title text-success" style="background-color: white;">Rp <span
                                         id="monthly-income">{{ number_format($monthlyIncome, 0, ',', '.') }}</span></h5>
                             </div>
                         </div>
@@ -123,7 +123,7 @@
                                     class="text-danger fw-bold">Uang Keluar Bulan Ini :</span>
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title text-danger">Rp <span
+                                <h5 class="card-title text-danger" style="background-color: white;">Rp <span
                                         id="monthly-expense">{{ number_format($monthlyExpense, 0, ',', '.') }}</span>
                                 </h5>
                             </div>
