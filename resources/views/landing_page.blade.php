@@ -5,9 +5,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SMARTRW</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/image/favicon.png') }}">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('assets/style_landing.css') }}" />
+
+    <link rel="stylesheet" href="{{ asset('assets/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/owl.theme.default.css') }}">
 </head>
 
 <body style="background-color: #f2f7ff">
@@ -53,7 +57,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-danger" href="{{ route('login') }} ">Login</a>
+                    <a class="btn btn-success" href="{{ route('login') }} ">Login</a>
                 </li>
             </ul>
         </div>
@@ -129,69 +133,193 @@
         </div>
         <!-- Structure Section -->
 
-        <div class="my-5 text-center position-relative">
-            <div class="col-8 mx-auto">
-                <h2 style="font-weight: 550; color: #0b7077;">Struktur</h2>
-                <div class="row justify-content-center">
-                    <div class="col p-1">
-                        <div class="m-1 card p-0 m-0" style="background-color:#D2E6E4; height: 320px">
-                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                                <img src="{{ asset('assets/image/profile.jpg') }}" alt="Ketua RW" class="img-fluid"
-                                    style="object-fit: cover; height: 200px; width: 100%;" />
-                                <a href="#!">
-                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
-                                </a>
-                            </div>
-                            <div class="card-body" style="text-align: left;">
-                                <h6 class="card-title">Ketua RW</h6>
-                                <h5 class="card-text" style="font-weight: 600">{{ $rw->ketuaRW->nama }}</h5>
-                            </div>
+        <div class="my-5 text-center">
+            <h2 style="font-weight: 550; color: #0b7077;">Struktur</h2>
+            <div class="row">
+                <div class="col-md-4 col-sm-12 p-1">
+                    <div class="m-1 card p-0 m-0" style="background-color:#D2E6E4; height: 520px">
+                        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                            <img src="{{ asset('assets/image/foto-struktur/ketua_rw.jpg') }}" alt="Ketua RW"
+                                class="img-fluid" style="object-fit: cover; height: 400px; width: 100%;" />
+                            <a href="#!">
+                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                            </a>
+                        </div>
+                        <div class="card-body" style="text-align: left;">
+                            <h6 class="card-title">Ketua RW</h6>
+                            <h5 class="card-text" style="font-weight: 600">{{ $rw->bendaharaRW->nama }}</h5>
                         </div>
                     </div>
-                    <div class="col p-1">
-                        <div class="m-1 card p-0 m-0" style="background-color:#D2E6E4; height: 320px">
-                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                                <img src="{{ asset('assets/image/profile.jpg') }}" alt="Ketua RW" class="img-fluid"
-                                    style="object-fit: cover; height: 200px; width: 100%;" />
-                                <a href="#!">
-                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
-                                </a>
-                            </div>
-                            <div class="card-body" style="text-align: left;">
-                                <h6 class="card-title">Sekretaris RW</h6>
-                                <h5 class="card-text" style="font-weight: 600">{{ $rw->sekretarisRW->nama }}</h5>
-                            </div>
+                </div>
+                <div class="col-md-4 col-sm-12 p-1">
+                    <div class="m-1 card p-0 m-0" style="background-color:#D2E6E4; height: 520px">
+                        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                            <img src="{{ asset('assets/image/foto-struktur/sekretaris_rw.jpg') }}" alt="Ketua RW"
+                                class="img-fluid" style="object-fit: cover; height: 400px; width: 100%;" />
+                            <a href="#!">
+                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                            </a>
+                        </div>
+                        <div class="card-body" style="text-align: left;">
+                            <h6 class="card-title">Sekretaris RW</h6>
+                            <h5 class="card-text" style="font-weight: 600">{{ $rw->bendaharaRW->nama }}</h5>
                         </div>
                     </div>
-                    <div class="col p-1">
-                        <div class="m-1 card p-0 m-0" style="background-color:#D2E6E4; height: 320px">
-                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                                <img src="{{ asset('assets/image/profile.jpg') }}" alt="Ketua RW" class="img-fluid"
-                                    style="object-fit: cover; height: 200px; width: 100%;" />
-                                <a href="#!">
-                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
-                                </a>
-                            </div>
-                            <div class="card-body" style="text-align: left;">
-                                <h6 class="card-title">Bendahara RW</h6>
-                                <h5 class="card-text" style="font-weight: 600">{{ $rw->bendaharaRW->nama }}</h5>
-                            </div>
+                </div>
+                <div class="col-md-4 col-sm-12 p-1">
+                    <div class="m-1 card p-0 m-0" style="background-color:#D2E6E4; height: 520px">
+                        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                            <img src="{{ asset('assets/image/foto-struktur/bendahara_rw.jpg') }}" alt="Ketua RW"
+                                class="img-fluid" style="object-fit: cover; height: 400px; width: 100%;" />
+                            <a href="#!">
+                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                            </a>
+                        </div>
+                        <div class="card-body" style="text-align: left;">
+                            <h6 class="card-title">Bendahara RW</h6>
+                            <h5 class="card-text" style="font-weight: 600">{{ $rw->bendaharaRW->nama }}</h5>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- <button class="btn btn-primary rounded-circle left-button"><svg xmlns="http://www.w3.org/2000/svg" width="16"
-          height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
-          <path fill-rule="evenodd"
-            d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" />
-        </svg></button>
-      <button class="btn btn-primary rounded-circle right-button"><svg xmlns="http://www.w3.org/2000/svg" width="16"
-          height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-          <path fill-rule="evenodd"
-            d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
-        </svg></button> -->
-        {{-- </div> --}}
+        <div class="owl-carousel">
+            <div class="p-1">
+                <div class="m-1 card p-0 m-0" style="background-color:#D2E6E4; height: 520px">
+                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                        <img src="{{ asset('assets/image/foto-struktur/ketua_rt_1.jpg') }}" alt="Ketua RW"
+                            class="img-fluid" style="object-fit: cover; height: 400px; width: 100%;" />
+                        <a href="#!">
+                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                        </a>
+                    </div>
+                    <div class="card-body" style="text-align: left;">
+                        <h6 class="card-title">Ketua RT 1</h6>
+                        <h5 class="card-text" style="font-weight: 600">{{ $rt[0]->ketuaRT->nama }}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="p-1">
+                <div class="m-1 card p-0 m-0" style="background-color:#D2E6E4; height: 520px">
+                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                        <img src="{{ asset('assets/image/foto-struktur/sekretaris_rt_1.jpg') }}" alt="Ketua RW"
+                            class="img-fluid" style="object-fit: cover; height: 400px; width: 100%;" />
+                        <a href="#!">
+                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                        </a>
+                    </div>
+                    <div class="card-body" style="text-align: left;">
+                        <h6 class="card-title">Sekretaris RT 1</h6>
+                        <h5 class="card-text" style="font-weight: 600">{{ $rt[0]->sekretarisRT->nama }}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="p-1">
+                <div class="m-1 card p-0 m-0" style="background-color:#D2E6E4; height: 520px">
+                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                        <img src="{{ asset('assets/image/foto-struktur/bendahara_rt_1.jpg') }}" alt="Ketua RW"
+                            class="img-fluid" style="object-fit: cover; height: 400px; width: 100%;" />
+                        <a href="#!">
+                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                        </a>
+                    </div>
+                    <div class="card-body" style="text-align: left;">
+                        <h6 class="card-title">Bendahara RT 1</h6>
+                        <h5 class="card-text" style="font-weight: 600">{{ $rt[0]->bendaharaRT->nama }}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="p-1">
+                <div class="m-1 card p-0 m-0" style="background-color:#D2E6E4; height: 520px">
+                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                        <img src="{{ asset('assets/image/foto-struktur/ketua_rt_2.jpg') }}" alt="Ketua RW"
+                            class="img-fluid" style="object-fit: cover; height: 400px; width: 100%;" />
+                        <a href="#!">
+                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                        </a>
+                    </div>
+                    <div class="card-body" style="text-align: left;">
+                        <h6 class="card-title">Ketua RT 2</h6>
+                        <h5 class="card-text" style="font-weight: 600">{{ $rt[1]->ketuaRT->nama }}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="p-1">
+                <div class="m-1 card p-0 m-0" style="background-color:#D2E6E4; height: 520px">
+                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                        <img src="{{ asset('assets/image/foto-struktur/sekretaris_rt_2.jpg') }}" alt="Ketua RW"
+                            class="img-fluid" style="object-fit: cover; height: 400px; width: 100%;" />
+                        <a href="#!">
+                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                        </a>
+                    </div>
+                    <div class="card-body" style="text-align: left;">
+                        <h6 class="card-title">Sekretaris RT 2</h6>
+                        <h5 class="card-text" style="font-weight: 600">{{ $rt[1]->sekretarisRT->nama }}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="p-1">
+                <div class="m-1 card p-0 m-0" style="background-color:#D2E6E4; height: 520px">
+                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                        <img src="{{ asset('assets/image/foto-struktur/bendahara_rt_2.jpg') }}" alt="Ketua RW"
+                            class="img-fluid" style="object-fit: cover; height: 400px; width: 100%;" />
+                        <a href="#!">
+                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                        </a>
+                    </div>
+                    <div class="card-body" style="text-align: left;">
+                        <h6 class="card-title">Bendahara RT 2</h6>
+                        <h5 class="card-text" style="font-weight: 600">{{ $rt[1]->bendaharaRT->nama }}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="p-1">
+                <div class="m-1 card p-0 m-0" style="background-color:#D2E6E4; height: 520px">
+                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                        <img src="{{ asset('assets/image/foto-struktur/ketua_rt_3.jpg') }}" alt="Ketua RW"
+                            class="img-fluid" style="object-fit: cover; height: 400px; width: 100%;" />
+                        <a href="#!">
+                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                        </a>
+                    </div>
+                    <div class="card-body" style="text-align: left;">
+                        <h6 class="card-title">Ketua RT 3</h6>
+                        <h5 class="card-text" style="font-weight: 600">{{ $rt[2]->ketuaRT->nama }}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="p-1">
+                <div class="m-1 card p-0 m-0" style="background-color:#D2E6E4; height: 520px">
+                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                        <img src="{{ asset('assets/image/foto-struktur/sekretaris_rt_3.jpg') }}" alt="Ketua RW"
+                            class="img-fluid" style="object-fit: cover; height: 400px; width: 100%;" />
+                        <a href="#!">
+                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                        </a>
+                    </div>
+                    <div class="card-body" style="text-align: left;">
+                        <h6 class="card-title">Sekretaris RT 3</h6>
+                        <h5 class="card-text" style="font-weight: 600">{{ $rt[2]->sekretarisRT->nama }}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="p-1">
+                <div class="m-1 card p-0 m-0" style="background-color:#D2E6E4; height: 520px">
+                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                        <img src="{{ asset('assets/image/foto-struktur/bendahara_rt_3.jpg') }}" alt="Ketua RW"
+                            class="img-fluid" style="object-fit: cover; height: 400px; width: 100%;" />
+                        <a href="#!">
+                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                        </a>
+                    </div>
+                    <div class="card-body" style="text-align: left;">
+                        <h6 class="card-title">Bendahara RT 3</h6>
+                        <h5 class="card-text" style="font-weight: 600">{{ $rt[2]->bendaharaRT->nama }}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Agenda Section -->
         <div class="text-center my-5">
@@ -245,8 +373,6 @@
             </div>
             <a href="{{ route('kegiatan_page') }}" class="btn btn-primary mt-3">Lihat Selengkapnya</a>
         </div>
-
-
     </div>
 
     <!-- <div class="text-center my-5">
@@ -289,9 +415,40 @@
         </div>
     </footer>
 
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{{ asset('assets/owl.carousel.min.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            var owl = $('.owl-carousel');
+            owl.owlCarousel({
+                center: true,
+                items: 4,
+                loop: true,
+                margin: 10,
+                autoplay: true,
+                autoplayTimeout: 1000,
+                autoplayHoverPause: true,
+                responsiveClass: true,
+                responsive: {
+                    0: {
+                        items: 1,
+                        nav: false
+                    },
+                    600: {
+                        items: 2,
+                        nav: false
+                    },
+                    1000: {
+                        items: 4,
+                        nav: false,
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

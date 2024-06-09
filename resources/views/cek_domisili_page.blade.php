@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SMARTRW - Layanan Pengajuan Domisili</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/image/favicon.png') }}">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/style_status_domisili.css') }}">
@@ -60,7 +61,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-danger" href="{{ route('login') }} ">Login</a>
+                    <a class="btn btn-success" href="{{ route('login') }} ">Login</a>
                 </li>
             </ul>
         </div>
