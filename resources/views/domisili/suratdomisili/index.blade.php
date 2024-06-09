@@ -82,7 +82,13 @@
         <hr>
         <div class="text-center mb-4" style="text-align: center !important;">
             <h3>SURAT KETERANGAN DOMISILI</h3>
-            <p>Nomor Reg: 000/0000/000.0.0.0/000</p>
+            @php
+                $date = new \DateTime($domisili->updated_at);
+                $formattedDate = $date->format('d/m/Y');
+                [$day, $month, $year] = explode('/', $formattedDate);
+            @endphp
+            <p>Nomor Reg: Domisili
+                {{ $domisili->id_suratDomisili }}/{{ $day }}/{{ $month }}/{{ $year }}</p>
         </div>
         <div class="content">
             <p class="text-justify">
