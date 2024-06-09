@@ -323,7 +323,7 @@
 
         <!-- Agenda Section -->
         <div class="text-center my-5">
-            <div class="col-8 mx-auto">
+            <div class="col-12 mx-auto">
                 <h2 style="font-weight: 550; color: #0b7077;">Agenda Kegiatan</h2>
                 <div id="agendaCarousel" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
