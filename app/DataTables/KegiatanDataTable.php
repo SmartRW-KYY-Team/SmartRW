@@ -47,7 +47,11 @@ class KegiatanDataTable extends DataTable
      */
     public function query(Kegiatan $model): QueryBuilder
     {
-        return $model->newQuery()->with('rt', 'rw');
+        if (session('role') == 'rw') {
+            return $model->newQuery()->with('rt', 'rw');
+        } else if (session('role') == 'rt') {
+            return $model->newQuery()->with('rt', 'rw')->where('rt_id', session('no_role'));
+        }
     }
 
     /**

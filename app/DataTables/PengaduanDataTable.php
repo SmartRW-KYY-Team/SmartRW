@@ -41,7 +41,11 @@ class PengaduanDataTable extends DataTable
      */
     public function query(Pengaduan $model): QueryBuilder
     {
-        return $model->newQuery();
+        if (session('role') == 'rw') {
+            return $model->newQuery();
+        } else if (session('role') == 'rt') {
+            return $model->newQuery();
+        }
     }
 
     /**

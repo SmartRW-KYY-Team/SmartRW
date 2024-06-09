@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\DataTables\DomisiliDatatable;
+use App\DataTables\DomisiliDataTable;
 use App\Models\Rt;
 use App\Models\Rw;
 use Illuminate\Http\Request;
