@@ -119,7 +119,15 @@ class KegiatanController extends Controller
             $hashedName = $lampiran->hashName();
             $lampiran->storeAs('public/kegiatan', $hashedName);
         } else {
-            $hashedName = $kegiatan->lampiran;
+            $kegiatan->update([
+                'nama' => $request->nama,
+                'tanggal_kegiatan' => $request->tanggal_kegiatan,
+                'deskripsi' => $request->deskripsi,
+                'rt_id' => $request->rt_id,
+                'rw_id' => $request->rw_id,
+            ]);
+            Alert::success('Success', 'Success Update Data ');
+            return redirect('/kegiatan');
         }
         if ($validated) {
             $kegiatan->update([

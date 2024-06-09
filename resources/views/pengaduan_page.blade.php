@@ -140,7 +140,7 @@
     <!-- Statistics Section -->
     <div class="container-fluid text-white py-5 text-center" style="background-color: #138496;">
         <h3>Jumlah Laporan Sekarang</h3>
-        <h1 style="font-weight: 550;">101,696</h1>
+        <h1 style="font-weight: 550;">{{ $jumlahPengaduan }}</h1>
         <button class="btn btn-outline-light mt-3">Lihat Selengkapnya</button>
     </div>
 

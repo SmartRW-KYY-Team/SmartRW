@@ -34,8 +34,8 @@ class LandingPageController extends Controller
     {
         $rt = Rt::all();
         $rw = Rw::all();
-
-        return view('pengaduan_page', compact('rt', 'rw'));
+        $jumlahPengaduan = Pengaduan::count('id_pengaduan');
+        return view('pengaduan_page', compact('rt', 'rw', 'jumlahPengaduan'));
     }
 
     public function createPengaduanWarga(Request $request)
