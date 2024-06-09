@@ -323,7 +323,8 @@
 
         <!-- Agenda Section -->
         <div class="text-center my-5">
-            <h2 style="font-weight: 550; color: #0b7077;">Agenda Kegiatan</h2>
+            <div class="col-8 mx-auto">
+                <h2 style="font-weight: 550; color: #0b7077;">Agenda Kegiatan</h2>
             <div id="agendaCarousel" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
@@ -368,6 +369,7 @@
                             d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
                     </svg>
                 </a>
+            </div>
             </div>
             <a href="{{ route('kegiatan_page') }}" class="btn btn-primary mt-3">Lihat Selengkapnya</a>
         </div>
