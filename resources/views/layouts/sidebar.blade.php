@@ -96,7 +96,6 @@
                         </a>
 
                         <ul class="submenu">
-
                             <li class="submenu-item {{ Request::is('sktm*') ? 'active' : '' }}">
                                 <a href="{{ route('sktm.index') }}" class="submenu-link">SKTM</a>
 

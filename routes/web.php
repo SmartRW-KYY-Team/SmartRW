@@ -34,8 +34,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-
-
 Route::get('/', [LandingPageController::class, 'viewHome'])->name('landing_page');
 
 Route::get('/pengaduan_page', [LandingPageController::class, 'viewPengaduanWarga'])->name('pengaduan_page');
@@ -47,8 +45,11 @@ Route::post('/domisili_warga', [LandingPageController::class, 'createDomisiliWar
 Route::get('/sktm_warga', [LandingPageController::class, 'viewSktmWarga'])->name('sktm_page');
 Route::post('/sktm_warga', [LandingPageController::class, 'createSktmWarga'])->name('sktm_page_create');
 
+Route::get('/kegiatan_warga', [LandingPageController::class, 'showKegiatanWarga'])->name('kegiatan_page');
 
-Route::get('/kegiatan_warga', [LandingPageController::class, 'showKegiatanWarga'])->name('kegiatan_page');;
+Route::get('/keuangan_warga', function () {
+    return view('keuangan_page');
+})->name('keuangan_page');
 
 Route::get('/cek_sktm', function () {
     return view('cek_sktm_page');
@@ -58,7 +59,23 @@ Route::get('/cek_domisili', function () {
     return view('cek_domisili_page');
 })->name('cek_domisili_page');
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+Route::get('/cek_status_sktm/{nik}/cek_status', [LandingPageController::class, 'cekStatusSktm'])->name('cek_status_sktm');
+Route::get('/cek_status_domisili/{nik}', [LandingPageController::class, 'cekStatusDomisili'])->name('cek_status_domisili');
+
+Route::get('/suratdomisili-pdf/{id}', [LandingPageController::class, 'generatePDFDomisili']);
+Route::get('/suratsktm-pdf/{id}', [LandingPageController::class, 'generatePDFSktm']);
+
+Route::prefix('keuanganWarga')->name('keuanganWarga.')->group(function () {
+    Route::get('/rt', [KeuanganWargaRTController::class, 'index'])->name('rt.index');
+    Route::get('/rw', [KeuanganWargaRWController::class, 'index'])->name('rw.index');
+});
+
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+
+Route::middleware('auth', 'device.check')->prefix('warga')->name('warga.')->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+});
 
 Route::middleware(['device.check'])->group(function () {
     Route::group(['middleware' => 'guest'], function () {
@@ -70,7 +87,6 @@ Route::get('/device-warning', function () {
     return view('device-warning');
 })->name('device.warning');
 
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware('auth', 'device.check')->prefix('warga')->name('warga.')->group(function () {
     Route::get('/', [wargaController::class, 'index'])->name('index');
@@ -161,14 +177,3 @@ Route::middleware('auth', 'device.check')->prefix('rt')->name('rt.')->group(func
     Route::get('{id}/edit', [RTController::class, 'edit'])->name('edit')->middleware('rw');
     Route::post('{id}/update', [RTController::class, 'update'])->name('update')->middleware('rw');
 })->middleware(RWMiddleware::class);
-
-Route::get('/cek_status_sktm/{nik}/cek_status', [LandingPageController::class, 'cekStatusSktm'])->name('cek_status_sktm');
-Route::get('/cek_status_domisili/{nik}', [LandingPageController::class, 'cekStatusDomisili'])->name('cek_status_domisili');
-
-Route::get('/suratdomisili-pdf/{id}', [LandingPageController::class, 'generatePDFDomisili']);
-Route::get('/suratsktm-pdf/{id}', [LandingPageController::class, 'generatePDFSktm']);
-
-Route::prefix('keuanganWarga')->name('keuanganWarga.')->group(function () {
-    Route::get('/rt', [KeuanganWargaRTController::class, 'index'])->name('rt.index');
-    Route::get('/rw', [KeuanganWargaRWController::class, 'index'])->name('rw.index');
-});
