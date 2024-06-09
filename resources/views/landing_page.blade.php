@@ -401,8 +401,8 @@
             <p class="mb-1">Alamat: Jl. Kembang Turi, Lowokwaru, Kota Malang</p>
             <p class="mb-1">
                 Telp:
-                <a href="https://wa.me/628110992160" style="color: #25D366; text-decoration: underline;">
-                    +628110992160
+                <a href="https://wa.me/6282110992160" style="color: #25D366; text-decoration: underline;">
+                    +6282110992160
                 </a>
             </p>
             <p class="mb-1">Jam Respon: 07.00 WIB - 20.00 WIB</p>
