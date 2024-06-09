@@ -23,7 +23,7 @@ class LandingPageController extends Controller
 {
     public function viewHome()
     {
-        $rt = Rt::all();
+        $rt = Rt::with('sekretarisRT', 'bendaharaRT', 'ketuaRT')->get();
         $rw = Rw::with('ketuaRW', 'sekretarisRW', 'bendaharaRW')->first();
         $jumlahRT = $rt->count();
         $user = User::count('id_user');
