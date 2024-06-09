@@ -118,15 +118,6 @@
                     </li>
                 @endif
 
-                @if (Auth::user()->role == 'rw' || Auth::user()->role == 'rt')
-                    <li class="sidebar-item {{ Request::is('keuanganrt*') ? 'active' : '' }}">
-                        <a href="{{ route('keuanganrt.index') }}" class='sidebar-link'>
-                            <i class="bi bi-file-earmark-zip-fill"></i>
-                            <span>Laporan Keuangan</span>
-                        </a>
-                    </li>
-                @endif
-
                 <li class="sidebar-title">Setting</li>
 
                 <li class="sidebar-item  ">
