@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SMARTRW - Laporan Keuangan RW</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/image/favicon.png') }}">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
@@ -55,7 +56,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-danger" href="{{ route('login') }} ">Login</a>
+                    <a class="btn btn-success" href="{{ route('login') }} ">Login</a>
                 </li>
             </ul>
         </div>
