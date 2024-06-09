@@ -51,7 +51,11 @@ class DomisiliDatatable extends DataTable
      */
     public function query(SuratDomisili $model): QueryBuilder
     {
-        return $model->newQuery()->with('pemohon');
+        if (session('role') == 'rw') {
+            return $model->newQuery()->with('pemohon');
+        } else if (session('role') == 'rt') {
+            return $model->newQuery()->with('pemohon')->where('rt_id', session('no_role'));
+        }
     }
 
     /**

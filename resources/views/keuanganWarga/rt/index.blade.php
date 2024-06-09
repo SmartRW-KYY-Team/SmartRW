@@ -56,7 +56,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="btn btn-success" href="{{ route('login') }} ">Login</a>
+                    <a class="nav-link text-danger" href="{{ route('login') }} ">Login</a>
                 </li>
             </ul>
         </div>

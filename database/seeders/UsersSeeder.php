@@ -26,7 +26,7 @@ class UsersSeeder extends Seeder
                 'status_perkawinan' => 'Kawin',
                 'pekerjaan' => 'Karyawan',
                 'notelp' => '08123456789',
-                'keluarga_id' => null,
+                'keluarga_id' => 1,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],

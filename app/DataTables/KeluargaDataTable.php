@@ -50,7 +50,11 @@ class KeluargaDataTable extends DataTable
      */
     public function query(Keluarga $model): QueryBuilder
     {
-        return $model->newQuery()->with('kepala_keluarga', 'rt', 'rw')->orderBy('id_keluarga', 'asc');
+        if (session('role') == 'rw') {
+            return $model->newQuery()->with('kepala_keluarga', 'rt', 'rw')->orderBy('id_keluarga', 'asc');
+        } else if (session('role') == 'rt') {
+            return $model->newQuery()->with('kepala_keluarga', 'rt', 'rw')->orderBy('id_keluarga', 'asc')->where('rt_id', session('no_role'));
+        }
     }
 
     /**
