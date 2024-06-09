@@ -43,7 +43,7 @@ class SKTMController extends Controller
         }
 
         // Redirect ke halaman yang sesuai (misalnya halaman daftar pengguna)
-        Alert::success('Success Title', 'Success Message');
+        Alert::success('Berhasil', 'Surat Anda Berhasil Diajukan');
         return redirect()->route('sktm.index');
     }
 

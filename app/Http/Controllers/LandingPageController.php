@@ -63,7 +63,7 @@ class LandingPageController extends Controller
         ]);
 
         // Redirect ke halaman yang sesuai (misalnya halaman daftar pengguna)
-        Alert::success('Success', 'Success Add Data Pengaduan');
+        Alert::success('Success', 'Pengaduan Anda Berhasil Dikirim');
         return redirect()->route('pengaduan_page');
     }
 
@@ -106,7 +106,7 @@ class LandingPageController extends Controller
         ]);
 
         // Redirect ke halaman yang sesuai (misalnya halaman daftar pengguna)
-        Alert::success('Success Title', 'Success Message');
+        Alert::success('Success', 'Surat Anda Berhasil Diajukan');
         return redirect()->route('sktm_page');
     }
 
@@ -144,7 +144,7 @@ class LandingPageController extends Controller
 
 
         // Redirect ke halaman yang sesuai (misalnya halaman daftar pengguna)
-        Alert::success('Success Title', 'Success Message');
+        Alert::success('Success', 'Surat Anda Berhasil Diajukan');
         return redirect()->route('domisili_page');
     }
 
