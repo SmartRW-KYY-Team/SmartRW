@@ -76,3 +76,11 @@
         <button type="submit" class="btn btn-primary">Simpan</button>
     </form>
 @endsection
+@push('scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var today = new Date().toISOString().split('T')[0];
+            document.getElementById('tanggal_kejadian').setAttribute('max', today);
+        });
+    </script>
+@endpush

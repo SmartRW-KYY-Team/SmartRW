@@ -47,7 +47,6 @@ class KegiatanController extends Controller
             'tanggal_kegiatan' => 'required|date|after:now',
             'deskripsi' => 'required|string|min:5',
             'rt_id' => 'required|integer',
-            'rw_id' => 'required|integer',
             'lampiran' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5048'
         ]);
         if ($request->hasFile('lampiran')) {
@@ -64,7 +63,7 @@ class KegiatanController extends Controller
                 'tanggal_kegiatan' => $request->tanggal_kegiatan,
                 'deskripsi' => $request->deskripsi,
                 'rt_id' => $request->rt_id,
-                'rw_id' => $request->rw_id,
+                'rw_id' => 1,
                 'lampiran' => $hashedName,
             ]);
             Alert::success('Success', 'Success Insert Data ');
@@ -110,7 +109,6 @@ class KegiatanController extends Controller
             'tanggal_kegiatan' => 'required|date|after:now',
             'deskripsi' => 'required|string|min:5',
             'rt_id' => 'required|integer',
-            'rw_id' => 'required|integer',
             'lampiran' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5048'
         ]);
         $kegiatan = Kegiatan::findOrFail($id);
@@ -124,7 +122,7 @@ class KegiatanController extends Controller
                 'tanggal_kegiatan' => $request->tanggal_kegiatan,
                 'deskripsi' => $request->deskripsi,
                 'rt_id' => $request->rt_id,
-                'rw_id' => $request->rw_id,
+                'rw_id' => 1,
             ]);
             Alert::success('Success', 'Success Update Data ');
             return redirect('/kegiatan');

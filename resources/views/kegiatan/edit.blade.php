@@ -52,40 +52,27 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="mb-3">
-                        <label for="rt" class="form-label">Pilih RT</label>
-                        <select class="form-control @error('rt_id') is-invalid @enderror" id="rt_id" name="rt_id"
-                            required>
-                            @foreach ($rt as $t)
-                                <option value="{{ $t->id_rt }}"
-                                    {{ $kegiatan->rt_id == $t->id_rt ? 'selected' : old('rt_id') }}>
-                                    {{ $t->nama }}</option>
-                            @endforeach
-                        </select>
-                        @error('rt_id')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
+            @if (session('role') == 'rw')
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="rt" class="form-label">Tempat RT</label>
+                            <select class="form-control @error('rt_id') is-invalid @enderror" id="rt_id" name="rt_id"
+                                required>
+                                @foreach ($rt as $t)
+                                    <option value="{{ $t->id_rt }}" {{ old('rt_id') == $t->id_rt ? 'selected' : '' }}>
+                                        {{ $t->nama }}</option>
+                                @endforeach
+                            </select>
+                            @error('rt_id')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="mb-3">
-                        <label for="rw" class="form-label">Pilih RW</label>
-                        <select name="rw_id" id="rw_id"
-                            class="form-control rounded @error('rw_id') is-invalid @enderror" required>
-                            @foreach ($rw as $w)
-                                <option value="{{ $w->id_rw }}"
-                                    {{ $kegiatan->rw_id == $t->id_rw ? 'selected' : old('rw_id') }}>
-                                    {{ $w->nama }}</option>
-                            @endforeach
-                        </select>
-                        @error('rw_id')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
-                </div>
-            </div>
+            @elseif(session('role') == 'rt')
+                <input type="hidden" name="rt_id" value="{{ session('no_role') }}">
+            @endif
             <button type="submit" class="btn btn-primary">Simpan</button>
         </form>
     </div>
