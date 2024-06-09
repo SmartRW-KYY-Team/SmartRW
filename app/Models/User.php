@@ -82,10 +82,6 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Agama::class, 'agama_id', 'id_agama');
     }
-    public function detailKeuanganRT()
-    {
-        return $this->hasMany(DetailKeuanganRT::class, 'user_id', 'id_detailKeuanganRT');
-    }
     public function suratDomisili()
     {
         return $this->hasMany(SuratDomisili::class, 'pemohon_id', 'id_suratDomisili');
