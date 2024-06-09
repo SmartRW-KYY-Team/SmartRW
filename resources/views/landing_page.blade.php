@@ -8,6 +8,9 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('assets/style_landing.css') }}" />
+
+    <link rel="stylesheet" href="{{ asset('assets/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/owl.theme.default.css') }}">
 </head>
 
 <body style="background-color: #f2f7ff">
@@ -189,6 +192,53 @@
             d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
         </svg></button> -->
         </div>
+        <div class="owl-carousel">
+            <div class="p-1">
+                <div class="m-1 card p-0 m-0" style="background-color:#D2E6E4; height: 320px">
+                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                        <img src="{{ asset('assets/image/profile.jpg') }}" alt="Ketua RW" class="img-fluid"
+                            style="object-fit: cover; height: 200px; width: 100%;" />
+                        <a href="#!">
+                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                        </a>
+                    </div>
+                    <div class="card-body" style="text-align: left;">
+                        <h6 class="card-title">Ketua RW</h6>
+                        <h5 class="card-text" style="font-weight: 600">{{ $rw->ketuaRW->nama }}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="p-1">
+                <div class="m-1 card p-0 m-0" style="background-color:#D2E6E4; height: 320px">
+                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                        <img src="{{ asset('assets/image/profile.jpg') }}" alt="Ketua RW" class="img-fluid"
+                            style="object-fit: cover; height: 200px; width: 100%;" />
+                        <a href="#!">
+                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                        </a>
+                    </div>
+                    <div class="card-body" style="text-align: left;">
+                        <h6 class="card-title">Sekretaris RW</h6>
+                        <h5 class="card-text" style="font-weight: 600">{{ $rw->sekretarisRW->nama }}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="p-1">
+                <div class="m-1 card p-0 m-0" style="background-color:#D2E6E4; height: 320px">
+                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                        <img src="{{ asset('assets/image/profile.jpg') }}" alt="Ketua RW" class="img-fluid"
+                            style="object-fit: cover; height: 200px; width: 100%;" />
+                        <a href="#!">
+                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                        </a>
+                    </div>
+                    <div class="card-body" style="text-align: left;">
+                        <h6 class="card-title">Bendahara RW</h6>
+                        <h5 class="card-text" style="font-weight: 600">{{ $rw->bendaharaRW->nama }}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Agenda Section -->
         <div class="text-center my-5">
@@ -240,8 +290,6 @@
             </div>
             <a href="{{ route('kegiatan_page') }}" class="btn btn-primary mt-3">Lihat Selengkapnya</a>
         </div>
-
-
     </div>
 
     <!-- <div class="text-center my-5">
@@ -284,9 +332,25 @@
         </div>
     </footer>
 
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{{ asset('assets/owl.carousel.min.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            var owl = $('.owl-carousel');
+            owl.owlCarousel({
+                center: true,
+                items: 4,
+                loop: true,
+                margin: 10,
+                autoplay: true,
+                autoplayTimeout: 1000,
+                autoplayHoverPause: true
+            });
+        });
+    </script>
 </body>
 
 </html>
