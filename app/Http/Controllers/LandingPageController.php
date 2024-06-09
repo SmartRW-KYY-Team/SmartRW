@@ -175,6 +175,9 @@ class LandingPageController extends Controller
             return response()->json(['message' => 'NIK tidak ditemukan pada daftar pengajuan SKTM']);
         }
 
+        if ($cek_nik_sktm->status == 'Proses') {
+            return response()->json(['message' => 'Pengajuan Surat Anda Masih Di Proses Oleh Pengurus']);
+        }
         return response()->json([
             'message' => 'NIK ditemukan pada daftar pengajuan SKTM',
             'id' => $cek_nik_sktm->id_suratSKTM
@@ -191,6 +194,10 @@ class LandingPageController extends Controller
         $cek_nik_domisili = SuratDomisili::where('pemohon_id', $cek_nik->id_user)->first();
         if (!$cek_nik_domisili) {
             return response()->json(['message' => 'NIK tidak ditemukan pada daftar pengajuan Surat Domisili']);
+        }
+
+        if ($cek_nik_domisili->status == 'Proses') {
+            return response()->json(['message' => 'Pengajuan Surat Anda Masih Di Proses Oleh Pengurus']);
         }
 
         return response()->json([
