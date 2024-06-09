@@ -73,7 +73,7 @@ Route::prefix('keuanganWarga')->name('keuanganWarga.')->group(function () {
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
-Route::middleware('auth', 'device.check')->prefix('warga')->name('warga.')->group(function () {
+Route::middleware('auth', 'device.check')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 });
 
