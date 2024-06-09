@@ -130,55 +130,58 @@
         <!-- Structure Section -->
 
         <div class="my-5 text-center position-relative">
-            <h2 style="font-weight: 550; color: #0b7077;">Struktur</h2>
-            <div class="row justify-content-center">
-                <div class="col p-1">
-                    <div class="m-1 card p-0 m-0" style="background-color:#D2E6E4; height: 320px">
-                        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                            <img src="{{ asset('assets/image/profile.jpg') }}" alt="Ketua RW" class="img-fluid"
-                                style="object-fit: cover; height: 200px; width: 100%;" />
-                            <a href="#!">
-                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
-                            </a>
-                        </div>
-                        <div class="card-body" style="text-align: left;">
-                            <h6 class="card-title">Ketua RW</h6>
-                            <h5 class="card-text" style="font-weight: 600">{{ $rw->ketuaRW->nama }}</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col p-1">
-                    <div class="m-1 card p-0 m-0" style="background-color:#D2E6E4; height: 320px">
-                        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                            <img src="{{ asset('assets/image/profile.jpg') }}" alt="Ketua RW" class="img-fluid"
-                                style="object-fit: cover; height: 200px; width: 100%;" />
-                            <a href="#!">
-                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
-                            </a>
-                        </div>
-                        <div class="card-body" style="text-align: left;">
-                            <h6 class="card-title">Sekretaris RW</h6>
-                            <h5 class="card-text" style="font-weight: 600">{{ $rw->sekretarisRW->nama }}</h5>
+            <div class="col-8 mx-auto">
+                <h2 style="font-weight: 550; color: #0b7077;">Struktur</h2>
+                <div class="row justify-content-center">
+                    <div class="col p-1">
+                        <div class="m-1 card p-0 m-0" style="background-color:#D2E6E4; height: 320px">
+                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                <img src="{{ asset('assets/image/profile.jpg') }}" alt="Ketua RW" class="img-fluid"
+                                    style="object-fit: cover; height: 200px; width: 100%;" />
+                                <a href="#!">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                                </a>
+                            </div>
+                            <div class="card-body" style="text-align: left;">
+                                <h6 class="card-title">Ketua RW</h6>
+                                <h5 class="card-text" style="font-weight: 600">{{ $rw->ketuaRW->nama }}</h5>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col p-1">
-                    <div class="m-1 card p-0 m-0" style="background-color:#D2E6E4; height: 320px">
-                        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                            <img src="{{ asset('assets/image/profile.jpg') }}" alt="Ketua RW" class="img-fluid"
-                                style="object-fit: cover; height: 200px; width: 100%;" />
-                            <a href="#!">
-                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
-                            </a>
+                    <div class="col p-1">
+                        <div class="m-1 card p-0 m-0" style="background-color:#D2E6E4; height: 320px">
+                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                <img src="{{ asset('assets/image/profile.jpg') }}" alt="Ketua RW" class="img-fluid"
+                                    style="object-fit: cover; height: 200px; width: 100%;" />
+                                <a href="#!">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                                </a>
+                            </div>
+                            <div class="card-body" style="text-align: left;">
+                                <h6 class="card-title">Sekretaris RW</h6>
+                                <h5 class="card-text" style="font-weight: 600">{{ $rw->sekretarisRW->nama }}</h5>
+                            </div>
                         </div>
-                        <div class="card-body" style="text-align: left;">
-                            <h6 class="card-title">Bendahara RW</h6>
-                            <h5 class="card-text" style="font-weight: 600">{{ $rw->bendaharaRW->nama }}</h5>
+                    </div>
+                    <div class="col p-1">
+                        <div class="m-1 card p-0 m-0" style="background-color:#D2E6E4; height: 320px">
+                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                <img src="{{ asset('assets/image/profile.jpg') }}" alt="Ketua RW" class="img-fluid"
+                                    style="object-fit: cover; height: 200px; width: 100%;" />
+                                <a href="#!">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                                </a>
+                            </div>
+                            <div class="card-body" style="text-align: left;">
+                                <h6 class="card-title">Bendahara RW</h6>
+                                <h5 class="card-text" style="font-weight: 600">{{ $rw->bendaharaRW->nama }}</h5>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- <button class="btn btn-primary rounded-circle left-button"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+        </div>
+        <!-- <button class="btn btn-primary rounded-circle left-button"><svg xmlns="http://www.w3.org/2000/svg" width="16"
           height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
           <path fill-rule="evenodd"
             d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" />
@@ -188,7 +191,7 @@
           <path fill-rule="evenodd"
             d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
         </svg></button> -->
-        </div>
+        {{-- </div> --}}
 
         <!-- Agenda Section -->
         <div class="text-center my-5">
@@ -273,8 +276,8 @@
             <p class="mb-1">Alamat: Jl. Kembang Turi, Lowokwaru, Kota Malang</p>
             <p class="mb-1">
                 Telp:
-                <a href="https://wa.me/628110992160" style="color: #25D366; text-decoration: underline;">
-                    +628110992160
+                <a href="https://wa.me/6282110992160" style="color: #25D366; text-decoration: underline;">
+                    +6282110992160
                 </a>
             </p>
             <p class="mb-1">Jam Respon: 07.00 WIB - 20.00 WIB</p>
