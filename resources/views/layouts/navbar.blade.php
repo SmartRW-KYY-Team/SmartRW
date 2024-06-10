@@ -12,25 +12,34 @@
             <ul class="navbar-nav ms-auto mb-lg-0">
             </ul>
             <div class="dropdown">
-                <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                <a href="#" class="d-flex align-items-center text-decoration-none" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                     <div class="user-menu d-flex">
                         <div class="user-name text-end me-3">
-                            <h6 class="mb-0 text-gray-600">
-                                {{ session('username') }}
-                            </h6>
-                            <p class="mb-0 text-sm text-gray-600">
-                                {{ session('role') }}
-                            </p>
+                            <h6 class="mb-0 text-gray-600">{{ session('username') }}</h6>
+                            <p class="mb-0 text-sm text-gray-600">{{ session('role') }}</p>
                         </div>
                         <div class="user-img d-flex align-items-center">
                             <div class="avatar avatar-md">
-                                <img src="./assets/compiled/jpg/1.jpg">
+                                <img src="{{ asset('assets/compiled/jpg/1.jpg') }}" alt="User Avatar">
                             </div>
                         </div>
                     </div>
                 </a>
-
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                    <li class="dropdown-header">
+                        <h6>Menu</h6>
+                    </li>
+                    <li>
+                        <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault(); confirmLogout();">
+                            <span>Logout</span>
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
 </nav>
+
