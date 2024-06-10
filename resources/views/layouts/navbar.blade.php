@@ -24,12 +24,26 @@
                         </div>
                         <div class="user-img d-flex align-items-center">
                             <div class="avatar avatar-md">
-                                <img src="./assets/compiled/jpg/1.jpg">
+                                <img src="{{ asset('assets/compiled/jpg/1.jpg') }}">
                             </div>
                         </div>
                     </div>
-                </a>
+                    <ul class="dropdown-menu dropdown-menu-end " aria-labelledby="dropdownMenuButton">
+                        <li class="dropdown-header">
+                            <h6>Menu</h6>
+                        </li>
+                        <li>
+                            <a href="{{ route('logout') }}" class='btn'
+                                onclick="event.preventDefault(); confirmLogout();">
+                                <span>Logout</span>
+                            </a>
 
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        </li>
+                    </ul>
+                </a>
             </div>
         </div>
     </div>
