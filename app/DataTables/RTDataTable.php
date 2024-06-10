@@ -52,11 +52,6 @@ class RTDataTable extends DataTable
             ->orderBy(0)
             ->selectStyleSingle()
             ->buttons([
-                Button::make('excel'),
-                Button::make('csv'),
-                Button::make('pdf'),
-                Button::make('print'),
-                Button::make('reset'),
                 Button::make('reload')
             ])
             ->parameters([
