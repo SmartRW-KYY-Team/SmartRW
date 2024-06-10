@@ -11,6 +11,7 @@ use App\Models\Rw;
 use App\Models\User;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class KeluargaController extends Controller
@@ -31,9 +32,27 @@ class KeluargaController extends Controller
         $pageTitle =  'Create Data Keluarga';
         $subPageTitle = 'Daftar Keluarga SmartRW';
         $activePosition = "create";
-        $users = User::all();
-        $keluarga = Keluarga::all();
-        $rts = Rt::all();
+        if (Auth::user()->role == 'rw') {
+            # code...
+            $users = User::all();
+            $keluarga = Keluarga::with('kepala_keluarga')->get();
+            $rts = Rt::all();
+        } elseif (Auth::user()->role == 'rt' && Auth::user()->no_role == 1) {
+            $keluarga = Keluarga::with('kepala_keluarga')->where('rt_id', 1)->get();
+            $keluargaIds = $keluarga->pluck('id_keluarga');
+            $users = User::whereIn('keluarga_id', $keluargaIds)->get();
+            $rts = Rt::where('id_rt', 1)->get();
+        } elseif (Auth::user()->role == 'rt' && Auth::user()->no_role == 2) {
+            $keluarga = Keluarga::with('kepala_keluarga')->where('rt_id', 2)->get();
+            $keluargaIds = $keluarga->pluck('id_keluarga');
+            $users = User::whereIn('keluarga_id', $keluargaIds)->get();
+            $rts = Rt::where('id_rt', 2)->get();
+        } elseif (Auth::user()->role == 'rt' && Auth::user()->no_role == 3) {
+            $keluarga = Keluarga::with('kepala_keluarga')->where('rt_id', 3)->get();
+            $keluargaIds = $keluarga->pluck('id_keluarga');
+            $users = User::whereIn('keluarga_id', $keluargaIds)->get();
+            $rts = Rt::where('id_rt', 3)->get();
+        }
         $rws = Rw::all();
         $existingKepalaKeluargas = Keluarga::pluck('kepala_keluarga_id')->toArray();
         $wargas = User::whereNotIn('id_user', $existingKepalaKeluargas)->get();
@@ -79,8 +98,30 @@ class KeluargaController extends Controller
         $pageTitle =  'Edit Data Keluarga';
         $subPageTitle = 'Daftar Keluarga SmartRW';
         $activePosition = "edit";
+        if (Auth::user()->role == 'rw') {
+            # code...
+            $users = User::all();
+            // $keluarga = Keluarga::with('kepala_keluarga')->get();
+            $keluarga = Keluarga::with('members')->findOrFail($id);
+            $rts = Rt::all();
+        } elseif (Auth::user()->role == 'rt' && Auth::user()->no_role == 1) {
+            $keluarga = Keluarga::with('kepala_keluarga')->where('rt_id', 1)->get();
+            $keluargaIds = $keluarga->pluck('id_keluarga');
+            $users = User::whereIn('keluarga_id', $keluargaIds)->get();
+            $rts = Rt::where('id_rt', 1)->get();
+        } elseif (Auth::user()->role == 'rt' && Auth::user()->no_role == 2) {
+            $keluarga = Keluarga::with('kepala_keluarga')->where('rt_id', 2)->get();
+            $keluargaIds = $keluarga->pluck('id_keluarga');
+            $users = User::whereIn('keluarga_id', $keluargaIds)->get();
+            $rts = Rt::where('id_rt', 2)->get();
+        } elseif (Auth::user()->role == 'rt' && Auth::user()->no_role == 3) {
+            $keluarga = Keluarga::with('kepala_keluarga')->where('rt_id', 3)->get();
+            $keluargaIds = $keluarga->pluck('id_keluarga');
+            $users = User::whereIn('keluarga_id', $keluargaIds)->get();
+            $rts = Rt::where('id_rt', 3)->get();
+        }
         $keluarga = Keluarga::with('members')->findOrFail($id);
-        $users = User::all();
+        // $users = User::all();
         $rts = Rt::all();
         $rws = Rw::all();
 

@@ -8,6 +8,7 @@ use App\Models\Keluarga;
 use App\Models\User;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class wargaController extends Controller
@@ -27,10 +28,25 @@ class wargaController extends Controller
     {
         $pageTitle =  'Create Data Warga';
         $subPageTitle = 'Warga SmartRW';
+        if (Auth::user()->role == 'rw') {
+            # code...
+            $warga = User::all();
+            $keluarga = Keluarga::with('kepala_keluarga')->get();
+        } elseif (Auth::user()->role == 'rt' && Auth::user()->no_role == 1) {
+            $keluarga = Keluarga::with('kepala_keluarga')->where('rt_id', 1)->get();
+            $keluargaIds = $keluarga->pluck('id_keluarga');
+            $warga = User::whereIn('keluarga_id', $keluargaIds)->get();
+        } elseif (Auth::user()->role == 'rt' && Auth::user()->no_role == 2) {
+            $keluarga = Keluarga::with('kepala_keluarga')->where('rt_id', 2)->get();
+            $keluargaIds = $keluarga->pluck('id_keluarga');
+            $warga = User::whereIn('keluarga_id', $keluargaIds)->get();
+        } elseif (Auth::user()->role == 'rt' && Auth::user()->no_role == 3) {
+            $keluarga = Keluarga::with('kepala_keluarga')->where('rt_id', 3)->get();
+            $keluargaIds = $keluarga->pluck('id_keluarga');
+            $warga = User::whereIn('keluarga_id', $keluargaIds)->get();
+        }
         $activePosition = "create";
-        $warga = User::all();
         $agama = Agama::all();
-        $keluarga = Keluarga::with('kepala_keluarga')->get();
         return view('warga.create', ['warga' => $warga, 'agama' => $agama, 'keluarga' => $keluarga, 'pageTitle' => $pageTitle, 'subPageTitle' => $subPageTitle, 'activePosition' => $activePosition]);
     }
 
@@ -76,7 +92,16 @@ class wargaController extends Controller
         $subPageTitle = 'Warga SmartRW';
         $activePosition = "edit";
         $agama = Agama::all();
-        $keluarga = Keluarga::all();
+        if (Auth::user()->role == 'rw') {
+            # code...
+            $keluarga = Keluarga::with('kepala_keluarga')->get();
+        } elseif (Auth::user()->role == 'rt' && Auth::user()->no_role == 1) {
+            $keluarga = Keluarga::with('kepala_keluarga')->where('rt_id', 1)->get();
+        } elseif (Auth::user()->role == 'rt' && Auth::user()->no_role == 2) {
+            $keluarga = Keluarga::with('kepala_keluarga')->where('rt_id', 2)->get();
+        } elseif (Auth::user()->role == 'rt' && Auth::user()->no_role == 3) {
+            $keluarga = Keluarga::with('kepala_keluarga')->where('rt_id', 3)->get();
+        }
         $warga = User::findOrFail($id);
         return view('warga.edit', ['warga' => $warga, 'agama' => $agama, 'keluarga' => $keluarga, 'id_warga' => $id, 'pageTitle' => $pageTitle, 'subPageTitle' => $subPageTitle, 'activePosition' => $activePosition]);
     }
