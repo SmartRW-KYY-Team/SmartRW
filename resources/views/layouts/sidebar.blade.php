@@ -117,20 +117,6 @@
                         </a>
                     </li>
                 @endif
-
-                <li class="sidebar-title">Setting</li>
-
-                <li class="sidebar-item  ">
-                    <a href="{{ route('logout') }}" class='sidebar-link'
-                        onclick="event.preventDefault(); confirmLogout();">
-                        <i class="bi bi-box-arrow-right"></i>
-                        <span>Logout</span>
-                    </a>
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        {{ csrf_field() }}
-                    </form>
-                </li>
             </ul>
         </div>
     </div>

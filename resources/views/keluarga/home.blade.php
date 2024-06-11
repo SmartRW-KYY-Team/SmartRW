@@ -12,17 +12,48 @@
         </div>
     </div>
     @include('keluarga.show')
-
 @endsection
 @push('scripts')
     <script>
         $(document).on('click', '.showButtonDetail', function(e) {
             var keluargaId = $(this).data('id');
+            $('#viewDetailKeluargaModal').modal('show');
+            $('#modal-body-content').html(
+                '<img src="{{ asset('assets/compiled/svg/ball-triangle.svg') }}" class="img-fluid" style="display: block; margin-left: auto; margin-right: auto; width: 50%;" alt="audio">'
+            );
             $.ajax({
                 url: '/keluarga/' + keluargaId + '/show',
                 type: 'GET',
                 success: function(keluarga) {
                     console.log(keluarga);
+                    $('#modal-body-content').html(`
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>Nomor Kartu Keluarga</th>
+                                <td id="detail-nokk"></td>
+                            </tr>
+                            <tr>
+                                <th>Kepala Keluarga</th>
+                                <td id="detail-kepala_keluarga"></td>
+                            </tr>
+                            <tr>
+                                <th>RT</th>
+                                <td id="detail-rt"></td>
+                            </tr>
+                            <tr>
+                                <th>RW</th>
+                                <td id="detail-rw"></td>
+                            </tr>
+                            <tr>
+                                <th>Anggota Keluarga</th>
+                                <td id="detail-anggota_keluarga">
+                                    <ul id="anggota-keluarga-list">
+                                        <!-- List anggota keluarga akan diisi dengan JavaScript -->
+                                    </ul>
+                                </td>
+                            </tr>
+                        </table>
+                    `);
                     $('#detail-nokk').text(keluarga.nokk);
                     $('#detail-kepala_keluarga').text(keluarga.kepala_keluarga);
                     $('#detail-rt').text(keluarga.rt);
@@ -39,7 +70,6 @@
                     });
 
                     // Tampilkan modal
-                    $('#viewDetailKeluargaModal').modal('show');
                 }
             });
         });

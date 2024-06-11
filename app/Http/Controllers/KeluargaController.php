@@ -62,13 +62,11 @@ class KeluargaController extends Controller
 
     public function store(Request $request)
     {
-
         $request->validate([
             'nokk' => 'required|unique:keluarga,nokk|numeric',
             'kepala_keluarga_id' => 'required|exists:users,id_user',
             'rt_id' => 'required|exists:rt,id_rt',
             'rw_id' => 'required|exists:rw,id_rw',
-            'user_id' => 'required|exists:users,id_user', // validasi untuk user_id
         ]);
 
         $keluarga =  Keluarga::create([
@@ -80,6 +78,9 @@ class KeluargaController extends Controller
 
         // Set keluarga_id untuk pengguna yang dipilih
         if ($request->has('user_id')) {
+            $request->validate([
+                'user_id' => 'required|exists:users,id_user', // validasi untuk user_id
+            ]);
             User::whereIn('id_user', $request->user_id)->update(['keluarga_id' => $keluarga->id_keluarga]);
         }
 
@@ -122,7 +123,7 @@ class KeluargaController extends Controller
         }
         $keluarga = Keluarga::with('members')->findOrFail($id);
         // $users = User::all();
-        $rts = Rt::all();
+        // $rts = Rt::all();
         $rws = Rw::all();
 
         return view('keluarga.edit', compact('keluarga', 'users', 'rts', 'rws', 'pageTitle', 'subPageTitle', 'activePosition'));

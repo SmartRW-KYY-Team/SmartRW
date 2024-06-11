@@ -170,7 +170,7 @@ class LandingPageController extends Controller
             return response()->json(['message' => 'NIK tidak ditemukan']);
         }
 
-        $cek_nik_sktm = SuratSKTM::where('pemohon_id', $cek_nik->id_user)->first();
+        $cek_nik_sktm = SuratSKTM::where('pemohon_id', $cek_nik->id_user)->latest()->first();
         if (!$cek_nik_sktm) {
             return response()->json(['message' => 'NIK tidak ditemukan pada daftar pengajuan SKTM']);
         }
@@ -191,7 +191,7 @@ class LandingPageController extends Controller
         if (!$cek_nik) {
             return response()->json(['message' => 'NIK tidak dapat ditemukan']);
         }
-        $cek_nik_domisili = SuratDomisili::where('pemohon_id', $cek_nik->id_user)->first();
+        $cek_nik_domisili = SuratDomisili::where('pemohon_id', $cek_nik->id_user)->latest()->first();
         if (!$cek_nik_domisili) {
             return response()->json(['message' => 'NIK tidak ditemukan pada daftar pengajuan Surat Domisili']);
         }

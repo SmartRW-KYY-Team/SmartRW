@@ -16,7 +16,7 @@ class KeluargaSeeder extends Seeder
         $keluargaData = [
             // Per 1-10 Keluarga
             [
-                'nokk' => '3573123456789012',
+                'nokk' => '3573070105240001',
                 'kepala_keluarga_id' => 1, // 1-4
                 'rt_id' => 1, // ID rt
                 'rw_id' => 1, // ID rw
@@ -24,7 +24,7 @@ class KeluargaSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'nokk' => '3573987654321098',
+                'nokk' => '3573070205240002',
                 'kepala_keluarga_id' => 5, // 5-8
                 'rt_id' => 2, // ID rt
                 'rw_id' => 1, // ID rw
@@ -32,7 +32,7 @@ class KeluargaSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'nokk' => '3573123409876543',
+                'nokk' => '3573070305240003',
                 'kepala_keluarga_id' => 9, // 9-12
                 'rt_id' => 3, // ID rt
                 'rw_id' => 1, // ID rw
@@ -40,7 +40,7 @@ class KeluargaSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'nokk' => '3573745632109876',
+                'nokk' => '3573070405240004',
                 'kepala_keluarga_id' => 13, // 13-16
                 'rt_id' => 3, // ID rt
                 'rw_id' => 1, // ID rw
@@ -48,88 +48,88 @@ class KeluargaSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'nokk' => '3573876543210987',
+                'nokk' => '3573070505240005',
                 'kepala_keluarga_id' => 17, // 17-20
-                'rt_id' => 3, // ID rt
+                'rt_id' => 2, // ID rt
                 'rw_id' => 1, // ID rw
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'nokk' => '3573456789123456',
+                'nokk' => '3573070605240006',
                 'kepala_keluarga_id' => 21, // 21-24
+                'rt_id' => 1, // ID rt
+                'rw_id' => 1, // ID rw
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'nokk' => '3573070705240007',
+                'kepala_keluarga_id' => 25, // 25-28
+                'rt_id' => 1, // ID rt
+                'rw_id' => 1, // ID rw
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'nokk' => '3573070805240008',
+                'kepala_keluarga_id' => 29, // 29-32
                 'rt_id' => 2, // ID rt
                 'rw_id' => 1, // ID rw
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'nokk' => '3573987123456789',
-                'kepala_keluarga_id' => 25, // 25-28
+                'nokk' => '3573070905240009',
+                'kepala_keluarga_id' => 33, // 33-36
                 'rt_id' => 3, // ID rt
                 'rw_id' => 1, // ID rw
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'nokk' => '3573654321987654',
-                'kepala_keluarga_id' => 29, // 29-32
-                'rt_id' => 1, // ID rt
-                'rw_id' => 1, // ID rw
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'nokk' => '3573876598765432',
-                'kepala_keluarga_id' => 33, // 33-36
-                'rt_id' => 2, // ID rt
-                'rw_id' => 1, // ID rw
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'nokk' => '3573123498765432',
+                'nokk' => '3573071005240010',
                 'kepala_keluarga_id' => 37, // 37-40
-                'rt_id' => 1, // ID rt
+                'rt_id' => 3, // ID rt
                 'rw_id' => 1, // ID rw
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             // Per 11-20 Keluarga
             [
-                'nokk' => '3573745698765432',
+                'nokk' => '3573071105240011',
                 'kepala_keluarga_id' => 41, // 41-44
-                'rt_id' => 1, // ID rt
-                'rw_id' => 1, // ID rw
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'nokk' => '3573876523456789',
-                'kepala_keluarga_id' => 45, // 45-48
                 'rt_id' => 2, // ID rt
                 'rw_id' => 1, // ID rw
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'nokk' => '3573123450987654',
+                'nokk' => '3573071205240012',
+                'kepala_keluarga_id' => 45, // 45-48
+                'rt_id' => 1, // ID rt
+                'rw_id' => 1, // ID rw
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'nokk' => '3573071305240013',
                 'kepala_keluarga_id' => 49, // 49-52
-                'rt_id' => 3, // ID rt
+                'rt_id' => 1, // ID rt
                 'rw_id' => 1, // ID rw
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'nokk' => '3573745623456789',
+                'nokk' => '3573071405240014',
                 'kepala_keluarga_id' => 53, // 53-56
-                'rt_id' => 3, // ID rt
+                'rt_id' => 2, // ID rt
                 'rw_id' => 1, // ID rw
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'nokk' => '3573876540987654',
+                'nokk' => '3573071505240015',
                 'kepala_keluarga_id' => 57, // 57-60
                 'rt_id' => 3, // ID rt
                 'rw_id' => 1, // ID rw
@@ -137,121 +137,121 @@ class KeluargaSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'nokk' => '3507123456789012',
-                'kepala_keluarga_id' => 63, // 63-66
-                'rt_id' => 2, // ID rt
-                'rw_id' => 1, // ID rw
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'nokk' => '3507987654321098',
-                'kepala_keluarga_id' => 67, // 67-70
+                'nokk' => '3573071605240016',
+                'kepala_keluarga_id' => 61, // 61-64
                 'rt_id' => 3, // ID rt
                 'rw_id' => 1, // ID rw
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'nokk' => '3507123409876543',
-                'kepala_keluarga_id' => 71, // 71-74
-                'rt_id' => 1, // ID rt
-                'rw_id' => 1, // ID rw
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'nokk' => '3507745632109876',
-                'kepala_keluarga_id' => 75, // 75-78
+                'nokk' => '3573071705240017',
+                'kepala_keluarga_id' => 65, // 65-68
                 'rt_id' => 2, // ID rt
                 'rw_id' => 1, // ID rw
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'nokk' => '3507876543210987',
-                'kepala_keluarga_id' => 79, // 79-82
+                'nokk' => '3573071805240018',
+                'kepala_keluarga_id' => 69, // 69-72
                 'rt_id' => 1, // ID rt
+                'rw_id' => 1, // ID rw
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'nokk' => '3573071905240019',
+                'kepala_keluarga_id' => 73, // 73-76
+                'rt_id' => 1, // ID rt
+                'rw_id' => 1, // ID rw
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'nokk' => '3573072005240020',
+                'kepala_keluarga_id' => 77, // 77-80
+                'rt_id' => 2, // ID rt
                 'rw_id' => 1, // ID rw
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             // Per 21-30 Keluarga
             [
-                'nokk' => '3507456789123456',
-                'kepala_keluarga_id' => 83, // 83-86
+                'nokk' => '3573072105240021',
+                'kepala_keluarga_id' => 81, // 81-84
+                'rt_id' => 3, // ID rt
+                'rw_id' => 1, // ID rw
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'nokk' => '3573072205240022',
+                'kepala_keluarga_id' => 85, // 85-88
+                'rt_id' => 3, // ID rt
+                'rw_id' => 1, // ID rw
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'nokk' => '3573072305240023',
+                'kepala_keluarga_id' => 89, // 89-92
+                'rt_id' => 2, // ID rt
+                'rw_id' => 1, // ID rw
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'nokk' => '3573072405240024',
+                'kepala_keluarga_id' => 93, // 93-96
                 'rt_id' => 1, // ID rt
                 'rw_id' => 1, // ID rw
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'nokk' => '3507987123456789',
-                'kepala_keluarga_id' => 87, // 87-90
-                'rt_id' => 2, // ID rt
-                'rw_id' => 1, // ID rw
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'nokk' => '3507654321987654',
-                'kepala_keluarga_id' => 91, // 91-94
-                'rt_id' => 3, // ID rt
-                'rw_id' => 1, // ID rw
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'nokk' => '3507876598765432',
-                'kepala_keluarga_id' => 95, // 95-98
-                'rt_id' => 3, // ID rt
-                'rw_id' => 1, // ID rw
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'nokk' => '3507123498765432',
-                'kepala_keluarga_id' => 99, // 99-102
-                'rt_id' => 3, // ID rt
-                'rw_id' => 1, // ID rw
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'nokk' => '3507745698765432',
-                'kepala_keluarga_id' => 103, // 103-106
-                'rt_id' => 2, // ID rt
-                'rw_id' => 1, // ID rw
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'nokk' => '3507876523456789',
-                'kepala_keluarga_id' => 107, // 107-110
-                'rt_id' => 3, // ID rt
-                'rw_id' => 1, // ID rw
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'nokk' => '3507123450987654',
-                'kepala_keluarga_id' => 111, // 111-114
+                'nokk' => '3573072505240025',
+                'kepala_keluarga_id' => 97, // 97-100
                 'rt_id' => 1, // ID rt
                 'rw_id' => 1, // ID rw
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'nokk' => '3507745623456789',
-                'kepala_keluarga_id' => 115, // 115-118
+                'nokk' => '3573072605240026',
+                'kepala_keluarga_id' => 101, // 101-104
                 'rt_id' => 2, // ID rt
                 'rw_id' => 1, // ID rw
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'nokk' => '3507876540987654',
-                'kepala_keluarga_id' => 119, // 119-122
+                'nokk' => '3573072705240027',
+                'kepala_keluarga_id' => 105, // 105-108
+                'rt_id' => 3, // ID rt
+                'rw_id' => 1, // ID rw
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'nokk' => '3573072805240028',
+                'kepala_keluarga_id' => 109, // 109-112
+                'rt_id' => 3, // ID rt
+                'rw_id' => 1, // ID rw
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'nokk' => '3573072905240029',
+                'kepala_keluarga_id' => 113, // 113-116
+                'rt_id' => 2, // ID rt
+                'rw_id' => 1, // ID rw
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'nokk' => '3573073005240030',
+                'kepala_keluarga_id' => 117, // 117-120
                 'rt_id' => 1, // ID rt
                 'rw_id' => 1, // ID rw
                 'created_at' => now(),
