@@ -30,7 +30,7 @@
                         <tr>
                             <th>Lampiran</th>
                             <td>
-                                <img alt="lampiran" id="detail-lampiran">
+                                <img alt="lampiran" id="detail-lampiran" class="img-fluid">
                             </td>
                         </tr>
                     </table>
@@ -95,12 +95,8 @@
                     // Populate form fields
                     $('#detail-deskripsi').html(data.deskripsi);
                     $('#detail-tanggal_kejadian').html(data.tanggal_kejadian);
-                    $('#detail-tanggal_kejadian').html(data.tanggal_kejadian);
-                    $('#detail-lampiran').html('Fitur blum jadi brou');
-                    $('#detail-lampiran').attr('src',
-                        `{{ asset('storage/lampiran/lampiranImage') }}`
-                        .replace('lampiranImage',
-                            data.lampiran));
+                    $('#detail-lampiran').attr('src', `{{ asset('storage/lampiran/lampiranImage') }}`
+                        .replace('lampiranImage', data.lampiran));
                 }
             });
         });
@@ -111,4 +107,14 @@
         });
     </script>
     {{ $dataTable->scripts(attributes: ['type' => 'module']) }}
+@endpush
+
+@push('styles')
+    <style>
+        #detail-lampiran {
+            max-width: 100%;
+            max-height: 300px;
+            object-fit: contain;
+        }
+    </style>
 @endpush
