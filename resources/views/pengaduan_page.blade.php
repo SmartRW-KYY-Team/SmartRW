@@ -114,9 +114,8 @@
                         <div class="form-group">
                             <label for="rw" class="required">RW</label>
                             <select class="form-control" name="rw" id="rw" required>
-                                <option value="" disabled selected>Pilih RW</option>
                                 @foreach ($rw as $rws)
-                                    <option value="{{ $rws->id_rw }}">{{ $rws->nama }}</option>
+                                    <option value="{{ $rws->id_rw }} selected">{{ $rws->nama }}</option>
                                 @endforeach
                             </select>
                         </div>
