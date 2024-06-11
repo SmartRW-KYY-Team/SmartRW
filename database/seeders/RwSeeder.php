@@ -16,7 +16,7 @@ class RwSeeder extends Seeder
     {
         $rwData = [
             [
-                'nama' => 'RW 001',
+                'nama' => 'RW 004',
                 'ketua_id' => 10,  // ID Ketua RT (sesuaikan dengan data user)
                 'sekretaris_id' => 11,  // ID Sekretaris RT (sesuaikan dengan data user)
                 'bendahara_id' => 12,  // ID Bendahara RT (sesuaikan dengan data user)
