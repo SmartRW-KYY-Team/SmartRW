@@ -12,7 +12,8 @@
             <ul class="navbar-nav ms-auto mb-lg-0">
             </ul>
             <div class="dropdown">
-                <a href="#" class="d-flex align-items-center text-decoration-none" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <a href="#" class="d-flex align-items-center text-decoration-none" id="userDropdown"
+                    data-bs-toggle="dropdown" aria-expanded="false">
                     <div class="user-menu d-flex">
                         <div class="user-name text-end me-3">
                             <h6 class="mb-0 text-gray-600">{{ session('username') }}</h6>
@@ -30,7 +31,8 @@
                         <h6>Menu</h6>
                     </li>
                     <li>
-                        <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault(); confirmLogout();">
+                        <a href="{{ route('logout') }}" class="dropdown-item"
+                            onclick="event.preventDefault(); confirmLogout();">
                             <span>Logout</span>
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -39,7 +41,15 @@
                     </li>
                 </ul>
             </div>
+            <a href="{{ route('logout') }}" class='btn btn-success' style="background-color: #0B7077"
+                onclick="event.preventDefault(); confirmLogout();">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Logout</span>
+            </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                {{ csrf_field() }}
+            </form>
         </div>
     </div>
 </nav>
-

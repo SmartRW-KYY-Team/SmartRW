@@ -133,7 +133,7 @@ class KegiatanController extends Controller
                 'tanggal_kegiatan' => $request->tanggal_kegiatan,
                 'deskripsi' => $request->deskripsi,
                 'rt_id' => $request->rt_id,
-                'rw_id' => $request->rw_id,
+                'rw_id' => 1,
                 'lampiran' => $hashedName,
             ]);
             Alert::success('Success', 'Success Update Data ');
