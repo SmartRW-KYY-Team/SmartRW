@@ -15,6 +15,7 @@ return new class extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->foreign('agama_id')->references('id_agama')->on('agama');
             $table->foreign('keluarga_id')->references('id_keluarga')->on('keluarga');
+            $table->foreign('rt_id')->references('id_rt')->on('rt');
         });
         // Add foreign rt
         Schema::table('rt', function (Blueprint $table) {

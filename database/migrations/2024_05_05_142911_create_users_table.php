@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('pekerjaan');
             $table->string('notelp');
             $table->unsignedBigInteger('keluarga_id')->nullable();
+            $table->unsignedBigInteger('rt_id')->nullable();
             $table->timestamps();
         });
     }
