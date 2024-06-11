@@ -33,24 +33,25 @@
                 </div>
                 <div class="mb-3">
                     <label for="rt_id" class="form-label">RT</label>
-                    <select class="form-control @error('rt_id') is-invalid @enderror" id="rt_id" name="rt_id">
-                        <option value="" disabled selected>Pilih RT</option>
-                        @foreach ($rts as $rt)
-                            <option value="{{ $rt->id_rt }}">{{ $rt->nama }}</option>
-                        @endforeach
-                    </select>
+                    @if (Auth::user()->role == 'rt')
+                        <input type="text" class="form-control" value="{{ $rts[0]->id_rt }}" readonly
+                            @error('rt_id') is-invalid @enderror" id="rt_id" name="rt_id">
+                    @else
+                        <select class="form-control @error('rt_id') is-invalid @enderror" id="rt_id" name="rt_id">
+                            <option value="" disabled selected>Pilih RT</option>
+                            @foreach ($rts as $rt)
+                                <option value="{{ $rt->id_rt }}">{{ $rt->nama }}</option>
+                            @endforeach
+                        </select>
+                    @endif
                     @error('rt_id')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="mb-3">
                     <label for="rw_id" class="form-label">RW</label>
-                    <select class="form-control @error('rw_id') is-invalid @enderror" id="rw_id" name="rw_id">
-                        <option value="" disabled selected>Pilih RW</option>
-                        @foreach ($rws as $rw)
-                            <option value="{{ $rw->id_rw }}">{{ $rw->nama }}</option>
-                        @endforeach
-                    </select>
+                    <input type="text" class="form-control" value="{{ $rws[0]->id_rw }}" readonly
+                        @error('rw_id') is-invalid @enderror" id="rw_id" name="rw_id">
                     @error('rw_id')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
