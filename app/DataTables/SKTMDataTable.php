@@ -29,10 +29,14 @@ class SKTMDataTable extends DataTable
                     data-nama="' . $row->nama . '">
                     <i class="bi bi-eye-fill"></i>
                 </button>
+                ' . ($row->status != "Selesai" ? '
                 <button type="button" class="btn btn-success me-2 AcceptModalSKTM"
                     data-id="' . $row->id_suratSKTM . '">
                     <i class="bi bi-check-square-fill"></i>
-                </button>
+                </button>' : '<button type="button" disabled class="btn btn-success me-2 AcceptModalSKTM"
+                data-id="' . $row->id_suratSKTM . '">
+                <i class="bi bi-check-square-fill"></i>
+            </button>') . '
             </div>';
             })
             ->addColumn('No', function () {
