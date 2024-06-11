@@ -115,7 +115,7 @@
                             <label for="rw" class="required">RW</label>
                             <select class="form-control" name="rw" id="rw" required>
                                 @foreach ($rw as $rws)
-                                    <option value="{{ $rws->id_rw }} selected">{{ $rws->nama }}</option>
+                                    <option value="{{ $rws->id_rw }}" selected>{{ $rws->nama }}</option>
                                 @endforeach
                             </select>
                         </div>
