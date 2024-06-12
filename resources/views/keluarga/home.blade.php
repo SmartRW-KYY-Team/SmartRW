@@ -68,7 +68,6 @@
                             anggota.nik +
                             ')</li>');
                     });
-
                     // Tampilkan modal
                 }
             });
