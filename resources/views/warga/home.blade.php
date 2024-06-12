@@ -3,9 +3,12 @@
     <div class="card">
         <div class="card-header d-flex">
             <h4 class="card-title">Warga</h4>
-            <div class="card-tools ms-auto">
-                <a href="{{ route('warga.create') }}" class="btn btn-md btn-primary mt-1">+ Tambah</a>
-            </div>
+            @if (Auth::user()->role == 'rw')
+            @else
+                <div class="card-tools ms-auto">
+                    <a href="{{ route('warga.create') }}" class="btn btn-md btn-primary mt-1">+ Tambah</a>
+                </div>
+            @endif
         </div>
         <div class="card-body">
             {{-- {{ $dataTable->table() }} --}}
