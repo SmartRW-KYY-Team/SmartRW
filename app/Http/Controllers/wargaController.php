@@ -81,7 +81,7 @@ class wargaController extends Controller
         ]);
 
         // Redirect ke halaman yang sesuai (misalnya halaman daftar pengguna)
-        Alert::success('Success', 'Success Add Data User');
+        Alert::success('Success', 'Berhasil Menambah Data Warga');
         return redirect()->route('warga.index');
     }
 
@@ -119,11 +119,11 @@ class wargaController extends Controller
         $find_kk = Keluarga::where('id_keluarga', $user->keluarga_id)->first();
 
         if ($find_kk->kepala_keluarga_id == $user->id_user) {
-            Alert::error('error', 'Bahaya gess');
+            Alert::error('error', 'Tidak boleh menggunakan user yang sudah menjadi kepala keluarga');
             return redirect()->route('warga.index');
         } else {
             $user->delete();
-            Alert::success('Success', 'Success Delete Data User');
+            Alert::success('Success', 'Berhasil Menghapus Data User');
             return redirect()->route('warga.index');
         }
     }
@@ -160,7 +160,7 @@ class wargaController extends Controller
             'rt_id' => Auth::user()->no_role,
         ]);
 
-        Alert::success('Success', 'Data pengguna berhasil diperbarui');
+        Alert::success('Success', 'Data warga berhasil diperbarui');
         return redirect()->route('warga.index');
     }
 }
