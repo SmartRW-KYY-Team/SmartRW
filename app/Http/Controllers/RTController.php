@@ -24,16 +24,16 @@ class RTController extends Controller
         $subPageTitle = 'Data RT SmartRW';
         $activePosition = "edit";
         $rt = Rt::findOrFail($id);
-        $users = User::all();
+        $users = User::where('rt_id', $id);
         return view('rt.edit', ['rt' => $rt, 'users' => $users, 'pageTitle' => $pageTitle, 'subPageTitle' => $subPageTitle, 'activePosition' => $activePosition]);
     }
 
     public function update(Request $request, $id)
     {
         $request->validate([
-            'ketua_id' => 'required|unique:rt,ketua_id',
-            'sekretaris_id' => 'required|unique:rt,sekretaris_id',
-            'bendahara_id' => 'required|unique:rt,bendahara_id',
+            'ketua_id' => 'required|unique:rt,ketua_id,' . $id,
+            'sekretaris_id' => 'required|unique:rt,sekretaris_id,' . $id,
+            'bendahara_id' => 'required|unique:rt,bendahara_id,' . $id,
         ]);
 
         $rt = Rt::findOrFail($id);
