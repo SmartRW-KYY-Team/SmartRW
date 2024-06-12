@@ -21,7 +21,18 @@
                         </div>
                         <div class="user-img d-flex align-items-center">
                             <div class="avatar avatar-md">
-                                <img src="{{ asset('assets/compiled/jpg/1.jpg') }}" alt="User Avatar">
+                                @if (Auth::user()->role == 'rw' )
+                                <img src="{{ asset('assets/image/foto-struktur/ketua_rw.jpg') }}" alt="User Avatar">
+                                @endif
+                                @if (Auth::user()->no_role == '1' && Auth::user()->role ==  'rt')
+                                <img src="{{ asset('assets/image/foto-struktur/ketua_rt_1.jpg') }}" alt="User Avatar">
+                                @endif
+                                @if (Auth::user()->no_role == '2' && Auth::user()->role ==  'rt')
+                                <img src="{{ asset('assets/image/foto-struktur/ketua_rt_2.jpg') }}" alt="User Avatar">
+                                @endif
+                                @if (Auth::user()->no_role == '3' && Auth::user()->role ==  'rt')
+                                <img src="{{ asset('assets/image/foto-struktur/ketua_rt_3.jpg') }}" alt="User Avatar">
+                                @endif
                             </div>
                         </div>
                     </div>
