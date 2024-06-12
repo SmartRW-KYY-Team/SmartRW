@@ -24,7 +24,7 @@ class RTController extends Controller
         $subPageTitle = 'Data RT SmartRW';
         $activePosition = "edit";
         $rt = Rt::findOrFail($id);
-        $users = User::where('rt_id', $id);
+        $users = User::where('rt_id', $id)->get();
         return view('rt.edit', ['rt' => $rt, 'users' => $users, 'pageTitle' => $pageTitle, 'subPageTitle' => $subPageTitle, 'activePosition' => $activePosition]);
     }
 
