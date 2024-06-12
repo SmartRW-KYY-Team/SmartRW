@@ -30,10 +30,13 @@ class RTController extends Controller
 
     public function update(Request $request, $id)
     {
+        $rt = Rt::findOrFail($id);
+        $id_rt = $rt->id_rt;
+
         $request->validate([
-            'ketua_id' => 'required|unique:rt,ketua_id,' . $id,
-            'sekretaris_id' => 'required|unique:rt,sekretaris_id,' . $id,
-            'bendahara_id' => 'required|unique:rt,bendahara_id,' . $id,
+            'ketua_id' => 'required|unique:rt,ketua_id,' . $id_rt,
+            'sekretaris_id' => 'required|unique:rt,sekretaris_id,' . $id_rt,
+            'bendahara_id' => 'required|unique:rt,bendahara_id,' . $id_rt,
         ]);
 
         $rt = Rt::findOrFail($id);
