@@ -63,11 +63,7 @@ class wargaController extends Controller
             'status_perkawinan' => 'required',
             'pekerjaan' => 'required|string|max:255',
             'notelp' => 'required|string|max:20',
-            'keluarga' => 'required',
         ]);
-
-        // find rt_id in keluarga
-        $find_rt_id = Keluarga::findOrFail($request->keluarga);
 
         // Buat pengguna baru berdasarkan data yang valid
         User::create([
@@ -81,7 +77,7 @@ class wargaController extends Controller
             'pekerjaan' => $request->pekerjaan,
             'notelp' => $request->notelp,
             'keluarga_id' => $request->keluarga,
-            'rt_id' => $find_rt_id->rt_id
+            'rt_id' => Auth::user()->no_role,
         ]);
 
         // Redirect ke halaman yang sesuai (misalnya halaman daftar pengguna)
@@ -149,7 +145,6 @@ class wargaController extends Controller
         ]);
 
         // Cari pengguna berdasarkan id dan perbarui data
-        $find_rt_id = Keluarga::findOrFail($request->keluarga);
         $user = User::findOrFail($id);
         $user->update([
             'nama' => $request->nama,
@@ -162,7 +157,7 @@ class wargaController extends Controller
             'pekerjaan' => $request->pekerjaan,
             'notelp' => $request->notelp,
             'keluarga_id' => $request->keluarga,
-            'rt_id' => $find_rt_id->rt_id,
+            'rt_id' => Auth::user()->no_role,
         ]);
 
         Alert::success('Success', 'Data pengguna berhasil diperbarui');
