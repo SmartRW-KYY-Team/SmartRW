@@ -43,7 +43,7 @@
                     <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up"
                         data-aos-delay="200">
                         <div class="content">
-                            <h3>Who We Are</h3>
+                            <h3>RW 04 Jatimulyo</h3>
                             <h2>Expedita voluptas omnis cupiditate totam eveniet nobis sint iste. Dolores est repellat
                                 corrupti reprehenderit.</h2>
                             <p>

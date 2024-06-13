@@ -1,8 +1,8 @@
 <footer id="footer" class="footer">
 
-    <div class="container footer-top">
+    <div class="container footer-top text-center">
         <div class="row gy-4">
-            <div class="col-lg-4 col-md-6 footer-about" text="center">
+            <div class="col-lg-4 col-md-6 footer-about ">
                 <a href="index.html" class="d-flex align-items-center">
                     <span class="sitename"></span>
                 </a>
@@ -20,7 +20,6 @@
             Designed by <p>KYY-Team</p>
         </div>
     </div>
-
 </footer>
 
 <!-- Scroll Top -->
