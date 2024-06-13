@@ -16,7 +16,7 @@ class SKTMController extends Controller
     public function index(SKTMDataTable $dataTable)
     {
         $pageTitle =  'Surat SKTM';
-        $subPageTitle = 'SKTM SmartRW';
+        $subPageTitle = '';
         $activePosition = "home";
         $sktm = SuratSKTM::all();
         $rt = Rt::all();

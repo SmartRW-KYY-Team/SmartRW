@@ -2,7 +2,6 @@
 @section('content')
     <div class="card">
         <div class="card-header d-flex">
-            <h4 class="card-title">Warga</h4>
             @if (Auth::user()->role == 'rw')
             @else
                 <div class="card-tools ms-auto">

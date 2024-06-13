@@ -3,7 +3,6 @@
 @section('content')
     <div class="card mb-3">
         <div class="card-header d-flex">
-            <h4 class="card-title">Keuangan RT</h4>
         </div>
         <div class="card-body">
             <div class="row mb-3">

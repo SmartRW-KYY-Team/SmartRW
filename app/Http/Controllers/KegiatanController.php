@@ -19,7 +19,7 @@ class KegiatanController extends Controller
     public function index(KegiatanDataTable $dataTable)
     {
         $pageTitle =  'Agenda Kegiatan';
-        $subPageTitle = 'Kegiatan SmartRW';
+        $subPageTitle = '';
         $activePosition = "home";
         return $dataTable->render('kegiatan.index', ['pageTitle' => $pageTitle, 'subPageTitle' => $subPageTitle, 'activePosition' => $activePosition]);
     }
@@ -29,8 +29,8 @@ class KegiatanController extends Controller
      */
     public function create()
     {
-        $pageTitle =  'Agenda Kegiatan';
-        $subPageTitle = 'Agenda Kegiatan SmartRW';
+        $pageTitle =  'Tambah Agenda Kegiatan';
+        $subPageTitle = '';
         $activePosition = "create";
         $rt = Rt::all();
         $rw = Rw::all();
@@ -90,7 +90,7 @@ class KegiatanController extends Controller
     public function edit($id)
     {
         $pageTitle =  'Edit Agenda Kegiatan';
-        $subPageTitle = 'Agenda Kegiatan SmartRW';
+        $subPageTitle = '';
         $activePosition = "edit";
         $rt = Rt::all();
         $rw = Rw::all();
