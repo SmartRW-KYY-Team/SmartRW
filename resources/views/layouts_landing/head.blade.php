@@ -31,4 +31,22 @@
 
     <link rel="stylesheet" href="{{ asset('assets/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/owl.theme.default.css') }}">
+    <style>
+        .custom-card {
+            border-radius: 20px;
+            /* Anda bisa mengganti nilai ini sesuai kebutuhan */
+        }
+
+        .custom-card img {
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+
+        .custom-card:hover {
+            transform: scale(1.05);
+            transition: transform 0.5s ease;
+            transition: transform 0.5s ease-in;
+            /* Menambah scale sebesar 5% ketika dihover */
+        }
+    </style>
 </head>
