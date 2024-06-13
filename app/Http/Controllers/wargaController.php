@@ -16,7 +16,7 @@ class wargaController extends Controller
     public function index(UsersDataTable $dataTable)
     {
         $pageTitle =  'Data Warga';
-        $subPageTitle = 'Warga SmartRW';
+        $subPageTitle = '';
         $activePosition = "home";
         $warga = User::all();
         $agama = Agama::all();
@@ -27,7 +27,7 @@ class wargaController extends Controller
     public function create()
     {
         $pageTitle =  'Create Data Warga';
-        $subPageTitle = 'Warga SmartRW';
+        $subPageTitle = '';
         if (Auth::user()->role == 'rw') {
             # code...
             $warga = User::all();
@@ -88,7 +88,7 @@ class wargaController extends Controller
     public function edit($id)
     {
         $pageTitle =  'Edit Data Warga';
-        $subPageTitle = 'Warga SmartRW';
+        $subPageTitle = '';
         $activePosition = "edit";
         $agama = Agama::all();
         if (Auth::user()->role == 'rw') {

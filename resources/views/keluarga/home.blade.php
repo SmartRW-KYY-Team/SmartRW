@@ -2,10 +2,12 @@
 @section('content')
     <div class="card">
         <div class="card-header d-flex">
-            <h4 class="card-title">Keluarga</h4>
+            @if (Auth::user()->role == 'rw')
+            @else
             <div class="card-tools ms-auto">
                 <a href="{{ route('keluarga.create') }}" class="btn btn-md btn-primary mt-1">+ Tambah</a>
             </div>
+            @endif
         </div>
         <div class="card-body">
             {{ $dataTable->table(['width' => '100%', 'class' => 'table table-bordered table-striped']) }}

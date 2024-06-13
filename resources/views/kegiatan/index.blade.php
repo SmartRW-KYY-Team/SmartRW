@@ -2,7 +2,6 @@
 @section('content')
     <div class="card">
         <div class="card-header d-flex">
-            <h4 class="card-title">Kegiatan</h4>
             <div class="card-tools ms-auto">
                 <a href="{{ route('kegiatan.create') }}" class="btn btn-md btn-primary mt-1">+ Tambah</a>
             </div>

@@ -19,7 +19,7 @@ class UsersSeeder extends Seeder
             // Keluarga 1
             [
                 'nik' => '3573072506850001',
-                'nama' => 'Budi Santoso',
+                'nama' => 'Rafid Santoso',
                 'tgl_lahir' => '1985-06-25',
                 'tempat_lahir' => 'Malang',
                 'jenis_kelamin' => 'Laki',
@@ -560,7 +560,7 @@ class UsersSeeder extends Seeder
             ],
             [
                 'nik' => '3573075702800039',
-                'nama' => 'Rina Wulandari',
+                'nama' => 'Putri Wulandari',
                 'tgl_lahir' => '1980-02-17',
                 'tempat_lahir' => 'Malang',
                 'jenis_kelamin' => 'Perempuan',
@@ -760,7 +760,7 @@ class UsersSeeder extends Seeder
             // Keluarga 14
             [
                 'nik' => '3573073005160053',
-                'nama' => 'Dodi Wijaya',
+                'nama' => 'Andika Wijaya',
                 'tgl_lahir' => '2016-05-30',
                 'tempat_lahir' => 'Malang',
                 'jenis_kelamin' => 'Laki',
@@ -931,7 +931,7 @@ class UsersSeeder extends Seeder
             // Keluarga 17
             [
                 'nik' => '3573071504950065',
-                'nama' => 'Ari Kurniawan',
+                'nama' => 'Mega Kurniawan',
                 'tgl_lahir' => '1995-04-15',
                 'tempat_lahir' => 'Medan',
                 'jenis_kelamin' => 'Laki',
@@ -1002,7 +1002,7 @@ class UsersSeeder extends Seeder
             ],
             [
                 'nik' => '3573076705100070',
-                'nama' => 'Rina Setiawati',
+                'nama' => 'Rina Cahya',
                 'tgl_lahir' => '2010-05-27',
                 'tempat_lahir' => 'Bandung',
                 'jenis_kelamin' => 'Perempuan',
@@ -1016,7 +1016,7 @@ class UsersSeeder extends Seeder
             ],
             [
                 'nik' => '3573075608150071',
-                'nama' => 'Siti Rahmawati',
+                'nama' => 'Fina Rahmawati',
                 'tgl_lahir' => '2015-08-16',
                 'tempat_lahir' => 'Surabaya',
                 'jenis_kelamin' => 'Perempuan',
@@ -1087,7 +1087,7 @@ class UsersSeeder extends Seeder
             ],
             [
                 'nik' => '3573070808200076',
-                'nama' => 'Budi Wijaya',
+                'nama' => 'Alif Wijaya',
                 'tgl_lahir' => '2020-08-08',
                 'tempat_lahir' => 'Blitar',
                 'jenis_kelamin' => 'Laki',
@@ -1102,7 +1102,7 @@ class UsersSeeder extends Seeder
             // Keluarga 20
             [
                 'nik' => '3573072909000077',
-                'nama' => 'Agus Pratama',
+                'nama' => 'Arhan Pratama',
                 'tgl_lahir' => '2000-09-29',
                 'tempat_lahir' => 'Malang',
                 'jenis_kelamin' => 'Laki',
@@ -1201,7 +1201,7 @@ class UsersSeeder extends Seeder
             ],
             [
                 'nik' => '3573073009800084',
-                'nama' => 'Budi Santoso',
+                'nama' => 'Brilyan Santoso',
                 'tgl_lahir' => '1980-09-30',
                 'tempat_lahir' => 'Malang',
                 'jenis_kelamin' => 'Laki',
@@ -1258,7 +1258,7 @@ class UsersSeeder extends Seeder
             ],
             [
                 'nik' => '3573072901000088',
-                'nama' => 'Dodi Pranata',
+                'nama' => 'Putra Pranata',
                 'tgl_lahir' => '2000-01-29',
                 'tempat_lahir' => 'Kediri',
                 'jenis_kelamin' => 'Laki',
@@ -1372,7 +1372,7 @@ class UsersSeeder extends Seeder
             ],
             [
                 'nik' => '3573071002040096',
-                'nama' => 'Budi Pratama',
+                'nama' => 'Bagus Pratama',
                 'tgl_lahir' => '2004-02-10',
                 'tempat_lahir' => 'Pekanbaru',
                 'jenis_kelamin' => 'Laki',
@@ -1387,7 +1387,7 @@ class UsersSeeder extends Seeder
             // Keluarga 25
             [
                 'nik' => '3573073109060097',
-                'nama' => 'Dedi Santoso',
+                'nama' => 'Dendi Santoso',
                 'tgl_lahir' => '2006-09-30',
                 'tempat_lahir' => 'Singaraja',
                 'jenis_kelamin' => 'Laki',
@@ -1486,7 +1486,7 @@ class UsersSeeder extends Seeder
             ],
             [
                 'nik' => '3573072507800104',
-                'nama' => 'Budi Santoso',
+                'nama' => 'Fakhri Santoso',
                 'tgl_lahir' => '1980-07-25',
                 'tempat_lahir' => 'Malang',
                 'jenis_kelamin' => 'Laki',

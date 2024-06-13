@@ -16,7 +16,7 @@ class PengaduanController extends Controller
     public function index(PengaduanDataTable $dataTable)
     {
         $pageTitle =  'Pengaduan Masalah';
-        $subPageTitle = 'Kegiatan SmartRW';
+        $subPageTitle = '';
         $activePosition = "home";
         $pengaduan = Pengaduan::all();
         $user = User::with('pengaduan')->get();

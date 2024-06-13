@@ -2,8 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h2 class="my-4">Ubah RT</h2>
-
+        <br>
         <form action="{{ route('rt.update', $rt->id_rt) }}" method="POST">
             @csrf
             <div class="mb-3">

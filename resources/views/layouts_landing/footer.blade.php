@@ -2,16 +2,18 @@
 
     <div class="container footer-top ">
 
-    <div class="container copyright text-center mt-4">
-        <p> <span>Copyright 2024 </span>©<strong class="px-1 sitename">SMARTRW</strong></p>
-        <div class="credits">
-            Designed by <p><strong>KYY-Team</strong></p>
+        <div class="container copyright text-center mt-4">
+            <p>©<span>Copyright</span> <strong class="px-1 sitename">SMARTRW</strong></p>
+            <div class="credits">
+                Designed by <p><strong><a href="https://github.com/SmartRW-KYY-Team/SmartRW"
+                style="color:black; text-decoration: underline;">KYY-Team</a></strong></p>
+            </div>
         </div>
 
 </footer>
 
 <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
-    class="bi bi-arrow-up-short"></i></a>
+        class="bi bi-arrow-up-short"></i></a>
 
 <!-- Vendor JS Files -->
 <script src="{{ asset('assets_landing/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
