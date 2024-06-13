@@ -11,7 +11,7 @@
                     <h1>Surat Keterangan Tidak Mampu</h1>
                 </div>
                 <div class="d-flex justify-content-center align-items-center" style="min-height: 50vh;">
-                    <div class="card shadow" style="max-width: 70%; width: 100%;">
+                    <div class="card shadow" style="max-width: 60%; width: 100%;">
                         
                         <div class="card-header" style="background-color: #4154f1; color: white;">
                             <h5 class="card-title text-center py-2">Cek Status Surat Keterangan Tidak Mampu (SKTM) Anda</h5>
@@ -19,7 +19,7 @@
                         <div class="card-body pt-4">
                             <form>
                                 <div class="form-group">
-                                    <label for="nik" class="required">NIK</label>
+                                    <label for="nik" class="required mb-2">NIK</label>
                                     <input type="number" class="form-control" id="nik" placeholder="Masukkan NIK" required>
                                 </div>
                                 <div class="text-center">
