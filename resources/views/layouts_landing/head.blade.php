@@ -6,9 +6,7 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="{{ asset('assets_landing/assets/img/favicon.png') }}" rel="icon">
-    <link href="{{ asset('assets_landing/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
-
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/image/favicon.png') }}">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
