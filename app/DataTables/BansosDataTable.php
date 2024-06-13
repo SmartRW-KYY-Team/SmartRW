@@ -29,8 +29,9 @@ class BansosDataTable extends DataTable
                 </div>';
             })
             ->addColumn('No', function ($row) {
-                static $index = 1;
-                return $index++;
+                static $index = 0;
+                $pageStart = request()->input('start', 1);
+                return $pageStart + (++$index);
             })
             ->addColumn('keluarga.nama', function ($row) {
                 return $row->keluarga->kepala_keluarga->nama;
@@ -40,7 +41,16 @@ class BansosDataTable extends DataTable
 
     public function query(Bansos $model): QueryBuilder
     {
-        return $model->newQuery()->with('keluarga');
+        $noId = session('no_role');
+        if (session('role') == 'rw') {
+            return $model->newQuery()->with('keluarga');
+        } else if (session('role') == 'rt') {
+            return $model->newQuery()
+                ->whereHas('keluarga', function ($query) use ($noId) {
+                    $query->where('rt_id', $noId);
+                })
+                ->with('keluarga');
+        }
     }
 
     public function html(): HtmlBuilder

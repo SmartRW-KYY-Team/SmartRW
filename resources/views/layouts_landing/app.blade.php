@@ -39,17 +39,22 @@
                     <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up"
                         data-aos-delay="200">
                         <div class="content">
-                            <h3>Who We Are</h3>
-                            <h2>Expedita voluptas omnis cupiditate totam eveniet nobis sint iste. Dolores est repellat
-                                corrupti reprehenderit.</h2>
+                            <h3>RW 04 Jatimulyo</h3>
+                            <h2>Wilayah yang Nyaman dan Aman</h2>
                             <p>
-                                Quisquam vel ut sint cum eos hic dolores aperiam. Sed deserunt et. Inventore et et dolor
-                                consequatur itaque ut voluptate sed et. Magnam nam ipsum tenetur suscipit voluptatum nam
-                                et est corrupti.
+                                RW 04 di Kelurahan Jatimulyo, Kabupaten Malang, adalah wilayah yang nyaman dengan
+                                komunitas yang kuat dan keindahan alam yang asri. Dikenal dengan infrastruktur yang
+                                baik, jalan beraspal, dan lingkungan hijau, RW 04 memiliki fasilitas umum seperti
+                                posyandu, balai RW, dan tempat ibadah yang mendukung kehidupan warganya. Komunitas di
+                                sini aktif dalam berbagai kegiatan sosial dan keagamaan, mempererat hubungan antarwarga.
+                                Akses pendidikan dan kesehatan juga memadai dengan beberapa sekolah dan puskesmas di
+                                sekitar. Lokasinya strategis dengan akses mudah ke pusat kelurahan dan fasilitas
+                                penting, menjadikannya tempat ideal untuk tinggal.
                             </p>
                             <div class="text-center text-lg-start">
-                                <a href="#"
-                                    class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
+                                <a href="https://radarmalang.jawapos.com/kota-malang/811069483/murbei-jadi-ikon-rw-04-kelurahan-jatimulyo"
+                                    class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center"
+                                    target="_blank">
                                     <span>Read More</span>
                                     <i class="bi bi-arrow-right"></i>
                                 </a>
@@ -58,7 +63,8 @@
                     </div>
 
                     <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
-                        <img src="{{ asset('assets_landing/assets/img/about.jpg') }}" class="img-fluid" alt="">
+                        <img src="https://statik.tempo.co/data/2018/07/01/id_715774/715774_720.jpg" class="img-fluid"
+                            alt="">
                     </div>
 
                 </div>
@@ -126,42 +132,43 @@
                         <div class="stats-item d-flex align-items-center w-100 h-100">
                             <i class="bi bi-emoji-smile color-blue flex-shrink-0"></i>
                             <div>
-                                <span data-purecounter-start="0" data-purecounter-end="232"
+                                <span data-purecounter-start="0" data-purecounter-end="{{ $user }}"
                                     data-purecounter-duration="1" class="purecounter"></span>
-                                <p>Happy Clients</p>
+                                <p>Jumlah Warga</p>
                             </div>
                         </div>
                     </div><!-- End Stats Item -->
 
                     <div class="col-lg-3 col-md-6">
                         <div class="stats-item d-flex align-items-center w-100 h-100">
-                            <i class="bi bi-journal-richtext color-orange flex-shrink-0" style="color: #ee6c20;"></i>
+                            <i class="fas fa-users color-orange flex-shrink-0" style="color: #ee6c20;"></i>
                             <div>
-                                <span data-purecounter-start="0" data-purecounter-end="521"
+                                <span data-purecounter-start="0" data-purecounter-end="{{ $keluarga }}"
                                     data-purecounter-duration="1" class="purecounter"></span>
-                                <p>Projects</p>
+                                <p>Jumlah Keluarga</p>
                             </div>
                         </div>
                     </div><!-- End Stats Item -->
 
                     <div class="col-lg-3 col-md-6">
                         <div class="stats-item d-flex align-items-center w-100 h-100">
-                            <i class="bi bi-headset color-green flex-shrink-0" style="color: #15be56;"></i>
+                            <i class="bi bi-people color-green flex-shrink-0" style="color: #15be56;"></i>
                             <div>
-                                <span data-purecounter-start="0" data-purecounter-end="1463"
+                                <span data-purecounter-start="0" data-purecounter-end="{{ $jumlahRT }}"
                                     data-purecounter-duration="1" class="purecounter"></span>
-                                <p>Hours Of Support</p>
+                                <p>Jumlah RT</p>
                             </div>
                         </div>
                     </div><!-- End Stats Item -->
 
                     <div class="col-lg-3 col-md-6">
                         <div class="stats-item d-flex align-items-center w-100 h-100">
-                            <i class="bi bi-people color-pink flex-shrink-0" style="color: #bb0852;"></i>
+                            {{-- <i class="bi bi-people color-green flex-shrink-0" style="color: #15be56;"></i> --}}
+                            <i class="bi bi-person-gear color-green flex-shrink-0" style="color: #15be56;"></i>
                             <div>
-                                <span data-purecounter-start="0" data-purecounter-end="15"
+                                <span data-purecounter-start="0" data-purecounter-end="12"
                                     data-purecounter-duration="1" class="purecounter"></span>
-                                <p>Hard Workers</p>
+                                <p>Jumlah Pengurus</p>
                             </div>
                         </div>
                     </div><!-- End Stats Item -->
@@ -252,62 +259,44 @@
                 <div class="row gy-5">
 
                     <div class="col-xl-7 d-flex order-2 order-xl-1" data-aos="fade-up" data-aos-delay="200">
-
                         <div class="row align-self-center gy-5">
+                            <h2>
+                                Nikmati Manfaat Fitur Kami Yang Sudah Terintegrasi Dengan RT dan RW setempat
+                            </h2>
 
                             <div class="col-md-6 icon-box">
-                                <i class="bi bi-award"></i>
+                                <i class="bi bi-easel"></i>
                                 <div>
-                                    <h4>Corporis voluptates sit</h4>
-                                    <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut
-                                        aliquip</p>
+                                    <h4>Tampilan Yang Mudah</h4>
+                                    <p>Tampilan yang mudah dipahami oleh pengguna sehingga nyaman saat digunakan</p>
                                 </div>
                             </div><!-- End Feature Item -->
 
                             <div class="col-md-6 icon-box">
-                                <i class="bi bi-card-checklist"></i>
+                                <i class="bi bi-info-circle"></i>
                                 <div>
-                                    <h4>Ullamco laboris nisi</h4>
-                                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                                        deserunt</p>
+                                    <h4>Informasi Terkini</h4>
+                                    <p>Dapatkan informasi terkini mengenai semua hal yang ada di lingkungan RT/RW</p>
                                 </div>
                             </div><!-- End Feature Item -->
 
                             <div class="col-md-6 icon-box">
-                                <i class="bi bi-dribbble"></i>
+                                <i class="bi bi-file-earmark-text"></i>
                                 <div>
-                                    <h4>Labore consequatur</h4>
-                                    <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere
-                                    </p>
-                                </div>
-                            </div><!-- End Feature Item -->
-
-                            <div class="col-md-6 icon-box">
-                                <i class="bi bi-filter-circle"></i>
-                                <div>
-                                    <h4>Beatae veritatis</h4>
-                                    <p>Expedita veritatis consequuntur nihil tempore laudantium vitae denat pacta</p>
+                                    <h4>Mempermudah Administrasi</h4>
+                                    <p>Pengurusan administrasi yang mudah untuk warga</p>
                                 </div>
                             </div><!-- End Feature Item -->
 
                             <div class="col-md-6 icon-box">
                                 <i class="bi bi-lightning-charge"></i>
                                 <div>
-                                    <h4>Molestiae dolor</h4>
-                                    <p>Et fuga et deserunt et enim. Dolorem architecto ratione tensa raptor marte</p>
-                                </div>
-                            </div><!-- End Feature Item -->
-
-                            <div class="col-md-6 icon-box">
-                                <i class="bi bi-patch-check"></i>
-                                <div>
-                                    <h4>Explicabo consectetur</h4>
-                                    <p>Est autem dicta beatae suscipit. Sint veritatis et sit quasi ab aut inventore</p>
+                                    <h4>Pelayanan yang Cepat</h4>
+                                    <p>Pelayanan yang cepat untuk mengurus semua kebutuhan di lingkungan RT/RW</p>
                                 </div>
                             </div><!-- End Feature Item -->
 
                         </div>
-
                     </div>
 
                     <div class="col-xl-5 d-flex align-items-center order-1 order-xl-2" data-aos="fade-up"
@@ -317,6 +306,7 @@
                     </div>
 
                 </div>
+
 
             </div>
 
@@ -1283,96 +1273,50 @@
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
                 <h2>Contact</h2>
-                <p>Contact Us</p>
+                <p>Hubungi Kami</p>
             </div><!-- End Section Title -->
 
             <div class="container" data-aos="fade-up" data-aos-delay="100">
-
                 <div class="row gy-4">
-
-                    <div class="col-lg-6">
-
+                    <div class="col-lg-12">
                         <div class="row gy-4">
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 <div class="info-item" data-aos="fade" data-aos-delay="200">
                                     <i class="bi bi-geo-alt"></i>
-                                    <h3>Address</h3>
-                                    <p>A108 Adam Street</p>
-                                    <p>New York, NY 535022</p>
+                                    <h3>Alamat</h3>
+                                    <p>Jl. Kembang Turi, Lowokwaru</p>
+                                    <p>Kota Malang</p>
                                 </div>
                             </div><!-- End Info Item -->
-
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 <div class="info-item" data-aos="fade" data-aos-delay="300">
                                     <i class="bi bi-telephone"></i>
                                     <h3>Call Us</h3>
-                                    <p>+1 5589 55488 55</p>
-                                    <p>+1 6678 254445 41</p>
+                                    <a href="https://wa.me/628110992160" style="color: #5d6df3; text-decoration: underline;">+6282110992160</a>
+                                    <br><br>
                                 </div>
                             </div><!-- End Info Item -->
-
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 <div class="info-item" data-aos="fade" data-aos-delay="400">
                                     <i class="bi bi-envelope"></i>
                                     <h3>Email Us</h3>
-                                    <p>info@example.com</p>
-                                    <p>contact@example.com</p>
+                                    <p>info@smartrw.co.id</p>
+                                    <br>
                                 </div>
                             </div><!-- End Info Item -->
-
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 <div class="info-item" data-aos="fade" data-aos-delay="500">
                                     <i class="bi bi-clock"></i>
-                                    <h3>Open Hours</h3>
-                                    <p>Monday - Friday</p>
-                                    <p>9:00AM - 05:00PM</p>
+                                    <h3>Jam Respon</h3>
+                                    <p>Senin - Jumat</p>
+                                    <p>07.00 WIB - 15.00 WIB</p>
                                 </div>
                             </div><!-- End Info Item -->
-
                         </div>
-
                     </div>
-
-                    <div class="col-lg-6">
-                        <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up"
-                            data-aos-delay="200">
-                            <div class="row gy-4">
-
-                                <div class="col-md-6">
-                                    <input type="text" name="name" class="form-control"
-                                        placeholder="Your Name" required="">
-                                </div>
-
-                                <div class="col-md-6 ">
-                                    <input type="email" class="form-control" name="email"
-                                        placeholder="Your Email" required="">
-                                </div>
-
-                                <div class="col-md-12">
-                                    <input type="text" class="form-control" name="subject" placeholder="Subject"
-                                        required="">
-                                </div>
-
-                                <div class="col-md-12">
-                                    <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
-                                </div>
-
-                                <div class="col-md-12 text-center">
-                                    <div class="loading">Loading</div>
-                                    <div class="error-message"></div>
-                                    <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                                    <button type="submit">Send Message</button>
-                                </div>
-
-                            </div>
-                        </form>
-                    </div><!-- End Contact Form -->
-
                 </div>
-
             </div>
-
+            
         </section><!-- /Contact Section -->
 
     </main>
