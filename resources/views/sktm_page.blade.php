@@ -6,6 +6,9 @@
     <section>
         <div class="form-section">
             <div class=" container my-5">
+                <div class="sktm text-center py-5">
+                    <h1>Surat Keterangan Tidak Mampu</h1>
+                </div>
                 <div class="card mx-auto" style="max-width: 800px;">
                     <div class="card-header py-4" style="background-color: #4154f1 ">
                         <h5 class="card-title text-center text-white">Form Pengajuan Surat Keterangan Tidak Mampu (SKTM)</h5>

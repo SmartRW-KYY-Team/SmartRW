@@ -7,8 +7,12 @@
         <!-- Form Section -->
         <div class="form-section">
             <div class="container-fluid py-5">
-                <div class="d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+                <div class="sktm text-center pt-5">
+                    <h1>Surat Keterangan Tidak Mampu</h1>
+                </div>
+                <div class="d-flex justify-content-center align-items-center" style="min-height: 50vh;">
                     <div class="card shadow" style="max-width: 70%; width: 100%;">
+                        
                         <div class="card-header" style="background-color: #4154f1; color: white;">
                             <h5 class="card-title text-center py-2">Cek Status Surat Keterangan Tidak Mampu (SKTM) Anda</h5>
                         </div>

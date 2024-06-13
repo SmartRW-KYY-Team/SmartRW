@@ -4,6 +4,9 @@
     @include('layouts_base.app')
     <section>
         <div class="container py-5">
+            <div class="title text-center pt-5">
+                <h1>Keuangan Rukun Tetangga</h1>
+            </div>
             <div class="card my-5 shadow">
                 <div class="card-header">
                     <h5 class="card-title" text-color="black">Lihat Laporan Keuangan RT</h5>
