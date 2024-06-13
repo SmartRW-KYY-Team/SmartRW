@@ -13,7 +13,7 @@ class RTController extends Controller
     public function index(RTDataTable $dataTable)
     {
         $pageTitle =  'Data RT';
-        $subPageTitle = '';
+        $subPageTitle = 'RT SmartRW';
         $activePosition = "home";
         return $dataTable->render('rt.index', ['pageTitle' => $pageTitle, 'subPageTitle' => $subPageTitle, 'activePosition' => $activePosition]);
     }
