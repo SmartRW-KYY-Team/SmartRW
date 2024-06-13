@@ -74,9 +74,9 @@ class UsersDataTable extends DataTable
         if (session('role') == 'rw') {
             return $model->newQuery();
         } else if (session('role') == 'rt') {
-            return $model->newQuery()->whereHas('keluarga', function ($query) {
-                $query->where('rt_id', session('no_role'));
-            });
+            return $model->newQuery()->where('rt_id', session('no_role'));
+            // return $model->newQuery()->whereHas('keluarga', function ($query) {
+            // });
         }
     }
 
