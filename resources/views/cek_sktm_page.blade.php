@@ -12,7 +12,7 @@
                 </div>
                 <div class="d-flex justify-content-center align-items-center" style="min-height: 50vh;">
                     <div class="card shadow" style="max-width: 60%; width: 100%;">
-                        
+
                         <div class="card-header" style="background-color: #4154f1; color: white;">
                             <h5 class="card-title text-center py-2">Cek Status Surat Keterangan Tidak Mampu (SKTM) Anda</h5>
                         </div>
@@ -23,14 +23,14 @@
                                     <input type="number" class="form-control" id="nik" placeholder="Masukkan NIK" required>
                                 </div>
                                 <div class="text-center">
-                                    <button type="button" class="btn btn-primary" id="btn-submit-cek-sktm " style="background-color: #4154f1">Cek</button>
+                                    <button type="button" class="btn" id="btn-submit-cek-sktm" style="background-color: #4154f1; color: white;">Cek</button>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>  
+        </div>
 
         <!-- Modal -->
         <div class="modal fade" id="statusModal" tabindex="-1" role="dialog" aria-labelledby="statusModalLabel"
@@ -39,7 +39,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="statusModalLabel">Status SKTM</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -47,7 +47,7 @@
                         <!-- Konten akan diisi melalui JavaScript -->
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
                     </div>
                 </div>
             </div>
