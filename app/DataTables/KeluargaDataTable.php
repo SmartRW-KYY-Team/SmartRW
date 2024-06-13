@@ -75,7 +75,7 @@ class KeluargaDataTable extends DataTable
             ->addColumn('rw_id', function ($row) {
                 return $row->rw->nama;
             })
-            ->addColumn('kepala_keluarga_id', function ($row) {
+            ->addColumn('kepala_keluarga_nama', function ($row) {
                 return $row->kepala_keluarga->nama;
             })
             ->setRowId('id');
@@ -126,7 +126,7 @@ class KeluargaDataTable extends DataTable
         return [
             Column::make('No'),
             Column::make('nokk')->title('No Kartu Keluarga'),
-            Column::make('kepala_keluarga_id')->title('Kepala Keluarga'),
+            Column::make('kepala_keluarga_nama')->title('Kepala Keluarga'),
             Column::make('rt_id')->title('RT'),
             Column::make('rw_id')->title('RW'),
             Column::computed('action')

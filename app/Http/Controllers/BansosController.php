@@ -146,10 +146,16 @@ class BansosController extends Controller
                 'AS' => $appraisalScores[$index]
             ]);
         }
-        $data = Bansos::with('keluarga')->whereHas('keluarga', function ($query) use ($rtId) {
-            $query->where('rt_id', $rtId);
-        })->orderByDesc('AS')
-            ->get();
+        if (session('role') == 'rw') {
+            $data = Bansos::with('keluarga')->orderByDesc('AS')
+                ->get();
+        } else if (session('role') == 'rt') {
+            $data = Bansos::with('keluarga')->whereHas('keluarga', function ($query) use ($rtId) {
+                $query->where('rt_id', $rtId);
+            })->orderByDesc('AS')
+                ->get();
+        }
+
         // Display results
         return view('bansos.edas', compact('data', 'pageTitle', 'subPageTitle', 'activePosition'));
     }

@@ -1,14 +1,12 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Index - FlexStart Bootstrap Template</title>
+    <title>SMARTRW</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="{{ asset('assets_landing/assets/img/favicon.png') }}" rel="icon">
-    <link href="{{ asset('assets_landing/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
-
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/image/favicon.png') }}">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
@@ -29,11 +27,24 @@
     <!-- Main CSS File -->
     <link href="{{ asset('assets_landing/assets/css/main.css') }}" rel="stylesheet">
 
-    <!-- =======================================================
-  * Template Name: FlexStart
-  * Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
-  * Updated: Jun 06 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+    <link rel="stylesheet" href="{{ asset('assets/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/owl.theme.default.css') }}">
+    <style>
+        .custom-card {
+            border-radius: 20px;
+            /* Anda bisa mengganti nilai ini sesuai kebutuhan */
+        }
+
+        .custom-card img {
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+
+        .custom-card:hover {
+            transform: scale(1.05);
+            transition: transform 0.5s ease;
+            transition: transform 0.5s ease-in;
+            /* Menambah scale sebesar 5% ketika dihover */
+        }
+    </style>
 </head>

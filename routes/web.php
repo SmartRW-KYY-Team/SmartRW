@@ -34,8 +34,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', [LandingPageController::class, 'viewHome'])->name('landing_page');
-Route::get('/landing-page', [LandingPageController::class, 'viewHome1'])->name('landing_page_new');
+Route::get('/', [LandingPageController::class, 'viewHome1'])->name('landing_page');
 
 Route::get('/pengaduan_page', [LandingPageController::class, 'viewPengaduanWarga'])->name('pengaduan_page');
 Route::post('/pengaduan_page', [LandingPageController::class, 'createPengaduanWarga'])->name('pengaduan_page_create');
@@ -110,7 +109,7 @@ Route::middleware('auth', 'device.check')->prefix('keluarga')->name('keluarga.')
 });
 
 Route::middleware('auth', 'device.check')->prefix('pengaduan')->name('pengaduan.')->group(function () {
-    Route::get('/index', [PengaduanController::class, 'index'])->name('index');
+    Route::get('/', [PengaduanController::class, 'index'])->name('index');
     Route::get('/create', [PengaduanController::class, 'create'])->name('create');
     Route::post('/', [PengaduanController::class, 'store'])->name('store');
     Route::post('/{id}/destroy', [PengaduanController::class, 'destroy'])->name('destroy');
