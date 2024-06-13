@@ -44,15 +44,19 @@
                         data-aos-delay="200">
                         <div class="content">
                             <h3>RW 04 Jatimulyo</h3>
-                            <h2>Expedita voluptas omnis cupiditate totam eveniet nobis sint iste. Dolores est repellat
-                                corrupti reprehenderit.</h2>
+                            <h2>Wilayah yang Nyaman dan Aman</h2>
                             <p>
-                                Quisquam vel ut sint cum eos hic dolores aperiam. Sed deserunt et. Inventore et et dolor
-                                consequatur itaque ut voluptate sed et. Magnam nam ipsum tenetur suscipit voluptatum nam
-                                et est corrupti.
+                                RW 04 di Kelurahan Jatimulyo, Kabupaten Malang, adalah wilayah yang nyaman dengan
+                                komunitas yang kuat dan keindahan alam yang asri. Dikenal dengan infrastruktur yang
+                                baik, jalan beraspal, dan lingkungan hijau, RW 04 memiliki fasilitas umum seperti
+                                posyandu, balai RW, dan tempat ibadah yang mendukung kehidupan warganya. Komunitas di
+                                sini aktif dalam berbagai kegiatan sosial dan keagamaan, mempererat hubungan antarwarga.
+                                Akses pendidikan dan kesehatan juga memadai dengan beberapa sekolah dan puskesmas di
+                                sekitar. Lokasinya strategis dengan akses mudah ke pusat kelurahan dan fasilitas
+                                penting, menjadikannya tempat ideal untuk tinggal.
                             </p>
                             <div class="text-center text-lg-start">
-                                <a href="#"
+                                <a href="https://radarmalang.jawapos.com/kota-malang/811069483/murbei-jadi-ikon-rw-04-kelurahan-jatimulyo"
                                     class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
                                     <span>Read More</span>
                                     <i class="bi bi-arrow-right"></i>
@@ -62,7 +66,8 @@
                     </div>
 
                     <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
-                        <img src="{{ asset('assets_landing/assets/img/about.jpg') }}" class="img-fluid" alt="">
+                        <img src="https://statik.tempo.co/data/2018/07/01/id_715774/715774_720.jpg" class="img-fluid"
+                            alt="">
                     </div>
 
                 </div>
