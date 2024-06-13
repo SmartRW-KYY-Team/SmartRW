@@ -19,7 +19,7 @@ class KeluargaController extends Controller
     public function index(KeluargaDataTable $dataTable)
     {
         $pageTitle =  'Data Keluarga';
-        $subPageTitle = 'Keluarga SmartRW';
+        $subPageTitle = '';
         $activePosition = "home";
         $warga = User::all();
         $agama = Agama::all();
@@ -29,8 +29,8 @@ class KeluargaController extends Controller
 
     public function create()
     {
-        $pageTitle =  'Create Data Keluarga';
-        $subPageTitle = 'Daftar Keluarga SmartRW';
+        $pageTitle =  'Tambah Data Keluarga';
+        $subPageTitle = '';
         $activePosition = "create";
         if (Auth::user()->role == 'rw') {
             # code...
@@ -97,7 +97,7 @@ class KeluargaController extends Controller
     public function edit($id)
     {
         $pageTitle =  'Edit Data Keluarga';
-        $subPageTitle = 'Daftar Keluarga SmartRW';
+        $subPageTitle = '';
         $activePosition = "edit";
         if (Auth::user()->role == 'rw') {
             # code...

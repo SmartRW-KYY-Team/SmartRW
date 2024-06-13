@@ -18,7 +18,7 @@ class BansosController extends Controller
     {
 
         $pageTitle =  'Bantuan Sosial';
-        $subPageTitle = 'Bantuan Sosial SmartRW';
+        $subPageTitle = '';
         $activePosition = "home";
         $keluarga = Keluarga::all();
         return $dataTable->render('bansos.index', ['keluarga' => $keluarga, 'pageTitle' => $pageTitle, 'subPageTitle' => $subPageTitle, 'activePosition' => $activePosition]);
@@ -27,8 +27,8 @@ class BansosController extends Controller
     public function create()
     {
 
-        $pageTitle =  'Create Bantuan Sosial';
-        $subPageTitle = 'Bantuan Sosial SmartRW';
+        $pageTitle =  'Tambah Bantuan Sosial';
+        $subPageTitle = '';
         $activePosition = "create";
         $users = User::whereIn('id_user', Keluarga::pluck('kepala_keluarga_id'))->get();
 
@@ -73,7 +73,7 @@ class BansosController extends Controller
     public function process()
     {
         $pageTitle =  'Bantuan Sosial';
-        $subPageTitle = 'Bantuan Sosial SmartRW';
+        $subPageTitle = '';
         $activePosition = "edas";
         app(KriteriaBansosController::class)->calculateAHP();
         $kriteria =  DB::table('kriteria_bansos')->get();
@@ -162,7 +162,7 @@ class BansosController extends Controller
     public function edit($id)
     {
         $pageTitle =  'Edit Bantuan Sosial';
-        $subPageTitle = 'Bantuan Sosial SmartRW';
+        $subPageTitle = '';
         $activePosition = "edit";
         $users = User::whereIn('id_user', Keluarga::pluck('kepala_keluarga_id'))->get();
 

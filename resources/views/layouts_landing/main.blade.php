@@ -139,7 +139,7 @@
                             <button class="btn btn-primary btn-sm">Lihat Detail</button>
                         </div> --}}
                         <div class="card custom-card" style="width: 100%;">
-                            <img src="{{ asset($agnd->lampiran) }}" class="img-fluid" alt="agenda kegiatan">
+                            <img src="{{ asset($agnd->lampiran) }}" class="img-fluid" alt="agenda kegiatan" style="height: 300px;">
                             <div class="card-body text-center">
                                 <h5 class="card-title">{{ $agnd->nama }}</h5>
                                 <p class="card-text">{{ $agnd->deskripsi }}</p>

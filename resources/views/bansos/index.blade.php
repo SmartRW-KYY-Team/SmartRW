@@ -3,7 +3,6 @@
 @section('content')
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
-            <h4 class="card-title">Bantuan Sosial</h4>
             <div>
                 <a href="{{ route('bansos.process') }}" class="btn btn-md btn-success mt-1 me-2"> Proses</a>
                 <a href="{{ route('bansos.create') }}" class="btn btn-md btn-primary mt-1">+ Tambah</a>

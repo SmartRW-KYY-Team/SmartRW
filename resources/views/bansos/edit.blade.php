@@ -3,7 +3,7 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <h4 class="card-title">Tambah Keluarga Calon Penerima Bantuan Sosial</h4>
+            <h4 class="card-title">Edit Keluarga Calon Penerima Bantuan Sosial</h4>
         </div>
         <div class="card-body">
             <form action="{{ url('/bansos/' . $bansos->id_bansos . '/update') }}" method="POST">
