@@ -1,7 +1,7 @@
 @extends('layouts_landing.app')
 <!-- Main -->
 @section('content')
-    @include('layouts_keuangan.app')
+    @include('layouts_base.app')
     <section>
         <div class="container py-5">
             <div class="card my-5 shadow">
@@ -77,7 +77,7 @@
                         </div>
                         <div class="col-md-4">
                             <button id="filter-button" class="btn btn-primary w-100 "
-                                style="background-color: #5d6df3";>Filter</button>
+                                style="background-color: #4154f1";>Filter</button>
                         </div>
                     </div>
                     <table class="table table-bordered" id="keuanganRW-table">
