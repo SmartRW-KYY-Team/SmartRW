@@ -9,7 +9,7 @@ class DashboardController extends Controller
     public function index()
     {
         $pageTitle =  'Dashboard';
-        $subPageTitle = 'Dashboard SmartRW';
+        $subPageTitle = '';
         $activePosition = "home";
         return view('dashboard.home', compact('pageTitle', 'subPageTitle', 'activePosition'));
     }
