@@ -19,18 +19,45 @@ class UsersDataTable extends DataTable
      *
      * @param QueryBuilder $query Results from query() method.
      */
+    // public function dataTable(QueryBuilder $query): EloquentDataTable
+    // {
+    //     return (new EloquentDataTable($query))
+    //         ->addColumn('action', function ($row) {
+    //             return '<div style="display: flex; justify-content: space-between;">
+    //             <button type="button" class="btn btn-info DetailButton me-2"
+    //             data-id="' . $row->id_user . '"
+    //             data-nama="' . $row->nama . '">
+    //             <i class="fa fa-eye" aria-hidden="true"></i>
+    //             </button>
+    //             <a href="' . route('warga.edit', $row->id_user)  . '"class="btn btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+    //         </div>';
+    //         })
+    //         ->addColumn('No', function () {
+    //             static $index = 1;
+    //             return $index++;
+    //         })
+    //         ->setRowId('id');
+    // }
+
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
             ->addColumn('action', function ($row) {
-                return '<div style="display: flex; justify-content: space-between;">
-                <button type="button" class="btn btn-info DetailButton me-2"
+                $currentUser = auth()->user();
+                $buttons = '<div style="display: flex; justify-content: space-between;">';
+
+                $buttons .= '<button type="button" class="btn btn-info DetailButton me-2"
                 data-id="' . $row->id_user . '"
                 data-nama="' . $row->nama . '">
                 <i class="fa fa-eye" aria-hidden="true"></i>
-                </button>
-                <a href="' . route('warga.edit', $row->id_user)  . '"class="btn btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-            </div>';
+                </button>';
+
+                if ($currentUser->role == 'rt') {
+                    $buttons .= '<a href="' . route('warga.edit', $row->id_user)  . '"class="btn btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>';
+                }
+
+                $buttons .= '</div>';
+                return $buttons;
             })
             ->addColumn('No', function () {
                 static $index = 1;
@@ -63,7 +90,7 @@ class UsersDataTable extends DataTable
             ->columns($this->getColumns())
             ->minifiedAjax()
             // ->dom('Bfrtip')
-            ->orderBy(1)
+            ->orderBy(0)
             ->selectStyleSingle()
             ->buttons([
                 Button::make('reload')

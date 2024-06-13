@@ -15,7 +15,7 @@ class KeuanganRWController extends Controller
     public function index(KeuanganRWDataTable $dataTable)
     {
         $pageTitle =  'Keuangan RW';
-        $subPageTitle = 'Keuangan SmartRW';
+        $subPageTitle = '';
         $activePosition = "home";
         $rw_id = session('no_role');
         $role = session('role');

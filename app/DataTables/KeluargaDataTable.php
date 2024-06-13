@@ -19,15 +19,51 @@ class KeluargaDataTable extends DataTable
      *
      * @param QueryBuilder $query Results from query() method.
      */
+    // public function dataTable(QueryBuilder $query): EloquentDataTable
+    // {
+    //     return (new EloquentDataTable($query))
+    //         ->addColumn('action', function ($row) {
+    //             return '<div style="display: flex; justify-content: space-beetween; ">
+    //         <button type="button" class="btn btn-info me-2 showButtonDetail" data-bs-toggle="tooltip" data-id="' . $row->id_keluarga . '" data-bs-placement="top" title="Detail"><i class="fa fa-info-circle"></i></button>
+    //         <a href="/keluarga/' . $row->id_keluarga . '/edit" class="btn btn-warning me-2 editButton" data-bs-toggle="tooltip" data-id="' . $row->id_keluarga . '"
+    //         data-bs-placement="top" title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+    //             ';
+    //         })
+    //         ->addColumn('No', function () {
+    //             static $index = 1;
+    //             return $index++;
+    //         })
+    //         ->addColumn('rt_id', function ($row) {
+    //             return $row->rt->nama;
+    //         })
+    //         ->addColumn('rw_id', function ($row) {
+    //             return $row->rw->nama;
+    //         })
+    //         ->addColumn('kepala_keluarga_id', function ($row) {
+    //             return $row->kepala_keluarga->nama;
+    //         })
+    //         ->setRowId('id');
+    // }
+
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
             ->addColumn('action', function ($row) {
-                return '<div style="display: flex; justify-content: space-beetween; ">
-            <button type="button" class="btn btn-info me-2 showButtonDetail" data-bs-toggle="tooltip" data-id="' . $row->id_keluarga . '" data-bs-placement="top" title="Detail"><i class="fa fa-info-circle"></i></button>
-            <a href="/keluarga/' . $row->id_keluarga . '/edit" class="btn btn-warning me-2 editButton" data-bs-toggle="tooltip" data-id="' . $row->id_keluarga . '"
-            data-bs-placement="top" title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                ';
+                $currentUser = auth()->user(); 
+                $buttons = '<div style="display: flex; justify-content: space-between;">';
+
+                $buttons .= '<button type="button" class="btn btn-info me-2 showButtonDetail" data-bs-toggle="tooltip" data-id="' . $row->id_keluarga . '" data-bs-placement="top" title="Detail">
+                <i class="fa fa-info-circle"></i>
+                </button>';
+
+                if ($currentUser->role == 'rt') {
+                    $buttons .= '<a href="/keluarga/' . $row->id_keluarga . '/edit" class="btn btn-warning me-2 editButton" data-bs-toggle="tooltip" data-id="' . $row->id_keluarga . '" data-bs-placement="top" title="Edit">
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    </a>';
+                }
+
+                $buttons .= '</div>';
+                return $buttons;
             })
             ->addColumn('No', function () {
                 static $index = 1;
@@ -44,6 +80,7 @@ class KeluargaDataTable extends DataTable
             })
             ->setRowId('id');
     }
+
 
     /**
      * Get the query source of dataTable.
@@ -71,7 +108,8 @@ class KeluargaDataTable extends DataTable
             ->selectStyleSingle()
             ->buttons([
                 Button::make('reload')
-            ])->parameters([
+            ])
+            ->parameters([
                 'responsive' => true,
                 'autoWidth' => true,
                 'scroller' => true,

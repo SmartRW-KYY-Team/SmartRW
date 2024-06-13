@@ -2,7 +2,6 @@
 @section('content')
     <div class="card">
         <div class="card-header d-flex">
-            <h4 class="card-title">RT</h4>
         </div>
         <div class="card-body">
             {{ $dataTable->table(['width' => '100%', 'class' => 'table table-bordered table-striped']) }}

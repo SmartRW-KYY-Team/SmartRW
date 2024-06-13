@@ -41,7 +41,7 @@
                         <div class="content">
                             <h3>RW 04 Jatimulyo</h3>
                             <h2>Wilayah yang Nyaman dan Aman</h2>
-                            <p>
+                            <p style="text-align: justify;">
                                 RW 04 di Kelurahan Jatimulyo, Kabupaten Malang, adalah wilayah yang nyaman dengan
                                 komunitas yang kuat dan keindahan alam yang asri. Dikenal dengan infrastruktur yang
                                 baik, jalan beraspal, dan lingkungan hijau, RW 04 memiliki fasilitas umum seperti

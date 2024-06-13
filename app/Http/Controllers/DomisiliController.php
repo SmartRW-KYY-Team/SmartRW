@@ -16,7 +16,7 @@ class DomisiliController extends Controller
     public function index(DomisiliDatatable $dataTable)
     {
         $pageTitle =  'Surat Domisili';
-        $subPageTitle = 'Domisili SmartRW';
+        $subPageTitle = '';
         $activePosition = "home";
         $domisili = SuratDomisili::all();
         $rt = Rt::all();

@@ -16,7 +16,7 @@ class KeuanganRTController extends Controller
     public function index(KeuanganRTDataTable $dataTable)
     {
         $pageTitle =  'Keuangan RT';
-        $subPageTitle = 'Keuangan SmartRW';
+        $subPageTitle = '';
         $activePosition = "home";
         $rt_id = session('no_role');
         $role = session('role');

@@ -2,7 +2,6 @@
 @section('content')
     <div class="card">
         <div class="card-header d-flex">
-            <h4 class="card-title">Pengaduan</h4>
         </div>
         <div class="card-body">
             {{-- {{ $dataTable->table() }} --}}
