@@ -17,7 +17,7 @@
             <ul class="menu">
                 <li class="sidebar-title">Menu</li>
                 @if (Auth::user()->role == 'rw' || Auth::user()->role == 'rt')
-                    <li class="sidebar-item  ">
+                    <li class="sidebar-item  {{ Request::is('dashboard*') ? 'active' : '' }}">
                         <a href="{{ route('dashboard.index') }}" class='sidebar-link'>
                             <i class="bi bi-speedometer"></i>
                             <span>Dashboard</span>
