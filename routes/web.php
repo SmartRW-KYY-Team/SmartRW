@@ -110,7 +110,7 @@ Route::middleware('auth', 'device.check')->prefix('keluarga')->name('keluarga.')
 });
 
 Route::middleware('auth', 'device.check')->prefix('pengaduan')->name('pengaduan.')->group(function () {
-    Route::get('/index', [PengaduanController::class, 'index'])->name('index');
+    Route::get('/', [PengaduanController::class, 'index'])->name('index');
     Route::get('/create', [PengaduanController::class, 'create'])->name('create');
     Route::post('/', [PengaduanController::class, 'store'])->name('store');
     Route::post('/{id}/destroy', [PengaduanController::class, 'destroy'])->name('destroy');
