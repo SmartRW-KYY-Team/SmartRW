@@ -18,26 +18,26 @@ class RtSeeder extends Seeder
             [
                 'nama' => 'RT 001',
                 'ketua_id' => 1,  // ID Ketua RT (sesuaikan dengan data user)
-                'sekretaris_id' => 2,  // ID Sekretaris RT (sesuaikan dengan data user)
-                'bendahara_id' => 3,  // ID Bendahara RT (sesuaikan dengan data user)
+                'sekretaris_id' => 3,  // ID Sekretaris RT (sesuaikan dengan data user)
+                'bendahara_id' => 2,  // ID Bendahara RT (sesuaikan dengan data user)
                 'saldo' => 1000000,  // Saldo awal RT
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
             [
                 'nama' => 'RT 002',
-                'ketua_id' => 4,  // ID Ketua RT (sesuaikan dengan data user)
-                'sekretaris_id' => 5,  // ID Sekretaris RT (sesuaikan dengan data user)
-                'bendahara_id' => 6,  // ID Bendahara RT (sesuaikan dengan data user)
+                'ketua_id' => 5,  // ID Ketua RT (sesuaikan dengan data user)
+                'sekretaris_id' => 6,  // ID Sekretaris RT (sesuaikan dengan data user)
+                'bendahara_id' => 7,  // ID Bendahara RT (sesuaikan dengan data user)
                 'saldo' => 1000000,  // Saldo awal RT
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
             [
                 'nama' => 'RT 003',
-                'ketua_id' => 7,  // ID Ketua RT (sesuaikan dengan data user)
-                'sekretaris_id' => 8,  // ID Sekretaris RT (sesuaikan dengan data user)
-                'bendahara_id' => 9,  // ID Bendahara RT (sesuaikan dengan data user)
+                'ketua_id' => 9,  // ID Ketua RT (sesuaikan dengan data user)
+                'sekretaris_id' => 11,  // ID Sekretaris RT (sesuaikan dengan data user)
+                'bendahara_id' => 10,  // ID Bendahara RT (sesuaikan dengan data user)
                 'saldo' => 1000000,  // Saldo awal RT
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
