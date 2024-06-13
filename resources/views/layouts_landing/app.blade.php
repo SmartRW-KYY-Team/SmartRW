@@ -57,7 +57,8 @@
                             </p>
                             <div class="text-center text-lg-start">
                                 <a href="https://radarmalang.jawapos.com/kota-malang/811069483/murbei-jadi-ikon-rw-04-kelurahan-jatimulyo"
-                                    class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
+                                    class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center"
+                                    target="_blank">
                                     <span>Read More</span>
                                     <i class="bi bi-arrow-right"></i>
                                 </a>
