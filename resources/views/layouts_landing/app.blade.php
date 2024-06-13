@@ -136,42 +136,43 @@
                         <div class="stats-item d-flex align-items-center w-100 h-100">
                             <i class="bi bi-emoji-smile color-blue flex-shrink-0"></i>
                             <div>
-                                <span data-purecounter-start="0" data-purecounter-end="232"
+                                <span data-purecounter-start="0" data-purecounter-end="{{ $user }}"
                                     data-purecounter-duration="1" class="purecounter"></span>
-                                <p>Happy Clients</p>
+                                <p>Jumlah Warga</p>
                             </div>
                         </div>
                     </div><!-- End Stats Item -->
 
                     <div class="col-lg-3 col-md-6">
                         <div class="stats-item d-flex align-items-center w-100 h-100">
-                            <i class="bi bi-journal-richtext color-orange flex-shrink-0" style="color: #ee6c20;"></i>
+                            <i class="fas fa-users color-orange flex-shrink-0" style="color: #ee6c20;"></i>
                             <div>
-                                <span data-purecounter-start="0" data-purecounter-end="521"
+                                <span data-purecounter-start="0" data-purecounter-end="{{ $keluarga }}"
                                     data-purecounter-duration="1" class="purecounter"></span>
-                                <p>Projects</p>
+                                <p>Jumlah Keluarga</p>
                             </div>
                         </div>
                     </div><!-- End Stats Item -->
 
                     <div class="col-lg-3 col-md-6">
                         <div class="stats-item d-flex align-items-center w-100 h-100">
-                            <i class="bi bi-headset color-green flex-shrink-0" style="color: #15be56;"></i>
+                            <i class="bi bi-people color-green flex-shrink-0" style="color: #15be56;"></i>
                             <div>
-                                <span data-purecounter-start="0" data-purecounter-end="1463"
+                                <span data-purecounter-start="0" data-purecounter-end="{{ $jumlahRT }}"
                                     data-purecounter-duration="1" class="purecounter"></span>
-                                <p>Hours Of Support</p>
+                                <p>Jumlah RT</p>
                             </div>
                         </div>
                     </div><!-- End Stats Item -->
 
                     <div class="col-lg-3 col-md-6">
                         <div class="stats-item d-flex align-items-center w-100 h-100">
-                            <i class="bi bi-people color-pink flex-shrink-0" style="color: #bb0852;"></i>
+                            {{-- <i class="bi bi-people color-green flex-shrink-0" style="color: #15be56;"></i> --}}
+                            <i class="bi bi-person-gear color-green flex-shrink-0" style="color: #15be56;"></i>
                             <div>
-                                <span data-purecounter-start="0" data-purecounter-end="15"
+                                <span data-purecounter-start="0" data-purecounter-end="12"
                                     data-purecounter-duration="1" class="purecounter"></span>
-                                <p>Hard Workers</p>
+                                <p>Jumlah Pengurus</p>
                             </div>
                         </div>
                     </div><!-- End Stats Item -->
