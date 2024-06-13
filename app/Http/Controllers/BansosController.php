@@ -80,7 +80,16 @@ class BansosController extends Controller
         $bobotKriteria = $kriteria->pluck('bobot')->toArray();
         $tipeKriteria = $kriteria->pluck('tipe')->toArray();
 
-        $alternatives = DB::table('bansos')->get();
+        if (session('role') == 'rw') {
+            $alternatives = DB::table('bansos')->get();
+        } else if (session('role') == 'rt') {
+            $rtId = session('no_role');
+            $alternatives = DB::table('bansos')
+                ->join('keluarga', 'bansos.keluarga_id', '=', 'keluarga.id_keluarga')
+                ->where('keluarga.rt_id', $rtId)
+                ->select('bansos.*')
+                ->get();
+        }
 
         // Hitung AV
         $averageSolution = [];
@@ -137,7 +146,10 @@ class BansosController extends Controller
                 'AS' => $appraisalScores[$index]
             ]);
         }
-        $data = Bansos::with('keluarga')->orderByDesc('AS')->get();
+        $data = Bansos::with('keluarga')->whereHas('keluarga', function ($query) use ($rtId) {
+            $query->where('rt_id', $rtId);
+        })->orderByDesc('AS')
+            ->get();
         // Display results
         return view('bansos.edas', compact('data', 'pageTitle', 'subPageTitle', 'activePosition'));
     }
