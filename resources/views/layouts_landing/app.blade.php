@@ -1292,7 +1292,8 @@
                                 <div class="info-item" data-aos="fade" data-aos-delay="300">
                                     <i class="bi bi-telephone"></i>
                                     <h3>Call Us</h3>
-                                    <a href="https://wa.me/628110992160" style="color: #5d6df3; text-decoration: underline;">+6282110992160</a>
+                                    <a href="https://wa.me/6282110992160"
+                                        style="color: #5d6df3; text-decoration: underline;">+6282110992160</a>
                                     <br><br>
                                 </div>
                             </div><!-- End Info Item -->
@@ -1316,7 +1317,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </section><!-- /Contact Section -->
 
     </main>
