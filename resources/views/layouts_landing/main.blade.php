@@ -29,24 +29,14 @@
 
                 <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
                     <div class="content">
-                        <h3>RW 04 Jatimulyo</h3>
-                        <h2>Wilayah yang Nyaman dan Aman</h2>
-                        <p>
-                            RW 04 di Kelurahan Jatimulyo, Kabupaten Malang, adalah wilayah yang nyaman dengan
-                            komunitas yang kuat dan keindahan alam yang asri. Dikenal dengan infrastruktur yang
-                            baik, jalan beraspal, dan lingkungan hijau, RW 04 memiliki fasilitas umum seperti
-                            posyandu, balai RW, dan tempat ibadah yang mendukung kehidupan warganya. Komunitas di
-                            sini aktif dalam berbagai kegiatan sosial dan keagamaan, mempererat hubungan antarwarga.
-                            Akses pendidikan dan kesehatan juga memadai dengan beberapa sekolah dan puskesmas di
-                            sekitar. Lokasinya strategis dengan akses mudah ke pusat kelurahan dan fasilitas
-                            penting, menjadikannya tempat ideal untuk tinggal.
+                        <h2>RW 04 Jatimulyo</h2>
+                        <hr
+                        style="height: 3px; width: 10%; background-color: #5d6df3; border: none; margin-left:0; margin-bottom:20px">
+                        <p style="text-align: justify;">
+                            Wilayah yang nyaman dengan komunitas yang kuat dan keindahan alam yang asri. Dikenal dengan infrastruktur yang baik, jalan beraspal, dan lingkungan hijau, RW 04 memiliki fasilitas umum seperti posyandu, balai RW, dan tempat ibadah yang mendukung kehidupan warganya.
                         </p>
                         <div class="text-center text-lg-start">
-                            <a href="https://radarmalang.jawapos.com/kota-malang/811069483/murbei-jadi-ikon-rw-04-kelurahan-jatimulyo"
-                                class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center"
-                                target="_blank">
-                                <span>Read More</span>
-                                <i class="bi bi-arrow-right"></i>
+                            <a href="https://radarmalang.jawapos.com/kota-malang/811069483/murbei-jadi-ikon-rw-04-kelurahan-jatimulyo">
                             </a>
                         </div>
                     </div>
