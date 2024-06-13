@@ -37,7 +37,8 @@ class LandingPageController extends Controller
         $jumlahRT = $rt->count();
         $user = User::count('id_user');
         $keluarga = Keluarga::count('id_keluarga');
-        return view('layouts_landing.main', compact('rt', 'rw', 'user', 'jumlahRT', 'keluarga'));
+        $agenda = Kegiatan::all();
+        return view('layouts_landing.main', compact('rt', 'rw', 'user', 'jumlahRT', 'keluarga', 'agenda'));
     }
     public function viewPengaduanWarga()
     {

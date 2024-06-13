@@ -29,11 +29,6 @@
     <!-- Main CSS File -->
     <link href="{{ asset('assets_landing/assets/css/main.css') }}" rel="stylesheet">
 
-    <!-- =======================================================
-  * Template Name: FlexStart
-  * Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
-  * Updated: Jun 06 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+    <link rel="stylesheet" href="{{ asset('assets/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/owl.theme.default.css') }}">
 </head>
