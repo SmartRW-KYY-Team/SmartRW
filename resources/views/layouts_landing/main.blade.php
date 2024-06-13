@@ -810,30 +810,30 @@
 
             <div class="swiper">
                 <script type="application/json" class="swiper-config">
-    {
-      "loop": true,
-      "speed": 600,
-      "autoplay": {
-        "delay": 5000
-      },
-      "slidesPerView": "auto",
-      "pagination": {
-        "el": ".swiper-pagination",
-        "type": "bullets",
-        "clickable": true
-      },
-      "breakpoints": {
-        "320": {
-          "slidesPerView": 1,
-          "spaceBetween": 40
-        },
-        "1200": {
-          "slidesPerView": 3,
-          "spaceBetween": 1
-        }
-      }
-    }
-  </script>
+            {
+            "loop": true,
+            "speed": 600,
+            "autoplay": {
+                "delay": 5000
+            },
+            "slidesPerView": "auto",
+            "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+            },
+            "breakpoints": {
+                "320": {
+                "slidesPerView": 1,
+                "spaceBetween": 40
+                },
+                "1200": {
+                "slidesPerView": 3,
+                "spaceBetween": 1
+                }
+            }
+            }
+        </script>
                 <div class="swiper-wrapper">
 
                     <div class="swiper-slide">
@@ -954,8 +954,8 @@
 
         <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
-            <h2>Team</h2>
-            <p>Our hard working team</p>
+            <h2>Rukun Warga</h2>
+            <p>Struktur Rukun Warga</p>
         </div><!-- End Section Title -->
 
         <div class="container">
@@ -969,52 +969,44 @@
                                 style="width:100%;">
                         </div>
                         <div class="member-info">
-                            <h4>Walter White</h4>
-                            <span>Chief Executive Officer</span>
-                            <p>Velit aut quia fugit et et. Dolorum ea voluptate vel tempore tenetur ipsa quae aut.
-                                Ipsum exercitationem iure minima enim corporis et voluptate.</p>
+                            <h4>{{ $rw->ketuaRW->nama }}</h4>
+                            <span>Ketua RW</span>
+                            <p>Dengan pengalaman lebih dari 10 tahun dalam memimpin berbagai organisasi masyarakat,
+                                {{ $rw->ketuaRW->nama }} berkomitmen untuk meningkatkan kualitas hidup warga RW. Beliau
+                                selalu berusaha menjalin hubungan yang harmonis dan memastikan kesejahteraan serta keamanan
+                                lingkungan.</p>
                         </div>
                     </div>
                 </div><!-- End Team Member -->
 
                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
                     <div class="team-member">
-                        <div class="member-img">
-                            <img src="{{ asset('assets_landing/assets/img/team/team-2.jpg') }}" class="img-fluid"
+                        <div class="member-img" style="height: 400px;">
+                            <img src="{{ asset('assets/image/foto-struktur/sekretaris_rw.jpg') }}" class="img-fluid"
                                 alt="">
-                            <div class="social">
-                                <a href=""><i class="bi bi-twitter-x"></i></a>
-                                <a href=""><i class="bi bi-facebook"></i></a>
-                                <a href=""><i class="bi bi-instagram"></i></a>
-                                <a href=""><i class="bi bi-linkedin"></i></a>
-                            </div>
                         </div>
                         <div class="member-info">
-                            <h4>Sarah Jhonson</h4>
-                            <span>Product Manager</span>
-                            <p>Quo esse repellendus quia id. Est eum et accusantium pariatur fugit nihil minima
-                                suscipit corporis. Voluptate sed quas reiciendis animi neque sapiente.</p>
+                            <h4>{{ $rw->sekretarisRW->nama }}</h4>
+                            <span>Sekretaris RW</span>
+                            <p>{{ $rw->sekretarisRW->nama }} dikenal dengan ketelitian dan kecakapannya dalam administrasi.
+                                Beliau bertanggung jawab atas pengelolaan dokumen dan korespondensi RW, serta selalu
+                                memastikan informasi tersampaikan dengan baik kepada warga.</p>
                         </div>
                     </div>
                 </div><!-- End Team Member -->
 
                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
                     <div class="team-member">
-                        <div class="member-img">
-                            <img src="{{ asset('assets_landing/assets/img/team/team-3.jpg') }}" class="img-fluid"
+                        <div class="member-img" style="height: 400px;">
+                            <img src="{{ asset('assets/image/foto-struktur/bendahara_rw.jpg') }}" class="img-fluid"
                                 alt="">
-                            <div class="social">
-                                <a href=""><i class="bi bi-twitter-x"></i></a>
-                                <a href=""><i class="bi bi-facebook"></i></a>
-                                <a href=""><i class="bi bi-instagram"></i></a>
-                                <a href=""><i class="bi bi-linkedin"></i></a>
-                            </div>
                         </div>
                         <div class="member-info">
-                            <h4>William Anderson</h4>
-                            <span>CTO</span>
-                            <p>Vero omnis enim consequatur. Voluptas consectetur unde qui molestiae deserunt.
-                                Voluptates enim aut architecto porro aspernatur molestiae modi.</p>
+                            <h4>{{ $rw->bendaharaRW->nama }}</h4>
+                            <span>Bendahara RW</span>
+                            <p>{{ $rw->bendaharaRW->nama }} adalah sosok yang jujur dan bertanggung jawab dalam mengelola
+                                keuangan RW. Dengan pengalamannya di bidang keuangan, beliau memastikan transparansi dan
+                                akuntabilitas dalam setiap transaksi keuangan, serta memprioritaskan kebutuhan warga.</p>
                         </div>
                     </div>
                 </div><!-- End Team Member -->
