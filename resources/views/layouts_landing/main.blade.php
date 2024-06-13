@@ -55,50 +55,6 @@
 
     </section><!-- /About Section -->
 
-    <!-- Values Section -->
-    <section id="valuess" class="valuess section">
-
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-            <h2>Agenda</h2>
-            <p>Agenda Kegiatan RW 4<br></p>
-        </div><!-- End Section Title -->
-
-        <div class="container">
-
-            <div class="row gy-4">
-
-                @foreach ($agenda as $agnd)
-                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                        {{-- <div class="card" style="padding: 0px !important;">
-                            <img src="{{ asset($agnd->lampiran) }}" class="img-fluid" alt="agenda kegiatan">
-                            <h3>{{ $agnd->nama }}</h3>
-                            <p>{{ $agnd->deskripsi }}
-                            </p>
-                            <p>
-                                Tanggal : {{ $agnd->tanggal_kegiatan }}
-                            </p>
-                            <button class="btn btn-primary btn-sm">Lihat Detail</button>
-                        </div> --}}
-                        <div class="card custom-card" style="width: 100%;">
-                            <img src="{{ asset($agnd->lampiran) }}" class="img-fluid" alt="agenda kegiatan">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">{{ $agnd->nama }}</h5>
-                                <p class="card-text">{{ $agnd->deskripsi }}</p>
-                                <p>
-                                    Tanggal : {{ $agnd->tanggal_kegiatan }}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-
-            </div>
-
-        </div>
-
-    </section><!-- /Values Section -->
-
     <!-- Stats Section -->
     <section id="stats" class="stats section">
 
@@ -157,66 +113,49 @@
 
     </section><!-- /Stats Section -->
 
-    <!-- Alt Features Section -->
-    <section id="alt-features" class="alt-features section">
+    <!-- Values Section -->
+    <section id="valuess" class="valuess section">
+
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+            <h2>Agenda</h2>
+            <p>Agenda Kegiatan RW 4<br></p>
+        </div><!-- End Section Title -->
 
         <div class="container">
 
-            <div class="row gy-5">
+            <div class="row gy-4">
 
-                <div class="col-xl-7 d-flex order-2 order-xl-1" data-aos="fade-up" data-aos-delay="200">
-                    <div class="row align-self-center gy-5">
-                        <h2>
-                            Nikmati Manfaat Fitur Kami Yang Sudah Terintegrasi Dengan RT dan RW setempat
-                        </h2>
-
-                        <div class="col-md-6 icon-box">
-                            <i class="bi bi-easel"></i>
-                            <div>
-                                <h4>Tampilan Yang Mudah</h4>
-                                <p>Tampilan yang mudah dipahami oleh pengguna sehingga nyaman saat digunakan</p>
+                @foreach ($agenda as $agnd)
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                        {{-- <div class="card" style="padding: 0px !important;">
+                            <img src="{{ asset($agnd->lampiran) }}" class="img-fluid" alt="agenda kegiatan">
+                            <h3>{{ $agnd->nama }}</h3>
+                            <p>{{ $agnd->deskripsi }}
+                            </p>
+                            <p>
+                                Tanggal : {{ $agnd->tanggal_kegiatan }}
+                            </p>
+                            <button class="btn btn-primary btn-sm">Lihat Detail</button>
+                        </div> --}}
+                        <div class="card custom-card" style="width: 100%;">
+                            <img src="{{ asset($agnd->lampiran) }}" class="img-fluid" alt="agenda kegiatan">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">{{ $agnd->nama }}</h5>
+                                <p class="card-text">{{ $agnd->deskripsi }}</p>
+                                <p>
+                                    Tanggal : {{ $agnd->tanggal_kegiatan }}
+                                </p>
                             </div>
-                        </div><!-- End Feature Item -->
-
-                        <div class="col-md-6 icon-box">
-                            <i class="bi bi-info-circle"></i>
-                            <div>
-                                <h4>Informasi Terkini</h4>
-                                <p>Dapatkan informasi terkini mengenai semua hal yang ada di lingkungan RT/RW</p>
-                            </div>
-                        </div><!-- End Feature Item -->
-
-                        <div class="col-md-6 icon-box">
-                            <i class="bi bi-file-earmark-text"></i>
-                            <div>
-                                <h4>Mempermudah Administrasi</h4>
-                                <p>Pengurusan administrasi yang mudah untuk warga</p>
-                            </div>
-                        </div><!-- End Feature Item -->
-
-                        <div class="col-md-6 icon-box">
-                            <i class="bi bi-lightning-charge"></i>
-                            <div>
-                                <h4>Pelayanan yang Cepat</h4>
-                                <p>Pelayanan yang cepat untuk mengurus semua kebutuhan di lingkungan RT/RW</p>
-                            </div>
-                        </div><!-- End Feature Item -->
-
+                        </div>
                     </div>
-                </div>
-
-                <div class="col-xl-5 d-flex align-items-center order-1 order-xl-2" data-aos="fade-up"
-                    data-aos-delay="100">
-                    <img src="{{ asset('assets_landing/assets/img/alt-features.png') }}" class="img-fluid"
-                        alt="">
-                </div>
+                @endforeach
 
             </div>
 
-
         </div>
 
-    </section><!-- /Alt Features Section -->
+    </section><!-- /Values Section -->
 
     <!-- Team Section -->
     <section id="team" class="team section">
@@ -419,6 +358,66 @@
 
     </section><!-- /Team Section -->
 
+    <!-- Alt Features Section -->
+    <section id="alt-features" class="alt-features section">
+
+        <div class="container">
+
+            <div class="row gy-5">
+
+                <div class="col-xl-7 d-flex order-2 order-xl-1" data-aos="fade-up" data-aos-delay="200">
+                    <div class="row align-self-center gy-5">
+                        <h2>
+                            Nikmati Manfaat Fitur-Fitur Yang Terintegrasi Dengan RT dan RW.
+                        </h2>
+
+                        <div class="col-md-6 icon-box">
+                            <i class="bi bi-easel"></i>
+                            <div>
+                                <h4>Tampilan Yang Mudah</h4>
+                                <p>Tampilan yang mudah dipahami oleh pengguna sehingga nyaman saat digunakan</p>
+                            </div>
+                        </div><!-- End Feature Item -->
+
+                        <div class="col-md-6 icon-box">
+                            <i class="bi bi-info-circle"></i>
+                            <div>
+                                <h4>Informasi Terkini</h4>
+                                <p>Dapatkan informasi terkini mengenai semua hal yang ada di lingkungan RT/RW</p>
+                            </div>
+                        </div><!-- End Feature Item -->
+
+                        <div class="col-md-6 icon-box">
+                            <i class="bi bi-file-earmark-text"></i>
+                            <div>
+                                <h4>Mempermudah Administrasi</h4>
+                                <p>Pengurusan administrasi yang mudah untuk warga</p>
+                            </div>
+                        </div><!-- End Feature Item -->
+
+                        <div class="col-md-6 icon-box">
+                            <i class="bi bi-lightning-charge"></i>
+                            <div>
+                                <h4>Pelayanan yang Cepat</h4>
+                                <p>Pelayanan yang cepat untuk mengurus semua kebutuhan di lingkungan RT/RW</p>
+                            </div>
+                        </div><!-- End Feature Item -->
+
+                    </div>
+                </div>
+
+                <div class="col-xl-5 d-flex align-items-center order-1 order-xl-2" data-aos="fade-up"
+                    data-aos-delay="100">
+                    <img src="{{ asset('assets_landing/assets/img/alt-features.png') }}" class="img-fluid"
+                        alt="">
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section><!-- /Alt Features Section -->
 
     <div class="container">
 
