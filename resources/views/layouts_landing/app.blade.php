@@ -15,5 +15,5 @@
 
     @include('layouts_landing.footer')
 </body>
-
+    @stack('js')
 </html>
