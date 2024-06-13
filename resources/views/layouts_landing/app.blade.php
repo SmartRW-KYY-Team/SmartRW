@@ -977,18 +977,12 @@
 
                 <div class="row gy-4">
 
-                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up"
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up"
                         data-aos-delay="100">
                         <div class="team-member">
-                            <div class="member-img">
-                                <img src="{{ asset('assets_landing/assets/img/team/team-1.jpg') }}" class="img-fluid"
-                                    alt="">
-                                <div class="social">
-                                    <a href=""><i class="bi bi-twitter-x"></i></a>
-                                    <a href=""><i class="bi bi-facebook"></i></a>
-                                    <a href=""><i class="bi bi-instagram"></i></a>
-                                    <a href=""><i class="bi bi-linkedin"></i></a>
-                                </div>
+                            <div class="member-img" style="height: 400px;">
+                                <img src="{{ asset('assets/image/foto-struktur/ketua_rw.jpg') }}" alt="img-fluid"
+                                    style="width:100%;">
                             </div>
                             <div class="member-info">
                                 <h4>Walter White</h4>
@@ -999,7 +993,7 @@
                         </div>
                     </div><!-- End Team Member -->
 
-                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up"
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up"
                         data-aos-delay="200">
                         <div class="team-member">
                             <div class="member-img">
@@ -1021,7 +1015,7 @@
                         </div>
                     </div><!-- End Team Member -->
 
-                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up"
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up"
                         data-aos-delay="300">
                         <div class="team-member">
                             <div class="member-img">
@@ -1043,7 +1037,7 @@
                         </div>
                     </div><!-- End Team Member -->
 
-                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up"
+                    {{-- <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up"
                         data-aos-delay="400">
                         <div class="team-member">
                             <div class="member-img">
@@ -1063,7 +1057,7 @@
                                     aliquid doloremque ut possimus ipsum officia.</p>
                             </div>
                         </div>
-                    </div><!-- End Team Member -->
+                    </div><!-- End Team Member --> --}}
 
                 </div>
 
@@ -1292,7 +1286,8 @@
                                 <div class="info-item" data-aos="fade" data-aos-delay="300">
                                     <i class="bi bi-telephone"></i>
                                     <h3>Call Us</h3>
-                                    <a href="https://wa.me/628110992160" style="color: #5d6df3; text-decoration: underline;">+6282110992160</a>
+                                    <a href="https://wa.me/628110992160"
+                                        style="color: #5d6df3; text-decoration: underline;">+6282110992160</a>
                                     <br><br>
                                 </div>
                             </div><!-- End Info Item -->
@@ -1316,7 +1311,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </section><!-- /Contact Section -->
 
     </main>
