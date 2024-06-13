@@ -1,7 +1,9 @@
 <footer id="footer" class="footer">
 
-    <div class="container copyright text-center">
-        <p>©<span>Copyright</span> <strong class="px-1 sitename">SMARTRW</strong></p>
+    <div class="container footer-top ">
+
+    <div class="container copyright text-center mt-4">
+        <p> <span>Copyright 2024 </span>©<strong class="px-1 sitename">SMARTRW</strong></p>
         <div class="credits">
             Designed by <p><strong>KYY-Team</strong></p>
         </div>
