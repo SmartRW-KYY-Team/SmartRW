@@ -159,7 +159,7 @@ Route::middleware('auth', 'device.check')->prefix('keuanganrw')->name('keuanganr
 })->middleware(RWMiddleware::class);
 
 Route::middleware(['auth', 'device.check'])->group(function () {
-    Route::get('/kriteriabansos', [KriteriaBansosController::class, 'index']);
+    Route::get('/kriteriabansos', [KriteriaBansosController::class, 'index'])->name('kriteriabansos.index');
 });
 
 Route::middleware('auth', 'device.check')->prefix('bansos')->name('bansos.')->group(function () {
